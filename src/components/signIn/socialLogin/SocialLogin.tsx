@@ -33,10 +33,10 @@ const SocialLogin = () => {
   const [profile, setProfile] = useState<any>();
 
   const onLoginStart = useCallback(() => {
-    alert('login with Google');
+    alert('Collect cookies');
   }, []);
 
-  // const onLogoutSuccess = useCallback(() => {   
+  // const onLogoutSuccess = useCallback(() => {
   //   setProfile(null);
   //   setProvider('');
   //   alert('logout success');

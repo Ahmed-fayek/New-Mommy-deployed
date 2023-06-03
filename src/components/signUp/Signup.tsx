@@ -5,31 +5,30 @@ const Signup = () => {
     const [userName, setUserName] = useState<string>();
     const [pass, setPass] = useState();
     const [confirmPass, setConfirmPass] = useState();
-
+    const [showpass, setshowpass] = useState<boolean>(false);
     /* validate function */
-    const validateFunction = (regex:RegExp,elementID:string,elementClass:string,element:any) => {
-                if (regex.test(element.target.value)) {
-            document.getElementById(elementID)?.classList.add(elementClass);
+    const validateFunction = (regex: RegExp, elementID: string,element: any) => {
+        if (regex.test(element.target.value)) {
+            document.getElementById(elementID)?.classList.remove("remove");
         }
-        else if (document.getElementById(elementID)?.classList.contains(elementClass)) {
-            document.getElementById(elementID)?.classList.remove(elementClass);
+        else if (!document.getElementById(elementID)?.classList.contains("remove")) {
+            document.getElementById(elementID)?.classList.add("remove");
         }
     }
     /* user validation */
     const valUserName = (e: any) => {
         setUserName(e.target.value);
         if (e.target.value.length > 4 && e.target.value.length < 15) {
-            document.getElementById('userName')?.classList.add('correctGreen');
+            document.getElementById("userName")?.classList.remove("remove");
         }
-        else if (document.getElementById('userName')?.classList.contains('correctGreen')) {
-            document.getElementById('userName')?.classList.remove('correctGreen');
+      else if (!document.getElementById("userName")?.classList.contains("remove")) {
+            document.getElementById("userName")?.classList.add("remove");
+
         }
 
-        var numVal = new RegExp("[0-9]");
-        validateFunction(numVal, 'startWithnums', 'alertRed', e);
+        var numVal = new RegExp(/^\d/);
+        validateFunction(numVal, 'startWithnums', e);
     }
-
-
     /* password validation */
     // var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
     var CapVal = new RegExp("[A-Z]");
@@ -40,19 +39,19 @@ const Signup = () => {
     const valPass = (e: any) => {
         setPass(e.target.value)
         /*Check capital letter */
-        validateFunction(CapVal, 'capLetter', 'remove', e);
+        validateFunction(CapVal, 'capLetter',  e);
         /*check small letter */
-        validateFunction(smallVal, 'smallLetter', 'remove', e);
+        validateFunction(smallVal, 'smallLetter',  e);
         /*check special letter */
-        validateFunction(specialChars, 'specialCar', 'remove', e);
+        validateFunction(specialChars, 'specialCar',  e);
         /*check numbers  */
-         validateFunction(numVal, 'numbers', 'remove', e);
+         validateFunction(numVal, 'numbers', e);
         /*check pass length */
-        if (e.target.value.length >= 8) {
-            document.getElementById('length')?.classList.add('remove');
+        if (e.target.value.length >= 8 && e.target.value.length < 20) {
+            document.getElementById("length")?.classList.remove("remove");
         }
-        else if (document.getElementById('length')?.classList.contains('remove')) {
-            document.getElementById('length')?.classList.remove('remove');
+      else if (!document.getElementById("length")?.classList.contains("remove")) {
+            document.getElementById("length")?.classList.add("remove");
         }
     }
     /* password confirmation */
@@ -67,35 +66,31 @@ const Signup = () => {
     }
     /* submit validate */
     const submitVal = () => {
-console.log('show it');
-
+      console.log('');
     }
-
-
     return (<>
         <div className="container">
-
             <div className="login__field">
                 <i className="login__icon fas fa-user"></i>
                 <input onChange={(e) => {
                     valUserName(e);
                 }} type="text" className=" login__input" placeholder="User name / Email" />
-
                 <ul className="passVALstyle">
-                    <li id="userName">User name length between 5 and 15</li>
+                    <li >User name length between 5 and 15 <span className="remove" id="userName"> &#x2714; </span></li>
                     <li id="startWithnums">User name can't start with numbers</li>
                 </ul>
             </div>
             <div className="login__field">
                 <i className="login__icon fas fa-lock"></i>
-                <input onChange={(e) => { valPass(e) }} type="password" className="  login__input  " placeholder="Password" />
+                <input onChange={(e) => { valPass(e) }} type={showpass ? "text" : "password"} className="  login__input  " placeholder="Password" ></input>
+                <i className={showpass ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"} onClick={() => { setshowpass(!showpass) }}></i>
                 {/* <p className="remove" id="length"> password should have Capital letter, Small letter, numbers, special character and length 8 </p> */}
                 <ul className="passVALstyle">
-                    <li id="capLetter">Capital letter</li>
-                    <li id="smallLetter">small letter</li>
-                    <li id="numbers"> Numbers</li>
-                    <li id="specialCar">Special Caracter</li>
-                    <li id="length">length should be 8</li>
+                    <li >Capital letter <span className="remove" id="capLetter"> &#x2714; </span> </li>
+                    <li >small letter <span className="remove" id="smallLetter"> &#x2714; </span></li>
+                    <li> Numbers <span className="remove" id="numbers"> &#x2714; </span></li>
+                    <li >Special Caracter <span className="remove" id="specialCar"> &#x2714; </span></li>
+                    <li >length should be 8 <span className="remove" id="length"> &#x2714; </span></li>
                 </ul>
             </div>
             <div className="login__field">
@@ -105,7 +100,7 @@ console.log('show it');
                 }} type="password" className=" login__input" placeholder="Confirm password" />
                 <p className="remove" id="confirmPass"> password is not match </p>
             </div>
-            <button onClick={() => { submitVal() }} className="button login__submit">
+            <button  onClick={() => { submitVal() }} className="button login__submit">
                 <span className="button__text">Sign up</span>
                 <i className="button__icon fas fa-chevron-right"></i>
             </button>
