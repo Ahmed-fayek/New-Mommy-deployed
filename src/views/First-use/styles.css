@@ -1,0 +1,72 @@
+.first-use{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #81CCAB;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.first-use .container{
+    width: 1000px;
+    height: 580px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url('./../../assets/images/welcome-bg2.png');
+    background-repeat: repeat;
+    background-size: 280%;
+    background-color: #d1d1d44a;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+.first-use .container .left-side{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.first-use .container .right-side {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.first-use p{
+    width: 80%;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+    letter-spacing: 0.085em;
+    text-align: center;
+}
+.first-use img{
+    width: 350px;
+    height: 350px;
+}
+.first-use .addbaby{
+    margin-top: 30px;
+    width: 348px;
+    height: 56px;
+    border: none;
+    background-color: #F9F4ED;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    color: #10403B;
+    cursor: pointer;}
