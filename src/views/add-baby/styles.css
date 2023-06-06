@@ -1,15 +1,11 @@
-/*******Set Style TO .sign-up  **********/
-
-.sign-up {
+.add-baby {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
 
-/*******Set Style TO  .sign-up .container **********/
-
-.sign-up .container {
+.add-baby .container {
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -29,12 +25,10 @@
     flex-direction: column;
 }
 
-/*******Set Style TO .sign-up .signup-block **********/
-
-.sign-up .signup-block {
+.add-baby .signup-block {
     width: 450px;
     height: 600px;
-    padding: 15px;
+    padding: 95px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -49,57 +43,41 @@
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
 }
-
-/*******Set Style TO  .sign-up .lets-start  **********/
-.sign-up .lets-start {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 40.3288px;
-    line-height: 60px;
-    color: #FFFFFF;
-    text-align: center;
-    margin: 0;
+.two-inputs{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
+.two-inputs .the__input {
+    width:130px !important;
 
-/*******Set Style TO .sign-up .create-acc********/
-
-.sign-up .create-acc {
-    margin: auto;
-    width: 60%;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 27px;
-    text-align: center;
-    text-transform: capitalize;
-    color: #FFFFFF;
-    text-align: center;
 }
-
-/*******Set Style TO  sign-up signup__field **********/
-
-.sign-up .signup__field {
-    position: relative;
+.add-baby .input__field {
+        position: relative;
     margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.add-baby .input__field label{
+    position: absolute;
+    top: -30px;
+left: 8px;
 }
 
-/*******Set Style TO sign-up full-name **********/
 
-.sign-up .full-name {
+.add-baby .full-name {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-/*******Set Style TO .sign-up .full-name .signup__input **********/
-
-.sign-up .full-name .signup__input {
+.add-baby .full-name .the__input {
     width: 122px;
 }
 
-/****Set Style TO  .sign-up .signup__field p*********/
-
-.sign-up .signup__field p {
+.add-baby .input__field p {
     text-align: right;
     color: #F9F4ED;
     font-size: 14px;
@@ -109,26 +87,11 @@
     margin: 10px 20px 0 0;
 }
 
-/*******Set Style TO **********/
-
-
-.sign-up .links {
+.add-baby .links {
     text-decoration: none;
 }
 
-
-/*******Set Style TO **********/
-
-.sign-up .pass__icon {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-}
-
-
-/*******Set Style TO **********/
-
-.sign-up .signup__input {
+.add-baby .the__input {
     width: 288px;
     border: none;
     border: 2px solid #D1D1D4;
@@ -139,22 +102,18 @@
     border-radius: 8px;
 }
 
-/*******Set Style TO **********/
-
-
-.sign-up .signup__input:active,
-.sign-up .signup__input:focus,
-.sign-up .signup__input:hover {
+.add-baby .the__input:active,
+.add-baby .the__input:focus,
+.add-baby .the__input:hover {
     outline: none;
     border-color: #5b927a;
 }
 
-/*******Set Style TO .sign-up .signup__submit **********/
-
-.sign-up .signup__submit {
+.add-baby .addbaby__submit {
     width: 317px;
     height: 50px;
-    background: #F9F4ED;
+    background-color: transparent;
+    border:1px solid #F9F4ED;
     border-radius: 15px;
     font-size: 14px;
     display: flex;
@@ -163,7 +122,6 @@
     transition: .2s;
     color: #10403B;
     outline: none;
-    border: none;
     transition: all .3s ease-in-out;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
@@ -171,35 +129,24 @@
     -o-transition: all .3s ease-in-out;
 }
 
-/*******Set Style TO .sign-up .signup__submit:hover********/
 
-.sign-up .signup__submit:hover {
-    background-color: #d9d9d9;
-}
-
-/*******Set Style TO  .sign-up .button__text********/
-
-.sign-up .button__text {
+.add-baby .button__text {
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
     letter-spacing: 0em;
     width: 100%;
     text-align: center;
+    color: #FFF;
 }
 
-/*******Set Style TO  .sign-up .button__icon **********/
-
-.sign-up .button__icon {
+.add-baby .button__icon {
     font-size: 24px;
     margin-left: auto;
     color: #7875B5;
 }
 
-
-/*******Set Style TO .sign-up .reversed **********/
-
-.sign-up .reversed {
+.add-baby .reversed {
     transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -207,9 +154,7 @@
     -o-transform: rotate(180deg);
 }
 
-/*******Set Style TO .sign-up .showw **********/
-.sign-up .showw {
-
+.add-baby .showw {
     border-right: 90px solid #F9F4ED;
     border-top: 1.7px solid transparent;
     border-bottom: 1.7px solid transparent;
@@ -217,17 +162,13 @@
     margin: 0 7px;
 }
 
-/*******Set Style TO .sign-up .continue-with********/
-
-.sign-up .continue-with {
+.add-baby .continue-with {
     display: flex;
     align-items: center;
     padding: 10px;
 }
 
-/*******Set Style TO  .sign-up .cont-with********/
-
-.sign-up .cont-with {
+.add-baby .cont-with {
     color: #F9F4ED;
     font-size: 12px;
     font-weight: 500;
@@ -237,9 +178,7 @@
     cursor: default;
 }
 
-/*******Set Style TO .sign-up .signup-register********/
-
-.sign-up .signup-register {
+.add-baby .signup-register {
     color: #F9F4ED;
     cursor: default;
     margin-top: 15px;
@@ -247,8 +186,6 @@
     font-size: 13px;
 }
 
-/*******Set Style To  .sign-up .fa-brands **********/
-
-.sign-up .fa-brands {
+.add-baby .fa-brands {
     margin-right: 10px;
 }

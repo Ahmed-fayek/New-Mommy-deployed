@@ -1,4 +1,5 @@
-.first-use{
+/*******Set Style TO First-Use********/
+.first-use {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -10,7 +11,11 @@
     justify-content: center;
     align-items: center;
 }
-.first-use .container{
+
+/*****End Style First-Use******/
+
+/********Set Style TO First-Use Container*****/
+.first-use .container {
     width: 1000px;
     height: 580px;
     padding: 20px 0;
@@ -27,11 +32,19 @@
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
 }
-.first-use .container .left-side{
+
+/*******End Style First-Use Container********/
+
+/*******Set Style TO First-Use  Container Left-Side********/
+.first-use .container .left-side {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+/******** End first-Use Container Left-Side******/
+
+/******Set Style TO First-Use container Right-Side*******/
 .first-use .container .right-side {
     height: 100%;
     display: flex;
@@ -39,7 +52,11 @@
     justify-content: center;
     align-items: center;
 }
-.first-use p{
+
+/******End Style First-Use Container Right-Side*******/
+
+/*******Set Style TO First-Use pargraph********/
+.first-use p {
     width: 80%;
     color: #fff;
     font-size: 24px;
@@ -48,11 +65,19 @@
     letter-spacing: 0.085em;
     text-align: center;
 }
-.first-use img{
+
+/*********End Style First-Use Paragraph********/
+
+/*******Set Style TO First-Use img **********/
+.first-use img {
     width: 350px;
     height: 350px;
 }
-.first-use .addbaby{
+
+/*******End  Style First-Use img********/
+
+/*******Set Style TO First-Use Addbaby********/
+.first-use .addbaby {
     margin-top: 30px;
     width: 348px;
     height: 56px;
@@ -69,4 +94,7 @@
     font-size: 20px;
     line-height: 30px;
     color: #10403B;
-    cursor: pointer;}
+    cursor: pointer;
+}
+
+/******End Style  First-Use Addbaby********/

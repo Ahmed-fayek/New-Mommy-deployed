@@ -5,8 +5,8 @@ import "./styles.css";
 import { UsersApi } from "../../api";
 
 const SignIn = () => {
-  const [email, setEmail] = useState<string>();
-  const [pass, setPass] = useState<string>();
+  const [email, setEmail] = useState<string>("");
+  const [pass, setPass] = useState<string>("");
   const [showpass, setshowpass] = useState<boolean>(false);
 
   /* user function */
@@ -20,6 +20,8 @@ const SignIn = () => {
   /* submit */
   const submitVal = (e: any) => {
     e.preventDefault();
+    console.log(email);
+
     axios({
       method: "post",
       url: UsersApi,
@@ -109,7 +111,7 @@ const SignIn = () => {
           <span className="login-register">
             {" "}
             Don’t have account?{" "}
-            <Link to={"/"} className="register-link">
+            <Link to={"/signup"} className="register-link">
               Sign up
             </Link>{" "}
           </span>
