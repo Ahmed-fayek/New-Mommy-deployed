@@ -51,21 +51,27 @@ const SignIn = () => {
       if (accessToken) {
         SetToken(accessToken, response.data.access_token);
         navigator("/babymoon");
-      } else if (
-        response.status == 201 &&
-        response.data.message == "wrong email or password"
-      ) {
-        setErrMsg("wrong email or password");
       }
     } catch (err: any) {
-      console.log(err);
-
       if (!err) {
         setErrMsg(" No server response");
-      } else if (err.response?.status == 400) {
-        setErrMsg(" missing email or password");
+      } else if (
+        err.response?.status == 400 &&
+        err.response.data.message == "email should not be empty"
+      ) {
+        setErrMsg("email should not be empty");
+      } else if (
+        err.response?.status == 400 &&
+        err.response.data.message == "password should not be empty"
+      ) {
+        setErrMsg(" password should not be empty");
       } else if (err.response?.status == 401) {
         setErrMsg("unouthorized");
+      } else if (
+        err.response.status == 400 &&
+        err.response.data.message == "Invalid email or password"
+      ) {
+        setErrMsg("wrong email or password");
       }
     }
   };
