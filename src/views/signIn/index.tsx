@@ -43,9 +43,6 @@ const SignIn = () => {
         email: email,
         password: pass,
       });
-
-      console.log(response);
-
       const accessToken = response?.data?.access_token;
       setAuth({ email, pass, accessToken });
       if (accessToken) {
@@ -53,8 +50,6 @@ const SignIn = () => {
         navigator("/babymoon");
       }
     } catch (err: any) {
-      console.log(err);
-
       if (!err) {
         setErrMsg(" No server response");
       } else if (
