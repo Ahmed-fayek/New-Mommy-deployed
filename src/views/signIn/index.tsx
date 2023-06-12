@@ -43,15 +43,23 @@ const SignIn = () => {
         email: email,
         password: pass,
       });
+
+      console.log(response);
+
       const accessToken = response?.data?.access_token;
       setAuth({ email, pass, accessToken });
       if (accessToken) {
         SetToken(accessToken, response.data.access_token);
         navigator("/babymoon");
-      } else {
+      } else if (
+        response.status == 201 &&
+        response.data.message == "wrong email or password"
+      ) {
         setErrMsg("wrong email or password");
       }
     } catch (err: any) {
+      console.log(err);
+
       if (!err) {
         setErrMsg(" No server response");
       } else if (err.response?.status == 400) {

@@ -60,6 +60,9 @@ const AddBaby = () => {
   /* weight  */
   const weightval = (e: any) => {
     setWeight(e.target.value);
+    if (e.target.value > 10) {
+      e.target.value = 10;
+    }
   };
 
   /* submit  */
@@ -74,7 +77,7 @@ const AddBaby = () => {
         babyName: babyName,
         gender: babyGender,
         weight: +babyWeight,
-        birthDate: "2/12/2023",
+        birthDate: birthday,
       },
     })
       .then((res) => {
