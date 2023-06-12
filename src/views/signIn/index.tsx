@@ -53,6 +53,8 @@ const SignIn = () => {
         navigator("/babymoon");
       }
     } catch (err: any) {
+      console.log(err);
+
       if (!err) {
         setErrMsg(" No server response");
       } else if (
@@ -134,7 +136,7 @@ const SignIn = () => {
               <span className="button__text">Log In</span>
             </button>
           </div>
-
+          {/* submit button */}
           <div className="continue-with">
             <span className="showw"></span>
             <span className="cont-with">Or continue with</span>
