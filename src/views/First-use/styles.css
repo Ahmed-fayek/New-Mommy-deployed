@@ -95,6 +95,10 @@
     line-height: 30px;
     color: #10403B;
     cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /******End Style  First-Use Addbaby********/

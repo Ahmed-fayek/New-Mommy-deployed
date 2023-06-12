@@ -157,6 +157,7 @@
     background: #F9F4ED;
     border-radius: 15px;
     font-size: 14px;
+    margin-top: 20px;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -251,4 +252,18 @@
 
 .sign-up .fa-brands {
     margin-right: 10px;
+}
+.remove {
+    display: none;
+
+}
+
+.sign-up .remove-style {
+    position: absolute;
+    top: 25px;
+    left: 5px;
+    font-size: 12px !important; 
+    color: rgb(178, 0, 0) !important;
+width: 100%;
+text-align: center!important;
 }

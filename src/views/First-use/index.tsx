@@ -3,7 +3,7 @@ import babymoon from "./../../assets/images/baby-moon.png";
 /*****Import Style Page *******/
 import "./styles.css";
 /*****End Public Components*****/
-
+import { Link } from "react-router-dom";
 /*============****===========*/
 
 /*****Set Content Container& Addbaby Page*****/
@@ -23,7 +23,9 @@ const FirstUse = () => {
         {/****** Start Right-Side********/}
         <div className="right-side">
           <p>Welcome to parent’s world!!let’s create a profile for your baby</p>
-          <button className="addbaby">Add my baby</button>
+          <Link to={"/addbaby"} className="addbaby">
+            <span className="add-baby-text"></span>Add my baby
+          </Link>
         </div>
         {/***End Right-Side****/}
       </div>

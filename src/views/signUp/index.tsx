@@ -11,51 +11,87 @@ const Signup = () => {
   const [pass, setPass] = useState();
   const [showpass, setshowpass] = useState<boolean>(false);
   const navigator = useNavigate();
+  /* validate function */
+  const validateFunction = (regex: RegExp, elementID: string, element: any) => {
+    if (element.target.value === "") {
+      document.getElementById(elementID)?.classList.add("remove");
+    } else if (!regex.test(element.target.value)) {
+      document.getElementById(elementID)?.classList.remove("remove");
+      return true;
+    } else if (
+      !document.getElementById(elementID)?.classList.contains("remove")
+    ) {
+      document.getElementById(elementID)?.classList.add("remove");
+      return false;
+    }
+  };
+  /*emil exist function */
+  const emailExistFunction = (elementID: string) => {
+    document.getElementById(elementID)?.classList.remove("remove");
+  };
+  var nameVal = new RegExp("[A-Za-z]");
+  var emailVal = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
 
   /* first name validation */
   const firstNameval = (e: any) => {
-    setFirstName(e.target.value);
+    validateFunction(nameVal, "user-fname", e);
+    if (!validateFunction(nameVal, "user-fname", e)) {
+      setFirstName(e.target.value);
+    }
   };
   /* last name validation */
   const lastNameval = (e: any) => {
-    setLastName(e.target.value);
+    validateFunction(nameVal, "user-lname", e);
+    if (!validateFunction(nameVal, "user-lname", e)) {
+      setLastName(e.target.value);
+    }
   };
-  /* user validation */
+  /* email validation */
   const UserNameVal = (e: any) => {
-    setemail(e.target.value);
+    validateFunction(emailVal, "user-email", e);
+
+    if (!validateFunction(emailVal, "user-email", e)) {
+      setemail(e.target.value);
+    }
   };
   /* password validation */
   const valPass = (e: any) => {
     setPass(e.target.value);
     /*check pass length */
-    if (e.target.value.length >= 8 && e.target.value.length < 20) {
+    if (!(e.target.value.length >= 8 && e.target.value.length < 20)) {
       document.getElementById("length")?.classList.remove("remove");
-    } else if (
-      !document.getElementById("length")?.classList.contains("remove")
-    ) {
+    } else {
       document.getElementById("length")?.classList.add("remove");
     }
   };
   /* submit validate */
   const submitVal = (e: any) => {
-    console.log(email);
-
-    axios({
-      method: "post",
-      url: NewuserApi,
-      data: {
-        firstname: firstName,
-        lastname: lasttName,
-        email: email,
-        password: pass,
-      },
-    })
-      .then((res) => {
-        console.log(res);
+    if (
+      !validateFunction(nameVal, "user-lname", e) &&
+      !validateFunction(nameVal, "user-fname", e) &&
+      validateFunction(emailVal, "user-email", e)
+    ) {
+      axios({
+        method: "post",
+        url: NewuserApi,
+        data: {
+          firstname: firstName,
+          lastname: lasttName,
+          email: email,
+          password: pass,
+        },
       })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => {
+          if (res.data.message == "Email already exist") {
+            emailExistFunction("email-exist");
+          } else {
+            navigator("/babymoon");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
@@ -79,6 +115,9 @@ const Signup = () => {
                 placeholder="First name"
                 required
               />
+              <p className="remove remove-style" id="user-fname">
+                name should be string
+              </p>
             </div>
             <div className="signup__field">
               <input
@@ -90,6 +129,9 @@ const Signup = () => {
                 placeholder="Last name"
                 required
               />
+              <p className="remove remove-style" id="user-lname">
+                name should be string
+              </p>
             </div>
           </div>
           <div className="signup__field">
@@ -102,6 +144,12 @@ const Signup = () => {
               placeholder="Email adress"
               required
             />
+            <p className="remove remove-style" id="user-email">
+              email is not valid
+            </p>
+            <p className="remove remove-style" id="email-exist">
+              email already exist
+            </p>
           </div>
           <div className="signup__field">
             <input
@@ -112,7 +160,10 @@ const Signup = () => {
               className="signup__input  "
               placeholder="Password"
               required
-            ></input>
+            />
+            <p className="remove remove-style" id="length">
+              password length between 8 & 20 char
+            </p>
             <i
               className={
                 showpass

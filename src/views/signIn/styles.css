@@ -169,3 +169,15 @@ font-size: 18px;
 .log-in .fa-brands{
     margin-right: 10px;
 }
+.log-in .submit__feild{
+    position: relative;
+}
+.log-in .baby-name-err{
+        position: absolute;
+            top: 38px;
+            left: 5px;
+            font-size: 16px ;
+            color: rgb(178, 0, 0) ;
+            width: 100%; 
+            text-align: center ;
+}

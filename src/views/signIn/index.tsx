@@ -1,14 +1,31 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../../conrext/AuthProvider";
 import "./styles.css";
-import { UsersApi } from "../../api";
+import axios from "../../api/axios";
+import SetToken from "../../token";
+const LOGIN_URL = "auth/login";
 
 const SignIn = () => {
+  const { setAuth } = useContext<any>(AuthContext);
   const [email, setEmail] = useState<string>("");
   const [pass, setPass] = useState<string>("");
   const [showpass, setshowpass] = useState<boolean>(false);
-
+  const [errmsg, setErrMsg] = useState<string>("");
+  const navigator = useNavigate();
+  /* validate function */
+  const validateFunction = (regex: RegExp, elementID: string, element: any) => {
+    if (!regex.test(element.target.value)) {
+      document.getElementById(elementID)?.classList.remove("remove");
+      return true;
+    } else if (
+      !document.getElementById(elementID)?.classList.contains("remove")
+    ) {
+      document.getElementById(elementID)?.classList.add("remove");
+      return false;
+    }
+  };
+  var nameVal = new RegExp("[A-Za-z]");
   /* user function */
   const valUserName = (e: any) => {
     setEmail(e.target.value);
@@ -18,24 +35,31 @@ const SignIn = () => {
     setPass(e.target.value);
   };
   /* submit */
-  const submitVal = (e: any) => {
+  const submitVal = async (e: any) => {
     e.preventDefault();
-    console.log(email);
-
-    axios({
-      method: "post",
-      url: UsersApi,
-      data: {
+    setErrMsg("");
+    try {
+      const response = await axios.post(LOGIN_URL, {
         email: email,
         password: pass,
-      },
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
       });
+      const accessToken = response?.data?.access_token;
+      setAuth({ email, pass, accessToken });
+      if (accessToken) {
+        SetToken(accessToken, response.data.access_token);
+        navigator("/babymoon");
+      } else {
+        setErrMsg("wrong email or password");
+      }
+    } catch (err: any) {
+      if (!err) {
+        setErrMsg(" No server response");
+      } else if (err.response?.status == 400) {
+        setErrMsg(" missing email or password");
+      } else if (err.response?.status == 401) {
+        setErrMsg("unouthorized");
+      }
+    }
   };
 
   return (
@@ -84,15 +108,19 @@ const SignIn = () => {
             </Link>
           </div>
           {/* submit button */}
-          <button
-            onClick={(e) => {
-              submitVal(e);
-            }}
-            className="button login__submit"
-            type="submit"
-          >
-            <span className="button__text">Log In</span>
-          </button>
+          <div className="submit__feild">
+            <p className="baby-name-err">{errmsg}</p>
+            <button
+              onClick={(e) => {
+                submitVal(e);
+              }}
+              className="button login__submit"
+              type="submit"
+            >
+              <span className="button__text">Log In</span>
+            </button>
+          </div>
+
           <div className="continue-with">
             <span className="showw"></span>
             <span className="cont-with">Or continue with</span>

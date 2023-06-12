@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
-import { Interface } from "readline";
 import axios from "axios";
 import { NewbabyApi } from "../../api";
 interface NewBaby {
@@ -22,17 +21,34 @@ const AddBaby = () => {
       ? `0` + currentDate.getDate()
       : currentDate.getDate()
   }`;
-  /*1998-12-01*/
+
   const [babyName, setbabyName] = useState<string>("");
-  const [babyGender, setBabyGender] = useState<string>("");
+  const [babyGender, setBabyGender] = useState<string>("boy");
   const [babyWeight, setWeight] = useState<number>(0);
   const [birthday, setbirthday] = useState<string>(dateFormat);
-  const [babyInfo, setbabyInfo] = useState<NewBaby>();
+  /* validate function */
+  const validateFunction = (regex: RegExp, elementID: string, element: any) => {
+    if (!regex.test(element.target.value)) {
+      document.getElementById(elementID)?.classList.remove("remove");
+      return true;
+    } else if (
+      !document.getElementById(elementID)?.classList.contains("remove")
+    ) {
+      document.getElementById(elementID)?.classList.add("remove");
+      return false;
+    }
+  };
+  var nameVal = new RegExp("[A-Za-z]");
 
   /* user  */
   const babyNameval = (e: any) => {
-    setbabyName(e.target.value);
+    validateFunction(nameVal, "baby-name", e);
+    if (!validateFunction(nameVal, "baby-name", e)) {
+      setbabyName(e.target.value);
+    } else {
+    }
   };
+
   /* birthday  */
   const birthval = (e: any) => {
     setbirthday(e.target.value);
@@ -45,35 +61,36 @@ const AddBaby = () => {
   const weightval = (e: any) => {
     setWeight(e.target.value);
   };
-  //   console.log(babyName);
-  //   console.log(babyGender);
-  //   console.log(babyWeight);
-  //   console.log(birthday);
 
   /* submit  */
   const submitVal = () => {
     axios({
-      method: "patch",
+      method: "post",
       url: NewbabyApi,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
       data: {
-        baby: [
-          {
-            babyName: babyName,
-            gender: babyGender,
-            weight: babyWeight,
-            birthdate: birthday,
-          },
-        ],
+        babyName: babyName,
+        gender: babyGender,
+        weight: +babyWeight,
+        birthDate: "2/12/2023",
       },
     })
       .then((res) => {
-        console.log(res.data);
+        console.log(res);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
+  // const errmsg = (msg?: string) => {
+  //   if (babyName == "ccc") {
+  //     return <p className="remove-style">{msg}</p>
+  //   } else {
+  //     return "ss";
+  //   }
+  // };
   return (
     <div className="add-baby">
       <div className="container">
@@ -92,6 +109,10 @@ const AddBaby = () => {
               placeholder="Enter name"
               required
             />
+            <p className=" remove remove-style" id="baby-name">
+              name must be string
+            </p>
+            {/* {errmsg("username must be string")} */}
           </div>
           {/*birthday */}
           <div className="input__field">
@@ -141,7 +162,7 @@ const AddBaby = () => {
                 name="weight"
                 id="weight"
                 min="1"
-                max="15"
+                max="10"
               />
             </div>
           </div>
@@ -151,14 +172,14 @@ const AddBaby = () => {
           </div> */}
 
           <button
-            onClick={(e) => {
+            onClick={() => {
               submitVal();
             }}
             className="button addbaby__submit"
             type="submit"
           >
             <br></br>
-            <span className="button__text"> + Add baby</span>
+            <span className="button__text"> Add baby</span>
           </button>
         </div>
       </div>
