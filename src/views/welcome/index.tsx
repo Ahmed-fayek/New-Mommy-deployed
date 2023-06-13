@@ -6,7 +6,6 @@ const Welcome = () => {
   /* this is router to add baby */
   return (
     <div className="welcome-container">
-      <div className="layer-bg"></div>
       <div className="container">
         <div className="left-side">
           <p className="welcome-message">
