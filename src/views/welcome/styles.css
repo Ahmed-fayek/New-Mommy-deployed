@@ -24,8 +24,9 @@
 
 .welcome-container .container {
     width: 70%;
-    height: 70%;
+    height: 85%;
     display: flex;
+    padding: 15px 10px;
     border: 1px solid #000;
     border-radius: 15px;
     -webkit-border-radius: 15px;
