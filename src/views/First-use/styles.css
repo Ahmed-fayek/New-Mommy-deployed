@@ -46,7 +46,6 @@
 
 /******Set Style TO First-Use container Right-Side*******/
 .first-use .container .right-side {
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,6 +98,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+@media(max-width: 950px){
+.first-use .container{
+    flex-direction: column;
+}
+.first-use img {
+    width: 300px;
+    height: 300px;
+}
+.first-use .addbaby{
+    width: 80%;
+}
 }
 
 /******End Style  First-Use Addbaby********/

@@ -23,8 +23,8 @@
 /*******Set Style TO  welcome-container container********/
 
 .welcome-container .container {
-    width: 800px;
-    height: 580px;
+    width: 70%;
+    height: 70%;
     display: flex;
     border: 1px solid #000;
     border-radius: 15px;

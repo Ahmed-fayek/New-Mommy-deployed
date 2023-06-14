@@ -199,3 +199,49 @@ left: 8px;
     left: 10px;
     color: rgb(178, 0, 0) !important;
 }
+@media   (max-width: 480px) {
+    .add-baby .signup-block {
+        width: 90%;
+        padding: 40px 0;
+        background-size: 400%;
+    }
+
+    .add-baby .the__input {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    .add-baby .addbaby__submit {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    .add-baby .button__text {
+        font-size: 18px;
+    }
+    .two-inputs{
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+}
+
+/* Medium screens */
+@media(min-width: 481px) and (max-width: 768px) {
+    .add-baby .signup-block {
+        width: 80%;
+        padding: 60px 0;
+        background-size: 350%;
+    }
+
+
+
+    .add-baby .addbaby__submit {
+        width: 75%;
+        font-size: 18px;
+    }
+
+    .add-baby .button__text {
+        font-size: 20px;
+    }   
+}
+

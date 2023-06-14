@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./styles.css";
 import { NewuserApi } from "../../api";
-import SetToken from "../../token";
+// import SetToken from "../../token";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState<string>();
@@ -89,10 +89,10 @@ const Signup = () => {
             emailExistFunction("email-exist");
           } else {
             navigator("/babymoon");
-            SetToken(
-              res.data.tokens.access_token,
-              res.data.tokens.refresh_token
-            );
+            // SetToken(
+            //   res.data.tokens.access_token,
+            //   res.data.tokens.refresh_token
+            // );
           }
         })
         .catch((err) => {

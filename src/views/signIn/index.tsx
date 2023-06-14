@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../conrext/AuthProvider";
 import "./styles.css";
 import axios from "../../api/axios";
-import SetToken from "../../token";
 const LOGIN_URL = "auth/login";
 
 const SignIn = () => {
@@ -35,7 +34,7 @@ const SignIn = () => {
     setPass(e.target.value);
   };
   /* submit */
-  const submitVal = async (e: any) => {
+  const SubmitVal = async (e: any) => {
     e.preventDefault();
     setErrMsg("");
     try {
@@ -45,8 +44,9 @@ const SignIn = () => {
       });
       const accessToken = response?.data?.access_token;
       setAuth({ email, pass, accessToken });
+      localStorage.setItem("access_token", accessToken);
       if (accessToken) {
-        SetToken(accessToken, response.data.access_token);
+        // SetToken(accessToken, response.data.access_token);
         navigator("/babymoon");
       }
     } catch (err: any) {
@@ -123,7 +123,7 @@ const SignIn = () => {
             <p className="baby-name-err">{errmsg}</p>
             <button
               onClick={(e) => {
-                submitVal(e);
+                SubmitVal(e);
               }}
               className="button login__submit"
               type="submit"

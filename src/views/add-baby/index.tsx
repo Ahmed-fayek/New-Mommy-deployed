@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import firebase from "firebase/app";
+import "firebase/functions";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { initializeApp } from "firebase/app";
 import "./styles.css";
 import axios from "axios";
 import { NewbabyApi } from "../../api";
@@ -10,6 +14,7 @@ interface NewBaby {
   birthday: string;
 }
 const AddBaby = () => {
+  // console.log(firebase);
   const navigator = useNavigate();
   let currentDate: Date = new Date();
   let dateFormat: string = `${currentDate.getFullYear()}-${
@@ -26,6 +31,8 @@ const AddBaby = () => {
   const [babyGender, setBabyGender] = useState<string>("boy");
   const [babyWeight, setWeight] = useState<number>(0);
   const [birthday, setbirthday] = useState<string>(dateFormat);
+  const [file, setfile] = useState<any>();
+
   /* validate function */
   const validateFunction = (regex: RegExp, elementID: string, element: any) => {
     if (!regex.test(element.target.value)) {
@@ -57,6 +64,7 @@ const AddBaby = () => {
   const genderval = (e: any) => {
     setBabyGender(e.target.value);
   };
+
   /* weight  */
   const weightval = (e: any) => {
     setWeight(e.target.value);
@@ -64,7 +72,41 @@ const AddBaby = () => {
       e.target.value = 10;
     }
   };
+  /* fire base */
+  const firebaseConfig = {
+    apiKey: "AIzaSyDW9kQMNqFiYzobRtHqnydGYUl7FnNskUw",
+    authDomain: "newbebeimg.firebaseapp.com",
+    projectId: "newbebeimg",
+    storageBucket: "newbebeimg.appspot.com",
+    messagingSenderId: "453284381062",
+    appId: "1:453284381062:web:408b8c928730eb1e9c2c07",
+    measurementId: "G-KD6CDB19LX",
+  };
+  // Initialize Firebase
+  const firebaseApp = initializeApp(firebaseConfig);
+  /* file  */
+  const fileval = (e: any) => {
+    setfile(e.target.value);
+    // const storage = firebase.storage();
+    // // Create a storage reference
+    // const storageRef = storage.ref();
 
+    // // Upload the file
+    // const uploadTask = storageRef.child("images/" + file.name).put(file);
+    // uploadTask.on(
+    //   "state_changed",
+    //   function (snapshot:any) {
+    //     // Handle progress, errors, and completion
+    //   },
+    //   function (error:any) {
+    //     console.log(error);
+
+    //   },
+    //   function () {
+    //     // Handle completion
+    //   }
+    // );
+  };
   /* submit  */
   const submitVal = () => {
     axios({
@@ -87,13 +129,7 @@ const AddBaby = () => {
         console.log(err);
       });
   };
-  // const errmsg = (msg?: string) => {
-  //   if (babyName == "ccc") {
-  //     return <p className="remove-style">{msg}</p>
-  //   } else {
-  //     return "ss";
-  //   }
-  // };
+
   return (
     <div className="add-baby">
       <div className="container">
@@ -115,7 +151,6 @@ const AddBaby = () => {
             <p className=" remove remove-style" id="baby-name">
               name must be string
             </p>
-            {/* {errmsg("username must be string")} */}
           </div>
           {/*birthday */}
           <div className="input__field">
@@ -132,6 +167,18 @@ const AddBaby = () => {
               min="2018-12-31"
               max={dateFormat}
               value={birthday}
+              required
+            />
+          </div>
+          {/* file */}
+          <div className="input__field">
+            <label htmlFor="birthday"> BirthDay</label>
+            <input
+              onChange={(e) => {
+                fileval(e);
+              }}
+              type="file"
+              className="the__input "
               required
             />
           </div>
@@ -169,10 +216,7 @@ const AddBaby = () => {
               />
             </div>
           </div>
-          {/* <div className="checed-box">
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-            <label htmlFor="vehicle1"> I sure of data</label>
-          </div> */}
+          <div></div>
 
           <button
             onClick={() => {

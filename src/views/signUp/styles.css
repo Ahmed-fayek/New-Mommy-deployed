@@ -267,3 +267,59 @@
 width: 100%;
 text-align: center!important;
 }
+/* Responsive styles for small screens */
+@media screen and (max-width: 600px) {
+
+    /* Styles for the main container of the sign-up form */
+    .sign-up .container {
+        width: 90%;
+        gap: 10px;
+    }
+    .sign-up .lets-start{
+        display: none;
+    }
+.sign-up .create-acc{
+    width: 100%;
+    font-size: 14px;
+}
+    /* Styles for the signup block */
+    .sign-up .signup-block {
+        width: 60%;
+        padding: 20px;
+    }
+.sign-up .full-name{
+display: block;
+}
+.sign-up .full-name .signup__input{
+    width: 100%;
+}
+.sign-up  .signup__input{
+    width: 86%;
+}
+.sign-up .signup__field{
+    display: flex;
+    justify-content: center;
+}
+
+
+    /* Styles for the email input field */
+    .sign-up .email .signup__input {
+        margin-left: 10px;
+    }
+
+    /* Styles for the arrow in the submit button */
+    .sign-up .showw {
+        margin: 0;
+    }
+.sign-up .signup__submit{
+    width: 100%;
+}
+.sign-up .button__text{
+    font-size: 14px;
+}
+    /* Styles for the "continue with" buttons */
+    .sign-up .continue-with {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
