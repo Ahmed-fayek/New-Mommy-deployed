@@ -24,8 +24,8 @@
     align-items: center;
     background-image: url('./../../assets/images/welcome-bg2.png');
     background-repeat: repeat;
-    background-size: 280%;
-    background-color: #d1d1d44a;
+    background-size: cover;
+        background-color: #d1d1d44a;
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;

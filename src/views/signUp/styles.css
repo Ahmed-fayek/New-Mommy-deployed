@@ -41,7 +41,7 @@
     align-items: center;
     background-image: url('./../../assets/images/welcome-bg2.png');
     background-repeat: repeat;
-    background-size: 280%;
+    background-size: cover;
     background-color: #d1d1d44a;
     border-radius: 15px;
     -webkit-border-radius: 15px;
@@ -80,7 +80,7 @@
 
 .sign-up .signup__field {
     position: relative;
-    margin: 10px;
+    margin: 10px ;
 }
 
 /*******Set Style TO sign-up full-name **********/
@@ -294,17 +294,19 @@ display: block;
     width: 100%;
 }
 .sign-up  .signup__input{
-    width: 86%;
+    width: 100%;
 }
 .sign-up .signup__field{
     display: flex;
     justify-content: center;
+        width: 100%;
+            margin: 10px 0;
 }
 
 
     /* Styles for the email input field */
     .sign-up .email .signup__input {
-        margin-left: 10px;
+        margin-left: 10px 0;
     }
 
     /* Styles for the arrow in the submit button */
