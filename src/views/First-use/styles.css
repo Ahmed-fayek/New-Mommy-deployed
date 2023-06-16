@@ -37,6 +37,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 15px;
 }
 
 /******** End first-Use Container Left-Side******/
@@ -101,11 +102,12 @@
     flex-direction: column;
 }
 .first-use img {
-    width: 300px;
-    height: 300px;
+    width: 70%;
+    height: 70%;
 }
 .first-use .addbaby{
     width: 80%;
+    margin: 10px;
 }
 }
 
