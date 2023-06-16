@@ -114,7 +114,7 @@ const SignIn = () => {
                 setshowpass(!showpass);
               }}
             ></i>
-            <Link className="links" to={"/"}>
+            <Link className="links" to={"/emailconfim"}>
               <p>Forget password ? </p>
             </Link>
           </div>

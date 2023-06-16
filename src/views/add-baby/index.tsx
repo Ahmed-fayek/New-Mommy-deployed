@@ -87,7 +87,7 @@ const AddBaby = () => {
   /* file  */
   const fileval = (e: any) => {
     setfile(e.target.value);
-    // const storage = firebase.storage();
+    // const storage = firebaseApp.storage();
     // // Create a storage reference
     // const storageRef = storage.ref();
 
@@ -115,6 +115,7 @@ const AddBaby = () => {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
+
       data: {
         babyName: babyName,
         gender: babyGender,
