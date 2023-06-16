@@ -1,17 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { EmailConfirmation } from "../../api";
 import "./styles.css";
 import axios from "../../api/axios";
-export let EmailConfirmm: string = "";
+import AuthContext from "../../conrext/AuthProvider";
 const EmailConfirm = () => {
+  const { SetemailCon } = useContext<any>(AuthContext);
   const [email, setemail] = useState<string>("");
   const [errmsg, setErrMsg] = useState<string>("");
   const navigator = useNavigate();
   const emailVal = (e: any) => {
     setemail(e.target.value);
   };
-
   const handleEmailSubmit = async (e: any) => {
     e.preventDefault();
     setErrMsg("");
@@ -23,13 +23,11 @@ const EmailConfirm = () => {
       },
     })
       .then((res) => {
-        EmailConfirmm = email;
+        SetemailCon(email);
         navigator("/confirmcode");
         console.log(res);
       })
       .catch((err) => {
-        console.log(err);
-
         if (!err) {
           setErrMsg(" No server response");
         } else if (

@@ -1,12 +1,13 @@
 import "./styles.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ACCCode } from "../../../api";
 import axios from "../../../api/axios";
-import { EmailConfirmm } from "..";
-export let ConfirmCode: string = "";
-
+import AuthContext from "../../../conrext/AuthProvider";
 const AccessCode = () => {
+  const { EmailCon } = useContext<any>(AuthContext);
+  const { setCodeCon } = useContext<any>(AuthContext);
+
   const [firConCode, setfirConCode] = useState<string>("");
   const [secConCode, setsecConCode] = useState<string>("");
   const [thirdConCode, setthirdConCode] = useState<string>("");
@@ -24,13 +25,15 @@ const AccessCode = () => {
           `/${firConCode}${secConCode}${thirdConCode}${fourthConCode}`,
 
         data: {
-          email: EmailConfirmm,
+          email: EmailCon,
         },
       })
         .then((res) => {
           console.log(res);
           navigator("/resetpass");
-          ConfirmCode = `/${firConCode}${secConCode}${thirdConCode}${fourthConCode}`;
+          setCodeCon(
+            `/${firConCode}${secConCode}${thirdConCode}${fourthConCode}`
+          );
         })
         .catch((err) => {
           console.log(err);

@@ -1,14 +1,24 @@
 /*****Import Image *******/
+import { useContext, useEffect } from "react";
 import babymoon from "./../../assets/images/baby-moon.png";
 /*****Import Style Page *******/
 import "./styles.css";
 /*****End Public Components*****/
-import { Link } from "react-router-dom";
-/*============****===========*/
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../../conrext/AuthProvider";
 
 /*****Set Content Container& Addbaby Page*****/
 
 const FirstUse = () => {
+  const navigator = useNavigate();
+
+  const { auth } = useContext<any>(AuthContext);
+  useEffect(() => {
+    if (!auth) {
+      navigator("/login");
+    }
+  });
+
   return (
     /*****Set First-Use*****/
     <div className="first-use">

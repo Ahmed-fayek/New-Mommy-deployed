@@ -168,5 +168,18 @@
 .reset-password .submit__feild {
     position: relative;
 }
+.reset-password .reset-pass-err {
+    position: absolute;
+    top: 55px;
+    left: 10px;
+    font-size: 16px;
+    color: rgb(178, 0, 0);
+    width: 100%;
+    text-align: center;
+}.reset-password .reset-pass-err a{
+text-decoration: none;
+color: #000;
+}
+
 
 

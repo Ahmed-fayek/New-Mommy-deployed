@@ -7,24 +7,12 @@ const LOGIN_URL = "auth/login";
 
 const SignIn = () => {
   const { setAuth } = useContext<any>(AuthContext);
+  const { CodeCon } = useContext<any>(AuthContext);
   const [email, setEmail] = useState<string>("");
   const [pass, setPass] = useState<string>("");
   const [showpass, setshowpass] = useState<boolean>(false);
   const [errmsg, setErrMsg] = useState<string>("");
   const navigator = useNavigate();
-  /* validate function */
-  const validateFunction = (regex: RegExp, elementID: string, element: any) => {
-    if (!regex.test(element.target.value)) {
-      document.getElementById(elementID)?.classList.remove("remove");
-      return true;
-    } else if (
-      !document.getElementById(elementID)?.classList.contains("remove")
-    ) {
-      document.getElementById(elementID)?.classList.add("remove");
-      return false;
-    }
-  };
-  var nameVal = new RegExp("[A-Za-z]");
   /* user function */
   const valUserName = (e: any) => {
     setEmail(e.target.value);
@@ -42,8 +30,8 @@ const SignIn = () => {
         email: email,
         password: pass,
       });
+      setAuth(response.data);
       const accessToken = response?.data?.access_token;
-      setAuth({ email, pass, accessToken });
       localStorage.setItem("access_token", accessToken);
       if (accessToken) {
         // SetToken(accessToken, response.data.access_token);
@@ -68,6 +56,8 @@ const SignIn = () => {
         err.response.status == 400 &&
         err.response.data.message == "Invalid email or password"
       ) {
+        setErrMsg("wrong email or password");
+      } else if (err.response.status == 403) {
         setErrMsg("wrong email or password");
       }
     }

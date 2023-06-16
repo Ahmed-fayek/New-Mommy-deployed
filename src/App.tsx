@@ -1,11 +1,10 @@
 import MainRouer from "./roots";
 import "./assets/all/all.min.css";
-import { AuthProvider } from "./conrext/AuthProvider";
-import useAccessToken from "./token";
+import AuthContext, { AuthProvider } from "./conrext/AuthProvider";
+import { useContext } from "react";
 
 function App() {
-  useAccessToken();
-
+  const authcontext = useContext(AuthContext);
   return (
     <div className="App">
       <AuthProvider>

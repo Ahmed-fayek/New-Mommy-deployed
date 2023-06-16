@@ -1,21 +1,23 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import firebase from "firebase/app";
 import "firebase/functions";
-import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import "./styles.css";
+import addBabyPic from "./../../assets/images/add-baby-pic.png";
 import axios from "axios";
 import { NewbabyApi } from "../../api";
-interface NewBaby {
-  babyName: string;
-  babyGender: string;
-  babyWeight: number;
-  birthday: string;
-}
+import AuthContext from "../../conrext/AuthProvider";
+
 const AddBaby = () => {
-  // console.log(firebase);
   const navigator = useNavigate();
+
+  const { auth } = useContext<any>(AuthContext);
+  useEffect(() => {
+    if (!auth) {
+      navigator("/login");
+    }
+  });
+  // console.log(firebase);
   let currentDate: Date = new Date();
   let dateFormat: string = `${currentDate.getFullYear()}-${
     currentDate.getMonth() < 10
@@ -113,7 +115,7 @@ const AddBaby = () => {
       method: "post",
       url: NewbabyApi,
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
       },
 
       data: {
@@ -135,6 +137,15 @@ const AddBaby = () => {
     <div className="add-baby">
       <div className="container">
         <div className="signup-block">
+          {/* file */}
+          <div className="pic__field">
+            <img
+              onClick={() => {
+                console.log("add it");
+              }}
+              src={addBabyPic}
+            ></img>
+          </div>
           {/* add baby name */}
           <div className="input__field">
             <label htmlFor="babyName">what's your baby name</label>
@@ -168,18 +179,6 @@ const AddBaby = () => {
               min="2018-12-31"
               max={dateFormat}
               value={birthday}
-              required
-            />
-          </div>
-          {/* file */}
-          <div className="input__field">
-            <label htmlFor="birthday"> BirthDay</label>
-            <input
-              onChange={(e) => {
-                fileval(e);
-              }}
-              type="file"
-              className="the__input "
               required
             />
           </div>

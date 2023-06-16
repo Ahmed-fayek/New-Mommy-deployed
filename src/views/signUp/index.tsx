@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import "./styles.css";
 import { NewuserApi } from "../../api";
+import axios from "../../api/axios";
 // import SetToken from "../../token";
 
 const Signup = () => {
@@ -11,47 +11,48 @@ const Signup = () => {
   const [email, setemail] = useState<string>();
   const [pass, setPass] = useState();
   const [showpass, setshowpass] = useState<boolean>(false);
+  const [fNameErrMSG, setfNameErrMSG] = useState<string>("");
+  const [lNameErrMSG, setlNameErrMSG] = useState<string>("");
+  const [emailErrMSG, setemailErrMSG] = useState<string>("");
+  const [passErrMSG, setpassErrMSG] = useState<string>("");
   const navigator = useNavigate();
-  /* validate function */
-  const validateFunction = (regex: RegExp, elementID: string, element: any) => {
-    if (element.target.value === "") {
-      document.getElementById(elementID)?.classList.add("remove");
-    } else if (!regex.test(element.target.value)) {
-      document.getElementById(elementID)?.classList.remove("remove");
-      return true;
-    } else if (
-      !document.getElementById(elementID)?.classList.contains("remove")
-    ) {
-      document.getElementById(elementID)?.classList.add("remove");
-      return false;
-    }
-  };
+
   /*emil exist function */
-  const emailExistFunction = (elementID: string) => {
-    document.getElementById(elementID)?.classList.remove("remove");
-  };
+
   var nameVal = new RegExp("[A-Za-z]");
   var emailVal = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
 
   /* first name validation */
-  const firstNameval = (e: any) => {
-    validateFunction(nameVal, "user-fname", e);
-    if (!validateFunction(nameVal, "user-fname", e)) {
+  const firstNameval = (e?: any) => {
+    if (e.target.value == "") {
+      setfNameErrMSG("write First Name");
+    } else if (!nameVal.test(e.target.value)) {
+      setfNameErrMSG("start with number");
+    } else {
+      setfNameErrMSG("");
       setFirstName(e.target.value);
     }
   };
+
   /* last name validation */
   const lastNameval = (e: any) => {
-    validateFunction(nameVal, "user-lname", e);
-    if (!validateFunction(nameVal, "user-lname", e)) {
+    if (e.target.value == "") {
+      setlNameErrMSG("write Last Name");
+    } else if (!nameVal.test(e.target.value)) {
+      setlNameErrMSG("start with number");
+    } else {
+      setlNameErrMSG("");
       setLastName(e.target.value);
     }
   };
   /* email validation */
   const UserNameVal = (e: any) => {
-    validateFunction(emailVal, "user-email", e);
-
-    if (!validateFunction(emailVal, "user-email", e)) {
+    if (e.target.value == "") {
+      setemailErrMSG("write Email");
+    } else if (!emailVal.test(e.target.value)) {
+      setemailErrMSG("wrong email");
+    } else {
+      setemailErrMSG("");
       setemail(e.target.value);
     }
   };
@@ -60,17 +61,19 @@ const Signup = () => {
     setPass(e.target.value);
     /*check pass length */
     if (!(e.target.value.length >= 8 && e.target.value.length < 20)) {
-      document.getElementById("length")?.classList.remove("remove");
+      setpassErrMSG("password length between 8 and 20");
     } else {
-      document.getElementById("length")?.classList.add("remove");
+      setpassErrMSG("");
     }
   };
+
   /* submit validate */
   const submitVal = (e: any) => {
     if (
-      !validateFunction(nameVal, "user-lname", e) &&
-      !validateFunction(nameVal, "user-fname", e) &&
-      validateFunction(emailVal, "user-email", e)
+      fNameErrMSG.length == 0 &&
+      lNameErrMSG.length == 0 &&
+      passErrMSG.length == 0 &&
+      emailErrMSG.length == 0
     ) {
       axios({
         method: "post",
@@ -84,10 +87,10 @@ const Signup = () => {
       })
         .then((res) => {
           console.log(res);
-
           if (res.data.message == "Email already exist") {
-            emailExistFunction("email-exist");
+            setemailErrMSG("email-exist");
           } else {
+            setemailErrMSG("");
             navigator("/babymoon");
             // SetToken(
             //   res.data.tokens.access_token,
@@ -122,8 +125,8 @@ const Signup = () => {
                 placeholder="First name"
                 required
               />
-              <p className="remove remove-style" id="user-fname">
-                name should be string
+              <p className=" remove-style" id="user-fname">
+                {fNameErrMSG}
               </p>
             </div>
             <div className="signup__field">
@@ -136,8 +139,8 @@ const Signup = () => {
                 placeholder="Last name"
                 required
               />
-              <p className="remove remove-style" id="user-lname">
-                name should be string
+              <p className="remove-style" id="user-lname">
+                {lNameErrMSG}
               </p>
             </div>
           </div>
@@ -151,11 +154,8 @@ const Signup = () => {
               placeholder="Email adress"
               required
             />
-            <p className="remove remove-style" id="user-email">
-              email is not valid
-            </p>
-            <p className="remove remove-style" id="email-exist">
-              email already exist
+            <p className="remove-style" id="user-email">
+              {emailErrMSG}
             </p>
           </div>
           <div className="signup__field">
@@ -168,8 +168,8 @@ const Signup = () => {
               placeholder="Password"
               required
             />
-            <p className="remove remove-style" id="length">
-              password length between 8 & 20 char
+            <p className=" remove-style" id="length">
+              {passErrMSG}
             </p>
             <i
               className={
