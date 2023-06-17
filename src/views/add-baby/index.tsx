@@ -1,9 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "firebase/functions";
 import { initializeApp } from "firebase/app";
 import "./styles.css";
-import addBabyPic from "./../../assets/images/add-baby-pic.png";
 import axios from "axios";
 import { NewbabyApi } from "../../api";
 import AuthContext from "../../conrext/AuthProvider";
@@ -12,12 +10,12 @@ const AddBaby = () => {
   const navigator = useNavigate();
 
   const { auth } = useContext<any>(AuthContext);
-  useEffect(() => {
-    if (!auth) {
-      navigator("/login");
-    }
-  });
-  // console.log(firebase);
+  // useEffect(() => {
+  //   if (!auth) {
+  //     navigator("/login");
+  //   }
+  // });
+
   let currentDate: Date = new Date();
   let dateFormat: string = `${currentDate.getFullYear()}-${
     currentDate.getMonth() < 10
@@ -74,56 +72,41 @@ const AddBaby = () => {
       e.target.value = 10;
     }
   };
-  /* fire base */
-  const firebaseConfig = {
-    apiKey: "AIzaSyDW9kQMNqFiYzobRtHqnydGYUl7FnNskUw",
-    authDomain: "newbebeimg.firebaseapp.com",
-    projectId: "newbebeimg",
-    storageBucket: "newbebeimg.appspot.com",
-    messagingSenderId: "453284381062",
-    appId: "1:453284381062:web:408b8c928730eb1e9c2c07",
-    measurementId: "G-KD6CDB19LX",
-  };
-  // Initialize Firebase
-  const firebaseApp = initializeApp(firebaseConfig);
+
   /* file  */
-  const fileval = (e: any) => {
-    setfile(e.target.value);
-    // const storage = firebaseApp.storage();
-    // // Create a storage reference
-    // const storageRef = storage.ref();
+  const formData = new FormData();
+  const reader = new FileReader();
 
-    // // Upload the file
-    // const uploadTask = storageRef.child("images/" + file.name).put(file);
-    // uploadTask.on(
-    //   "state_changed",
-    //   function (snapshot:any) {
-    //     // Handle progress, errors, and completion
-    //   },
-    //   function (error:any) {
-    //     console.log(error);
-
-    //   },
-    //   function () {
-    //     // Handle completion
-    //   }
-    // );
+  const fileval = async (e: any) => {
+    setfile(e.target.files[0]);
+    // reader.readAsArrayBuffer(e.target.files[0]);
+    // reader.onload = async (ev) => {
+    //   console.log(ev.target?.result);
+    // };
+    // if (reader.readyState === FileReader.DONE) {
+    //   reader.readAsText(e.target.files[0]);
+    // } else {
+    //   console.log("Reader is busy");
+    // }
+    // // console.log(formData);
   };
+
   /* submit  */
-  const submitVal = () => {
-    axios({
+
+  const submitVal = async () => {
+    formData.append("images", file);
+    formData.append("babyName", babyName);
+    formData.append("gender", babyGender);
+    formData.append("weight", `${babyWeight}`);
+    formData.append("birthDate", birthday);
+    await axios({
       method: "post",
       url: NewbabyApi,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("access_token")}`,
       },
 
-      data: {
-        babyName: babyName,
-        gender: babyGender,
-        weight: +babyWeight,
-        birthDate: birthday,
-      },
+      data: formData,
     })
       .then((res) => {
         console.log(res);
@@ -139,12 +122,17 @@ const AddBaby = () => {
         <div className="signup-block">
           {/* file */}
           <div className="pic__field">
-            <img
-              onClick={() => {
-                console.log("add it");
+            <input
+              className="input__field"
+              type="file"
+              onChange={(e) => {
+                if (e.target.files?.length) {
+                  fileval(e);
+                } else {
+                  console.log("select");
+                }
               }}
-              src={addBabyPic}
-            ></img>
+            />
           </div>
           {/* add baby name */}
           <div className="input__field">
