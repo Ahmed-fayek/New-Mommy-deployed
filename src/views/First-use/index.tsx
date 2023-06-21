@@ -13,11 +13,11 @@ const FirstUse = () => {
   const navigator = useNavigate();
 
   const { auth } = useContext<any>(AuthContext);
-  useEffect(() => {
-    if (!auth) {
-      navigator("/login");
-    }
-  });
+  // useEffect(() => {
+  //   if (!auth) {
+  //     navigator("/login");
+  //   }
+  // });
 
   return (
     /*****Set First-Use*****/

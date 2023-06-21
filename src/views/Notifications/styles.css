@@ -1,0 +1,78 @@
+.notifications{
+  position: absolute;
+  top: -10px;
+  right: 0;
+  z-index: 8888;
+padding: 10px;
+}
+.notifications .notification {
+
+  padding: 1rem;
+  background-color: #5b5b5b;
+  border: 1px solid #3a3a3a;
+  border-radius: 0.25rem;
+}
+
+
+.notifications  button {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  position: relative;
+}
+.notifications button i{
+  width: 100%;
+  height: 100%;
+position: absolute;
+left: 0;
+top: 25%;
+font-size: 18px;
+}
+
+.notifications button:hover {
+  background-color: #c82333;
+}
+
+.notifications .notifications-container {
+display: flex;
+flex-direction: column;
+  align-items: flex-end;
+
+}
+.notifications .notification-container {
+width: 250px;
+position: relative;
+top: 10px;
+right: 0;
+
+}
+
+.notifications h1 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.notifications p {
+  font-size: 1.2rem;
+}
+
+.notifications .button {
+  padding: 1rem;
+  width: 15px;
+  height: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.notifications .button:hover {
+  background-color: #0069d9;
+}
+

@@ -7,6 +7,7 @@ import AddBaby from "../views/add-baby";
 import EmailConfirm from "../views/reset-pass";
 import AccessCode from "../views/reset-pass/Accesscode/AccessCode";
 import ResetPAss from "../views/reset-pass/resetpass/resetPass";
+import MainPage from "../views/main-page";
 
 const MainRouer = () => {
   return (
@@ -20,6 +21,7 @@ const MainRouer = () => {
         <Route path="/emailconfim" element={<EmailConfirm />}></Route>
         <Route path="/confirmcode" element={<AccessCode />}></Route>
         <Route path="/resetpass" element={<ResetPAss />}></Route>
+        <Route path="/main" element={<MainPage />}></Route>
       </Routes>
     </>
   );

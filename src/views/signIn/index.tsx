@@ -33,9 +33,9 @@ const SignIn = () => {
       setAuth(response.data);
       const accessToken = response?.data?.access_token;
       localStorage.setItem("access_token", accessToken);
+      localStorage.setItem("user", response.data.user);
       if (accessToken) {
-        // SetToken(accessToken, response.data.access_token);
-        navigator("/babymoon");
+        navigator("/main");
       }
     } catch (err: any) {
       if (!err) {

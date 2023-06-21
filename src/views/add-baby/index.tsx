@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { initializeApp } from "firebase/app";
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import { NewbabyApi } from "../../api";
@@ -79,16 +78,6 @@ const AddBaby = () => {
 
   const fileval = async (e: any) => {
     setfile(e.target.files[0]);
-    // reader.readAsArrayBuffer(e.target.files[0]);
-    // reader.onload = async (ev) => {
-    //   console.log(ev.target?.result);
-    // };
-    // if (reader.readyState === FileReader.DONE) {
-    //   reader.readAsText(e.target.files[0]);
-    // } else {
-    //   console.log("Reader is busy");
-    // }
-    // // console.log(formData);
   };
 
   /* submit  */
@@ -109,7 +98,7 @@ const AddBaby = () => {
       data: formData,
     })
       .then((res) => {
-        console.log(res);
+        navigator("/main");
       })
       .catch((err) => {
         console.log(err);

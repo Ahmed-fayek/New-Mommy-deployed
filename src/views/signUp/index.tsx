@@ -92,10 +92,6 @@ const Signup = () => {
           } else {
             setemailErrMSG("");
             navigator("/babymoon");
-            // SetToken(
-            //   res.data.tokens.access_token,
-            //   res.data.tokens.refresh_token
-            // );
           }
         })
         .catch((err) => {
