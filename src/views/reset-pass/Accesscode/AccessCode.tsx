@@ -49,7 +49,7 @@ const AccessCode = () => {
             err.response?.status == 400 &&
             err.response.data.message == "user doesn't exist"
           ) {
-            setErrMsg("write code correct");
+            setErrMsg("please enter correct code ");
           }
         });
     } else {

@@ -25,9 +25,9 @@ const Signup = () => {
   /* first name validation */
   const firstNameval = (e?: any) => {
     if (e.target.value == "") {
-      setfNameErrMSG("write First Name");
+      setfNameErrMSG("write first name");
     } else if (!nameVal.test(e.target.value)) {
-      setfNameErrMSG("start with number");
+      setfNameErrMSG("enter valid name");
     } else {
       setfNameErrMSG("");
       setFirstName(e.target.value);
@@ -37,9 +37,9 @@ const Signup = () => {
   /* last name validation */
   const lastNameval = (e: any) => {
     if (e.target.value == "") {
-      setlNameErrMSG("write Last Name");
+      setlNameErrMSG("write last name");
     } else if (!nameVal.test(e.target.value)) {
-      setlNameErrMSG("start with number");
+      setlNameErrMSG("enter valid name");
     } else {
       setlNameErrMSG("");
       setLastName(e.target.value);

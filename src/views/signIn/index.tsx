@@ -25,6 +25,10 @@ const SignIn = () => {
   const SubmitVal = async (e: any) => {
     e.preventDefault();
     setErrMsg("");
+    if (!email && !pass) {
+      setErrMsg("Email and password are required");
+      return;
+    }
     try {
       const response = await axios.post(LOGIN_URL, {
         email: email,
@@ -37,30 +41,53 @@ const SignIn = () => {
       if (accessToken) {
         navigator("/main");
       }
-    } catch (err: any) {
-      if (!err) {
-        setErrMsg(" No server response");
-      } else if (
-        err.response?.status == 400 &&
-        err.response.data.message == "email should not be empty"
-      ) {
-        setErrMsg("email should not be empty");
-      } else if (
-        err.response?.status == 400 &&
-        err.response.data.message == "password should not be empty"
-      ) {
-        setErrMsg(" password should not be empty");
-      } else if (err.response?.status == 401) {
-        setErrMsg("unouthorized");
-      } else if (
-        err.response.status == 400 &&
-        err.response.data.message == "Invalid email or password"
-      ) {
-        setErrMsg("wrong email or password");
-      } else if (err.response.status == 403) {
-        setErrMsg("wrong email or password");
+    // } catch (err: any) {
+    //   if (!err) {
+    //     setErrMsg(" No server response");
+    //   } 
+    //   else if (
+    //     err.response?.status == 400 &&
+    //     err.response.data.message == "email should not be empty"
+    //   ) {
+    //     setErrMsg("email should not be empty");
+    //   } else if (
+    //     err.response?.status == 400 &&
+    //     err.response.data.message == "password should not be empty"
+    //   ) {
+    //     setErrMsg(" password should not be empty");
+    //   } else if (err.response?.status == 401) {
+    //     setErrMsg("unouthorized");
+    //   } else if (
+    //     err.response.status == 400 &&
+    //     err.response.data.message == "Invalid email or password"
+    //   ) {
+    //     setErrMsg("wrong email or password");
+    //   } else if (err.response.status == 403) {
+    //     setErrMsg("wrong email or password");
+    //   }else if(err){
+
+    //     console.log(err)
+    //   }
+    // }
+  } catch (err: any) {
+    if (!err) {
+      setErrMsg("No server response");
+    } else if (err.response && err.response.status) {
+      if (err.response.status === 400 && err.response.data.message === "email should not be empty") {
+        setErrMsg("Email should not be empty");
+      } else if (err.response.status === 400 && err.response.data.message === "password should not be empty") {
+        setErrMsg("Password should not be empty");
+      } else if (err.response.status === 401) {
+        setErrMsg("Unauthorized");
+      } else if (err.response.status === 403) {
+        setErrMsg("Wrong email or password");
+      } else if (err.response.status === 400 && err.response.data.message === "Invalid email or password") {
+        setErrMsg("Wrong email or password");
+      } else {
+        setErrMsg("An error occurred");
       }
-    }
+    } 
+  }
   };
 
   return (
@@ -80,6 +107,7 @@ const SignIn = () => {
               placeholder="Email"
               required
             />
+         
           </div>
           {/* password input*/}
           <div className="login__field">
@@ -108,6 +136,7 @@ const SignIn = () => {
               <p>Forget password ? </p>
             </Link>
           </div>
+       
           {/* submit button */}
           <div className="submit__feild">
             <p className="baby-name-err">{errmsg}</p>

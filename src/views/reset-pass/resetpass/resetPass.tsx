@@ -17,8 +17,10 @@ const ResetPAss = () => {
   const handleEmailSubmit = async (e: any) => {
     if (!CodeCon) {
       setErrMsg("session ended");
-    } else if (passwordcon != password) {
+    } else if (passwordcon !== password) {
       setErrMsg("password don't match");
+    }  else if (password.length > 20) {
+      setErrMsg("password should be shorter");
     } else {
       e.preventDefault();
       setErrMsg("");
