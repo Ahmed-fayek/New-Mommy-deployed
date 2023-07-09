@@ -30,7 +30,8 @@ const AddBaby = () => {
   const [babyGender, setBabyGender] = useState<string>("boy");
   const [babyWeight, setWeight] = useState<number>(0);
   const [birthday, setbirthday] = useState<string>(dateFormat);
-  const [successMessageVisible, setSuccessMessageVisible] = useState<string>("")
+  const [successMessageVisible, setSuccessMessageVisible] =
+    useState<string>("");
   const [file, setfile] = useState<any>();
 
   /* validate function */
@@ -99,7 +100,7 @@ const AddBaby = () => {
       data: formData,
     })
       .then((res) => {
-        setSuccessMessageVisible("successful added baby"); // Show success message
+        setSuccessMessageVisible("successful added baby "); // Show success message
 
         // Redirect to main page after 3 seconds
         setTimeout(() => {
@@ -214,7 +215,6 @@ const AddBaby = () => {
         <div className="msg">
           <p>{successMessageVisible}</p>
         </div>
-
       </div>
     </div>
   );
