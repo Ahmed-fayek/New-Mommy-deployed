@@ -10,6 +10,10 @@ import ResetPAss from "../views/reset-pass/resetpass/resetPass";
 import MainPage from "../views/main-page";
 import Loading from "../components/Loading";
 import ResetEmail from "../views/reset-email";
+import CodeConfirm from "../views/reset-email/codeconfirm.tsx";
+import AddMedical from "../views/medicals/addMedical";
+import MedicalHistory from "../views/medicals/medical history";
+import AddActivity from "../views/activity/addactivity";
 
 const MainRouer = () => {
   return (
@@ -26,6 +30,10 @@ const MainRouer = () => {
         <Route path="/main" element={<MainPage />}></Route>
         <Route path="/loading" element={<Loading />}></Route>
         <Route path="/resetEmail" element={<ResetEmail />}></Route>
+        <Route path="/emailcodeConfirm" element={<CodeConfirm />}></Route>
+        <Route path="/addMedical" element={<AddMedical />}></Route>
+        <Route path="/medicalhistory" element={<MedicalHistory />}></Route>
+        <Route path="/addactivity" element={<AddActivity />}></Route>
       </Routes>
     </>
   );

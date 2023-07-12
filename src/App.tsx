@@ -4,11 +4,11 @@ import RefreshToken from "./services/refreshToken";
 import { useEffect } from "react";
 function App() {
   const navigator = useNavigate();
-  // useEffect(() => {
-  //   if (localStorage.getItem("token") == null) {
-  //     navigator("/");
-  //   }
-  // }, [localStorage.getItem("token")]);
+  useEffect(() => {
+    if (localStorage.getItem("token") == null) {
+      navigator("/");
+    }
+  }, [localStorage.getItem("token")]);
 
   return RefreshToken();
 }
