@@ -9,11 +9,6 @@ const AddBaby = () => {
   const navigator = useNavigate();
 
   const { auth } = useContext<any>(AuthContext);
-  // useEffect(() => {
-  //   if (!auth) {
-  //     navigator("/login");
-  //   }
-  // });
 
   let currentDate: Date = new Date();
   let dateFormat: string = `${currentDate.getFullYear()}-${
@@ -94,7 +89,7 @@ const AddBaby = () => {
       method: "post",
       url: NewbabyApi,
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        Authorization: `Bearer ${auth.access_token}`,
       },
 
       data: formData,
@@ -210,6 +205,15 @@ const AddBaby = () => {
             type="submit"
           >
             <span className="button__text"> Add baby</span>
+          </button>
+          <button
+            onClick={() => {
+              navigator("/main");
+            }}
+            className="button addbaby__submit"
+            type="submit"
+          >
+            <span className="button__text"> skip now</span>
           </button>
         </div>
         <div className="msg">

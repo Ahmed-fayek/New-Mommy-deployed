@@ -7,7 +7,7 @@ const LOGIN_URL = "auth/login";
 
 const SignIn = () => {
   const { setAuth } = useContext<any>(AuthContext);
-  const { CodeCon } = useContext<any>(AuthContext);
+  const { setUser } = useContext<any>(AuthContext);
   const [email, setEmail] = useState<string>("");
   const [pass, setPass] = useState<string>("");
   const [showpass, setshowpass] = useState<boolean>(false);
@@ -34,44 +34,22 @@ const SignIn = () => {
         email: email,
         password: pass,
       });
+      setUser({});
+      setAuth({});
       console.log(response);
       setAuth(response.data);
       const accessToken = response?.data?.access_token;
+      const refreshToken = response?.data?.refresh_token;
+      const userId = response?.data?.id;
       localStorage.setItem("access_token", accessToken);
+      localStorage.setItem("token", refreshToken);
+      localStorage.setItem("user_id", userId);
       if (accessToken) {
         navigator("/main");
       }
-      // } catch (err: any) {
-      //   if (!err) {
-      //     setErrMsg(" No server response");
-      //   }
-      //   else if (
-      //     err.response?.status == 400 &&
-      //     err.response.data.message == "email should not be empty"
-      //   ) {
-      //     setErrMsg("email should not be empty");
-      //   } else if (
-      //     err.response?.status == 400 &&
-      //     err.response.data.message == "password should not be empty"
-      //   ) {
-      //     setErrMsg(" password should not be empty");
-      //   } else if (err.response?.status == 401) {
-      //     setErrMsg("unouthorized");
-      //   } else if (
-      //     err.response.status == 400 &&
-      //     err.response.data.message == "Invalid email or password"
-      //   ) {
-      //     setErrMsg("wrong email or password");
-      //   } else if (err.response.status == 403) {
-      //     setErrMsg("wrong email or password");
-      //   }else if(err){
-
-      //     console.log(err)
-      //   }
-      // }
+      return refreshToken();
     } catch (err: any) {
       console.log(err);
-
       if (!err) {
         setErrMsg("No server response");
       } else if (err.response && err.response.status) {
@@ -189,3 +167,5 @@ const SignIn = () => {
   );
 };
 export default SignIn;
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YWEwMjc0ZGE0MGQzY2I5NzkwMzg4YiIsImVtYWlsIjoibW9tQG1vbS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4ODkyNDk2NiwiZXhwIjoxNjg4OTI4NTY2fQ.GbYXuVztOaeaNvweJYuhNpNVeKCs6Mn0LPCy_vreG0c
+//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YWEwMjc0ZGE0MGQzY2I5NzkwMzg4YiIsImVtYWlsIjoibW9tQG1vbS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4ODkyNTAzNiwiZXhwIjoxNjg5NTI5ODM2fQ.WlqrF4vVyzyjyhiUpGAcRPMZF2TZQalrF031286K9eU"
