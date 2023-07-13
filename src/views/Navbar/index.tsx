@@ -26,7 +26,8 @@ function Nav() {
   const logout = async () => {
     await axios({
       method: "POST",
-      url: "https://13.51.206.195:3001/api/auth/logout",
+      //44
+      url: "https://newMommy.mooo.com:3001/api/auth/logout",
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
