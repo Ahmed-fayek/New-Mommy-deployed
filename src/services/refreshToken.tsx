@@ -23,7 +23,7 @@ function RefreshToken() {
       try {
         const response = await axios
           .post(
-            "https://13.51.206.195:3001/api/auth/refresh",
+            "https://newMommy.mooo.com:3001/api/auth/refresh",
             {},
             {
               headers: {
@@ -54,11 +54,12 @@ function RefreshToken() {
         },
       };
       axios
-        .get(`https://13.51.206.195:3002/api/users/${userId}`, config)
+        .get(`https://newMommy.mooo.com:3002/api/users/${userId}`, config)
         .then((response) => {
           setUser(response.data);
         })
         .catch((error) => {
+          console.log(error);
           navigator("/");
           setLoading("access-err");
         });

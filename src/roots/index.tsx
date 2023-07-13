@@ -14,10 +14,12 @@ import CodeConfirm from "../views/reset-email/codeconfirm.tsx";
 import AddMedical from "../views/medicals/addMedical";
 import MedicalHistory from "../views/medicals/medical history";
 import AddActivity from "../views/activity/addactivity";
+import Nav from "../views/Navbar";
 
 const MainRouer = () => {
   return (
     <>
+      <Nav />
       <Routes>
         <Route path="/" element={<Welcome />}></Route>
         <Route path="/login" element={<SignIn />}></Route>
