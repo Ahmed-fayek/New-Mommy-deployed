@@ -1,7 +1,7 @@
 import "./styles.css";
 import logo from "./../../assets/images/baby-moon.png";
 import Notifications from "../Notifications";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../conrext/AuthProvider";
 import axios from "../../api/axios";
 import { useNavigate, Link } from "react-router-dom";
@@ -11,11 +11,15 @@ function Nav() {
   const { auth } = useContext<any>(AuthContext);
   const { setUser } = useContext<any>(AuthContext);
   const { setAuth } = useContext<any>(AuthContext);
+  const [logState, setlogState] = useState("notLogged");
 
   let userNAme = "";
-  if (user) {
-    userNAme = user.firstname;
-  }
+  useEffect(() => {
+    if (user) {
+      userNAme = user.firstname;
+      setlogState("");
+    }
+  }, [logState]);
 
   document.getElementById("view-links")?.classList.toggle("show-links");
   document.getElementById("bars")?.classList.toggle("rotates");
@@ -38,12 +42,12 @@ function Nav() {
         localStorage.removeItem("access_token");
         localStorage.removeItem("token");
         localStorage.removeItem("user_id");
-
+        setlogState("notLogged");
         navigator("/login");
       })
       .catch((error) => {});
   };
-  if (user) {
+  if (logState != "notLogged") {
     return (
       <>
         <div className="navbar">

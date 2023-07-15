@@ -9,6 +9,7 @@ const AddActivity = () => {
   const navigator = useNavigate();
 
   const { auth } = useContext<any>(AuthContext);
+  const { user } = useContext<any>(AuthContext);
 
   let currentDate: Date = new Date();
   let dateFormat: string = `${currentDate.getFullYear()}-${
@@ -22,73 +23,59 @@ const AddActivity = () => {
   }`;
 
   const [doctorName, setdoctorName] = useState<string>("");
-  const [babyWeight, setWeight] = useState<number>(0);
-  const [birthday, setbirthday] = useState<string>(dateFormat);
+  const [diagnosis, setdiagnosis] = useState<string>("");
+  const [reportDate, setreportDate] = useState<string>(dateFormat);
+  const [DRErrMsg, setDRErrMsg] = useState<string>("");
+  const [diagnosisErrMsg, setdiagnosisErrMsg] = useState<string>("");
+  const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
-  const [file, setfile] = useState<any>();
 
   /* validate function */
-  const validateFunction = (regex: RegExp, elementID: string, element: any) => {
-    if (!regex.test(element.target.value)) {
-      document.getElementById(elementID)?.classList.remove("remove");
-      return true;
-    } else if (
-      !document.getElementById(elementID)?.classList.contains("remove")
-    ) {
-      document.getElementById(elementID)?.classList.add("remove");
-      return false;
-    }
-  };
+
   var nameVal = new RegExp("[A-Za-z]");
 
-  /* user  */
-  const Diagnosis = (e: any) => {
-    validateFunction(nameVal, "baby-name", e);
-    if (!validateFunction(nameVal, "baby-name", e)) {
-      setdoctorName(e.target.value);
+  /* Dr Name  */
+  const drNameVal = (e: any) => {
+    if (!nameVal.test(e.target.value)) {
+      setDRErrMsg("invalid data");
     } else {
+      setdoctorName(e.target.value);
+      setDRErrMsg("");
     }
   };
 
-  /* birthday  */
-  const birthval = (e: any) => {
-    setbirthday(e.target.value);
+  /* report Date  */
+  const reportDateVal = (e: any) => {
+    setreportDate(e.target.value);
   };
 
-  /* weight  */
-  const weightval = (e: any) => {
-    setWeight(e.target.value);
-    if (e.target.value > 10) {
-      e.target.value = 10;
+  /* diagnosis  */
+  const DiagnosisVal = (e: any) => {
+    if (!nameVal.test(e.target.value)) {
+      setdiagnosisErrMsg("invalid data");
+    } else {
+      setdiagnosis(e.target.value);
+      setdiagnosisErrMsg("");
     }
-  };
-
-  /* file  */
-  const formData = new FormData();
-
-  const fileval = async (e: any) => {
-    setfile(e.target.files[0]);
   };
 
   /* submit  */
 
   const submitVal = async () => {
-    formData.append("images", file);
-    formData.append("babyName", doctorName);
-    formData.append("weight", `${babyWeight}`);
-    formData.append("birthDate", birthday);
     await axios({
       method: "post",
-      url: NewbabyApi,
+      url: `https://13.51.206.195:3002/api/users/addActivity/${user.id}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
 
-      data: formData,
+      data: {},
     })
       .then((res) => {
-        setSuccessMessageVisible("successful added baby "); // Show success message
+        console.log(res);
+
+        setSuccessMessageVisible("successful added "); // Show success message
 
         // Redirect to main page after 3 seconds
         setTimeout(() => {
@@ -104,35 +91,20 @@ const AddActivity = () => {
     <div className="add-activity">
       <div className="container">
         <div className="signup-block">
-          {/* file */}
-          <div className="pic__field">
-            <input
-              className="input__field"
-              type="file"
-              onChange={(e) => {
-                if (e.target.files?.length) {
-                  fileval(e);
-                } else {
-                  console.log("select");
-                }
-              }}
-            />
-          </div>
-
           {/*Date */}
           <div className="input__field">
             <label htmlFor="Date"> Date</label>
             <input
               onChange={(e) => {
-                birthval(e);
+                reportDateVal(e);
               }}
               type="date"
               className="the__input "
-              name="birthday"
+              name="reportDate"
               id="Date"
               min="2018-12-31"
               max={dateFormat}
-              value={birthday}
+              value={reportDate}
               required
             />
           </div>
@@ -142,7 +114,7 @@ const AddActivity = () => {
             <label htmlFor="DrName"> Dr. Name</label>
             <input
               onChange={(e) => {
-                weightval(e);
+                drNameVal(e);
               }}
               type="text"
               className="the__input "
@@ -150,36 +122,41 @@ const AddActivity = () => {
               name=" DrName"
               id="DrName"
             />
+            <p>{DRErrMsg}</p>
           </div>
-          {/* Diagnosis */}
+          {/* DiagnosisVal */}
           <div className="input__field">
-            <label htmlFor="babyName">Diagnosis</label>
+            <label htmlFor="babyName">DiagnosisVal</label>
             <input
               onChange={(e) => {
-                Diagnosis(e);
+                DiagnosisVal(e);
               }}
               id="babyName"
-              name="Diagnosis"
+              name="DiagnosisVal"
               type="email"
               className=" the__input"
-              placeholder="Diagnosis"
+              placeholder="DiagnosisVal"
               required
             />
-            <p className=" remove remove-style" id="baby-name">
-              name must be string
-            </p>
+            <p>{diagnosisErrMsg}</p>
           </div>
           <div></div>
 
           <button
             onClick={() => {
-              submitVal();
+              if (diagnosisErrMsg == "" && DRErrMsg == "") {
+                setSubmiterrMsg("");
+                submitVal();
+              } else {
+                setSubmiterrMsg("check data");
+              }
             }}
             className="button addbaby__submit"
             type="submit"
           >
             <span className="button__text"> Add baby</span>
           </button>
+          <p>{SubmiterrMsg}</p>
           <button
             onClick={() => {
               navigator("/main");
