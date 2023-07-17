@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "install": "^0.13.0",
     "npm": "^9.7.1",
     "stream-http": "^3.2.0",

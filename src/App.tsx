@@ -1,17 +1,16 @@
-import MainRouer from "./roots";
+import { useNavigate } from "react-router-dom";
 import "./assets/all/all.min.css";
-import AuthContext, { AuthProvider } from "./conrext/AuthProvider";
-import { useContext } from "react";
-
+import RefreshToken from "./services/refreshToken";
+import { useEffect } from "react";
 function App() {
-  const authcontext = useContext(AuthContext);
-  return (
-    <div className="App">
-      <AuthProvider>
-        <MainRouer />
-      </AuthProvider>
-    </div>
-  );
+  const navigator = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem("token") == null) {
+      navigator("/");
+    }
+  }, [localStorage.getItem("token")]);
+
+  return RefreshToken();
 }
 
 export default App;

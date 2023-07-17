@@ -2,10 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
-import { NewbabyApi } from "../../api";
-import AuthContext from "../../conrext/AuthProvider";
+import { NewbabyApi } from "../../../api";
+import AuthContext from "../../../conrext/AuthProvider";
 
-const AddBaby = () => {
+const AddMedical = () => {
   const navigator = useNavigate();
 
   const { auth } = useContext<any>(AuthContext);
@@ -21,8 +21,7 @@ const AddBaby = () => {
       : currentDate.getDate()
   }`;
 
-  const [babyName, setbabyName] = useState<string>("");
-  const [babyGender, setBabyGender] = useState<string>("boy");
+  const [doctorName, setdoctorName] = useState<string>("");
   const [babyWeight, setWeight] = useState<number>(0);
   const [birthday, setbirthday] = useState<string>(dateFormat);
   const [successMessageVisible, setSuccessMessageVisible] =
@@ -44,10 +43,10 @@ const AddBaby = () => {
   var nameVal = new RegExp("[A-Za-z]");
 
   /* user  */
-  const babyNameval = (e: any) => {
+  const Diagnosis = (e: any) => {
     validateFunction(nameVal, "baby-name", e);
     if (!validateFunction(nameVal, "baby-name", e)) {
-      setbabyName(e.target.value);
+      setdoctorName(e.target.value);
     } else {
     }
   };
@@ -55,10 +54,6 @@ const AddBaby = () => {
   /* birthday  */
   const birthval = (e: any) => {
     setbirthday(e.target.value);
-  };
-  /* gender  */
-  const genderval = (e: any) => {
-    setBabyGender(e.target.value);
   };
 
   /* weight  */
@@ -71,7 +66,6 @@ const AddBaby = () => {
 
   /* file  */
   const formData = new FormData();
-  const reader = new FileReader();
 
   const fileval = async (e: any) => {
     setfile(e.target.files[0]);
@@ -81,8 +75,7 @@ const AddBaby = () => {
 
   const submitVal = async () => {
     formData.append("images", file);
-    formData.append("babyName", babyName);
-    formData.append("gender", babyGender);
+    formData.append("babyName", doctorName);
     formData.append("weight", `${babyWeight}`);
     formData.append("birthDate", birthday);
     await axios({
@@ -108,7 +101,7 @@ const AddBaby = () => {
   };
 
   return (
-    <div className="add-baby">
+    <div className="add-medical">
       <div className="container">
         <div className="signup-block">
           {/* file */}
@@ -125,36 +118,18 @@ const AddBaby = () => {
               }}
             />
           </div>
-          {/* add baby name */}
+
+          {/*Date */}
           <div className="input__field">
-            <label htmlFor="babyName">what's your baby name</label>
-            <input
-              onChange={(e) => {
-                babyNameval(e);
-              }}
-              id="babyName"
-              name="babyName"
-              type="email"
-              className=" the__input"
-              placeholder="Enter name"
-              required
-            />
-            <p className=" remove remove-style" id="baby-name">
-              name must be string
-            </p>
-          </div>
-          {/*birthday */}
-          <div className="input__field">
-            <label htmlFor="birthday"> BirthDay</label>
+            <label htmlFor="Date"> Date</label>
             <input
               onChange={(e) => {
                 birthval(e);
               }}
               type="date"
               className="the__input "
-              placeholder="gender"
               name="birthday"
-              id="birthday"
+              id="Date"
               min="2018-12-31"
               max={dateFormat}
               value={birthday}
@@ -162,38 +137,37 @@ const AddBaby = () => {
             />
           </div>
 
-          <div className="two-inputs">
-            {/* gender */}
-            <div className="input__field">
-              <label htmlFor="gender">Baby Gender</label>
-              <select
-                className=" the__input "
-                name="gender"
-                id="gender"
-                onChange={(e) => {
-                  genderval(e);
-                }}
-              >
-                <option value="boy">boy</option>
-                <option value="girl">girl</option>
-              </select>
-            </div>
-            {/* weight */}
-            <div className="input__field">
-              <label htmlFor="weight"> Weight</label>
-              <input
-                onChange={(e) => {
-                  weightval(e);
-                }}
-                type="number"
-                className="the__input "
-                placeholder="weight"
-                name="weight"
-                id="weight"
-                min="1"
-                max="10"
-              />
-            </div>
+          {/* Dr. Name */}
+          <div className="input__field">
+            <label htmlFor="DrName"> Dr. Name</label>
+            <input
+              onChange={(e) => {
+                weightval(e);
+              }}
+              type="text"
+              className="the__input "
+              placeholder="Dr Name"
+              name=" DrName"
+              id="DrName"
+            />
+          </div>
+          {/* Diagnosis */}
+          <div className="input__field">
+            <label htmlFor="babyName">Diagnosis</label>
+            <input
+              onChange={(e) => {
+                Diagnosis(e);
+              }}
+              id="babyName"
+              name="Diagnosis"
+              type="email"
+              className=" the__input"
+              placeholder="Diagnosis"
+              required
+            />
+            <p className=" remove remove-style" id="baby-name">
+              name must be string
+            </p>
           </div>
           <div></div>
 
@@ -223,4 +197,4 @@ const AddBaby = () => {
     </div>
   );
 };
-export default AddBaby;
+export default AddMedical;

@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 import { NewuserApi } from "../../api";
 import axios from "../../api/axios";
-// import SetToken from "../../token";
+import AuthContext from "../../conrext/AuthProvider";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState<string>();
@@ -16,6 +16,8 @@ const Signup = () => {
   const [emailErrMSG, setemailErrMSG] = useState<string>("");
   const [passErrMSG, setpassErrMSG] = useState<string>("");
   const navigator = useNavigate();
+  const { setAuth } = useContext<any>(AuthContext);
+  const { setUser } = useContext<any>(AuthContext);
 
   /*emil exist function */
 
@@ -68,14 +70,14 @@ const Signup = () => {
   };
 
   /* submit validate */
-  const submitVal = (e: any) => {
+  const submitVal = async (e: any) => {
     if (
       fNameErrMSG.length == 0 &&
       lNameErrMSG.length == 0 &&
       passErrMSG.length == 0 &&
       emailErrMSG.length == 0
     ) {
-      axios({
+      await axios({
         method: "post",
         url: NewuserApi,
         data: {
@@ -86,6 +88,15 @@ const Signup = () => {
         },
       })
         .then((res) => {
+          setUser({});
+          setAuth({});
+          setAuth(res.data);
+          const accessToken = res?.data?.access_token;
+          const refreshToken = res?.data?.refresh_token;
+          const userId = res?.data?.id;
+          localStorage.setItem("access_token", accessToken);
+          localStorage.setItem("token", refreshToken);
+          localStorage.setItem("user_id", userId);
           console.log(res);
           if (res.data.message == "Email already exist") {
             setemailErrMSG("email-exist");

@@ -1,169 +1,185 @@
 .navbar {
-    position: absolute;
-    top: 0;
-    left:0px;
-    height: 50px;
-    background-color: #efefef;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-    position: fixed;
-    width: 100%;
-
+  position: absolute;
+  top: 0;
+  left: 0px;
+  height: 50px;
+  background-color: #efefef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  position: fixed;
+  width: 100%;
 }
 
 .navbar img {
-    width: 40px;
-    height: 40px;
-    transition: all .5s ease-in-out;
-    -webkit-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -ms-transition: all .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
+  width: 40px;
+  height: 40px;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
 }
 
 .navbar img:hover {
-    background-color: #c1c0c0;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
+  background-color: #c1c0c0;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 .navbar .links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row-reverse;
-    overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  overflow: hidden;
 }
 
 .navbar ul {
-    display: flex;
-    align-items: center;
-    transform: translateX(800px);
-    -webkit-transform: translateX(800px);
-    -moz-transform: translateX(800px);
-    -ms-transform: translateX(800px);
-    -o-transform: translateX(800px);
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
+  display: flex;
+  align-items: center;
+  transform: translateX(800px);
+  -webkit-transform: translateX(800px);
+  -moz-transform: translateX(800px);
+  -ms-transform: translateX(800px);
+  -o-transform: translateX(800px);
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
 }
 
 .rotates span:first-child {
-    transform: rotate(45deg) translateX(3px);
-    -webkit-transform: rotate(45deg) translateX(3px);
-    -moz-transform: rotate(45deg) translateX(3px);
-    -ms-transform: rotate(45deg) translateX(3px);
-    -o-transform: rotate(45deg) translateX(3px);
+  transform: rotate(45deg) translateX(3px);
+  -webkit-transform: rotate(45deg) translateX(3px);
+  -moz-transform: rotate(45deg) translateX(3px);
+  -ms-transform: rotate(45deg) translateX(3px);
+  -o-transform: rotate(45deg) translateX(3px);
 }
 
 .rotates span:last-child {
-    transform: rotate(-45deg) translateX(3px);
-    -webkit-transform: rotate(-45deg) translateX(3px);
-    -moz-transform: rotate(-45deg) translateX(3px);
-    -ms-transform: rotate(-45deg) translateX(3px);
-    -o-transform: rotate(-45deg) translateX(3px);
+  transform: rotate(-45deg) translateX(3px);
+  -webkit-transform: rotate(-45deg) translateX(3px);
+  -moz-transform: rotate(-45deg) translateX(3px);
+  -ms-transform: rotate(-45deg) translateX(3px);
+  -o-transform: rotate(-45deg) translateX(3px);
 }
 
 .navbar .show-links {
-    transform: translateX(0);
-    -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -o-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
 }
 
 .navbar ul li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
-.navbar ul li a {
-    text-decoration: none;
-    padding: 12px;
-    margin: 0 5px;
-    color: #000;
-    border-radius: 6px;
-    transition: all .3s ease-in;
-    -webkit-transition: all .3s ease-in;
-    -moz-transition: all .3s ease-in;
-    -ms-transition: all .3s ease-in;
-    -o-transition: all .3s ease-in;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -o-border-radius: 6px;
+.navbar ul li * {
+  text-decoration: none;
+  padding: 12px;
+  margin: 0 5px;
+  color: #000;
+  border-radius: 6px;
+  transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -ms-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  cursor: default;
 }
 
-.navbar ul li a:hover {
-    background-color: #fff;
-
+.navbar ul li *:hover {
+  background-color: #fff;
 }
 
 .navbar .bars {
-    padding: 15px;
-    z-index: 3;
+  padding: 15px;
+  z-index: 3;
 }
 
 .navbar .bars span {
-    display: block;
-    margin: 3px;
-    width: 10px;
-    height: 1px;
-    background-color: #000;
-    transition: all .5s ease-in-out;
-    -webkit-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -ms-transition: all .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
+  display: block;
+  margin: 3px;
+  width: 10px;
+  height: 1px;
+  background-color: #000;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
 }
 
-@media (max-width:700px) {
-    .navbar ul {
-        position: absolute;
-        width: 100vw;
-        left: 0;
-        margin: 0;
-        padding: 10px 0;
-        display: flex;
-        flex-direction: column;
-        transform: translatey(-400px);
-        -webkit-transform: translatey(-400px);
-        -moz-transform: translatey(-400px);
-        -ms-transform: translatey(-400px);
-        -o-transform: translatey(-400px);
-    }
+@media (max-width: 700px) {
+  .navbar ul {
+    background-color: rgb(66, 66, 66);
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    margin: 0;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    transform: translatey(130px);
+    -webkit-transform: translatey(130px);
+    -moz-transform: translatey(130px);
+    -ms-transform: translatey(130px);
+    -o-transform: translatey(130px);
+  }
 
-    .navbar .show-links {
-        background-color: rgb(66, 66, 66);
-        transform: translate(0, 130px);
-        -webkit-transform: translate(0, 130px);
-        -moz-transform: translate(0, 130px);
-        -ms-transform: translate(0, 130px);
-        -o-transform: translate(0, 130px);
-        z-index: 1;
-    }
+  .navbar .show-links {
+    transform: translate(0, -400px);
+    -webkit-transform: translate(0, -400px);
+    -moz-transform: translate(0, -400px);
+    -ms-transform: translate(0, -400px);
+    -o-transform: translate(0, -400px);
+    z-index: 1;
+  }
 
-    .navbar ul li {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
+  .navbar ul li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-    .navbar ul li a {
-        padding: 3px;
-        margin-top: 5px;
-        width: 90%;
-        text-align: center;
-        border-radius: 10px;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
-    }
+  .navbar ul li * {
+    padding: 3px;
+    margin-top: 5px;
+    width: 90%;
+    text-align: center;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+
+  .rotates span:first-child {
+    transform: rotate(0deg) translateX(0px);
+    -webkit-transform: rotate(0deg) translateX(0px);
+    -moz-transform: rotate(0deg) translateX(0px);
+    -ms-transform: rotate(0deg) translateX(0px);
+    -o-transform: rotate(0deg) translateX(0px);
+}
+
+  .rotates span:last-child {
+    transform: rotate(0deg) translateX(0px);
+    -webkit-transform: rotate(0deg) translateX(0px);
+    -moz-transform: rotate(0deg) translateX(0px);
+    -ms-transform: rotate(0deg) translateX(0px);
+    -o-transform: rotate(0deg) translateX(0px);
+}
+
 }
