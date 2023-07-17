@@ -14,14 +14,23 @@ import CodeConfirm from "../views/reset-email/codeconfirm.tsx";
 import AddMedical from "../views/medicals/addMedical";
 import MedicalHistory from "../views/medicals/medical history";
 import AddActivity from "../views/activity/addactivity";
-import Nav from "../views/Navbar";
+import AddFood from "../views/Feeding/add-food";
+import AddGrowth from "../views/growth/addgrowth";
+import AddFirist from "../views/baby-firsts/add-first";
+import AddReminder from "../views/reminder/add-reminder";
 
 const MainRouer = () => {
   return (
     <>
-      <Nav />
       <Routes>
-        <Route path="/" element={<Welcome />}></Route>
+        <Route
+          path="/"
+          element={
+            <>
+              <Welcome />
+            </>
+          }
+        ></Route>
         <Route path="/login" element={<SignIn />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/babymoon" element={<FirstUse />}></Route>
@@ -36,18 +45,12 @@ const MainRouer = () => {
         <Route path="/addMedical" element={<AddMedical />}></Route>
         <Route path="/medicalhistory" element={<MedicalHistory />}></Route>
         <Route path="/addactivity" element={<AddActivity />}></Route>
+        <Route path="/addfood" element={<AddFood />}></Route>
+        <Route path="/addgrowth" element={<AddGrowth />}></Route>
+        <Route path="/addFirist" element={<AddFirist />}></Route>
+        <Route path="/addReminder" element={<AddReminder />}></Route>
       </Routes>
     </>
   );
 };
 export default MainRouer;
-/*
-login
-signup
-babymoon
-addbaby
-emailconfim
-confirmcode
-resetpass
-main
-*/

@@ -7,10 +7,10 @@ import AuthContext from "../../conrext/AuthProvider";
 
 const AddBaby = () => {
   const navigator = useNavigate();
-
+  //get auth from context to get acc token for api request
   const { auth } = useContext<any>(AuthContext);
-
   let currentDate: Date = new Date();
+  // reformat the date to send it to back-end to be as "year-month-day"
   let dateFormat: string = `${currentDate.getFullYear()}-${
     currentDate.getMonth() < 10
       ? `0` + (currentDate.getMonth() + 1)
@@ -20,39 +20,29 @@ const AddBaby = () => {
       ? `0` + currentDate.getDate()
       : currentDate.getDate()
   }`;
-
   const [babyName, setbabyName] = useState<string>("");
+  const [babyNameErrMsg, setbabyNameErrMsg] = useState<string>("");
   const [babyGender, setBabyGender] = useState<string>("boy");
   const [babyWeight, setWeight] = useState<number>(0);
   const [birthday, setbirthday] = useState<string>(dateFormat);
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
   const [file, setfile] = useState<any>();
-
-  /* validate function */
-  const validateFunction = (regex: RegExp, elementID: string, element: any) => {
-    if (!regex.test(element.target.value)) {
-      document.getElementById(elementID)?.classList.remove("remove");
-      return true;
-    } else if (
-      !document.getElementById(elementID)?.classList.contains("remove")
-    ) {
-      document.getElementById(elementID)?.classList.add("remove");
-      return false;
-    }
-  };
-  var nameVal = new RegExp("[A-Za-z]");
-
-  /* user  */
+  //regular expression to test if baby name contain only letters
+  var nameVal = new RegExp("^[A-Za-z]*$");
+  /* baby name onchange function  */
   const babyNameval = (e: any) => {
-    validateFunction(nameVal, "baby-name", e);
-    if (!validateFunction(nameVal, "baby-name", e)) {
+    if (!nameVal.test(e.target.value)) {
+      setbabyNameErrMsg("name must be only letters");
       setbabyName(e.target.value);
+    } else if (e.target.value == "") {
+      setbabyNameErrMsg("");
     } else {
+      setbabyNameErrMsg("");
     }
   };
 
-  /* birthday  */
+  /* baby birthdate onchange function  */
   const birthval = (e: any) => {
     setbirthday(e.target.value);
   };
@@ -61,30 +51,30 @@ const AddBaby = () => {
     setBabyGender(e.target.value);
   };
 
-  /* weight  */
+  /* baby weight onchange function  */
   const weightval = (e: any) => {
-    setWeight(e.target.value);
     if (e.target.value > 10) {
       e.target.value = 10;
     }
+    setWeight(e.target.value);
   };
 
-  /* file  */
+  /* initial formdata  */
   const formData = new FormData();
-  const reader = new FileReader();
-
+  /* baby image onchange function  */
   const fileval = async (e: any) => {
     setfile(e.target.files[0]);
   };
 
   /* submit  */
-
   const submitVal = async () => {
+    //append all data to form data
     formData.append("images", file);
     formData.append("babyName", babyName);
     formData.append("gender", babyGender);
     formData.append("weight", `${babyWeight}`);
     formData.append("birthDate", birthday);
+    //api request
     await axios({
       method: "post",
       url: NewbabyApi,
@@ -125,7 +115,7 @@ const AddBaby = () => {
               }}
             />
           </div>
-          {/* add baby name */}
+          {/* add baby name input*/}
           <div className="input__field">
             <label htmlFor="babyName">what's your baby name</label>
             <input
@@ -139,11 +129,10 @@ const AddBaby = () => {
               placeholder="Enter name"
               required
             />
-            <p className=" remove remove-style" id="baby-name">
-              name must be string
-            </p>
+            {/* baby error msg to tell user to write only letters */}
+            <p className="  remove-style">{babyNameErrMsg}</p>
           </div>
-          {/*birthday */}
+          {/*birthday input*/}
           <div className="input__field">
             <label htmlFor="birthday"> BirthDay</label>
             <input
@@ -163,7 +152,7 @@ const AddBaby = () => {
           </div>
 
           <div className="two-inputs">
-            {/* gender */}
+            {/* gender input*/}
             <div className="input__field">
               <label htmlFor="gender">Baby Gender</label>
               <select
@@ -178,7 +167,7 @@ const AddBaby = () => {
                 <option value="girl">girl</option>
               </select>
             </div>
-            {/* weight */}
+            {/* weight input*/}
             <div className="input__field">
               <label htmlFor="weight"> Weight</label>
               <input
@@ -196,7 +185,7 @@ const AddBaby = () => {
             </div>
           </div>
           <div></div>
-
+          {/* Submit Button */}
           <button
             onClick={() => {
               submitVal();
@@ -206,6 +195,7 @@ const AddBaby = () => {
           >
             <span className="button__text"> Add baby</span>
           </button>
+          {/* Skip Button */}
           <button
             onClick={() => {
               navigator("/main");

@@ -4,7 +4,7 @@ import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
 
-const AddActivity = () => {
+const AddGrowth = () => {
   const navigator = useNavigate();
 
   const { auth } = useContext<any>(AuthContext);
@@ -12,45 +12,40 @@ const AddActivity = () => {
 
   let currentDate: Date = new Date();
   let dateFormat = currentDate.toJSON().slice(0, 10);
-  let currentTime = currentDate.toJSON().slice(11, 16);
-  const [time, settime] = useState<string>(currentTime);
-
-  const [activity, setactivity] = useState<string>("");
-  const [note, setnote] = useState<string>("");
-  const [startDate, setstartDate] = useState<string>(dateFormat);
-  const [activityErrMsg, setactivityErrMsg] = useState<string>("");
-  const [noteErrMsg, setnoteErrMsg] = useState<string>("");
+  const [weight, setweight] = useState<number>();
+  const [height, setheight] = useState<number>();
+  const [reportDate, setreportDate] = useState<string>(dateFormat);
+  const [weightErrMsg, setweightErrMsg] = useState<string>("");
+  const [heightErrMsg, setheightErrMsg] = useState<string>("");
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
+  /* validate function */
+
   var nameVal = new RegExp("^[A-Za-z]*$");
-  /* Dr Name  */
-  const drNameVal = (e: any) => {
+
+  /* Weight  */
+  const WeightVal = (e: any) => {
     if (!nameVal.test(e.target.value)) {
-      setactivityErrMsg("invalid data");
+      setweightErrMsg("invalid data");
     } else {
-      setactivity(e.target.value);
-      setactivityErrMsg("");
+      setweight(+e.target.value);
+      setweightErrMsg("");
     }
   };
 
   /* report Date  */
-  const startDateVal = (e: any) => {
-    setstartDate(e.target.value);
-  };
-  /* report Time  */
-
-  const startTimeVal = (e: any) => {
-    settime(e.target.value);
+  const reportDateVal = (e: any) => {
+    setreportDate(e.target.value);
   };
 
-  /* note  */
-  const noteVal = (e: any) => {
+  /* height  */
+  const heightVal = (e: any) => {
     if (!nameVal.test(e.target.value)) {
-      setnoteErrMsg("invalid data");
+      setheightErrMsg("invalid data");
     } else {
-      setnote(e.target.value);
-      setnoteErrMsg("");
+      setheight(+e.target.value);
+      setheightErrMsg("");
     }
   };
 
@@ -82,7 +77,7 @@ const AddActivity = () => {
   };
 
   return (
-    <div className="add-activity">
+    <div className="add-growth">
       <div className="container">
         <div className="signup-block">
           {/*Date */}
@@ -90,69 +85,55 @@ const AddActivity = () => {
             <label htmlFor="Date"> Date</label>
             <input
               onChange={(e) => {
-                startDateVal(e);
+                reportDateVal(e);
               }}
               type="date"
               className="the__input "
-              name="startDate"
+              name="reportDate"
               id="Date"
               min="2018-12-31"
               max={dateFormat}
-              value={startDate}
+              value={reportDate}
               required
             />
           </div>
-          {/*time */}
+
+          {/* weight */}
           <div className="input__field">
-            <label htmlFor="Date"> Time</label>
+            <label htmlFor="weight">weight</label>
             <input
               onChange={(e) => {
-                startTimeVal(e);
+                WeightVal(e);
               }}
-              type="time"
+              type="number"
               className="the__input "
-              name="startDate"
-              id="Date"
-              value={time}
-              required
+              placeholder="Weight"
+              name=" weight"
+              id="weight"
             />
+            <p>{weightErrMsg}</p>
           </div>
-          {/* Activity */}
+          {/* height */}
           <div className="input__field">
-            <label htmlFor="DrName"> Activity</label>
+            <label htmlFor="height">height</label>
             <input
               onChange={(e) => {
-                drNameVal(e);
+                heightVal(e);
               }}
-              type="text"
-              className="the__input "
-              placeholder="Activity"
-              name=" Activity"
-              id="Activity"
-            />
-            <p>{activityErrMsg}</p>
-          </div>
-          {/* note */}
-          <div className="input__field">
-            <label htmlFor="note">Note</label>
-            <input
-              onChange={(e) => {
-                noteVal(e);
-              }}
-              id="babyName"
-              name="note"
-              type="email"
+              id="height"
+              name="height"
+              type="number"
               className=" the__input"
-              placeholder="note"
+              placeholder="height"
               required
             />
-            <p>{noteErrMsg}</p>
+            <p>{heightErrMsg}</p>
           </div>
           <div></div>
           {/* Submit */}
           <button
             onClick={() => {
-              if (noteErrMsg == "" && activityErrMsg == "") {
+              if (heightErrMsg == "" && weightErrMsg == "") {
                 setSubmiterrMsg("");
                 submitVal();
               } else {
@@ -162,7 +143,7 @@ const AddActivity = () => {
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> Add Activity</span>
+            <span className="button__text"> Save</span>
           </button>
           {/*err msg */}
           <p>{SubmiterrMsg}</p>
@@ -184,4 +165,4 @@ const AddActivity = () => {
     </div>
   );
 };
-export default AddActivity;
+export default AddGrowth;

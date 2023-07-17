@@ -4,26 +4,27 @@ import AuthContext from "../conrext/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import MainRouer from "../roots";
 import Loading from "../components/Loading";
-
+import { GetUserbyId, RefreshTokenapi } from "../api";
+import Nav from "../views/Navbar";
 function RefreshToken() {
   const navigator = useNavigate();
   const [loading, setLoading] = useState("");
   const { auth } = useContext<any>(AuthContext);
   const { setAuth } = useContext<any>(AuthContext);
   const { setUser } = useContext<any>(AuthContext);
-
+  //if user in not logged in we navigate him to log in
   useEffect(() => {
     if (loading == "access-err") {
       navigator("/");
     }
-  }, [loading]);
-
+  }, [loading]); //loading value changes when we check if user logged in or not
+  //Refresh Token function
   useEffect(() => {
     const refreshToken = async () => {
       try {
         const response = await axios
           .post(
-            "https://newMommy.mooo.com:3001/api/auth/refresh",
+            RefreshTokenapi,
             {},
             {
               headers: {
@@ -32,45 +33,47 @@ function RefreshToken() {
             }
           )
           .then((res) => {
-            setAuth(res.data);
+            setAuth(res.data); //send data to context api
             setLoading("access");
           });
       } catch (error) {
-        setLoading("access-err");
+        setLoading("access-err"); //send user to log in page
       }
     };
-
+    //if user loggen in once before so token must be stored in local storage
     if (localStorage.getItem("token")) {
       refreshToken();
     }
-  }, [localStorage.getItem("token")]);
+  }, []);
+
   useEffect(() => {
+    // if user is authorizaed get user data by Id
     if (loading == "access") {
       const token = auth.access_token;
       const userId = localStorage.getItem("user_id");
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
       axios
-        .get(`https://newMommy.mooo.com:3002/api/users/${userId}`, config)
+        .get(`${GetUserbyId}/users/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
         .then((response) => {
-          setUser(response.data);
+          setUser(response.data); //store data
         })
         .catch((error) => {
-          console.log(error);
+          //if ther's error navigate
           navigator("/");
           setLoading("access-err");
         });
     }
-  }, [loading, localStorage.getItem("token")]);
-
+  }, [loading]);
+//return loading page or content
   if (loading == "not-access") {
     return <Loading />;
   } else {
     return (
       <div className="App">
+        <Nav />
         <MainRouer />
       </div>
     );

@@ -3,47 +3,36 @@ import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
+import BabyAge from "../../../services/babyAge";
 
-const AddActivity = () => {
+const AddReminder = () => {
   const navigator = useNavigate();
+  console.log(BabyAge("", ""));
 
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
 
-  let currentDate: Date = new Date();
+  let currentDate = new Date();
   let dateFormat = currentDate.toJSON().slice(0, 10);
+
   let currentTime = currentDate.toJSON().slice(11, 16);
   const [time, settime] = useState<string>(currentTime);
-
-  const [activity, setactivity] = useState<string>("");
   const [note, setnote] = useState<string>("");
-  const [startDate, setstartDate] = useState<string>(dateFormat);
-  const [activityErrMsg, setactivityErrMsg] = useState<string>("");
+  const [reminderDate, setreminderDate] = useState<string>(dateFormat);
   const [noteErrMsg, setnoteErrMsg] = useState<string>("");
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
   var nameVal = new RegExp("^[A-Za-z]*$");
   /* Dr Name  */
-  const drNameVal = (e: any) => {
-    if (!nameVal.test(e.target.value)) {
-      setactivityErrMsg("invalid data");
-    } else {
-      setactivity(e.target.value);
-      setactivityErrMsg("");
-    }
-  };
-
   /* report Date  */
-  const startDateVal = (e: any) => {
-    setstartDate(e.target.value);
+  const reminderDateVal = (e: any) => {
+    setreminderDate(e.target.value);
   };
   /* report Time  */
-
   const startTimeVal = (e: any) => {
     settime(e.target.value);
   };
-
   /* note  */
   const noteVal = (e: any) => {
     if (!nameVal.test(e.target.value)) {
@@ -59,7 +48,7 @@ const AddActivity = () => {
   const submitVal = async () => {
     await axios({
       method: "post",
-      url: `https://13.51.206.195:3002/api/users/addActivity/${user.id}`,
+      //   url: `https://13.51.206.195:3002/api/users/addfood/${user.id}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
@@ -82,7 +71,7 @@ const AddActivity = () => {
   };
 
   return (
-    <div className="add-activity">
+    <div className="add-reminder">
       <div className="container">
         <div className="signup-block">
           {/*Date */}
@@ -90,15 +79,15 @@ const AddActivity = () => {
             <label htmlFor="Date"> Date</label>
             <input
               onChange={(e) => {
-                startDateVal(e);
+                reminderDateVal(e);
               }}
               type="date"
               className="the__input "
-              name="startDate"
+              name="reminderDate"
               id="Date"
               min="2018-12-31"
               max={dateFormat}
-              value={startDate}
+              value={reminderDate}
               required
             />
           </div>
@@ -111,27 +100,13 @@ const AddActivity = () => {
               }}
               type="time"
               className="the__input "
-              name="startDate"
+              name="reminderDate"
               id="Date"
               value={time}
               required
             />
           </div>
-          {/* Activity */}
-          <div className="input__field">
-            <label htmlFor="DrName"> Activity</label>
-            <input
-              onChange={(e) => {
-                drNameVal(e);
-              }}
-              type="text"
-              className="the__input "
-              placeholder="Activity"
-              name=" Activity"
-              id="Activity"
-            />
-            <p>{activityErrMsg}</p>
-          </div>
+
           {/* note */}
           <div className="input__field">
             <label htmlFor="note">Note</label>
@@ -152,7 +127,7 @@ const AddActivity = () => {
           {/* Submit */}
           <button
             onClick={() => {
-              if (noteErrMsg == "" && activityErrMsg == "") {
+              if (noteErrMsg == "") {
                 setSubmiterrMsg("");
                 submitVal();
               } else {
@@ -162,7 +137,7 @@ const AddActivity = () => {
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> Add Activity</span>
+            <span className="button__text"> Save </span>
           </button>
           {/*err msg */}
           <p>{SubmiterrMsg}</p>
@@ -184,4 +159,4 @@ const AddActivity = () => {
     </div>
   );
 };
-export default AddActivity;
+export default AddReminder;

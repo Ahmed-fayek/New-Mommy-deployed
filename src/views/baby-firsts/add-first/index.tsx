@@ -4,7 +4,7 @@ import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
 
-const AddActivity = () => {
+const AddFirist = () => {
   const navigator = useNavigate();
 
   const { auth } = useContext<any>(AuthContext);
@@ -12,36 +12,31 @@ const AddActivity = () => {
 
   let currentDate: Date = new Date();
   let dateFormat = currentDate.toJSON().slice(0, 10);
-  let currentTime = currentDate.toJSON().slice(11, 16);
-  const [time, settime] = useState<string>(currentTime);
-
-  const [activity, setactivity] = useState<string>("");
+  const [babyFirst, setbabyFirst] = useState<string>("");
   const [note, setnote] = useState<string>("");
-  const [startDate, setstartDate] = useState<string>(dateFormat);
-  const [activityErrMsg, setactivityErrMsg] = useState<string>("");
+  const [reportDate, setreportDate] = useState<string>(dateFormat);
+  const [babyFirstErrMsg, setbabyFirstErrMsg] = useState<string>("");
   const [noteErrMsg, setnoteErrMsg] = useState<string>("");
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
+  /* validate function */
+
   var nameVal = new RegExp("^[A-Za-z]*$");
+
   /* Dr Name  */
-  const drNameVal = (e: any) => {
+  const babyFirstVal = (e: any) => {
     if (!nameVal.test(e.target.value)) {
-      setactivityErrMsg("invalid data");
+      setbabyFirstErrMsg("invalid data");
     } else {
-      setactivity(e.target.value);
-      setactivityErrMsg("");
+      setbabyFirst(e.target.value);
+      setbabyFirstErrMsg("");
     }
   };
 
   /* report Date  */
-  const startDateVal = (e: any) => {
-    setstartDate(e.target.value);
-  };
-  /* report Time  */
-
-  const startTimeVal = (e: any) => {
-    settime(e.target.value);
+  const reportDateVal = (e: any) => {
+    setreportDate(e.target.value);
   };
 
   /* note  */
@@ -82,7 +77,7 @@ const AddActivity = () => {
   };
 
   return (
-    <div className="add-activity">
+    <div className="add-first">
       <div className="container">
         <div className="signup-block">
           {/*Date */}
@@ -90,57 +85,43 @@ const AddActivity = () => {
             <label htmlFor="Date"> Date</label>
             <input
               onChange={(e) => {
-                startDateVal(e);
+                reportDateVal(e);
               }}
               type="date"
               className="the__input "
-              name="startDate"
+              name="reportDate"
               id="Date"
               min="2018-12-31"
               max={dateFormat}
-              value={startDate}
+              value={reportDate}
               required
             />
           </div>
-          {/*time */}
+
+          {/* Baby first */}
           <div className="input__field">
-            <label htmlFor="Date"> Time</label>
+            <label htmlFor="babyfirst">Baby first</label>
             <input
               onChange={(e) => {
-                startTimeVal(e);
-              }}
-              type="time"
-              className="the__input "
-              name="startDate"
-              id="Date"
-              value={time}
-              required
-            />
-          </div>
-          {/* Activity */}
-          <div className="input__field">
-            <label htmlFor="DrName"> Activity</label>
-            <input
-              onChange={(e) => {
-                drNameVal(e);
+                babyFirstVal(e);
               }}
               type="text"
               className="the__input "
-              placeholder="Activity"
-              name=" Activity"
-              id="Activity"
+              placeholder="Baby first"
+              name=" babyfirst"
+              id="babyfirst"
             />
-            <p>{activityErrMsg}</p>
+            <p>{babyFirstErrMsg}</p>
           </div>
           {/* note */}
           <div className="input__field">
-            <label htmlFor="note">Note</label>
+            <label htmlFor="babyName">note</label>
             <input
               onChange={(e) => {
                 noteVal(e);
               }}
               id="babyName"
-              name="note"
+              name="noteVal"
               type="email"
               className=" the__input"
               placeholder="note"
@@ -152,7 +133,7 @@ const AddActivity = () => {
           {/* Submit */}
           <button
             onClick={() => {
-              if (noteErrMsg == "" && activityErrMsg == "") {
+              if (noteErrMsg == "" && babyFirstErrMsg == "") {
                 setSubmiterrMsg("");
                 submitVal();
               } else {
@@ -162,7 +143,7 @@ const AddActivity = () => {
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> Add Activity</span>
+            <span className="button__text">Save</span>
           </button>
           {/*err msg */}
           <p>{SubmiterrMsg}</p>
@@ -184,4 +165,4 @@ const AddActivity = () => {
     </div>
   );
 };
-export default AddActivity;
+export default AddFirist;

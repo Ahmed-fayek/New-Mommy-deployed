@@ -14,29 +14,29 @@ function Nav() {
   const [logState, setlogState] = useState("notLogged");
 
   let userNAme = "";
-  useEffect(() => {
-    if (user) {
-      userNAme = user.firstname;
-      setlogState("");
-    }
-  }, [logState]);
+  userNAme = user?.firstname;
 
+  useEffect(() => {
+    setlogState("");
+  }, [userNAme]);
+  // show icons or hide it
   document.getElementById("view-links")?.classList.toggle("show-links");
   document.getElementById("bars")?.classList.toggle("rotates");
   const toogleview = () => {
     document.getElementById("view-links")?.classList.toggle("show-links");
     document.getElementById("bars")?.classList.toggle("rotates");
   };
+  //logout function
   const logout = async () => {
     await axios({
       method: "POST",
-      //44
       url: "https://newMommy.mooo.com:3001/api/auth/logout",
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
     })
       .then((response) => {
+        //delete all data from context and localStorage
         setUser({});
         setAuth({});
         localStorage.removeItem("access_token");
@@ -53,7 +53,7 @@ function Nav() {
         <div className="navbar">
           <Notifications />
           <img src={logo}></img>
-          <span>Welcome Back! {userNAme}</span>
+          <span>Welcome Back! {user?.firstname}</span>
           <div className="links">
             <div
               className="bars rotates"

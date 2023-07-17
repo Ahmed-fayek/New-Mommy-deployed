@@ -1,0 +1,297 @@
+.add-growth {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.add-growth .container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    overflow: hidden;
+    background-color: #81ccab;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.add-growth .signup-block {
+    width: 450px;
+    height: 600px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url("./../../../assets/images/welcome-bg2.png");
+    background-repeat: repeat;
+    background-size: cover;
+    background-color: #d1d1d44a;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.add-growth .two-inputs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.two-inputs .the__input {
+    width: 60% !important;
+}
+
+.add-growth .pic__field {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        #d9d9d9;
+    background-image: url("./../../../assets/images/add-baby-pic.png");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.add-growth .pic__field .input__field {
+    border: none;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    cursor: pointer;
+}
+
+.add-growth .input__field {
+    position: relative;
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add-growth .input__field label {
+    position: absolute;
+    top: -30px;
+    left: 40px;
+}
+
+.add-growth .full-name {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.add-growth .input__field p {
+    text-align: right;
+    color: #f9f4ed;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    margin: 10px 20px 0 0;
+}
+
+.add-growth .links {
+    text-decoration: none;
+}
+
+.add-growth .the__input {
+    width: 70%;
+    border: none;
+    border: 2px solid #d1d1d4;
+    background: linear-gradient(0deg,
+            rgba(129, 204, 171, 0.1),
+            rgba(129, 204, 171, 0.1)),
+        radial-gradient(90.16% 143.01% at 15.32% 21.04%,
+            rgba(255, 255, 255, 0.8) 0%,
+            rgba(255, 255, 255, 0.8) 77.08%,
+            rgba(255, 255, 255, 0.8) 100%);
+    padding: 10px;
+    font-weight: 700;
+    transition: 0.2s;
+    border-radius: 8px;
+}
+
+.add-growth .the__input:active,
+.add-growth .the__input:focus,
+.add-growth .the__input:hover {
+    outline: none;
+    border-color: #5b927a;
+}
+
+.add-growth .addbaby__submit {
+    width: 317px;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid #f9f4ed;
+    border-radius: 15px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #10403b;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.add-growth .button__text {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0em;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+
+.add-growth .button__icon {
+    font-size: 24px;
+    margin-left: auto;
+    color: #7875b5;
+}
+
+.add-growth .reversed {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
+
+.add-growth .showw {
+    border-right: 90px solid #f9f4ed;
+    border-top: 1.7px solid transparent;
+    border-bottom: 1.7px solid transparent;
+    border-left: 10px solid transparent;
+    margin: 0 7px;
+}
+
+.add-growth .continue-with {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.add-growth .cont-with {
+    color: #f9f4ed;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    cursor: default;
+}
+
+.add-growth .signup-register {
+    color: #f9f4ed;
+    cursor: default;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.add-growth .fa-brands {
+    margin-right: 10px;
+}
+
+.add-growth .remove {
+    display: none;
+}
+
+.add-growth .remove-style {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    color: rgb(178, 0, 0) !important;
+}
+
+@media (max-width: 480px) {
+    .add-growth .signup-block {
+        width: 90%;
+        padding: 40px 0;
+        background-size: 400%;
+    }
+
+    .add-growth .input__field {
+        width: 100%;
+    }
+
+    .add-growth .the__input {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    .add-growth .addbaby__submit {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    .add-growth .button__text {
+        font-size: 18px;
+    }
+
+    .add-growth .two-inputs {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .two-inputs .input__field {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .two-inputs .input__field .the__input {
+        width: 90%;
+        flex-wrap: wrap;
+    }
+}
+
+/* Medium screens */
+@media (min-width: 481px) and (max-width: 768px) {
+    .add-growth .signup-block {
+        width: 80%;
+        background-size: 350%;
+    }
+
+    .add-growth .addbaby__submit {
+        width: 75%;
+        font-size: 18px;
+    }
+
+    .add-growth .button__text {
+        font-size: 20px;
+    }
+}

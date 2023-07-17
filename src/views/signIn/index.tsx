@@ -167,5 +167,3 @@ const SignIn = () => {
   );
 };
 export default SignIn;
-//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YWEwMjc0ZGE0MGQzY2I5NzkwMzg4YiIsImVtYWlsIjoibW9tQG1vbS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4ODkyNDk2NiwiZXhwIjoxNjg4OTI4NTY2fQ.GbYXuVztOaeaNvweJYuhNpNVeKCs6Mn0LPCy_vreG0c
-//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YWEwMjc0ZGE0MGQzY2I5NzkwMzg4YiIsImVtYWlsIjoibW9tQG1vbS5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4ODkyNTAzNiwiZXhwIjoxNjg5NTI5ODM2fQ.WlqrF4vVyzyjyhiUpGAcRPMZF2TZQalrF031286K9eU"

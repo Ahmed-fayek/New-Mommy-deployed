@@ -21,13 +21,13 @@ const Signup = () => {
 
   /*emil exist function */
 
-  var nameVal = new RegExp("[A-Za-z]");
+  var nameVal = new RegExp("^[A-Za-z]*$");
   var emailVal = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
 
   /* first name validation */
   const firstNameval = (e?: any) => {
     if (e.target.value == "") {
-      setfNameErrMSG("write first name");
+      setfNameErrMSG("");
     } else if (!nameVal.test(e.target.value)) {
       setfNameErrMSG("enter valid name");
     } else {
@@ -39,7 +39,7 @@ const Signup = () => {
   /* last name validation */
   const lastNameval = (e: any) => {
     if (e.target.value == "") {
-      setlNameErrMSG("write last name");
+      setlNameErrMSG("");
     } else if (!nameVal.test(e.target.value)) {
       setlNameErrMSG("enter valid name");
     } else {
@@ -48,7 +48,7 @@ const Signup = () => {
     }
   };
   /* email validation */
-  const UserNameVal = (e: any) => {
+  const userEmailVal = (e: any) => {
     if (e.target.value == "") {
       setemailErrMSG("write Email");
     } else if (!emailVal.test(e.target.value)) {
@@ -88,16 +88,19 @@ const Signup = () => {
         },
       })
         .then((res) => {
+          //restore all data stores
           setUser({});
           setAuth({});
+          //set new data to context
           setAuth(res.data);
+          //  add to localStorage
           const accessToken = res?.data?.access_token;
           const refreshToken = res?.data?.refresh_token;
           const userId = res?.data?.id;
           localStorage.setItem("access_token", accessToken);
           localStorage.setItem("token", refreshToken);
           localStorage.setItem("user_id", userId);
-          console.log(res);
+          // if email is already signed up once before
           if (res.data.message == "Email already exist") {
             setemailErrMSG("email-exist");
           } else {
@@ -122,6 +125,7 @@ const Signup = () => {
             </p>
           </div>
           <div className="full-name">
+            {/* First name input*/}
             <div className="signup__field">
               <input
                 onChange={(e) => {
@@ -136,6 +140,7 @@ const Signup = () => {
                 {fNameErrMSG}
               </p>
             </div>
+            {/* Last name input*/}
             <div className="signup__field">
               <input
                 onChange={(e) => {
@@ -151,10 +156,11 @@ const Signup = () => {
               </p>
             </div>
           </div>
+          {/* email  input*/}
           <div className="signup__field">
             <input
               onChange={(e) => {
-                UserNameVal(e);
+                userEmailVal(e);
               }}
               type="email"
               className=" signup__input"
@@ -165,6 +171,8 @@ const Signup = () => {
               {emailErrMSG}
             </p>
           </div>
+          {/* Password input*/}
+
           <div className="signup__field">
             <input
               onChange={(e) => {
@@ -189,6 +197,7 @@ const Signup = () => {
               }}
             ></i>
           </div>
+          {/* Submit*/}
           <button
             onClick={(e) => {
               submitVal(e);

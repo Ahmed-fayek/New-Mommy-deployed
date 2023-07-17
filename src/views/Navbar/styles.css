@@ -10,6 +10,7 @@
   padding: 0 40px;
   position: fixed;
   width: 100%;
+  z-index: 9999;
 }
 
 .navbar img {
