@@ -62,12 +62,12 @@ function RefreshToken() {
         })
         .catch((error) => {
           //if ther's error navigate
-          navigator("/");
           setLoading("access-err");
+          navigator("/");
         });
     }
   }, [loading]);
-//return loading page or content
+  //return loading page or content
   if (loading == "not-access") {
     return <Loading />;
   } else {

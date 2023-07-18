@@ -4,21 +4,25 @@ import Notifications from "../Notifications";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../conrext/AuthProvider";
 import axios from "../../api/axios";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 function Nav() {
-  const navigator = useNavigate();
   const { user } = useContext<any>(AuthContext);
+
   const { auth } = useContext<any>(AuthContext);
   const { setUser } = useContext<any>(AuthContext);
   const { setAuth } = useContext<any>(AuthContext);
   const [logState, setlogState] = useState("notLogged");
 
-  let userNAme = "";
-  userNAme = user?.firstname;
-
   useEffect(() => {
-    setlogState("");
-  }, [userNAme]);
+    if (localStorage.getItem("token")) {
+      setlogState("");
+      console.log("sss");
+    } else {
+      setlogState("notLogged");
+      console.log("nnn");
+    }
+  }, [user]);
+
   // show icons or hide it
   document.getElementById("view-links")?.classList.toggle("show-links");
   document.getElementById("bars")?.classList.toggle("rotates");
@@ -43,7 +47,6 @@ function Nav() {
         localStorage.removeItem("token");
         localStorage.removeItem("user_id");
         setlogState("notLogged");
-        navigator("/login");
       })
       .catch((error) => {});
   };

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../conrext/AuthProvider";
 import "./styles.css";
 import axios from "../../api/axios";
+import RefreshToken from "../../services/refreshToken";
 const LOGIN_URL = "auth/login";
 
 const SignIn = () => {
@@ -36,7 +37,6 @@ const SignIn = () => {
       });
       setUser({});
       setAuth({});
-      console.log(response);
       setAuth(response.data);
       const accessToken = response?.data?.access_token;
       const refreshToken = response?.data?.refresh_token;
@@ -47,7 +47,7 @@ const SignIn = () => {
       if (accessToken) {
         navigator("/main");
       }
-      return refreshToken();
+      return <RefreshToken />;
     } catch (err: any) {
       console.log(err);
       if (!err) {

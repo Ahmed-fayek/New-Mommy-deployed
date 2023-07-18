@@ -198,6 +198,8 @@ const AddBaby = () => {
           {/* Skip Button */}
           <button
             onClick={() => {
+              console.log("sss");
+
               navigator("/main");
             }}
             className="button addbaby__submit"
