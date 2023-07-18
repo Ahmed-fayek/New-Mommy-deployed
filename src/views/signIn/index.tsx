@@ -37,16 +37,16 @@ const SignIn = () => {
       });
       setUser({});
       setAuth({});
+
       setAuth(response.data);
+      setUser(response.data);
       const accessToken = response?.data?.access_token;
       const refreshToken = response?.data?.refresh_token;
       const userId = response?.data?.id;
       localStorage.setItem("access_token", accessToken);
       localStorage.setItem("token", refreshToken);
       localStorage.setItem("user_id", userId);
-      if (accessToken) {
-        navigator("/main");
-      }
+      navigator("/main");
       return <RefreshToken />;
     } catch (err: any) {
       console.log(err);

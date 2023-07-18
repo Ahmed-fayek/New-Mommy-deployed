@@ -10,7 +10,7 @@ const MainPage = () => {
     return (
       <div className="main-page">
         <div className="main-page-content">
-          {/* <h1>Hello {userName}</h1> */}
+          <h1>Hello {userName}</h1>
         </div>
       </div>
     );

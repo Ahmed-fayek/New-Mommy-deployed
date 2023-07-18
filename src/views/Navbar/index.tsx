@@ -16,10 +16,8 @@ function Nav() {
   useEffect(() => {
     if (localStorage.getItem("token")) {
       setlogState("");
-      console.log("sss");
     } else {
       setlogState("notLogged");
-      console.log("nnn");
     }
   }, [user]);
 
@@ -56,7 +54,7 @@ function Nav() {
         <div className="navbar">
           <Notifications />
           <img src={logo}></img>
-          <span>Welcome Back! {user?.firstname}</span>
+          <span>Welcome Back! {user ? user?.firstname : ""}</span>
           <div className="links">
             <div
               className="bars rotates"
