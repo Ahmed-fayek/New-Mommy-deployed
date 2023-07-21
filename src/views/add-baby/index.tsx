@@ -34,11 +34,11 @@ const AddBaby = () => {
   const babyNameval = (e: any) => {
     if (!nameVal.test(e.target.value)) {
       setbabyNameErrMsg("name must be only letters");
-      setbabyName(e.target.value);
     } else if (e.target.value == "") {
       setbabyNameErrMsg("");
     } else {
       setbabyNameErrMsg("");
+      setbabyName(e.target.value);
     }
   };
 
@@ -68,6 +68,12 @@ const AddBaby = () => {
 
   /* submit  */
   const submitVal = async () => {
+    console.log(file);
+    console.log(babyName);
+    console.log(babyGender);
+    console.log(`${babyWeight}`);
+    console.log(birthday);
+
     //append all data to form data
     formData.append("images", file);
     formData.append("babyName", babyName);
@@ -85,6 +91,8 @@ const AddBaby = () => {
       data: formData,
     })
       .then((res) => {
+        console.log(res);
+
         setSuccessMessageVisible("successful added baby "); // Show success message
 
         // Redirect to main page after 3 seconds

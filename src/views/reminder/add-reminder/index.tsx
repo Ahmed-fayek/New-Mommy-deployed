@@ -3,18 +3,12 @@ import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
-import BabyAge from "../../../services/babyAge";
-
 const AddReminder = () => {
   const navigator = useNavigate();
-  console.log(BabyAge("", ""));
-
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
-
   let currentDate = new Date();
   let dateFormat = currentDate.toJSON().slice(0, 10);
-
   let currentTime = currentDate.toJSON().slice(11, 16);
   const [time, settime] = useState<string>(currentTime);
   const [note, setnote] = useState<string>("");
@@ -48,12 +42,16 @@ const AddReminder = () => {
   const submitVal = async () => {
     await axios({
       method: "post",
-      //   url: `https://13.51.206.195:3002/api/users/addfood/${user.id}`,
+      url: `https://13.51.206.195:3002/api/users/addReminder/${user.id}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
 
-      data: {},
+      data: {
+        date: reminderDate,
+        time: time,
+        note: note,
+      },
     })
       .then((res) => {
         console.log(res);

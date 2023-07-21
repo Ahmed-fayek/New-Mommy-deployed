@@ -54,12 +54,16 @@ const AddFirist = () => {
   const submitVal = async () => {
     await axios({
       method: "post",
-      url: `https://13.51.206.195:3002/api/users/addActivity/${user.id}`,
+      url: `https://13.51.206.195:3002/api/users/addFirst/${user.id}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
 
-      data: {},
+      data: {
+        date: reportDate,
+        babyFirst: babyFirst,
+        note: note,
+      },
     })
       .then((res) => {
         console.log(res);

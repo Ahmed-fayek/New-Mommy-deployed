@@ -37,19 +37,22 @@ const SignIn = () => {
       });
       setUser({});
       setAuth({});
-
+      console.log(response);
       setAuth(response.data);
       setUser(response.data);
       const accessToken = response?.data?.access_token;
       const refreshToken = response?.data?.refresh_token;
       const userId = response?.data?.id;
+      console.log(accessToken);
+      console.log(refreshToken);
+      console.log(userId);
+
       localStorage.setItem("access_token", accessToken);
       localStorage.setItem("token", refreshToken);
       localStorage.setItem("user_id", userId);
       navigator("/main");
       return <RefreshToken />;
     } catch (err: any) {
-      console.log(err);
       if (!err) {
         setErrMsg("No server response");
       } else if (err.response && err.response.status) {

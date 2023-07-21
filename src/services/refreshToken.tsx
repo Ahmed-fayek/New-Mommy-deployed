@@ -10,6 +10,7 @@ function RefreshToken() {
   const navigator = useNavigate();
   const [loading, setLoading] = useState("");
   const { auth } = useContext<any>(AuthContext);
+  const { user } = useContext<any>(AuthContext);
   const { setAuth } = useContext<any>(AuthContext);
   const { setUser } = useContext<any>(AuthContext);
   //if user in not logged in we navigate him to log in
@@ -34,6 +35,10 @@ function RefreshToken() {
           )
           .then((res) => {
             setAuth(res.data); //send data to context api
+            const accessToken = res?.data?.access_token;
+            const refreshToken = res?.data?.refresh_token;
+            localStorage.setItem("access_token", accessToken);
+            localStorage.setItem("token", refreshToken);
             setLoading("access");
           });
       } catch (error) {
@@ -47,12 +52,10 @@ function RefreshToken() {
   }, []);
 
   useEffect(() => {
-    // if user is authorizaed get user data by Id
-    if (loading == "access") {
+    const getUserData = async () => {
       const token = auth.access_token;
-      const userId = localStorage.getItem("user_id");
-      axios
-        .get(`${GetUserbyId}/users/${userId}`, {
+      const response = await axios
+        .get(`${GetUserbyId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -65,6 +68,10 @@ function RefreshToken() {
           setLoading("access-err");
           navigator("/");
         });
+    };
+    // if user is authorizaed get user data by Id
+    if (loading == "access") {
+      getUserData();
     }
   }, [loading]);
   //return loading page or content

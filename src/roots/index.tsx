@@ -18,6 +18,7 @@ import AddFood from "../views/Feeding/add-food";
 import AddGrowth from "../views/growth/addgrowth";
 import AddFirist from "../views/baby-firsts/add-first";
 import AddReminder from "../views/reminder/add-reminder";
+import AddMedicalDocs from "../views/medicals/add-medical-docs";
 
 const MainRouer = () => {
   return (
@@ -36,6 +37,7 @@ const MainRouer = () => {
         <Route path="/resetEmail" element={<ResetEmail />}></Route>
         <Route path="/emailcodeConfirm" element={<CodeConfirm />}></Route>
         <Route path="/addMedical" element={<AddMedical />}></Route>
+        <Route path="/addMedicalDocs" element={<AddMedicalDocs />}></Route>
         <Route path="/medicalhistory" element={<MedicalHistory />}></Route>
         <Route path="/addactivity" element={<AddActivity />}></Route>
         <Route path="/addfood" element={<AddFood />}></Route>

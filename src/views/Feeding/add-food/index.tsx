@@ -56,12 +56,17 @@ const AddFood = () => {
   const submitVal = async () => {
     await axios({
       method: "post",
-      //   url: `https://13.51.206.195:3002/api/users/addfood/${user.id}`,
+      url: `https://13.51.206.195:3002/api/users/addfood/${user.id}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
 
-      data: {},
+      data: {
+        date: startDate,
+        food: food,
+        time: time,
+        note: note,
+      },
     })
       .then((res) => {
         console.log(res);

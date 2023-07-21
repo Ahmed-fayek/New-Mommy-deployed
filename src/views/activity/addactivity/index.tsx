@@ -57,6 +57,13 @@ const AddActivity = () => {
   /* submit  */
 
   const submitVal = async () => {
+    console.log(
+      " date " + startDate,
+      " activity " + activity,
+      " time " + time,
+      " note " + note
+    );
+
     await axios({
       method: "post",
       url: `https://13.51.206.195:3002/api/users/addActivity/${user.id}`,
@@ -64,7 +71,12 @@ const AddActivity = () => {
         Authorization: `Bearer ${auth.access_token}`,
       },
 
-      data: {},
+      data: {
+        date: startDate,
+        activity: activity,
+        time: time,
+        note: note,
+      },
     })
       .then((res) => {
         console.log(res);

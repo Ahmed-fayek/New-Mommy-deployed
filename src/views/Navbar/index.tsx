@@ -68,21 +68,21 @@ function Nav() {
             </div>
             <ul id="view-links" className="show-links">
               <li>
-                <Link to={"/main"}>personal page</Link>{" "}
+                <Link to={"/main"}>Home</Link>
               </li>
               <li>
                 <Link to={"/main"}>Home</Link>
               </li>
 
               <li>
-                <Link to={"/main"}>categories</Link>{" "}
+                <Link to={"/main"}>Home</Link>
               </li>
 
               <li>
-                <Link to={"/main"}>Home</Link>{" "}
+                <Link to={"/main"}>Home</Link>
               </li>
               <li>
-                <Link to={"/main"}>Home</Link>{" "}
+                <Link to={"/main"}>Home</Link>
               </li>
               <li>
                 <span

@@ -26,12 +26,7 @@ const AddGrowth = () => {
 
   /* Weight  */
   const WeightVal = (e: any) => {
-    if (!nameVal.test(e.target.value)) {
-      setweightErrMsg("invalid data");
-    } else {
-      setweight(+e.target.value);
-      setweightErrMsg("");
-    }
+    setweight(+e.target.value);
   };
 
   /* report Date  */
@@ -41,12 +36,7 @@ const AddGrowth = () => {
 
   /* height  */
   const heightVal = (e: any) => {
-    if (!nameVal.test(e.target.value)) {
-      setheightErrMsg("invalid data");
-    } else {
-      setheight(+e.target.value);
-      setheightErrMsg("");
-    }
+    setheight(+e.target.value);
   };
 
   /* submit  */
@@ -54,12 +44,16 @@ const AddGrowth = () => {
   const submitVal = async () => {
     await axios({
       method: "post",
-      url: `https://13.51.206.195:3002/api/users/addActivity/${user.id}`,
+      url: `https://13.51.206.195:3002/api/users/addGrowthMilestone/${user.id}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
 
-      data: {},
+      data: {
+        date: reportDate,
+        height: height,
+        weight: weight,
+      },
     })
       .then((res) => {
         console.log(res);

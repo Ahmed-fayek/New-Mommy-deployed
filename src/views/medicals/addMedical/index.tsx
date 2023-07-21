@@ -3,13 +3,12 @@ import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
+import BabyAge from "../../../services/babyAge";
 
 const AddMedical = () => {
   const navigator = useNavigate();
-
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
-
   let currentDate: Date = new Date();
   let dateFormat = currentDate.toJSON().slice(0, 10);
   const [doctorName, setdoctorName] = useState<string>("");
@@ -50,30 +49,52 @@ const AddMedical = () => {
   };
 
   /* submit  */
-
   const submitVal = async () => {
-    await axios({
-      method: "post",
-      url: `https://13.51.206.195:3002/api/users/addActivity/${user.id}`,
+    console.log(user);
+
+    const data = {
+      date: reportDate,
+      doctorName: doctorName,
+      diagnosis: diagnosis,
+    };
+
+    const config = {
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
+    };
 
-      data: {},
-    })
-      .then((res) => {
-        console.log(res);
-
-        setSuccessMessageVisible("successful added "); // Show success message
-
-        // Redirect to main page after 3 seconds
-        setTimeout(() => {
-          navigator("/main");
-        }, 3000);
+    const response = await axios
+      .post(
+        `https://newMommy.mooo.com:3002/api/users/addMedicalRecord/${user.id}`,
+        data,
+        config
+      )
+      .then((response) => {
+        console.log(response.data);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error);
       });
+    // await axios({
+    //   method: "post",
+    //   url: `https://newMommy.mooo.com:3002/api/users/addMedicalRecord/${user.id}`,
+    //   headers: {
+    //     Authorization: `Bearer ${auth.access_token}`,
+    //   },
+    //   data: { date: reportDate, doctorName: doctorName, diagnosis: diagnosis },
+    // })
+    //   .then((res) => {
+    //     console.log(res);
+    //     setSuccessMessageVisible("successful added "); // Show success message
+    //     // Redirect to main page after 3 seconds
+    //     setTimeout(() => {
+    //       navigator("/main");
+    //     }, 3000);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
   return (
@@ -129,7 +150,6 @@ const AddMedical = () => {
             />
             <p>{diagnosisErrMsg}</p>
           </div>
-          <div></div>
           {/* Submit */}
           <button
             onClick={() => {
