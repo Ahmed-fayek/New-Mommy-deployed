@@ -4,6 +4,7 @@ import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
 import BabyAge from "../../../services/babyAge";
+import { AddNewCategory } from "../../../api";
 
 const AddMedical = () => {
   const navigator = useNavigate();
@@ -66,7 +67,7 @@ const AddMedical = () => {
 
     const response = await axios
       .post(
-        `https://newMommy.mooo.com:3002/api/users/addMedicalRecord/${user.id}`,
+        `${AddNewCategory}/addMedicalRecord/${user.baby[0].id}`,
         data,
         config
       )

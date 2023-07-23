@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
+import { AddNewCategory } from "../../../api";
 
 const AddGrowth = () => {
   const navigator = useNavigate();
@@ -44,15 +45,15 @@ const AddGrowth = () => {
   const submitVal = async () => {
     await axios({
       method: "post",
-      url: `https://13.51.206.195:3002/api/users/addGrowthMilestone/${user.id}`,
+      url: `${AddNewCategory}/addGrowthMilestone/${user.baby[0].id}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
 
       data: {
         date: reportDate,
-        height: height,
-        weight: weight,
+        height: `${height}`,
+        weight: `${weight}`,
       },
     })
       .then((res) => {

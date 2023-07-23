@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
+import { AddNewCategory } from "../../../api";
+import TimeConverter from "../../../services/timeconverter";
 const AddReminder = () => {
   const navigator = useNavigate();
   const { auth } = useContext<any>(AuthContext);
@@ -26,6 +28,7 @@ const AddReminder = () => {
   /* report Time  */
   const startTimeVal = (e: any) => {
     settime(e.target.value);
+    console.log(e.target.value);
   };
   /* note  */
   const noteVal = (e: any) => {
@@ -40,27 +43,26 @@ const AddReminder = () => {
   /* submit  */
 
   const submitVal = async () => {
+    let mytime = TimeConverter(time);
+
     await axios({
       method: "post",
-      url: `https://13.51.206.195:3002/api/users/addReminder/${user.id}`,
+      url: `${AddNewCategory}/addReminder/${user.baby[0].id}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
-
       data: {
         date: reminderDate,
-        time: time,
+        time: mytime,
         note: note,
       },
     })
       .then((res) => {
         console.log(res);
-
         setSuccessMessageVisible("successful added "); // Show success message
-
         // Redirect to main page after 3 seconds
         setTimeout(() => {
-          navigator("/main");
+          // navigator("/main");
         }, 3000);
       })
       .catch((err) => {

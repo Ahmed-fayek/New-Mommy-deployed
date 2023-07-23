@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
+import { AddNewCategory } from "../../../api";
+import TimeConverter from "../../../services/timeconverter";
 
 const AddFood = () => {
   const navigator = useNavigate();
@@ -54,9 +56,10 @@ const AddFood = () => {
   /* submit  */
 
   const submitVal = async () => {
+    let mytime = TimeConverter(time);
     await axios({
       method: "post",
-      url: `https://13.51.206.195:3002/api/users/addfood/${user.id}`,
+      url: `${AddNewCategory}/addMeal/${user.baby[0].id}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
@@ -64,7 +67,7 @@ const AddFood = () => {
       data: {
         date: startDate,
         food: food,
-        time: time,
+        time: mytime,
         note: note,
       },
     })

@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
+import { AddNewCategory } from "../../../api";
 
 const AddMedicalDocs = () => {
   const navigator = useNavigate();
   const { auth } = useContext<any>(AuthContext);
+  const { user } = useContext<any>(AuthContext);
   const [file, setfile] = useState<string>("");
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
   const [successMessageVisible, setSuccessMessageVisible] =
@@ -27,7 +29,7 @@ const AddMedicalDocs = () => {
 
     await axios({
       method: "post",
-      url: `https://newMommy.mooo.com:3002/api/users/addMedicalDocument/${auth.access_token}`,
+      url: `${AddNewCategory}/addMedicalDocument/${user.baby[0].id}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
+import { AddNewCategory } from "../../../api";
 
 const AddFirist = () => {
   const navigator = useNavigate();
@@ -54,7 +55,7 @@ const AddFirist = () => {
   const submitVal = async () => {
     await axios({
       method: "post",
-      url: `https://13.51.206.195:3002/api/users/addFirst/${user.id}`,
+      url: `${AddNewCategory}/addFirst/${user.baby[0].id}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },

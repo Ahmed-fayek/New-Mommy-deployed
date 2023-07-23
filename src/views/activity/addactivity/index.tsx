@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
+import { AddNewCategory } from "../../../api";
+import TimeConverter from "../../../services/timeconverter";
 
 const AddActivity = () => {
   const navigator = useNavigate();
@@ -43,7 +45,6 @@ const AddActivity = () => {
   const startTimeVal = (e: any) => {
     settime(e.target.value);
   };
-
   /* note  */
   const noteVal = (e: any) => {
     if (!nameVal.test(e.target.value)) {
@@ -57,16 +58,18 @@ const AddActivity = () => {
   /* submit  */
 
   const submitVal = async () => {
+    console.log(TimeConverter(time));
+
     console.log(
       " date " + startDate,
       " activity " + activity,
-      " time " + time,
+      " time " + TimeConverter(time),
       " note " + note
     );
-
+    let mytime = TimeConverter(time);
     await axios({
       method: "post",
-      url: `https://13.51.206.195:3002/api/users/addActivity/${user.id}`,
+      url: `${AddNewCategory}/addActivity/${user.baby[0].id}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
@@ -74,7 +77,7 @@ const AddActivity = () => {
       data: {
         date: startDate,
         activity: activity,
-        time: time,
+        time: mytime,
         note: note,
       },
     })

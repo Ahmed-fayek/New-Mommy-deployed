@@ -19,6 +19,11 @@ import AddGrowth from "../views/growth/addgrowth";
 import AddFirist from "../views/baby-firsts/add-first";
 import AddReminder from "../views/reminder/add-reminder";
 import AddMedicalDocs from "../views/medicals/add-medical-docs";
+import Reminder from "../views/reminder";
+import Activity from "../views/activity/allactivities";
+import BabyFirsts from "../views/baby-firsts";
+import Feeding from "../views/Feeding";
+import Growth from "../views/growth";
 
 const MainRouer = () => {
   return (
@@ -36,12 +41,17 @@ const MainRouer = () => {
         <Route path="/loading" element={<Loading />}></Route>
         <Route path="/resetEmail" element={<ResetEmail />}></Route>
         <Route path="/emailcodeConfirm" element={<CodeConfirm />}></Route>
+        <Route path="/reminder" element={<Reminder />}></Route>
         <Route path="/addMedical" element={<AddMedical />}></Route>
         <Route path="/addMedicalDocs" element={<AddMedicalDocs />}></Route>
         <Route path="/medicalhistory" element={<MedicalHistory />}></Route>
+        <Route path="/activity" element={<Activity />}></Route>
         <Route path="/addactivity" element={<AddActivity />}></Route>
+        <Route path="/feeding" element={<Feeding />}></Route>
         <Route path="/addfood" element={<AddFood />}></Route>
+        <Route path="/growth" element={<Growth />}></Route>
         <Route path="/addgrowth" element={<AddGrowth />}></Route>
+        <Route path="/babyFirsts" element={<BabyFirsts />}></Route>
         <Route path="/addFirist" element={<AddFirist />}></Route>
         <Route path="/addReminder" element={<AddReminder />}></Route>
       </Routes>
