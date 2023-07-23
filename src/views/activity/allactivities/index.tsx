@@ -7,7 +7,7 @@ import Loading from "../../../components/Loading";
 function Activity() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
-  const [reminders, setreminders] = useState([]);
+  const [activitys, setactivitys] = useState([]);
 
   useEffect(() => {
     if (user) {
@@ -20,7 +20,7 @@ function Activity() {
       };
       axios(config)
         .then((response) => {
-          setreminders(response.data.activities);
+          setactivitys(response.data.activities);
         })
         .catch((error) => {
           console.log(error);
@@ -30,16 +30,16 @@ function Activity() {
 
   let returned: any;
   if (user) {
-    returned = reminders.map((reminder: any) => {
-      console.log(reminder);
+    returned = activitys.map((activity: any) => {
+      console.log(activity);
 
       return (
-        <div className="reminder" key={reminder.id}>
-          <div>{reminder.id} </div>
-          <div> {reminder.age}</div>
-          <div>{reminder.date} </div>
-          <div> {reminder.diagnosis}</div>
-          <div> {reminder.doctorName}</div>
+        <div className="reminder" key={activity.id}>
+          <div>{activity.id} </div>
+          <div> {activity.activity}</div>
+          <div>{activity.date} </div>
+          <div> {activity.note}</div>
+          <div> {activity.time}</div>
         </div>
       );
     });

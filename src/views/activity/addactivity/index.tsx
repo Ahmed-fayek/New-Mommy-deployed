@@ -58,15 +58,9 @@ const AddActivity = () => {
   /* submit  */
 
   const submitVal = async () => {
-    console.log(TimeConverter(time));
-
-    console.log(
-      " date " + startDate,
-      " activity " + activity,
-      " time " + TimeConverter(time),
-      " note " + note
-    );
     let mytime = TimeConverter(time);
+    console.log(mytime);
+
     await axios({
       method: "post",
       url: `${AddNewCategory}/addActivity/${user.baby[0].id}`,

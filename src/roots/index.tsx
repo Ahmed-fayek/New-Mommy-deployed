@@ -24,6 +24,7 @@ import Activity from "../views/activity/allactivities";
 import BabyFirsts from "../views/baby-firsts";
 import Feeding from "../views/Feeding";
 import Growth from "../views/growth";
+import DeleteAccount from "../views/delete";
 
 const MainRouer = () => {
   return (
@@ -54,6 +55,7 @@ const MainRouer = () => {
         <Route path="/babyFirsts" element={<BabyFirsts />}></Route>
         <Route path="/addFirist" element={<AddFirist />}></Route>
         <Route path="/addReminder" element={<AddReminder />}></Route>
+        <Route path="/DeleteAccount" element={<DeleteAccount />}></Route>
       </Routes>
     </>
   );

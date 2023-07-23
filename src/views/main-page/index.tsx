@@ -42,7 +42,7 @@ const MainPage = () => {
           <br></br>
           <Link to={"/reminder"}>reminder</Link> <br></br>
           <br></br>
-          <Link to={"/"}></Link> <br></br>
+          <Link to={"/DeleteAccount"}>DeleteAccount</Link> <br></br>
           <br></br>
         </div>
       </div>
