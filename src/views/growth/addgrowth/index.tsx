@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
@@ -21,8 +21,42 @@ const AddGrowth = () => {
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
-  /* validate function */
 
+  /* Update value tells me if this is adding or update */
+  const { growthId } = useParams();
+  const [Update, setUpdate] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (growthId) {
+      setUpdate(true);
+    } else {
+      setUpdate(false);
+    }
+  }, [growthId]);
+
+  useEffect(() => {
+    if (Update) {
+      if (user) {
+        axios({
+          method: "GET",
+          url: `${AddNewCategory}/growthMilestoneById/${user.baby[0].id}/${growthId}`,
+          headers: {
+            Authorization: `Bearer ${auth.access_token}`,
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            console.log(response);
+            setweight(response.data.growthMilestone.weight);
+            setheight(response.data.growthMilestone.height);
+            setreportDate(response.data.growthMilestone.date);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    }
+  }, [Update, user]);
   var nameVal = new RegExp("^[A-Za-z]*$");
 
   /* Weight  */
@@ -43,32 +77,61 @@ const AddGrowth = () => {
   /* submit  */
 
   const submitVal = async () => {
-    await axios({
-      method: "post",
-      url: `${AddNewCategory}/addGrowthMilestone/${user.baby[0].id}`,
-      headers: {
-        Authorization: `Bearer ${auth.access_token}`,
-      },
+    if (!Update) {
+      await axios({
+        method: "post",
+        url: `${AddNewCategory}/addGrowthMilestone/${user.baby[0].id}`,
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
 
-      data: {
-        date: reportDate,
-        height: `${height}`,
-        weight: `${weight}`,
-      },
-    })
-      .then((res) => {
-        console.log(res);
-
-        setSuccessMessageVisible("successful added "); // Show success message
-
-        // Redirect to main page after 3 seconds
-        setTimeout(() => {
-          navigator("/main");
-        }, 3000);
+        data: {
+          date: reportDate,
+          height: `${height}`,
+          weight: `${weight}`,
+        },
       })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => {
+          console.log(res);
+
+          setSuccessMessageVisible("successful added "); // Show success message
+
+          // Redirect to main page after 3 seconds
+          setTimeout(() => {
+            navigator("/main");
+          }, 3000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      await axios({
+        method: "PATCH",
+        url: `${AddNewCategory}/updateGrowthMilestone/${growthId}`,
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
+
+        data: {
+          date: reportDate,
+          height: `${height}`,
+          weight: `${weight}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+
+          setSuccessMessageVisible("successful added "); // Show success message
+
+          // Redirect to main page after 3 seconds
+          setTimeout(() => {
+            navigator("/main");
+          }, 3000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
@@ -105,6 +168,7 @@ const AddGrowth = () => {
               placeholder="Weight"
               name=" weight"
               id="weight"
+              value={weight}
             />
             <p>{weightErrMsg}</p>
           </div>
@@ -120,6 +184,7 @@ const AddGrowth = () => {
               type="number"
               className=" the__input"
               placeholder="height"
+              value={height}
               required
             />
             <p>{heightErrMsg}</p>

@@ -4,23 +4,26 @@ import { useContext, useEffect, useState } from "react";
 import "./styles.css";
 import AuthContext from "../../../conrext/AuthProvider";
 import Loading from "../../../components/Loading";
+import { Link } from "react-router-dom";
+import RefreshToken from "../../../services/refreshToken";
+import { AddNewCategory } from "../../../api";
 function Activity() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
-  const [reminders, setreminders] = useState([]);
+  const [activitys, setactivitys] = useState([]);
 
   useEffect(() => {
     if (user) {
       const config = {
         method: "get",
-        url: `https://newMommy.mooo.com:3002/api/users/activities/${user.baby[0].id}`,
+        url: `${AddNewCategory}/activities/${user.baby[0].id}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
       };
       axios(config)
         .then((response) => {
-          setreminders(response.data.activities);
+          setactivitys(response.data.activities);
         })
         .catch((error) => {
           console.log(error);
@@ -30,16 +33,16 @@ function Activity() {
 
   let returned: any;
   if (user) {
-    returned = reminders.map((reminder: any) => {
-      console.log(reminder);
-
+    returned = activitys.map((activity: any) => {
       return (
-        <div className="reminder" key={reminder.id}>
-          <div>{reminder.id} </div>
-          <div> {reminder.age}</div>
-          <div>{reminder.date} </div>
-          <div> {reminder.diagnosis}</div>
-          <div> {reminder.doctorName}</div>
+        <div style={{ margin: "50px" }} className="reminder" key={activity.id}>
+          <h1>ssss</h1>
+          <div>{activity.id} </div>
+          <div> {activity.activity}</div>
+          <div>{activity.date} </div>
+          <div> {activity.note}</div>
+          <div> {activity.time}</div>
+          <Link to={`/addactivity/${activity.id}`}>update</Link>
         </div>
       );
     });

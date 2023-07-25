@@ -1,11 +1,10 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
 import { AddNewCategory } from "../../../api";
 import TimeConverter from "../../../services/timeconverter";
-
 const AddActivity = () => {
   const navigator = useNavigate();
 
@@ -25,6 +24,41 @@ const AddActivity = () => {
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
+  /* Update value tells me if this is adding or update */
+  const { actId } = useParams();
+  const [Update, setUpdate] = useState<boolean>(false);
+  useEffect(() => {
+    if (actId) {
+      setUpdate(true);
+    } else {
+      setUpdate(false);
+    }
+  }, [actId]);
+
+  useEffect(() => {
+    if (Update) {
+      if (user) {
+        axios({
+          method: "GET",
+          url: `${AddNewCategory}/activityById/${user.baby[0].id}/${actId}`,
+          headers: {
+            Authorization: `Bearer ${auth.access_token}`,
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            console.log(response);
+            setactivity(response.data.activity.activity);
+            setstartDate(response.data.activity.date);
+            settime(response.data.activity.time.slice(0, 5));
+            setnote(response.data.activity.note);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    }
+  }, [Update, user]);
   var nameVal = new RegExp("^[A-Za-z]*$");
   /* Dr Name  */
   const drNameVal = (e: any) => {
@@ -58,42 +92,66 @@ const AddActivity = () => {
   /* submit  */
 
   const submitVal = async () => {
-    console.log(TimeConverter(time));
-
-    console.log(
-      " date " + startDate,
-      " activity " + activity,
-      " time " + TimeConverter(time),
-      " note " + note
-    );
     let mytime = TimeConverter(time);
-    await axios({
-      method: "post",
-      url: `${AddNewCategory}/addActivity/${user.baby[0].id}`,
-      headers: {
-        Authorization: `Bearer ${auth.access_token}`,
-      },
+    console.log(mytime);
 
-      data: {
-        date: startDate,
-        activity: activity,
-        time: mytime,
-        note: note,
-      },
-    })
-      .then((res) => {
-        console.log(res);
+    if (!Update) {
+      await axios({
+        method: "post",
+        url: `${AddNewCategory}/addActivity/${user.baby[0].id}`,
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
 
-        setSuccessMessageVisible("successful added "); // Show success message
-
-        // Redirect to main page after 3 seconds
-        setTimeout(() => {
-          navigator("/main");
-        }, 3000);
+        data: {
+          date: startDate,
+          activity: activity,
+          time: mytime,
+          note: note,
+        },
       })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => {
+          console.log(res);
+
+          setSuccessMessageVisible("successful added "); // Show success message
+
+          // Redirect to main page after 3 seconds
+          setTimeout(() => {
+            navigator("/main");
+          }, 3000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      await axios({
+        method: "PATCH",
+        url: `${AddNewCategory}/updateActivity/${actId}`,
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
+
+        data: {
+          date: startDate,
+          activity: activity,
+          time: mytime,
+          note: note,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+
+          setSuccessMessageVisible("successful added "); // Show success message
+
+          // Redirect to main page after 3 seconds
+          setTimeout(() => {
+            navigator("/main");
+          }, 3000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
@@ -143,6 +201,7 @@ const AddActivity = () => {
               className="the__input "
               placeholder="Activity"
               name=" Activity"
+              value={activity}
               id="Activity"
             />
             <p>{activityErrMsg}</p>
@@ -159,6 +218,7 @@ const AddActivity = () => {
               type="email"
               className=" the__input"
               placeholder="note"
+              value={note}
               required
             />
             <p>{noteErrMsg}</p>

@@ -20,34 +20,34 @@ function RefreshToken() {
     }
   }, [loading]); //loading value changes when we check if user logged in or not
   //Refresh Token function
+  const RefreshTokenAgain = async () => {
+    try {
+      const response = await axios
+        .post(
+          RefreshTokenapi,
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        )
+        .then((res) => {
+          setAuth(res.data); //send data to context api
+          const accessToken = res?.data?.access_token;
+          const refreshToken = res?.data?.refresh_token;
+          localStorage.setItem("access_token", accessToken);
+          localStorage.setItem("token", refreshToken);
+          setLoading("access");
+        });
+    } catch (error) {
+      setLoading("access-err"); //send user to log in page
+    }
+  };
   useEffect(() => {
-    const refreshToken = async () => {
-      try {
-        const response = await axios
-          .post(
-            RefreshTokenapi,
-            {},
-            {
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-              },
-            }
-          )
-          .then((res) => {
-            setAuth(res.data); //send data to context api
-            const accessToken = res?.data?.access_token;
-            const refreshToken = res?.data?.refresh_token;
-            localStorage.setItem("access_token", accessToken);
-            localStorage.setItem("token", refreshToken);
-            setLoading("access");
-          });
-      } catch (error) {
-        setLoading("access-err"); //send user to log in page
-      }
-    };
     //if user loggen in once before so token must be stored in local storage
     if (localStorage.getItem("token")) {
-      refreshToken();
+      RefreshTokenAgain();
     }
   }, []);
 

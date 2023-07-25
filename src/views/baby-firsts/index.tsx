@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../conrext/AuthProvider";
 import Loading from "../../components/Loading";
 import "./styles.css";
+import { Link } from "react-router-dom";
 function BabyFirsts() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
@@ -19,8 +20,7 @@ function BabyFirsts() {
       };
       axios(config)
         .then((response) => {
-          console.log(response.data.firsts);
-
+          console.log(response);
           setreminders(response.data.firsts);
         })
         .catch((error) => {
@@ -33,14 +33,13 @@ function BabyFirsts() {
   if (user) {
     returned = reminders.map((reminder: any) => {
       console.log(reminder);
-
       return (
         <div className="reminder" key={reminder.id}>
           <div>{reminder.id} </div>
-          <div> {reminder.age}</div>
+          <div> {reminder.babyFirst}</div>
           <div>{reminder.date} </div>
-          <div> {reminder.diagnosis}</div>
-          <div> {reminder.doctorName}</div>
+
+          <Link to={`/addFirist/${reminder.id}`}>update</Link>
         </div>
       );
     });

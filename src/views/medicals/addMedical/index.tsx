@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
@@ -20,8 +20,42 @@ const AddMedical = () => {
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
-  /* validate function */
 
+  /* Update value tells me if this is adding or update */
+  const { meddicalId } = useParams();
+  const [Update, setUpdate] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (meddicalId) {
+      setUpdate(true);
+    } else {
+      setUpdate(false);
+    }
+  }, [meddicalId]);
+
+  useEffect(() => {
+    if (Update) {
+      if (user) {
+        axios({
+          method: "GET",
+          url: `${AddNewCategory}/medicalRecord/${meddicalId}`,
+          headers: {
+            Authorization: `Bearer ${auth.access_token}`,
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            console.log(response);
+            setdoctorName(response.data.medicalDocument.doctorName);
+            setdiagnosis(response.data.medicalDocument.diagnosis);
+            setreportDate(response.data.medicalDocument.date);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    }
+  }, [Update, user]);
   var nameVal = new RegExp("^[A-Za-z]*$");
 
   /* Dr Name  */
@@ -64,38 +98,33 @@ const AddMedical = () => {
         Authorization: `Bearer ${auth.access_token}`,
       },
     };
-
-    const response = await axios
-      .post(
-        `${AddNewCategory}/addMedicalRecord/${user.baby[0].id}`,
-        data,
-        config
-      )
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    // await axios({
-    //   method: "post",
-    //   url: `https://newMommy.mooo.com:3002/api/users/addMedicalRecord/${user.id}`,
-    //   headers: {
-    //     Authorization: `Bearer ${auth.access_token}`,
-    //   },
-    //   data: { date: reportDate, doctorName: doctorName, diagnosis: diagnosis },
-    // })
-    //   .then((res) => {
-    //     console.log(res);
-    //     setSuccessMessageVisible("successful added "); // Show success message
-    //     // Redirect to main page after 3 seconds
-    //     setTimeout(() => {
-    //       navigator("/main");
-    //     }, 3000);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    if (!Update) {
+      await axios
+        .post(
+          `${AddNewCategory}/addMedicalRecord/${user.baby[0].id}`,
+          data,
+          config
+        )
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      await axios
+        .patch(
+          `${AddNewCategory}/updateMedicalRecord/${meddicalId}`,
+          data,
+          config
+        )
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   return (
@@ -132,6 +161,7 @@ const AddMedical = () => {
               placeholder="Dr Name"
               name=" DrName"
               id="DrName"
+              value={doctorName}
             />
             <p>{DRErrMsg}</p>
           </div>
@@ -147,6 +177,7 @@ const AddMedical = () => {
               type="email"
               className=" the__input"
               placeholder="Diagnosis"
+              value={diagnosis}
               required
             />
             <p>{diagnosisErrMsg}</p>
