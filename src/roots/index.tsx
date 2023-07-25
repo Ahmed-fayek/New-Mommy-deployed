@@ -24,11 +24,7 @@ import Activity from "../views/activity/allactivities";
 import BabyFirsts from "../views/baby-firsts";
 import Feeding from "../views/Feeding";
 import Growth from "../views/growth";
-<<<<<<< HEAD
 import DeleteAccount from "../views/deleteaccount/delete-account"
-=======
-import DeleteAccount from "../views/delete-acc/delete";
->>>>>>> 09d5fc7218af82319be5257da79422156f3eb43a
 
 const MainRouer = () => {
   return (
@@ -38,7 +34,7 @@ const MainRouer = () => {
         <Route path="/login" element={<SignIn />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/babymoon" element={<FirstUse />}></Route>
-        <Route path="/addbaby/:babyId?" element={<AddBaby />}></Route>
+        <Route path="/addbaby" element={<AddBaby />}></Route>
         <Route path="/emailconfim" element={<EmailConfirm />}></Route>
         <Route path="/confirmcode" element={<AccessCode />}></Route>
         <Route path="/resetpass" element={<ResetPAss />}></Route>
@@ -47,28 +43,19 @@ const MainRouer = () => {
         <Route path="/resetEmail" element={<ResetEmail />}></Route>
         <Route path="/emailcodeConfirm" element={<CodeConfirm />}></Route>
         <Route path="/reminder" element={<Reminder />}></Route>
-        <Route path="/addMedical/:meddicalId?" element={<AddMedical />}></Route>
+        <Route path="/addMedical" element={<AddMedical />}></Route>
         <Route path="/addMedicalDocs" element={<AddMedicalDocs />}></Route>
         <Route path="/medicalhistory" element={<MedicalHistory />}></Route>
         <Route path="/activity" element={<Activity />}></Route>
-        <Route path="/addactivity/:actId?" element={<AddActivity />}></Route>
+        <Route path="/addactivity" element={<AddActivity />}></Route>
         <Route path="/feeding" element={<Feeding />}></Route>
-        <Route path="/addfood/:foodId?" element={<AddFood />}></Route>
+        <Route path="/addfood" element={<AddFood />}></Route>
         <Route path="/growth" element={<Growth />}></Route>
-        <Route path="/addgrowth/:growthId?" element={<AddGrowth />}></Route>
+        <Route path="/addgrowth" element={<AddGrowth />}></Route>
         <Route path="/babyFirsts" element={<BabyFirsts />}></Route>
-<<<<<<< HEAD
         <Route path="/addFirist" element={<AddFirist />}></Route>
         <Route path="/addReminder" element={<AddReminder />}></Route>
         <Route path="/deleteAccount" element={<DeleteAccount/>}></Route>
-=======
-        <Route path="/addFirist/:firstId?" element={<AddFirist />}></Route>
-        <Route
-          path="/addReminder/:reminderId?"
-          element={<AddReminder />}
-        ></Route>
-        <Route path="/DeleteAccount" element={<DeleteAccount />}></Route>
->>>>>>> 09d5fc7218af82319be5257da79422156f3eb43a
       </Routes>
     </>
   );
