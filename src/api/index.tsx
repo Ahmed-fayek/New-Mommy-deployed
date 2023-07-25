@@ -14,3 +14,7 @@ export const RefreshTokenapi: string =
 /*     categories      */
 export const AddNewCategory: string =
   "https://newMommy.mooo.com:3002/api/users";
+
+/* delete account */
+export const DeleteAccount: string = 
+  "https://newMommy.mooo.com:3001/api/auth/deleteAccount";

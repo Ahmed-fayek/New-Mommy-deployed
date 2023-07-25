@@ -1,0 +1,1807 @@
+{
+	"info": {
+		"_postman_id": "e888668f-bb49-42e5-aae7-d37c50517a87",
+		"name": "children",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18509837",
+		"_collection_link": "https://www.postman.com/galactic-shadow-497455/workspace/new-mommy/collection/18509837-e888668f-bb49-42e5-aae7-d37c50517a87?action=share&creator=18509837&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"mdmedoo776@gmail.com\",\r\n    \"password\":\"mM123Mm@\",\r\n    \"firstname\":\"asd\",\r\n    \"lastname\":\"sad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3001/api/auth/register",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"mdmedoo776@gmail.com\",\r\n    \"password\":\"mM123Mm@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3001/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmMyNDgyMWFjYzBmYjQ3NGYxOGI3NiIsImVtYWlsIjoibWRtZWRvbzc3MUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4NDg0MTYzNiwiZXhwIjoxNjg0ODQyNTM2fQ.N4ryUR7EJ3oOpUBPnqCKBGQtQiq3efzRTbJ_YY-rOIU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3001/api/auth/logout",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refreshToken",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmMyNDgyMWFjYzBmYjQ3NGYxOGI3NiIsImVtYWlsIjoibWRtZWRvbzc3MUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4NDg0MjI0NSwiZXhwIjoxNjg1NDQ3MDQ1fQ.m92aSQc7IgdGVJAjriGEEvPjxL2ZV7R6MhZSEOhT4Gk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3001/api/auth/refresh",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forget Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"mt1348@fayoum.edu.eg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3001/api/auth/forgetPassword",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"forgetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"mM123Mm@\",\r\n    \"email\":\"mt1348@fayoum.edu.eg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3001/api/auth/resetPassword/2911",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"resetPassword",
+								"2911"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmMyNDgyMWFjYzBmYjQ3NGYxOGI3NiIsImVtYWlsIjoibWRtZWRvbzc3MUBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4NDk1Njg0MiwiZXhwIjoxNjg0OTU3NzQyfQ.KX3UY3q-i2XkgDOQFau99FcyPfJCfmp8RtyshFdSelg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\":\"ahmed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3001/api/auth",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verifyResetMessage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"mdmedoo7@gmail.com\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3001/api/auth/verifyResetMessage/3211",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"verifyResetMessage",
+								"3211"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify phone number",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YWI1NmM2ZGE0MGQzY2I5NzkwMzg4YyIsImVtYWlsIjoiYWFobWVkZmF5ZWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2ODg5NjUzNDYsImV4cCI6MTY4ODk2ODk0Nn0.qHDoeHBxLfmAD1_USAK4tRVtmQB2XZrgqCjw0cWSYDY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https:/newMommy.mooo.com:3001/api/auth/verifyPhoneNumber",
+							"host": [
+								"https"
+							],
+							"port": "",
+							"path": [
+								"newMommy.mooo.com:3001",
+								"api",
+								"auth",
+								"verifyPhoneNumber"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verifyResetEmailToken",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YWI1NmM2ZGE0MGQzY2I5NzkwMzg4YyIsImVtYWlsIjoiYWFobWVkZmF5ZWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2ODg5NjUzNDYsImV4cCI6MTY4ODk2ODk0Nn0.qHDoeHBxLfmAD1_USAK4tRVtmQB2XZrgqCjw0cWSYDY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3001/api/auth/verifyResetEmailToken/",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"verifyResetEmailToken",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new Email",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YWI1NmM2ZGE0MGQzY2I5NzkwMzg4YyIsImVtYWlsIjoiYWFobWVkZmF5ZWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2ODg5NjUzNDYsImV4cCI6MTY4ODk2ODk0Nn0.qHDoeHBxLfmAD1_USAK4tRVtmQB2XZrgqCjw0cWSYDY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"md@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3001/api/auth/newEmail",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"newEmail"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "user by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OWVjNjEyODhlNTlkYTgwY2RiYzFkZSIsImVtYWlsIjoibXQxMzQ4QGZheW91bS5lZHUuZWciLCJyb2xlIjoidXNlciIsImlhdCI6MTY4ODM5ODY5MiwiZXhwIjoxNjg4NDAyMjkyfQ.c_5nBWVRelF63qrcpzVFad6bBWPw4oXBvgVHzsQiRyM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/649ec61288e59da80cdbc1de",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"649ec61288e59da80cdbc1de"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YWRiZGE4YzYyMTJlNjdmZjUwNTFlYiIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTE3ODc1MiwiZXhwIjoxNjg5MTgyMzUyfQ.J1vMFNp7lJdEmMe2y4xjP6Zn99wyuRpPD-OHtKMQ8Q4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add baby",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YWQ4MGQzYzYyMTJlNjdmZjUwNTFlOSIsImVtYWlsIjoicm9raWFhaG1lZDQyQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg5MjU2ODYzLCJleHAiOjE2ODkyNjA0NjN9.FX4_Vh9GQyzG6XkqHz-KQBuZzP2NhBaMI-eWy5CvXP4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "babyName",
+									"value": "zr2b2ds23",
+									"type": "text"
+								},
+								{
+									"key": "weight",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "birthDate",
+									"value": "2020-7-20",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "boy",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/El-Wattaneya/Desktop/MohamedTarek.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/addBaby",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"addBaby"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete baby",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODc1ZmYzODA0YWY5YjRhYmM4YzI3YyIsImVtYWlsIjoibXQxMzQ4QGZheW91bS5lZHUuZWciLCJyb2xlIjoidXNlciIsImlhdCI6MTY4NjYxMzY2OSwiZXhwIjoxNjg2NjE3MjY5fQ.5kvx_gxoQ77LnXU5stYD9sFbnKwx8ZI3p0pQ8umeHOg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n        \"babyName\":\"ahmed\",\r\n        \"gender\":\"girl\",\r\n        \"birthDate\":\"2002-2-15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/deleteBaby",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"deleteBaby"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update baby",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YWI1NmM2ZGE0MGQzY2I5NzkwMzg4YyIsImVtYWlsIjoiYWFobWVkZmF5ZWtAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2ODg5NzcyNzIsImV4cCI6MTY4ODk4MDg3Mn0.wmhvKyjJa9h4VzWBIHOIh-Gcpw0aE7QaHK1YLiBVMCw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "babyName",
+									"value": "asd",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "boy",
+									"type": "text"
+								},
+								{
+									"key": "birthDate",
+									"value": "2020-7-20",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/El-Wattaneya/Desktop/Screenshot_2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/updateBaby/64abc0ef915567d52384e14c",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"updateBaby",
+								"64abc0ef915567d52384e14c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add medical record",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "date",
+									"value": "2020-7-20",
+									"type": "text"
+								},
+								{
+									"key": "diagnosis",
+									"value": "flue",
+									"type": "text"
+								},
+								{
+									"key": "doctorName",
+									"value": "mawlana",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "3 month",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/El-Wattaneya/Desktop/Screenshot_2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/addMedicalDocument/64ad17abde924f80600fd73f",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"addMedicalDocument",
+								"64ad17abde924f80600fd73f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update medical record",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "date",
+									"value": "2020-7-20",
+									"type": "text"
+								},
+								{
+									"key": "diagnosis",
+									"value": "flueee",
+									"type": "text"
+								},
+								{
+									"key": "doctorName",
+									"value": "manga",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/El-Wattaneya/Desktop/Screenshot_10.png"
+								},
+								{
+									"key": "age",
+									"value": "3 month",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/updateMedicalDocument/64ad193cde924f80600fd740",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"updateMedicalDocument",
+								"64ad193cde924f80600fd740"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete medical record",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/medicalDocument/64ad193cde924f80600fd740",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"medicalDocument",
+								"64ad193cde924f80600fd740"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all medical records",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/medicalHistory/64ad17abde924f80600fd73f",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"medicalHistory",
+								"64ad17abde924f80600fd73f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "medical record by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/medicalDocument/64ad17abde924f80600fd73f/64ad1d5123d2786cf285224c",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"medicalDocument",
+								"64ad17abde924f80600fd73f",
+								"64ad1d5123d2786cf285224c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add activity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2020-7-20\",\r\n    \"activity\":\"shower\",\r\n    \"time\":\"12:34 am\",\r\n    \"note\":\"xD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/addActivity/64ad17abde924f80600fd73f",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"addActivity",
+								"64ad17abde924f80600fd73f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update activity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2020-7-20\",\r\n    \"activity\":\"shower\",\r\n    \"time\":\"12:34 am\",\r\n    \"note\":\"xD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/updateActivity/64ad1e8a23d2786cf285224d",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"updateActivity",
+								"64ad1e8a23d2786cf285224d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all activities",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/activities/64ad17abde924f80600fd73f",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"activities",
+								"64ad17abde924f80600fd73f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "activity by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/activityById/64ad17abde924f80600fd73f/64ad1e8a23d2786cf285224d",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"activityById",
+								"64ad17abde924f80600fd73f",
+								"64ad1e8a23d2786cf285224d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete Activity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/activity/64ad1e8a23d2786cf285224d",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"activity",
+								"64ad1e8a23d2786cf285224d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add meal",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2020-7-20\",\r\n    \"food\":\"shawrma\",\r\n    \"time\":\"12:34 am\",\r\n    \"note\":\"xD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/addMeal/64ad17abde924f80600fd73f",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"addMeal",
+								"64ad17abde924f80600fd73f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update meal",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2020-7-20\",\r\n    \"food\":\"shawrma\",\r\n    \"time\":\"12:34 am\",\r\n    \"note\":\"xD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/updateMeal/64ad1fec23d2786cf285224e",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"updateMeal",
+								"64ad1fec23d2786cf285224e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all meals",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/meals/64ad17abde924f80600fd73f",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"meals",
+								"64ad17abde924f80600fd73f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "meal by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/mealById/64ad17abde924f80600fd73f/64ad1fec23d2786cf285224e",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"mealById",
+								"64ad17abde924f80600fd73f",
+								"64ad1fec23d2786cf285224e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete meal",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/meal/64ad1fec23d2786cf285224e",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"meal",
+								"64ad1fec23d2786cf285224e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add growth milestone",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2020-7-20\",\r\n    \"height\":\"173 cm\",\r\n    \"weight\":\"5 kg\",\r\n    \"age\":\"2 years\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/addGrowthMilestone/64ad17abde924f80600fd73f",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"addGrowthMilestone",
+								"64ad17abde924f80600fd73f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update growth milestone",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2020-7-20\",\r\n    \"height\":\"173 cm\",\r\n    \"weight\":\"5 kg\",\r\n    \"age\":\"2 years\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/updateGrowthMilestone/64ad211c23d2786cf285224f",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"updateGrowthMilestone",
+								"64ad211c23d2786cf285224f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all growth history",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/growthMilestones/64ad17abde924f80600fd73f",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"growthMilestones",
+								"64ad17abde924f80600fd73f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "growth milestone by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/growthMilestoneById/64ad17abde924f80600fd73f/64ad211c23d2786cf285224f",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"growthMilestoneById",
+								"64ad17abde924f80600fd73f",
+								"64ad211c23d2786cf285224f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete growth milestone",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/growthMilestone/64ad211c23d2786cf285224f",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"growthMilestone",
+								"64ad211c23d2786cf285224f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add first",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2020-7-20\",\r\n    \"babyFirst\":\"walk\",\r\n    \"note\":\"gmdan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/addFirst/64ad211c23d2786cf285224f",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"addFirst",
+								"64ad211c23d2786cf285224f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update First",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2020-7-20\",\r\n    \"babyFirst\":\"walk\",\r\n    \"note\":\"gmdan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/updateFirst/64ad22d223d2786cf2852250",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"updateFirst",
+								"64ad22d223d2786cf2852250"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all firsts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/allFirsts/64ad211c23d2786cf285224f",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"allFirsts",
+								"64ad211c23d2786cf285224f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "first by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/firstById/64ad211c23d2786cf285224f/64ad235423d2786cf2852251",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"firstById",
+								"64ad211c23d2786cf285224f",
+								"64ad235423d2786cf2852251"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteFirst",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/first/64ad235423d2786cf2852251",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"first",
+								"64ad235423d2786cf2852251"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add reminder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2020-7-20\",\r\n    \"time\":\"12:34 am\",\r\n    \"note\":\"xD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/addReminder/64ad22d223d2786cf2852250",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"addReminder",
+								"64ad22d223d2786cf2852250"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update reminder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2020-7-20\",\r\n    \"time\":\"12:34 am\",\r\n    \"note\":\"xD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/updateReminder/64ad24a523d2786cf2852252",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"updateReminder",
+								"64ad24a523d2786cf2852252"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all reminders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/allReminders/64ad22d223d2786cf2852250",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"allReminders",
+								"64ad22d223d2786cf2852250"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reminder by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/reminderById/64ad22d223d2786cf2852250/64ad24a523d2786cf2852252",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"reminderById",
+								"64ad22d223d2786cf2852250",
+								"64ad24a523d2786cf2852252"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete reminder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTc5ZWFhOTY2ZGU2MjM3MjgzNDFkYSIsImVtYWlsIjoibWRtZWRvbzc3NkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4OTA2NTM2MywiZXhwIjoxNjg5MDY4OTYzfQ.HbJZdm65V5eIliZVEcSKFKKSJZszqXpthVxwvupMWyI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://newMommy.mooo.com:3002/api/users/reminder/64ad24a523d2786cf2852252",
+							"protocol": "https",
+							"host": [
+								"newMommy",
+								"mooo",
+								"com"
+							],
+							"port": "3002",
+							"path": [
+								"api",
+								"users",
+								"reminder",
+								"64ad24a523d2786cf2852252"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
