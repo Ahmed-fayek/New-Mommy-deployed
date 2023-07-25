@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import "./styles.css";
 import AuthContext from "../../../conrext/AuthProvider";
 import Loading from "../../../components/Loading";
+import { Link } from "react-router-dom";
 function MedicalHistory() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
@@ -65,6 +66,7 @@ function MedicalHistory() {
           <div className="diagAndDate">
             <p className="diagnosis">Diagnosis: {medical.diagnosis}</p>
             <p className="date">Date: {medical.date}</p>
+            <Link to={`/addMedical/${medical.id}`}>Update</Link>
           </div>
         </div>
       );

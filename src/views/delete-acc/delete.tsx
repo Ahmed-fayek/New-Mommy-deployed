@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import AuthContext from "../conrext/AuthProvider";
-import axios from "../api/axios";
+import AuthContext from "../../conrext/AuthProvider";
+import axios from "../../api/axios";
 
 const DeleteAccount = () => {
   const { setUser } = useContext<any>(AuthContext);
@@ -16,14 +16,17 @@ const DeleteAccount = () => {
     const userId = localStorage.getItem("user_id");
 
     // Send a request to the server to delete the user account by ID
-    const config = {
-      method: "delete",
-      url: "https://newMommy.mooo.com:3001/api/auth/",
+    await axios({
+      method: "DELETE",
+
+      url: "https://newMommy.mooo.com:3001/api/auth/deleteAccount",
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
-    };
-    await axios(config)
+      data: {
+        reason: "reason",
+      },
+    })
       .then((response) => {
         console.log(response.data);
         console.log("Account deleted successfully:", response.data);

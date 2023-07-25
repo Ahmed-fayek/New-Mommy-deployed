@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
@@ -24,6 +24,43 @@ const AddFood = () => {
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
+
+  /* Update value tells me if this is adding or update */
+  const { foodId } = useParams();
+  const [Update, setUpdate] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (foodId) {
+      setUpdate(true);
+    } else {
+      setUpdate(false);
+    }
+  }, [foodId]);
+
+  useEffect(() => {
+    if (Update) {
+      if (user) {
+        axios({
+          method: "GET",
+          url: `https://newMommy.mooo.com:3002/api/users/mealById/${user.baby[0].id}/${foodId}`,
+          headers: {
+            Authorization: `Bearer ${auth.access_token}`,
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            console.log(response);
+            settime(response.data.meal.time.slice(0, 5));
+            setnote(response.data.meal.note);
+            setfood(response.data.meal.food);
+            setstartDate(response.data.meal.date);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    }
+  }, [Update, user]);
   var nameVal = new RegExp("^[A-Za-z]*$");
   /* Dr Name  */
   const foodVal = (e: any) => {
@@ -57,33 +94,63 @@ const AddFood = () => {
 
   const submitVal = async () => {
     let mytime = TimeConverter(time);
-    await axios({
-      method: "post",
-      url: `${AddNewCategory}/addMeal/${user.baby[0].id}`,
-      headers: {
-        Authorization: `Bearer ${auth.access_token}`,
-      },
+    if (!Update) {
+      await axios({
+        method: "post",
+        url: `${AddNewCategory}/addMeal/${user.baby[0].id}`,
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
 
-      data: {
-        date: startDate,
-        food: food,
-        time: mytime,
-        note: note,
-      },
-    })
-      .then((res) => {
-        console.log(res);
-
-        setSuccessMessageVisible("successful added "); // Show success message
-
-        // Redirect to main page after 3 seconds
-        setTimeout(() => {
-          navigator("/main");
-        }, 3000);
+        data: {
+          date: startDate,
+          food: food,
+          time: mytime,
+          note: note,
+        },
       })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => {
+          console.log(res);
+
+          setSuccessMessageVisible("successful added "); // Show success message
+
+          // Redirect to main page after 3 seconds
+          setTimeout(() => {
+            navigator("/main");
+          }, 3000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      await axios({
+        method: "PATCH",
+        url: `${AddNewCategory}/updateMeal/${foodId}`,
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
+
+        data: {
+          date: startDate,
+          food: food,
+          time: mytime,
+          note: note,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+
+          setSuccessMessageVisible("successful added "); // Show success message
+
+          // Redirect to main page after 3 seconds
+          setTimeout(() => {
+            navigator("/main");
+          }, 3000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
@@ -135,6 +202,7 @@ const AddFood = () => {
               placeholder="food"
               name=" food"
               id="food"
+              value={food}
             />
             <p>{foodErrMsg}</p>
           </div>
@@ -150,6 +218,7 @@ const AddFood = () => {
               type="email"
               className=" the__input"
               placeholder="note"
+              value={note}
               required
             />
             <p>{noteErrMsg}</p>

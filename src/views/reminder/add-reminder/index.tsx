@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../conrext/AuthProvider";
@@ -19,8 +19,44 @@ const AddReminder = () => {
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
+
+  /* Update value tells me if this is adding or update */
+  const { reminderId } = useParams();
+  const [Update, setUpdate] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (reminderId) {
+      setUpdate(true);
+    } else {
+      setUpdate(false);
+    }
+  }, [reminderId]);
+
+  useEffect(() => {
+    if (Update) {
+      if (user) {
+        axios({
+          method: "GET",
+          url: `https://newMommy.mooo.com:3002/api/users/reminderById/${user.baby[0].id}/${reminderId}`,
+          headers: {
+            Authorization: `Bearer ${auth.access_token}`,
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            console.log(response);
+            settime(response.data.reminder.time.slice(0, 5));
+            setnote(response.data.reminder.note);
+            setreminderDate(response.data.reminder.date);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    }
+  }, [Update, user]);
+
   var nameVal = new RegExp("^[A-Za-z]*$");
-  /* Dr Name  */
   /* report Date  */
   const reminderDateVal = (e: any) => {
     setreminderDate(e.target.value);
@@ -44,30 +80,55 @@ const AddReminder = () => {
 
   const submitVal = async () => {
     let mytime = TimeConverter(time);
-
-    await axios({
-      method: "post",
-      url: `${AddNewCategory}/addReminder/${user.baby[0].id}`,
-      headers: {
-        Authorization: `Bearer ${auth.access_token}`,
-      },
-      data: {
-        date: reminderDate,
-        time: mytime,
-        note: note,
-      },
-    })
-      .then((res) => {
-        console.log(res);
-        setSuccessMessageVisible("successful added "); // Show success message
-        // Redirect to main page after 3 seconds
-        setTimeout(() => {
-          // navigator("/main");
-        }, 3000);
+    if (!Update) {
+      await axios({
+        method: "post",
+        url: `${AddNewCategory}/addReminder/${user.baby[0].id}`,
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
+        data: {
+          date: reminderDate,
+          time: mytime,
+          note: note,
+        },
       })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => {
+          console.log(res);
+          setSuccessMessageVisible("successful added "); // Show success message
+          // Redirect to main page after 3 seconds
+          setTimeout(() => {
+            // navigator("/main");
+          }, 3000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      await axios({
+        method: "PATCH",
+        url: `${AddNewCategory}/updateReminder/${reminderId}`,
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
+        data: {
+          date: reminderDate,
+          time: mytime,
+          note: note,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          setSuccessMessageVisible("successful added "); // Show success message
+          // Redirect to main page after 3 seconds
+          setTimeout(() => {
+            // navigator("/main");
+          }, 3000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
@@ -119,6 +180,7 @@ const AddReminder = () => {
               type="email"
               className=" the__input"
               placeholder="note"
+              value={note}
               required
             />
             <p>{noteErrMsg}</p>

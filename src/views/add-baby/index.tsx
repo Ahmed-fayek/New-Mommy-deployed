@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import { NewbabyApi } from "../../api";
@@ -9,6 +9,7 @@ const AddBaby = () => {
   const navigator = useNavigate();
   //get auth from context to get acc token for api request
   const { auth } = useContext<any>(AuthContext);
+  const { user } = useContext<any>(AuthContext);
   let currentDate: Date = new Date();
   // reformat the date to send it to back-end to be as "year-month-day"
   let dateFormat: string = `${currentDate.getFullYear()}-${
@@ -28,6 +29,41 @@ const AddBaby = () => {
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
   const [file, setfile] = useState<any>();
+  /* Update value tells me if this is adding or update */
+  const { babyId } = useParams();
+  const [Update, setUpdate] = useState<boolean>(false);
+  useEffect(() => {
+    if (babyId) {
+      setUpdate(true);
+    } else {
+      setUpdate(false);
+    }
+  }, [babyId]);
+
+  useEffect(() => {
+    if (Update) {
+      if (user) {
+        axios({
+          method: "GET",
+          url: `https://newMommy.mooo.com:3002/api/users/updateBaby/${babyId}`,
+          headers: {
+            Authorization: `Bearer ${auth.access_token}`,
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            console.log(response);
+            // setactivity(response.data.activity.activity);
+            // setstartDate(response.data.activity.date);
+            // settime(response.data.activity.time.slice(0, 5));
+            // setnote(response.data.activity.note);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    }
+  }, [Update, user]);
   //regular expression to test if baby name contain only letters
   var nameVal = new RegExp("^[A-Za-z]*$");
   /* baby name onchange function  */

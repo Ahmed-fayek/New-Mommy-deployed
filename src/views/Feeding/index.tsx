@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../conrext/AuthProvider";
 import Loading from "../../components/Loading";
 import "./styles.css";
+import { Link } from "react-router-dom";
 function Feeding() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
@@ -37,10 +38,7 @@ function Feeding() {
       return (
         <div className="reminder" key={reminder.id}>
           <div>{reminder.id} </div>
-          <div> {reminder.age}</div>
-          <div>{reminder.date} </div>
-          <div> {reminder.diagnosis}</div>
-          <div> {reminder.doctorName}</div>
+          <Link to={`/addfood/${reminder.id}`}>Update</Link>
         </div>
       );
     });
