@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
-import AuthContext from "../../../conrext/AuthProvider";
+import AuthContext from "../../../context/AuthProvider";
 import BabyAge from "../../../services/babyAge";
 import { AddNewCategory } from "../../../api";
 

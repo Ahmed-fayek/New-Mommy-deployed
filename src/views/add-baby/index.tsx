@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import { AddNewCategory, NewbabyApi } from "../../api";
-import AuthContext from "../../conrext/AuthProvider";
+import AuthContext from "../../context/AuthProvider";
 
 const AddBaby = () => {
   const navigator = useNavigate();

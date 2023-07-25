@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ACCCode } from "../../../api";
 import axios from "../../../api/axios";
-import AuthContext from "../../../conrext/AuthProvider";
+import AuthContext from "../../../context/AuthProvider";
 const CodeConfirm = () => {
   const { EmailCon } = useContext<any>(AuthContext);
   const { setCodeCon } = useContext<any>(AuthContext);

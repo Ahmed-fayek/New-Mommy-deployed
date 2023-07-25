@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { EmailConfirmation } from "../../api";
 import "./styles.css";
 import axios from "../../api/axios";
-import AuthContext from "../../conrext/AuthProvider";
+import AuthContext from "../../context/AuthProvider";
 const ResetEmail = () => {
   const { SetemailCon } = useContext<any>(AuthContext);
   const [email, setemail] = useState<string>("");

@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import AuthContext from "../../conrext/AuthProvider";
+import AuthContext from "../../context/AuthProvider";
 import "./styles.css";
 import axios from "../../api/axios";
 import RefreshToken from "../../services/refreshToken";
@@ -43,16 +43,13 @@ const SignIn = () => {
       const accessToken = response?.data?.access_token;
       const refreshToken = response?.data?.refresh_token;
       const userId = response?.data?.id;
-      console.log(accessToken);
-      console.log(refreshToken);
-      console.log(userId);
-
       localStorage.setItem("access_token", accessToken);
       localStorage.setItem("token", refreshToken);
       localStorage.setItem("user_id", userId);
       navigator("/main");
       return <RefreshToken />;
     } catch (err: any) {
+      console.log(err);
       if (!err) {
         setErrMsg("No server response");
       } else if (err.response && err.response.status) {

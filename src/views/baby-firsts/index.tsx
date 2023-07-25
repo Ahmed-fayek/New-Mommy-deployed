@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import AuthContext from "../../conrext/AuthProvider";
+import AuthContext from "../../context/AuthProvider";
 import Loading from "../../components/Loading";
 import "./styles.css";
 import { Link } from "react-router-dom";
@@ -28,7 +28,21 @@ function BabyFirsts() {
         });
     }
   }, [user]);
-
+  const handleDelete = async (itemid: string) => {
+    await axios({
+      method: "delete",
+      url: `https:newMommy.mooo.com:3002/api/users/first/${itemid}`,
+      headers: {
+        Authorization: `Bearer ${auth.access_token}`,
+      },
+    })
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   let returned: any;
   if (user) {
     returned = reminders.map((reminder: any) => {
@@ -38,7 +52,13 @@ function BabyFirsts() {
           <div>{reminder.id} </div>
           <div> {reminder.babyFirst}</div>
           <div>{reminder.date} </div>
-
+          <button
+            onClick={() => {
+              handleDelete(reminder.id);
+            }}
+          >
+            delete
+          </button>
           <Link to={`/addFirist/${reminder.id}`}>update</Link>
         </div>
       );

@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
-import AuthContext from "../../../conrext/AuthProvider";
+import AuthContext from "../../../context/AuthProvider";
 import { AddNewCategory } from "../../../api";
 
 const AddMedicalDocs = () => {

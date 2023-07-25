@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { RessetPassword } from "../../../api";
 import "./styles.css";
 import axios from "../../../api/axios";
-import AuthContext from "../../../conrext/AuthProvider";
+import AuthContext from "../../../context/AuthProvider";
 
 const ResetPAss = () => {
   const { EmailCon } = useContext<any>(AuthContext);
@@ -19,7 +19,7 @@ const ResetPAss = () => {
       setErrMsg("session ended");
     } else if (passwordcon !== password) {
       setErrMsg("password don't match");
-    }  else if (password.length > 20) {
+    } else if (password.length > 20) {
       setErrMsg("password should be shorter");
     } else {
       e.preventDefault();

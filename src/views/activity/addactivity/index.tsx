@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
-import AuthContext from "../../../conrext/AuthProvider";
+import AuthContext from "../../../context/AuthProvider";
 import { AddNewCategory } from "../../../api";
 import TimeConverter from "../../../services/timeconverter";
 const AddActivity = () => {
@@ -117,7 +117,7 @@ const AddActivity = () => {
 
           // Redirect to main page after 3 seconds
           setTimeout(() => {
-            navigator("/main");
+            // navigator("/main");
           }, 3000);
         })
         .catch((err) => {
@@ -145,7 +145,7 @@ const AddActivity = () => {
 
           // Redirect to main page after 3 seconds
           setTimeout(() => {
-            navigator("/main");
+            // navigator("/main");
           }, 3000);
         })
         .catch((err) => {

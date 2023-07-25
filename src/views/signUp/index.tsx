@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 import { NewuserApi } from "../../api";
 import axios from "../../api/axios";
-import AuthContext from "../../conrext/AuthProvider";
+import AuthContext from "../../context/AuthProvider";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState<string>();

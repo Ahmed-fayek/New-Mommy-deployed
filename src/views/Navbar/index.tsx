@@ -2,7 +2,7 @@ import "./styles.css";
 import logo from "./../../assets/images/baby-moon.png";
 import Notifications from "../Notifications";
 import { useContext, useEffect, useState } from "react";
-import AuthContext from "../../conrext/AuthProvider";
+import AuthContext from "../../context/AuthProvider";
 import axios from "../../api/axios";
 import { Link } from "react-router-dom";
 function Nav() {
