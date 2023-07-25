@@ -38,7 +38,7 @@ const AddFirist = () => {
       if (user) {
         axios({
           method: "GET",
-          url: `https://newMommy.mooo.com:3002/api/users/firstById/${user.baby[0].id}/${firstId}`,
+          url: `${AddNewCategory}/firstById/${user.baby[0].id}/${firstId}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
             "Content-Type": "application/json",

@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
-import { NewbabyApi } from "../../api";
+import { AddNewCategory, NewbabyApi } from "../../api";
 import AuthContext from "../../conrext/AuthProvider";
 
 const AddBaby = () => {
@@ -45,7 +45,7 @@ const AddBaby = () => {
       if (user) {
         axios({
           method: "GET",
-          url: `https://newMommy.mooo.com:3002/api/users/updateBaby/${babyId}`,
+          url: `${AddNewCategory}/updateBaby/${babyId}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
             "Content-Type": "application/json",

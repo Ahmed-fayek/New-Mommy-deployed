@@ -38,7 +38,7 @@ const AddMedical = () => {
       if (user) {
         axios({
           method: "GET",
-          url: `https://newMommy.mooo.com:3002/api/users/medicalRecord/${meddicalId}`,
+          url: `${AddNewCategory}/medicalRecord/${meddicalId}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
             "Content-Type": "application/json",

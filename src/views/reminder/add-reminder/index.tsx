@@ -37,7 +37,7 @@ const AddReminder = () => {
       if (user) {
         axios({
           method: "GET",
-          url: `https://newMommy.mooo.com:3002/api/users/reminderById/${user.baby[0].id}/${reminderId}`,
+          url: `${AddNewCategory}/reminderById/${user.baby[0].id}/${reminderId}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
             "Content-Type": "application/json",

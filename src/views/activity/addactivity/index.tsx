@@ -40,7 +40,7 @@ const AddActivity = () => {
       if (user) {
         axios({
           method: "GET",
-          url: `https://newMommy.mooo.com:3002/api/users/activityById/${user.baby[0].id}/${actId}`,
+          url: `${AddNewCategory}/activityById/${user.baby[0].id}/${actId}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
             "Content-Type": "application/json",

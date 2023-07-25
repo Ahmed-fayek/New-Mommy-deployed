@@ -39,7 +39,7 @@ const AddGrowth = () => {
       if (user) {
         axios({
           method: "GET",
-          url: `https://newMommy.mooo.com:3002/api/users/growthMilestoneById/${user.baby[0].id}/${growthId}`,
+          url: `${AddNewCategory}/growthMilestoneById/${user.baby[0].id}/${growthId}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
             "Content-Type": "application/json",

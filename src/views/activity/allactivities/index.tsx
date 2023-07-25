@@ -6,6 +6,7 @@ import AuthContext from "../../../conrext/AuthProvider";
 import Loading from "../../../components/Loading";
 import { Link } from "react-router-dom";
 import RefreshToken from "../../../services/refreshToken";
+import { AddNewCategory } from "../../../api";
 function Activity() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
@@ -15,7 +16,7 @@ function Activity() {
     if (user) {
       const config = {
         method: "get",
-        url: `https://newMommy.mooo.com:3002/api/users/activities/${user.baby[0].id}`,
+        url: `${AddNewCategory}/activities/${user.baby[0].id}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },

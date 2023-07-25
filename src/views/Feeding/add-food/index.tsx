@@ -42,7 +42,7 @@ const AddFood = () => {
       if (user) {
         axios({
           method: "GET",
-          url: `https://newMommy.mooo.com:3002/api/users/mealById/${user.baby[0].id}/${foodId}`,
+          url: `${AddNewCategory}/mealById/${user.baby[0].id}/${foodId}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
             "Content-Type": "application/json",

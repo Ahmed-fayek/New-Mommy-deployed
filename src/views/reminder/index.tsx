@@ -4,6 +4,7 @@ import AuthContext from "../../conrext/AuthProvider";
 import Loading from "../../components/Loading";
 import "./styles.css";
 import { Link } from "react-router-dom";
+import { AddNewCategory } from "../../api";
 function Reminder() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
@@ -13,7 +14,7 @@ function Reminder() {
     if (user) {
       const config = {
         method: "get",
-        url: `https://newMommy.mooo.com:3002/api/users/allReminders/${user.baby[0].id}`,
+        url: `${AddNewCategory}/allReminders/${user.baby[0].id}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
