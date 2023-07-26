@@ -4,7 +4,6 @@ import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../context/AuthProvider";
 import { AddNewCategory } from "../../../api";
-import { update } from "immutable";
 
 const AddFirist = () => {
   const navigator = useNavigate();
