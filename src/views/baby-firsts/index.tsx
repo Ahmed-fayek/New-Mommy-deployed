@@ -4,10 +4,12 @@ import AuthContext from "../../context/AuthProvider";
 import Loading from "../../components/Loading";
 import "./styles.css";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 function BabyFirsts() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
-  const [reminders, setreminders] = useState([]);
+  const [firsts, setfirsts] = useState([]);
+  const [update, setupdate] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -20,46 +22,60 @@ function BabyFirsts() {
       };
       axios(config)
         .then((response) => {
-          console.log(response);
-          setreminders(response.data.firsts);
+          setfirsts(response.data.firsts);
         })
         .catch((error) => {
           console.log(error);
         });
     }
-  }, [user]);
+  }, [user, update]);
+  /* Handle Delete Item */
   const handleDelete = async (itemid: string) => {
-    await axios({
-      method: "delete",
-      url: `https:newMommy.mooo.com:3002/api/users/first/${itemid}`,
-      headers: {
-        Authorization: `Bearer ${auth.access_token}`,
-      },
-    })
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    await Swal.fire({
+      title: `Are you sure you want to delete ?`,
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios({
+          method: "delete",
+          url: `https:newMommy.mooo.com:3002/api/users/first/${itemid}`,
+          headers: {
+            Authorization: `Bearer ${auth.access_token}`,
+          },
+        })
+          .then((response) => {
+            console.log(response.data);
+            setupdate(!update);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        Swal.fire("Deleted!", ` has been deleted.`, "success");
+      }
+    });
   };
   let returned: any;
   if (user) {
-    returned = reminders.map((reminder: any) => {
-      console.log(reminder);
+    returned = firsts.map((first: any) => {
       return (
-        <div className="reminder" key={reminder.id}>
-          <div>{reminder.id} </div>
-          <div> {reminder.babyFirst}</div>
-          <div>{reminder.date} </div>
+        <div className="reminder" key={first.id}>
+          <div>{first.id} </div>
+          <div> {first.babyFirst}</div>
+          <div>{first.date} </div>
+          <img src={first.image} width={"100px"} height={"100px"}></img>
           <button
             onClick={() => {
-              handleDelete(reminder.id);
+              handleDelete(first.id);
             }}
           >
             delete
           </button>
-          <Link to={`/addFirist/${reminder.id}`}>update</Link>
+          <Link to={`/addFirist/${first.id}`}>update</Link>
         </div>
       );
     });

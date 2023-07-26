@@ -4,6 +4,7 @@ import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../context/AuthProvider";
 import { AddNewCategory } from "../../../api";
+import { update } from "immutable";
 
 const AddFirist = () => {
   const navigator = useNavigate();
@@ -16,6 +17,8 @@ const AddFirist = () => {
   const [babyFirst, setbabyFirst] = useState<string>("");
   const [note, setnote] = useState<string>("");
   const [reportDate, setreportDate] = useState<string>(dateFormat);
+  const [file, setfile] = useState("");
+  const [image, setimage] = useState(false);
   const [babyFirstErrMsg, setbabyFirstErrMsg] = useState<string>("");
   const [noteErrMsg, setnoteErrMsg] = useState<string>("");
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
@@ -38,7 +41,7 @@ const AddFirist = () => {
       if (user) {
         axios({
           method: "GET",
-          url: `${AddNewCategory}/firstById/${user.baby[0].id}/${firstId}`,
+          url: `${AddNewCategory}/firstById/${firstId}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
             "Content-Type": "application/json",
@@ -49,6 +52,8 @@ const AddFirist = () => {
             setbabyFirst(response.data.first.babyFirst);
             setnote(response.data.first.note);
             setreportDate(response.data.first.date);
+            setfile(response.data.first.image);
+            setimage(true);
           })
           .catch((error) => {
             console.log(error);
@@ -82,10 +87,25 @@ const AddFirist = () => {
       setnoteErrMsg("");
     }
   };
-
+  /* File */
+  const fileVal = (e: any) => {
+    setfile(e.target.files[0]);
+    setimage(false);
+  };
   /* submit  */
-
+  const formData = new FormData();
   const submitVal = async () => {
+    console.log(file);
+    console.log(
+      /^\\d{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[1-2][0-9]|3[0-1])$/.test("2023-17-25")
+    );
+    console.log(reportDate);
+    console.log(babyFirst);
+    console.log(note);
+    formData.append("images", file);
+    formData.append("date", reportDate);
+    formData.append("babyFirst", babyFirst);
+    formData.append("note", note);
     if (!Update) {
       await axios({
         method: "post",
@@ -93,11 +113,7 @@ const AddFirist = () => {
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
-        data: {
-          date: reportDate,
-          babyFirst: babyFirst,
-          note: note,
-        },
+        data: formData,
       })
         .then((res) => {
           console.log(res);
@@ -120,11 +136,7 @@ const AddFirist = () => {
           Authorization: `Bearer ${auth.access_token}`,
         },
 
-        data: {
-          date: reportDate,
-          babyFirst: babyFirst,
-          note: note,
-        },
+        data: formData,
       })
         .then((res) => {
           console.log(res);
@@ -140,6 +152,12 @@ const AddFirist = () => {
         });
     }
   };
+
+  let imageprev = image ? (
+    <img src={file} width={"100px"} height={"100px"}></img>
+  ) : (
+    ""
+  );
 
   return (
     <div className="add-first">
@@ -192,6 +210,23 @@ const AddFirist = () => {
               className=" the__input"
               placeholder="note"
               value={note}
+              required
+            />
+            <p>{noteErrMsg}</p>
+          </div>
+          <div></div>
+          {/* file */}
+          <div className="input__field">
+            {imageprev}
+            <label htmlFor="filename">Image</label>
+            <input
+              onChange={(e) => {
+                fileVal(e);
+              }}
+              id="filename"
+              name="file"
+              type="file"
+              className=" the__input"
               required
             />
             <p>{noteErrMsg}</p>
