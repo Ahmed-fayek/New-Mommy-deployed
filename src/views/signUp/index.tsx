@@ -4,7 +4,6 @@ import "./styles.css";
 import { NewuserApi } from "../../api";
 import axios from "../../api/axios";
 import AuthContext from "../../context/AuthProvider";
-
 const Signup = () => {
   const [firstName, setFirstName] = useState<string>();
   const [lasttName, setLastName] = useState<string>();
@@ -69,8 +68,28 @@ const Signup = () => {
     }
   };
 
-  /* submit validate */
+  /* submit validate */ 
   const submitVal = async (e: any) => {
+      if (!firstName) {
+        setfNameErrMSG("Fname is required");
+        return;
+      }else if(firstName.trim().length < 2) {
+        setfNameErrMSG("Fname is Short");
+        return;
+      }else {
+        setfNameErrMSG("");
+      }
+
+      if (!lasttName) {
+        setlNameErrMSG("Lname is required");
+        return;
+      }else if (lasttName.trim().length < 2) {
+        setlNameErrMSG("Lname is Short");
+        return;
+      } else {
+        setlNameErrMSG("");
+      }
+
     if (
       fNameErrMSG.length == 0 &&
       lNameErrMSG.length == 0 &&

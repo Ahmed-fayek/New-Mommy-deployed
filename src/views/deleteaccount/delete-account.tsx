@@ -8,9 +8,38 @@ const DeleteAccount = () => {
   const { setUser } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
   const navigate = useNavigate();
+  // State to store the selected reason
+  const [selectedReason, setSelectedReason] = useState<string>(); 
+
+    // Handler for changing the selected reason
+    const handleReasonChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      setSelectedReason(e.target.value);
+    };
 
   const handleDeleteAccount = async () => {
     console.log(auth);
+
+
+      
+    if (!selectedReason) {
+      Swal.fire({
+        icon: "warning",
+        title: "Select Reason",
+        text: "Please select a reason before deleting your account.",
+        showConfirmButton: true,
+      });
+      return;
+    }
+
+    // Show confirmation dialog
+    const confirmResult = await Swal.fire({
+      icon: "warning",
+      title: "Are you sure to delete your account?",
+      showConfirmButton: true,
+      showCancelButton: true,
+    });
+
+
     // Get the user ID from the authenticated user
     const userId = localStorage.getItem("user_id");
     // Send a request to the server to delete the user account by ID
@@ -22,7 +51,7 @@ const DeleteAccount = () => {
         Authorization: `Bearer ${auth.access_token}`,
       },
       data: {
-        reason: "reason",
+        reason: selectedReason, // Send the selected reason to the server
       },
     })
       .then((response) => {
@@ -61,8 +90,25 @@ const DeleteAccount = () => {
   };
 
   return (
-    <div className="delete-account" style={{ marginTop: "150px" }}>
+    <div className="delete-account" style={{ margin: "150px" }}>
+      <h2>We are sorry you are wanting to leave Mom</h2>
+      <p>if you wish to continue please let us know the reason for deleting your account
+        below as this will remove your all information:</p>
+        <br></br>
+        <form>
+        {/* <label htmlFor="reason">Select Reason:</label> */}
+        <select id="reason" value={selectedReason} onChange={handleReasonChange}>
+          <option value="">Select a reason...</option>
+          <option value="switched">I switched to another software</option>
+          <option value="feature">I cannot find the feature I need</option>
+          <option value="no_baby">I no longer have a baby</option>
+          <option value="no_baby">Mom is difficult to use</option>
+          <option value="no_baby">other</option>
+        </select>
+      </form>
+      <br></br>
       <button onClick={handleDeleteAccount}>Delete Account</button>
+      <br></br> <br></br>
       <Link to={"/"}>Back to Home</Link>
     </div>
   );
