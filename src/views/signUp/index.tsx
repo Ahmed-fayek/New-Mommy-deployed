@@ -73,7 +73,7 @@ const Signup = () => {
       if (!firstName) {
         setfNameErrMSG("Fname is required");
         return;
-      }else if(firstName.trim().length < 2) {
+      }else if(firstName.trim().length < 2 && firstName.trim().length > 0) {
         setfNameErrMSG("Fname is Short");
         return;
       }else {
@@ -83,7 +83,7 @@ const Signup = () => {
       if (!lasttName) {
         setlNameErrMSG("Lname is required");
         return;
-      }else if (lasttName.trim().length < 2) {
+      }else if (lasttName.trim().length < 2 && lasttName.trim().length > 0) {
         setlNameErrMSG("Lname is Short");
         return;
       } else {
