@@ -68,27 +68,27 @@ const Signup = () => {
     }
   };
 
-  /* submit validate */ 
+  /* submit validate */
   const submitVal = async (e: any) => {
-      if (!firstName) {
-        setfNameErrMSG("Fname is required");
-        return;
-      }else if(firstName.trim().length < 2 && firstName.trim().length > 0) {
-        setfNameErrMSG("Fname is Short");
-        return;
-      }else {
-        setfNameErrMSG("");
-      }
+    if (!firstName) {
+      setfNameErrMSG("Fname is required");
+      return;
+    } else if (firstName.trim().length < 2 && firstName.trim().length > 0) {
+      setfNameErrMSG("Fname is Short");
+      return;
+    } else {
+      setfNameErrMSG("");
+    }
 
-      if (!lasttName) {
-        setlNameErrMSG("Lname is required");
-        return;
-      }else if (lasttName.trim().length < 2 && lasttName.trim().length > 0) {
-        setlNameErrMSG("Lname is Short");
-        return;
-      } else {
-        setlNameErrMSG("");
-      }
+    if (!lasttName) {
+      setlNameErrMSG("Lname is required");
+      return;
+    } else if (lasttName.trim().length < 2 && lasttName.trim().length > 0) {
+      setlNameErrMSG("Lname is Short");
+      return;
+    } else {
+      setlNameErrMSG("");
+    }
 
     if (
       fNameErrMSG.length == 0 &&
