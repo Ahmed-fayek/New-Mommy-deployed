@@ -23,8 +23,7 @@ function Nav() {
   }, [user]);
 
   // show icons or hide it
-  document.getElementById("view-links")?.classList.toggle("show-links");
-  document.getElementById("bars")?.classList.toggle("rotates");
+
   const toogleview = () => {
     document.getElementById("view-links")?.classList.toggle("show-links");
     document.getElementById("bars")?.classList.toggle("rotates");
@@ -56,6 +55,7 @@ function Nav() {
           <div className="app-logo">
             <img src={logo}></img>
           </div>
+          <div className="left-side"></div>
           <div className="links">
             <div
               className="bars rotates"
@@ -112,7 +112,7 @@ function Nav() {
   } else {
     return (
       <>
-        {/* <div className="navbar">
+        <div className="navbar">
           <img src={logo}></img>
           <div className="links">
             <ul className="show-links">
@@ -121,7 +121,7 @@ function Nav() {
               </li>
             </ul>
           </div>
-        </div> */}
+        </div>
       </>
     );
   }

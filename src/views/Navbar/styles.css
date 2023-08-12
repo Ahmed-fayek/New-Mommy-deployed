@@ -137,19 +137,18 @@
   align-items: center;
 }
 .navbar .inav-cons i{
-
   color: #10403B;
     cursor: pointer;
     margin-left:10px;
     font-size: 16px;
     font-weight:bold;
 }
-.personal-img{
+.navbar .personal-img{
   width: 60px;
   height: 60px;
 
 }
-.personal-img img{
+ .navbar .personal-img img{
     width: 60px;
       height: 60px;
   border-radius: 50%;
