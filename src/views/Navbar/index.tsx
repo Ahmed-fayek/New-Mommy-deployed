@@ -112,7 +112,7 @@ function Nav() {
   } else {
     return (
       <>
-        <div className="navbar">
+        {/* <div className="navbar">
           <img src={logo}></img>
           <div className="links">
             <ul className="show-links">
@@ -121,7 +121,7 @@ function Nav() {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </>
     );
   }
