@@ -1,5 +1,6 @@
 import "./styles.css";
-import logo from "./../../assets/images/baby-moon.png";
+import logo from "./../../assets/images/Layer 1.svg";
+import personalimg from "./../../assets/images/PicsArt_08-06-09.26.03.jpg";
 import Notifications from "../Notifications";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../context/AuthProvider";
@@ -52,9 +53,9 @@ function Nav() {
     return (
       <>
         <div className="navbar">
-          <Notifications />
-          <img src={logo}></img>
-          <span>Welcome Back! {user ? user?.firstname : ""}</span>
+          <div className="app-logo">
+            <img src={logo}></img>
+          </div>
           <div className="links">
             <div
               className="bars rotates"
@@ -71,18 +72,18 @@ function Nav() {
                 <Link to={"/main"}>Home</Link>
               </li>
               <li>
-                <Link to={"/main"}>Home</Link>
+                <Link to={"/main"}>Community</Link>
               </li>
 
               <li>
-                <Link to={"/main"}>Home</Link>
+                <Link to={"/main"}>Tracking</Link>
               </li>
 
               <li>
-                <Link to={"/main"}>Home</Link>
+                <Link to={"/main"}>Learning</Link>
               </li>
               <li>
-                <Link to={"/main"}>Home</Link>
+                <Link to={"/main"}>Shop</Link>
               </li>
               <li>
                 <span
@@ -94,6 +95,16 @@ function Nav() {
                 </span>
               </li>
             </ul>
+          </div>
+          <div className="nav-side">
+            <div className="inav-cons">
+              <i className="fa-solid fa-magnifying-glass"></i>
+              <i className="fa-solid fa-cart-shopping"></i>
+              <Notifications />
+            </div>
+            <div className="personal-img">
+              <img src={personalimg} alt="" />
+            </div>
           </div>
         </div>
       </>

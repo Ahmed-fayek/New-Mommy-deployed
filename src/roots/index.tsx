@@ -25,6 +25,8 @@ import BabyFirsts from "../views/baby-firsts";
 import Feeding from "../views/Feeding";
 import Growth from "../views/growth";
 import DeleteAccount from "../views/delete-acc/delete";
+import Friends from "../views/Community/friends";
+import AddFriends from "../views/Community/friends/addFiend";
 
 const MainRouer = () => {
   return (
@@ -59,6 +61,8 @@ const MainRouer = () => {
           element={<AddReminder />}
         ></Route>
         <Route path="/DeleteAccount" element={<DeleteAccount />}></Route>
+        <Route path="/Friends" element={<Friends />}></Route>
+        <Route path="/AddFriends" element={<AddFriends />}></Route>
       </Routes>
     </>
   );
