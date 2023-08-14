@@ -9,7 +9,7 @@ const Welcome = () => {
   const { auth } = useContext<any>(AuthContext);
   const navigator = useNavigate();
   useEffect(() => {
-    if (user?.id != undefined && auth.access_token) {
+    if (user?.id! && auth?.access_token) {
       navigator("/main");
     }
   }, [auth, user]);
