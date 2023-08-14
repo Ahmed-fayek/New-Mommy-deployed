@@ -1,6 +1,6 @@
 import "./styles.css";
 import logo from "./../../assets/images/Layer 1.svg";
-import personalimg from "./../../assets/images/PicsArt_08-06-09.26.03.jpg";
+import personalimg from "./../../assets/images/Ellipse 6.svg";
 import Notifications from "../Notifications";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../context/AuthProvider";
