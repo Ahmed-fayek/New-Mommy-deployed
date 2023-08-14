@@ -22,7 +22,7 @@ const Signup = () => {
   const { auth } = useContext<any>(AuthContext);
 
   useEffect(() => {
-    if (user?.id && auth.access_token) {
+    if (user?.id && auth?.access_token) {
       navigator("/main");
     }
   }, [auth, user]);
