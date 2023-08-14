@@ -2,9 +2,45 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+    font-family: Poppins, sans-serif;
 
 }
 body{
+<<<<<<< HEAD
       background: linear-gradient(180deg, rgba(129, 204, 171, 0.65) 0%, rgba(229, 234, 232, 0.2) 100%) no-repeat;
+=======
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size:cover ;
+  background-position: center;
+      background: linear-gradient(180deg, rgba(129, 204, 171, 0.65) 0%, rgba(229, 234, 232, 0.2) 100%);
+      overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  margin: 5px;
+  width: 6px;
+  height: 10px;
+  border-radius: 16px;
+  background-color: #fff;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color:#81ccab;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+>>>>>>> 60d813ecb589a557d6fe1eaf2c0a43876e96848a
 }
 

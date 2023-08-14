@@ -1,8 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 import splash from "./../../assets/images/splash-logo.png";
 import momandbaby from "./../../assets/images/momandbaby.png";
+import { useContext, useEffect } from "react";
+import AuthContext from "../../context/AuthProvider";
 const Welcome = () => {
+  const { user } = useContext<any>(AuthContext);
+  const { auth } = useContext<any>(AuthContext);
+  const navigator = useNavigate();
+  useEffect(() => {
+    if (user?.id! && auth?.access_token) {
+      navigator("/main");
+    }
+  }, [auth, user]);
+
   /* this is router to add baby */
   return (
     <div className="welcome-container">
