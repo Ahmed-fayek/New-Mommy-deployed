@@ -86,6 +86,7 @@
 }
 
 .navbar ul li * {
+display: inline-block;
   text-decoration: none;
   padding: 12px;
   margin: 0 5px;

@@ -5,10 +5,10 @@ import Notifications from "../Notifications";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../context/AuthProvider";
 import axios from "../../api/axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Nav() {
   const { user } = useContext<any>(AuthContext);
-
+  const navigator = useNavigate();
   const { auth } = useContext<any>(AuthContext);
   const { setUser } = useContext<any>(AuthContext);
   const { setAuth } = useContext<any>(AuthContext);
@@ -38,6 +38,7 @@ function Nav() {
       },
     })
       .then((response) => {
+        navigator("/login");
         //delete all data from context and localStorage
         setUser({});
         setAuth({});
@@ -110,20 +111,7 @@ function Nav() {
       </>
     );
   } else {
-    return (
-      <>
-        <div className="navbar">
-          <img src={logo}></img>
-          <div className="links">
-            <ul className="show-links">
-              <li>
-                <a href="#">About</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </>
-    );
+    return <></>;
   }
 }
 export default Nav;
