@@ -34,7 +34,7 @@ function Nav() {
       method: "POST",
       url: "https://newMommy.mooo.com:3001/api/auth/logout",
       headers: {
-        Authorization: `Bearer ${auth.access_token}`,
+        Authorization: `Bearer ${auth?.access_token}`,
       },
     })
       .then((response) => {
