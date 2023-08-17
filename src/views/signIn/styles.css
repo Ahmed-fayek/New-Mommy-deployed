@@ -1,7 +1,6 @@
 .log-in {
   width: 100vw;
-  height: auto;
-  min-height: 100vh;
+  height: 100vh;
   background-color: #fff;
   overflow: auto;
 }
