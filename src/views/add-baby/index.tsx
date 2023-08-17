@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import { AddNewCategory, NewbabyApi } from "../../api";
+import mompic from "../../assets/images/bro.svg"
 import AuthContext from "../../context/AuthProvider";
 
 const AddBaby = () => {
@@ -137,6 +138,9 @@ const AddBaby = () => {
 
   return (
     <div className="add-baby">
+      <div className="mompicture">
+        <img src={mompic} alt="" />
+      </div>
       <div className="container">
         <div className="signup-block">
           {/* file */}
@@ -245,10 +249,11 @@ const AddBaby = () => {
           >
             <span className="button__text"> skip now</span>
           </button>
-        </div>
-        <div className="msg">
+          <div className="msg">
           <p>{successMessageVisible}</p>
         </div>
+        </div>
+       
       </div>
     </div>
   );

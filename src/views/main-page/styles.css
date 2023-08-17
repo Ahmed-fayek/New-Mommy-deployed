@@ -22,6 +22,10 @@ top: 0;
     justify-content: center;
     align-items: center;
 }
+@media (min-width: 481px) and (max-width: 788px) {
+    .welcome
+    ,.baby-section{flex-direction: column;}
+}
 .welcome .left{
     flex: 1;
 }
@@ -51,8 +55,15 @@ top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
-
+@media (min-width: 481px) and (max-width: 788px) {
+.welcome .left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+}
 .welcome .left .btn-add i{
     margin-right: 10px;
 }
@@ -64,11 +75,22 @@ top: 0;
 
 .welcome .right{
     flex: 1;
+    width: 60vw;
 }
-
+.welcome .right img{
+    width: 100%;
+}
 
 /* ======== Hello Mom ========*/
 
+@media (min-width: 481px) and (max-width: 788px) {
+    .main-page .hello-mom{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .main-page .hello-mom img{display: none;}
+}
 .main-page .hello-mom{
     display: flex;
     justify-content: flex-start;
@@ -201,7 +223,7 @@ top: 0;
     padding: 0 20px;
 }
 
-.main-page .baby-section .baby-vitamins span{
+/* .main-page .baby-section .baby-vitamins input{
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -211,15 +233,41 @@ top: 0;
     -o-border-radius: 50%;
     border: 2px solid rgb(16, 64, 59);
     display: inline-block;
-}
-.main-page .baby-section div.finished p{
+} */
+/* .main-page .baby-section div.finished p{
     text-decoration: line-through;
     color: gray;
+} */
+.selected label {
+    text-decoration: line-through;
+  }
+  /* Customize the radio button appearance */
+/* Customize the radio button appearance */
+input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    outline: none;
+    cursor: pointer;
+    border: 2px solid rgb(16, 64, 59);
+    background-color: transparent;
+    border-radius: 50%;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
 }
-.main-page .baby-section div.finished span{
+ input[type="radio"]:checked{
+     background-color: rgb(151, 194, 133);   
+    border: none;
+    /* border: 2px solid green; */
+  }
+/* .main-page .baby-section input::selection + label {
     background-color: rgb(151, 194, 133);
     border: none;
-}
+} */
 
 /* ---baby food---- */
 .main-page .baby-section .baby-food{
@@ -234,7 +282,7 @@ top: 0;
     margin-top: 20px;
 }
 .main-page .baby-section .baby-food .orange-line{
-   width: 500px;
+   width: 400px;
    height: 10px;
    background-color:rgb(247, 129, 11);
    border-top-left-radius: 10px;
@@ -324,6 +372,7 @@ top: 0;
 }
 
 /*=========Footer===========*/
+
 .footer{
     background-color: rgb(16, 64, 59);
     height: 200px;

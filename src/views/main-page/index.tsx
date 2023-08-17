@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import React , { useContext, useEffect , useState } from "react";
 import { Link } from "react-router-dom";
 import momsImage from "../../assets/images/Midwives-cuate 1.svg";
 import flowerImage from "../../assets/images/722470_Baby13 4.svg";
@@ -9,11 +9,20 @@ import icon2 from "../../assets/images/Group 34417.svg";
 import icon3 from "../../assets/images/Group 34416.svg";
 import babyPict from "../../assets/images/Group 34475.svg";
 import icon4 from "../../assets/images/Vector.svg";
-import icon5 from "../../assets/images/Vector2.svg";
+import icon5 from "../../assets/images/Vector (1).svg";
 import "./styles.css";
 import AuthContext from "../../context/AuthProvider";
 import Loading from "../../components/Loading";
-const MainPage = () => {
+import { useNavigate } from 'react-router-dom';
+const MainPage : React.FC= () => {
+
+    const [selectedOption, setSelectedOption] = useState<string>("option1");
+  
+    const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setSelectedOption(event.target.value);
+    };
+    const navigate = useNavigate();
+
   return (
     <>
       <div className="main-page">
@@ -26,7 +35,7 @@ const MainPage = () => {
             </p>
             <div className="btn-add">
               <i className="fa-solid fa-plus"></i>
-              <button>Add New Baby</button>
+              <button onClick={ ()=>navigate('/addbaby')}>Add New Baby</button>
             </div>
           </div>
           <div className="right">
@@ -67,13 +76,27 @@ const MainPage = () => {
                 <p>Your active reminder</p>
                 <span>See all</span>
               </div>
-              <div className="baby-vitamins">
-                <p>Your baby’s vitamins</p>
-                <span></span>
+              <div className={`baby-vitamins ${selectedOption === "option1" ? "selected" : ""}`}>
+                    <label htmlFor="option1">Your baby’s vitamins</label>
+                    <input
+                      type="radio"
+                      id="option1"
+                      name="babyVitamins"
+                      value="option1"
+                      checked={selectedOption === "option1"}
+                      onChange={handleOptionChange}
+                    />
               </div>
-              <div className="baby-vitamins finished">
-                <p>Your baby’s vitamins</p>
-                <span></span>
+              <div className={`baby-vitamins ${selectedOption === "option2" ? "selected" : ""}`}>
+                      <label htmlFor="option2">Your baby’s vitamins</label>
+                      <input
+                        type="radio"
+                        id="option2"
+                        name="babyVitamins"
+                        value="option2"
+                        checked={selectedOption === "option2"}
+                        onChange={handleOptionChange}
+                      />
               </div>
             </div>
           </div>
@@ -151,50 +174,3 @@ const MainPage = () => {
   );
 };
 export default MainPage;
-
-// const { user } = useContext<any>(AuthContext);
-// let userName = "";
-// if (user) {
-//   userName = user.firstname;
-//   return (
-//     <div className="main-page">
-//       <div className="main-page-content">
-//         <h1>Hello {userName}</h1>
-//         <Link to={"/addbaby"}>addbaby</Link> <br></br>
-//         <br></br>
-//         <Link to={"/loading"}>loading</Link> <br></br>
-//         <br></br>
-//         <Link to={"/addMedical"}>addMedical</Link> <br></br>
-//         <br></br>
-//         <Link to={"/addMedicalDocs"}>addMedicalDocs</Link> <br></br>
-//         <br></br>
-//         <Link to={"/medicalhistory"}>medicalhistory</Link> <br></br>
-//         <br></br>
-//         <Link to={"/activity"}>activity</Link> <br></br>
-//         <br></br>
-//         <Link to={"/addactivity"}>addactivity</Link> <br></br>
-//         <br></br>
-//         <Link to={"/feeding"}>feeding</Link> <br></br>
-//         <br></br>
-//         <Link to={"/addfood"}>addfood</Link> <br></br>
-//         <br></br>
-//         <Link to={"/growth"}>growth</Link> <br></br>
-//         <br></br>
-//         <Link to={"/addgrowth"}>addgrowth</Link> <br></br>
-//         <br></br>
-//         <Link to={"/addFirist"}>addFirist</Link> <br></br>
-//         <br></br>
-//         <Link to={"/babyFirsts"}>babyFirsts</Link> <br></br>
-//         <br></br>
-//         <Link to={"/addReminder"}>addReminder</Link> <br></br>
-//         <br></br>
-//         <Link to={"/reminder"}>reminder</Link> <br></br>
-//         <br></br>
-//         <Link to={"/DeleteAccount"}>DeleteAccount</Link> <br></br>
-//         <br></br>
-//       </div>
-//     </div>
-//   );
-// } else {
-//   return <Loading />;
-// }

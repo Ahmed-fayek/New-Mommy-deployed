@@ -1,33 +1,44 @@
 .add-baby {
   box-sizing: border-box;
-  margin: 0;
+  /* margin:0; */
   padding: 0;
   font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #81ccab;
+  margin-top:50px;
 }
-
+.add-baby .mompicture{
+  width: 40vw;
+}
+.add-baby .mompicture img{
+  width: 100%;
+}
 .add-baby .container {
-  position: absolute;
-  width: 100vw;
+  /* position: absolute; */
+  /* width: 100vw; */
   height: 100vh;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%); */
   overflow: hidden;
-  background-color: #81ccab;
+  /* background-color: #81ccab; */
   display: flex;
   gap: 50px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 10px;  
 }
 
 .add-baby .signup-block {
-  width: 450px;
-  height: 600px;
+  width: 600px;
+  height: 580px;
   padding: 20px 0;
   display: flex;
   flex-direction: column;
@@ -234,11 +245,24 @@
   left: 10px;
   color: rgb(178, 0, 0) !important;
 }
+.signup-block .msg{
+  color: #032522;
+  font-style: 25px;
+  font-weight: bold;
+  
+}
+
 @media (max-width: 480px) {
+  .add-baby{
+    flex-direction: column;
+  }
+  .add-baby .mompicture{
+    margin-top: 40px;
+    }
   .add-baby .signup-block {
-    width: 90%;
     padding: 40px 0;
     background-size: 400%;
+    width: 60vw;
   }
   .add-baby .input__field {
     width: 100%;
@@ -272,10 +296,16 @@
 }
 
 /* Medium screens */
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 788px) {
+  .add-baby{
+    flex-direction: column;
+  }
+  .add-baby .mompicture{
+    margin-top: 40px;
+    }
   .add-baby .signup-block {
-    width: 80%;
     background-size: 350%;
+    width: 60vw;
   }
 
   .add-baby .addbaby__submit {
