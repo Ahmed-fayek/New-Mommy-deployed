@@ -81,14 +81,9 @@ function RefreshToken() {
     return (
       <div className="App">
         <Nav />
-<<<<<<< HEAD
-        <MainRouer />
-        
-=======
         <div className="mommyvere">
           <MainRouer />
         </div>
->>>>>>> 60d813ecb589a557d6fe1eaf2c0a43876e96848a
       </div>
     );
   }
