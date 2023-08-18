@@ -1,6 +1,5 @@
 .add-baby {
   box-sizing: border-box;
-  /* margin:0; */
   padding: 0;
   font-family: "Poppins", sans-serif;
   display: flex;
@@ -16,18 +15,8 @@
   width: 100%;
 }
 .add-baby .container {
-  /* position: absolute; */
-  /* width: 100vw; */
   height: 100vh;
-  /* top: 50%;
-  left: 50%; */
-  /* transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%); */
   overflow: hidden;
-  /* background-color: #81ccab; */
   display: flex;
   gap: 50px;
   align-items: center;

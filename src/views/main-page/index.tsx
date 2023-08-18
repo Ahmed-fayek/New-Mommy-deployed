@@ -33,9 +33,9 @@ const MainPage : React.FC= () => {
             <p>
               Keep tracking your baby, and shop form all your favorite brands
             </p>
-            <div className="btn-add">
+            <div className="btn-add" onClick={ ()=>navigate('/addbaby')}>
               <i className="fa-solid fa-plus"></i>
-              <button onClick={ ()=>navigate('/addbaby')}>Add New Baby</button>
+              <button>Add New Baby</button>
             </div>
           </div>
           <div className="right">
@@ -54,7 +54,7 @@ const MainPage : React.FC= () => {
         <div className="baby-section">
           {/* baby info  */}
           <div className="baby-info">
-            {/* baby info */}
+            {/* baby name */}
             <div className="baby-name">
               <div className="left">
                 <img src={babyImg} alt="baby img" />
@@ -114,7 +114,9 @@ const MainPage : React.FC= () => {
                 Weighs at least 13 pounds or has doubled their birth weigh
               </li>
             </ul>
+            <div className="babypic">
             <img src={babyPict} alt="" />
+            </div>
             <div className="baby-eat">
               <h2>as your baby now is 5 months he can eat:</h2>
               <div className="foods">

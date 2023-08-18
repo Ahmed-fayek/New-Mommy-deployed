@@ -4,28 +4,14 @@
 margin-top: 0;
 margin-left: 70px;
 top: 0;
-
 }
-/* .main-page-content {
-    margin-top: 60px;
-    
-}
-.main-page-content  {
-    text-align: center;
-}
-.main-page-content h1{
-    font-size: 200px;
-} */
 .welcome{
     margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-@media (min-width: 481px) and (max-width: 788px) {
-    .welcome
-    ,.baby-section{flex-direction: column;}
-}
+
 .welcome .left{
     flex: 1;
 }
@@ -57,13 +43,7 @@ top: 0;
     align-items: center;
     cursor: pointer;
 }
-@media (min-width: 481px) and (max-width: 788px) {
-.welcome .left{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-}
+
 .welcome .left .btn-add i{
     margin-right: 10px;
 }
@@ -83,14 +63,6 @@ top: 0;
 
 /* ======== Hello Mom ========*/
 
-@media (min-width: 481px) and (max-width: 788px) {
-    .main-page .hello-mom{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .main-page .hello-mom img{display: none;}
-}
 .main-page .hello-mom{
     display: flex;
     justify-content: flex-start;
@@ -184,7 +156,6 @@ top: 0;
  width: 30px;
  height: 40px;
 }
-
 /* ------baby reminder--------- */
 .main-page .baby-section .baby-reminder .baby-active ,
 .main-page .baby-section .baby-vitamins{
@@ -223,21 +194,7 @@ top: 0;
     padding: 0 20px;
 }
 
-/* .main-page .baby-section .baby-vitamins input{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border: 2px solid rgb(16, 64, 59);
-    display: inline-block;
-} */
-/* .main-page .baby-section div.finished p{
-    text-decoration: line-through;
-    color: gray;
-} */
+
 .selected label {
     text-decoration: line-through;
   }
@@ -262,12 +219,7 @@ input[type="radio"] {
  input[type="radio"]:checked{
      background-color: rgb(151, 194, 133);   
     border: none;
-    /* border: 2px solid green; */
   }
-/* .main-page .baby-section input::selection + label {
-    background-color: rgb(151, 194, 133);
-    border: none;
-} */
 
 /* ---baby food---- */
 .main-page .baby-section .baby-food{
@@ -318,6 +270,13 @@ input[type="radio"] {
     font-size: 18px;
 }
 
+.main-page .baby-section .baby-food .babypic{
+    width: 600px;
+}
+
+.main-page .baby-section .baby-food .babypic img{
+    width: 100%;
+}
 .main-page .baby-section .baby-food .baby-eat ,
 .main-page .baby-section .baby-food img{
     margin-right: 80px;
@@ -416,4 +375,239 @@ input[type="radio"] {
     color: #fff;
     text-align: center;
     font-size: 17px;
+}
+
+
+
+@media (min-width: 481px) and (max-width: 788px) {
+        .main-page{
+            margin: 0 10px;
+        }
+        .welcome
+        ,.baby-section{
+            flex-direction: column;
+            align-items: center;
+        }
+        .welcome .left{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .welcome .left h2{
+            font-size: 25px;
+        }
+        .welcome .left p{
+            width: 250px;
+            font-size: 17px;
+        }
+    
+        .main-page .hello-mom{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .main-page .hello-mom img{
+            display: none;
+        }
+        .main-page .hello-mom .content h2{
+            font-size: 28px;
+        }
+        .main-page .hello-mom .content p{
+            font-size: 23px;
+        }
+    
+    .main-page .baby-section .baby-food{
+        margin: auto;
+    }
+    .main-page .baby-section .baby-food .babypic{
+        width: 400px;
+    }
+    .main-page .baby-section .baby-food .orange-line{
+        width: 350px;
+        height: 10px;
+     }
+     .main-page .baby-section .baby-food > p{
+         width: 330px;
+     }
+     .main-page .baby-section .baby-food  ul li{
+        font-size: 15px;
+    }
+    .main-page .baby-section .baby-food .baby-eat{
+        width: 93vw;
+    }
+    .main-page .baby-section .baby-food .baby-eat ,
+.main-page .baby-section .baby-food img{
+    margin-right: 0;
+}
+.main-page .baby-section .baby-food .baby-eat .foods p{
+    font-size: 17px;
+}
+.main-page .baby-section .baby-food .baby-eat  p.introdu {
+    margin: 10px 20px;
+    font-size: 20px;
+}
+.main-page .baby-section .baby-food .baby-eat .hint p{
+    font-size: 18px;
+    width: 400px;
+}
+
+  .footer .cont{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer{
+    height:250px;
+    padding: 10px;
+  }
+  .footer .info{
+    margin-bottom: 10px;
+  }
+  .footer .info span{
+    font-size: 18px;
+   margin-left: 20px;
+  
+}
+.footer .follow {
+   margin:auto
+}
+.follow .copyright{
+    margin-top: 10px;
+}
+}
+
+
+@media (max-width: 480px) {
+        .main-page{
+            margin: 0 10px;
+        }
+        .welcome
+        ,.baby-section{
+            flex-direction: column;
+            align-items: center;
+        }
+        .welcome .left{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .welcome .left h2{
+            font-size: 20px;
+        }
+        .welcome .left p{
+            width: 250px;
+            font-size: 15px;
+        }
+    
+        .main-page .hello-mom{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .main-page .hello-mom img{
+            display: none;
+        }
+        .main-page .hello-mom .content h2{
+            font-size: 25px;
+        }
+        .main-page .hello-mom .content p{
+            font-size: 20px;
+        }
+            .main-page .baby-section .baby-info .baby-name{
+             flex-direction: column;
+                width: 90vw;
+                height: auto;
+                margin: auto;
+              
+            }
+            .main-page .baby-section .baby-injection{
+                width: 90vw;
+                font-size: 15px;
+                margin: 15px auto;
+            }
+            
+            .main-page .baby-section .baby-injection img{
+             width: 30px;
+             height: 40px;
+            }
+            .main-page .baby-section .baby-reminder .baby-active{
+                flex-direction: column;
+                width: 90vw;
+            }
+            .main-page .baby-section .baby-vitamins {
+              width: 90vw;
+              margin: 10px auto;
+                padding: 0 10px;
+            }
+            .main-page .baby-section .baby-vitamins label{
+               font-size: 15px;
+               
+              }
+    .main-page .baby-section .baby-food{
+        margin: auto;
+    }
+    .main-page .baby-section .baby-food .babypic{
+        width: 90vw;
+    }
+    .main-page .baby-section .baby-food .orange-line{
+        width: 85vw;
+        height: 10px;
+        /* margin:auto; */
+     }
+     .main-page .baby-section .baby-food > p{
+         width: 60vw;
+     }
+     .main-page .baby-section .baby-food  ul li{
+        font-size: 15px;
+    }
+    .main-page .baby-section .baby-food .baby-eat{
+        width: 93vw;
+    }
+    .main-page .baby-section .baby-food .baby-eat ,
+.main-page .baby-section .baby-food img{
+    margin-right: 0;
+}
+.main-page .baby-section .baby-food .baby-eat .foods p{
+    font-size: 15px;
+}
+.main-page .baby-section .baby-food .baby-eat  p.introdu {
+    margin: 10px;
+    font-size: 20px;
+}
+.main-page .baby-section .baby-food .baby-eat .hint p{
+    font-size: 15px;
+    width: 80vw;
+}
+.main-page .baby-section .baby-food .baby-eat .hint div{
+    display: none;
+}
+.main-page .baby-section .baby-food ul {
+    margin-left: 25px;
+}
+  .footer .cont{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer{
+    height:auto;
+    padding: 6px;
+  }
+  .footer .info{
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .footer .info span{
+    font-size: 14px;
+   margin-left: 15px;
+  
+}
+.footer .follow {
+   margin:auto;
+   text-align: center;
+}
+.footer .follow p{
+    font-size: 15px;
+ }
+.follow .copyright{
+    margin-top: 10px;
+}
 }
