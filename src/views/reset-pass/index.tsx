@@ -4,6 +4,9 @@ import { EmailConfirmation } from "../../api";
 import "./styles.css";
 import axios from "../../api/axios";
 import AuthContext from "../../context/AuthProvider";
+import forgotpass from "./../../assets/images/forgot-pass.svg";
+import logo from "./../../assets/images/Layer 1.svg";
+
 const EmailConfirm = () => {
   const { SetemailCon } = useContext<any>(AuthContext);
   const [email, setemail] = useState<string>("");
@@ -45,58 +48,87 @@ const EmailConfirm = () => {
   };
 
   return (
-    <form
-      className="reset-pass"
-      onSubmit={(e) => {
-        e.preventDefault();
-      }}
-    >
-      <div className="container">
-        <div className="reset-pass-block">
-          <h1 className="forget-password">Forget Password?</h1>
-          <p className="forget-password-msg">
-            Don't worry! it happens. Please check your email account to reset
-            your password.
-          </p>
-          {/* reset-pass input*/}
-          <div className="reset-pass__field">
-            <i className="reset-pass__icon fas fa-user"></i>
-            <input
-              onChange={(e) => {
-                emailVal(e);
-              }}
-              type="email"
-              className=" reset-pass__input"
-              placeholder="Email"
-              required
-            />
-          </div>
-          {/* submit button */}
-          <div className="submit__feild">
-            <p className="reset-pass-err">{errmsg}</p>
+    <>
+      <header className="">
+        <div className="img-logo">
+          <img src={logo} alt="img" />
+        </div>
+      </header>
 
-            <button
-              onClick={(e) => {
-                handleEmailSubmit(e);
-              }}
-              className="button reset-pass__submit"
-            >
-              <span className="button__text">Next</span>
-            </button>
-          </div>
-          <div className="submit__feild">
+      <div className="main-container ">
+        <div className="img-forgotpass">
+          <img src={forgotpass} alt="image" />
+        </div>
+
+        <form
+          className="reset-pass"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <div className="container">
+            <div className="reset-pass-block">
+              <h1 className="forget-password ">Forgot Password?</h1>
+              <p className="forget-password-msg">
+                Don't worry! it happens. Please check your email account to
+                reset your password.
+              </p>
+              {/* reset-pass input*/}
+              <div className="reset-pass__field">
+                {/* <i className="reset-pass__icon fas fa-user"></i> */}
+                <input
+                  onChange={(e) => {
+                    emailVal(e);
+                  }}
+                  type="email"
+                  className=" reset-pass__input"
+                  placeholder="Enter Your Email"
+                  required
+                />
+              </div>
+
+              <div className="Container-ButtonsResetPass">
+                {/* submit button */}
+
+                <div className="submit__feild">
+                  <button
+                    onClick={(e) => {
+                      navigator("/login");
+                    }}
+                    className="button cancel__submit"
+                  >
+                    <span className=" button-cancel">cancel</span>
+                  </button>
+                </div>
+                <div className="submit__feild">
+                  <p className="reset-pass-err">{errmsg}</p>
+
+                  <button
+                    onClick={(e) => {
+                      handleEmailSubmit(e);
+                    }}
+                    className="button reset-pass__submit"
+                  >
+                    <span className="button__text">next</span>
+                  </button>
+                </div>
+
+                {/* <div className="submit__feild">
             <button
               onClick={(e) => {
                 navigator("/login");
               }}
               className="button cancel__submit"
             >
-              <span className="button__text">cancel</span>
+              <span className=" button-cancel">cancel</span>
             </button>
+          </div> */}
+              </div>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
-    </form>
+    </>
   );
 };
 export default EmailConfirm;
