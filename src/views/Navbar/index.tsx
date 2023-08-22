@@ -77,7 +77,7 @@ function Nav() {
               </li>
 
               <li>
-                <Link to={"/main"}>Tracking</Link>
+                <Link to={"/tracking"}>Tracking</Link>
               </li>
 
               <li>

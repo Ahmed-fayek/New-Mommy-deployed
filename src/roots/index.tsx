@@ -27,12 +27,13 @@ import Growth from "../views/growth";
 import Friends from "../views/Community/friends";
 import AddFriends from "../views/Community/friends/addFiend";
 import DeleteAccount from "../views/deleteaccount/delete-account";
+import Tracking from "../views/tracking/Tracking";
 
 const MainRouer = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Welcome />}></Route>
+        <Route  path="/" element={<Welcome />}></Route>
         <Route path="/login" element={<SignIn />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/babymoon" element={<FirstUse />}></Route>
@@ -63,6 +64,7 @@ const MainRouer = () => {
         <Route path="/Friends" element={<Friends />}></Route>
         <Route path="/AddFriends" element={<AddFriends />}></Route>
         <Route path="/deleteaccount" element={<DeleteAccount />}></Route>
+        <Route path="/tracking" element={<Tracking />}></Route>
       </Routes>
     </>
   );
