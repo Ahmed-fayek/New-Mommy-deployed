@@ -32,11 +32,11 @@
     background-repeat: repeat;
     background-size: cover;
     background-color: #d1d1d44a;
-    border-radius: 15px;
+    -o-border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
-    -o-border-radius: 15px;
+    border-radius: 15px;
 }
 
 .confirm-code .forget-password-msg{
@@ -102,11 +102,11 @@
     padding: 10px;
     font-weight: 700;
     transition: .2s;
-    border-radius: 1px;
+    -o-border-radius: 1px;
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
     -ms-border-radius: 1px;
-    -o-border-radius: 1px;
+    border-radius: 1px;
 }
 
 .confirm-code .confirm-code__input:active,
