@@ -6,6 +6,7 @@ import axios from "../../api/axios";
 import AuthContext from "../../context/AuthProvider";
 import forgotpass from "./../../assets/images/forgot-pass.svg";
 import logo from "./../../assets/images/Layer 1.svg";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 const EmailConfirm = () => {
   const { SetemailCon } = useContext<any>(AuthContext);
