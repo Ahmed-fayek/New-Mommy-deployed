@@ -4,6 +4,10 @@ import { RessetPassword } from "../../../api";
 import "./styles.css";
 import axios from "../../../api/axios";
 import AuthContext from "../../../context/AuthProvider";
+import logo from "../../../assets/images/Layer 1.svg";
+import resetpassword from  "../../../assets/images/reset-pass.svg";
+
+
 
 const ResetPAss = () => {
   const { EmailCon } = useContext<any>(AuthContext);
@@ -51,26 +55,45 @@ const ResetPAss = () => {
     }
   };
   return (
+    
+<>
+
+<header className="">
+        <div className="img-logo">
+          <img src={logo} alt="img" />
+        </div>
+      </header>
+
+
+      <section className="main-container">
+    <div>
+      <img src={resetpassword} alt="img"/>
+    </div>
     <form className="reset-password">
       <div className="container">
         <div className="reset-password-block">
-          <p className="forget-password-msg">
+          {/* <p className="forget-password-msg">
             Please Enter the the new password for your account
-          </p>
+          </p> */}
+ <h1 className="forget-password-msg">
+          reset password
+          </h1> 
+
           {/* reset-password input*/}
           <div className="reset-password__field">
-            <i className="reset-password__icon fas fa-lock"></i>
+            {/* <i className="reset-password__icon fas fa-lock"></i> */}
             <input
               onChange={(e) => {
                 setpassword(e.target.value);
               }}
               type={showpass ? "text" : "password"}
               className="  reset-password__input  "
-              placeholder="Password"
+              placeholder="new password"
               required
             ></input>
             {/* show pass icon */}
-            <i
+
+            {/* <i
               className={
                 showpass
                   ? "fa-solid fa-eye pass__icon"
@@ -79,17 +102,17 @@ const ResetPAss = () => {
               onClick={() => {
                 setshowpass(!showpass);
               }}
-            ></i>
+            ></i> */}
           </div>
           <div className="reset-password__field">
-            <i className="reset-password__icon fas fa-lock"></i>
+            {/* <i className="reset-password__icon fas fa-lock"></i> */}
             <input
               onChange={(e) => {
                 setpasswordcon(e.target.value);
               }}
               type={showpass ? "text" : "password"}
               className="  reset-password__input  "
-              placeholder="Password"
+              placeholder="confirm new Password"
               required
             ></input>
           </div>
@@ -116,6 +139,8 @@ const ResetPAss = () => {
         </div>
       </div>
     </form>
+</section>
+    </>
   );
 };
 export default ResetPAss;
