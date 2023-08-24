@@ -4,8 +4,8 @@ import { RessetPassword } from "../../../api";
 import "./styles.css";
 import axios from "../../../api/axios";
 import AuthContext from "../../../context/AuthProvider";
-import logo from "./../../assets/images/Layer 1.svg";
-import resetpassword from  "./../../assets/images/forgot-pass.svg";
+import logo from "../../../assets/images/Layer 1.svg";
+import resetpassword from  "../../../assets/images/reset-pass.svg";
 
 
 
