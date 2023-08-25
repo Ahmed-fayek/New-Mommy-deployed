@@ -82,7 +82,9 @@ function BabyFirsts() {
     returned = <Loading />;
   }
 
-  return <div>{returned}</div>;
+  return <div>
+          <Link to={"/addFirist"}>addFirist</Link> <br></br>
+{returned}</div>;
 }
 
 export default BabyFirsts;

@@ -83,7 +83,10 @@ function Feeding() {
     returned = <Loading />;
   }
 
-  return <div>{returned}</div>;
+  return <div>
+              <Link to={"/addfood"}>addfood</Link> <br></br>
+
+    {returned}</div>;
 }
 
 export default Feeding;

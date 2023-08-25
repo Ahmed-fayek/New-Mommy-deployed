@@ -34,7 +34,7 @@ function Activity() {
             setupdate(!update);
           })
           .catch((error) => {
-            // console.log(error);
+            console.log(error);
           });
         Swal.fire("Deleted!", ` has been deleted.`, "success");
       }
@@ -64,6 +64,7 @@ function Activity() {
     returned = activitys.map((activity: any) => {
       return (
         <div style={{ margin: "50px" }} className="reminder" key={activity.id}>
+          
           <h1> {activity.activity}</h1>
           <div>{activity.id} </div>
           <div>{activity.date} </div>

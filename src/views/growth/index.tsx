@@ -89,7 +89,10 @@ function Growth() {
     returned = <Loading />;
   }
 
-  return <div>{returned}</div>;
+  return <div>
+              <Link to={"/addgrowth"}>addgrowth</Link> <br></br>
+
+    {returned}</div>;
 }
 
 export default Growth;
