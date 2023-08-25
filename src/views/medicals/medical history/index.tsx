@@ -135,10 +135,14 @@ function MedicalHistory() {
           <div className="conainer">
             <div className="last-view">
               <h1>Last Visits</h1>
+              <Link to={"/addMedical"}>addMedical</Link> <br></br>
+
               {medicalsreturned}
             </div>
             <div className="decuments">
               <h1>Documents</h1>
+              <Link to={"/addMedicalDocs"}>addMedicalDocs</Link> <br></br>
+
               {docsreturned}
             </div>
           </div>

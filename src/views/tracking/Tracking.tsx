@@ -39,7 +39,7 @@ const Tracking= () => {
             <span>Reminders</span>
           </li>
           <li onClick={() => changeActiveComponent('Medicals')}>
-          <i className="fa-solid fa-stethoscope"></i>
+          <i className="fa-solid fa-stethoscope"></i> 
             <span>Medicals</span>
           </li>
           <li onClick={() => changeActiveComponent('Activity')}>
