@@ -42,21 +42,21 @@ const AddFood = () => {
       if (user) {
         axios({
           method: "GET",
-          url: `${AddNewCategory}/mealById/${user.baby[0].id}/${foodId}`,
+          url: `${AddNewCategory}/mealById/${foodId}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
             "Content-Type": "application/json",
           },
         })
           .then((response) => {
-            console.log(response);
+            // console.log(response);
             settime(response.data.meal.time.slice(0, 5));
             setnote(response.data.meal.note);
             setfood(response.data.meal.food);
             setstartDate(response.data.meal.date);
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
       }
     }
@@ -110,7 +110,7 @@ const AddFood = () => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
 
           setSuccessMessageVisible("successful added "); // Show success message
 
@@ -120,7 +120,7 @@ const AddFood = () => {
           }, 3000);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
     } else {
       await axios({
@@ -138,7 +138,7 @@ const AddFood = () => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
 
           setSuccessMessageVisible("successful added "); // Show success message
 
@@ -148,7 +148,7 @@ const AddFood = () => {
           }, 3000);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
     }
   };
@@ -241,7 +241,7 @@ const AddFood = () => {
           </button>
           {/*err msg */}
           <p>{SubmiterrMsg}</p>
-          {/*skip now */}
+          {/*Go to Main */}
           <button
             onClick={() => {
               navigator("/main");
@@ -249,7 +249,7 @@ const AddFood = () => {
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> skip now</span>
+            <span className="button__text"> Go to Main</span>
           </button>
         </div>
         <div className="msg">

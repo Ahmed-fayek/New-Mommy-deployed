@@ -16,10 +16,10 @@ function AddFriends() {
       })
         .then((res) => {
           setAllUsers(res.data);
-          console.log(res.data);
+          // console.log(res.data);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
     }
   }, [auth]);
@@ -32,7 +32,7 @@ function AddFriends() {
           Authorization: `Bearer ${auth.access_token}`,
         },
       }).then((res) => {
-        console.log(res);
+        // console.log(res);
       });
     }
   };

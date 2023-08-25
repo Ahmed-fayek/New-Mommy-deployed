@@ -15,7 +15,6 @@ const AddActivity = () => {
   let dateFormat = currentDate.toJSON().slice(0, 10);
   let currentTime = currentDate.toJSON().slice(11, 16);
   const [time, settime] = useState<string>(currentTime);
-
   const [activity, setactivity] = useState<string>("");
   const [note, setnote] = useState<string>("");
   const [startDate, setstartDate] = useState<string>(dateFormat);
@@ -40,21 +39,20 @@ const AddActivity = () => {
       if (user) {
         axios({
           method: "GET",
-          url: `${AddNewCategory}/activityById/${user.baby[0].id}/${actId}`,
+          url: `${AddNewCategory}/activityById/${actId}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
             "Content-Type": "application/json",
           },
         })
           .then((response) => {
-            console.log(response);
             setactivity(response.data.activity.activity);
             setstartDate(response.data.activity.date);
             settime(response.data.activity.time.slice(0, 5));
             setnote(response.data.activity.note);
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
       }
     }
@@ -93,7 +91,6 @@ const AddActivity = () => {
 
   const submitVal = async () => {
     let mytime = TimeConverter(time);
-    console.log(mytime);
 
     if (!Update) {
       await axios({
@@ -111,17 +108,17 @@ const AddActivity = () => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
 
           setSuccessMessageVisible("successful added "); // Show success message
 
           // Redirect to main page after 3 seconds
           setTimeout(() => {
-            // navigator("/main");
+            navigator("/main");
           }, 3000);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
     } else {
       await axios({
@@ -139,7 +136,7 @@ const AddActivity = () => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
 
           setSuccessMessageVisible("successful added "); // Show success message
 
@@ -149,7 +146,7 @@ const AddActivity = () => {
           }, 3000);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
     }
   };
@@ -241,7 +238,7 @@ const AddActivity = () => {
           </button>
           {/*err msg */}
           <p>{SubmiterrMsg}</p>
-          {/*skip now */}
+          {/*Go to Main */}
           <button
             onClick={() => {
               navigator("/main");
@@ -249,7 +246,7 @@ const AddActivity = () => {
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> skip now</span>
+            <span className="button__text"> Go to Main</span>
           </button>
         </div>
         <div className="msg">

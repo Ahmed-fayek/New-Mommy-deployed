@@ -37,20 +37,20 @@ const AddReminder = () => {
       if (user) {
         axios({
           method: "GET",
-          url: `${AddNewCategory}/reminderById/${user.baby[0].id}/${reminderId}`,
+          url: `${AddNewCategory}/reminderById/${reminderId}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
             "Content-Type": "application/json",
           },
         })
           .then((response) => {
-            console.log(response);
+            // console.log(response);
             settime(response.data.reminder.time.slice(0, 5));
             setnote(response.data.reminder.note);
             setreminderDate(response.data.reminder.date);
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
       }
     }
@@ -64,7 +64,7 @@ const AddReminder = () => {
   /* report Time  */
   const startTimeVal = (e: any) => {
     settime(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
   /* note  */
   const noteVal = (e: any) => {
@@ -94,7 +94,7 @@ const AddReminder = () => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           setSuccessMessageVisible("successful added "); // Show success message
           // Redirect to main page after 3 seconds
           setTimeout(() => {
@@ -102,7 +102,7 @@ const AddReminder = () => {
           }, 3000);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
     } else {
       await axios({
@@ -118,7 +118,7 @@ const AddReminder = () => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           setSuccessMessageVisible("successful added "); // Show success message
           // Redirect to main page after 3 seconds
           setTimeout(() => {
@@ -126,7 +126,7 @@ const AddReminder = () => {
           }, 3000);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
     }
   };
@@ -203,7 +203,7 @@ const AddReminder = () => {
           </button>
           {/*err msg */}
           <p>{SubmiterrMsg}</p>
-          {/*skip now */}
+          {/*Go to Main */}
           <button
             onClick={() => {
               navigator("/main");
@@ -211,7 +211,7 @@ const AddReminder = () => {
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> skip now</span>
+            <span className="button__text"> Go to Main</span>
           </button>
         </div>
         <div className="msg">

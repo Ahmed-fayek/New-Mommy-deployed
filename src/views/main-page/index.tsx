@@ -172,38 +172,6 @@ const MainPage : React.FC= () => {
           <p>Copyright &copy; 2020. All Rights Reserved.</p>
         </div>
       </div>
-        <Link to={"/addbaby"}>addbaby</Link> <br></br>
-          <br></br>
-          <Link to={"/loading"}>loading</Link> <br></br>
-          <br></br>
-          <Link to={"/addMedical"}>addMedical</Link> <br></br>
-          <br></br>
-          <Link to={"/addMedicalDocs"}>addMedicalDocs</Link> <br></br>
-          <br></br>
-          <Link to={"/medicalhistory"}>medicalhistory</Link> <br></br>
-          <br></br>
-          <Link to={"/activity"}>activity</Link> <br></br>
-          <br></br>
-          <Link to={"/addactivity"}>addactivity</Link> <br></br>
-          <br></br>
-          <Link to={"/feeding"}>feeding</Link> <br></br>
-          <br></br>
-          <Link to={"/addfood"}>addfood</Link> <br></br>
-          <br></br>
-          <Link to={"/growth"}>growth</Link> <br></br>
-          <br></br>
-          <Link to={"/addgrowth"}>addgrowth</Link> <br></br>
-          <br></br>
-          <Link to={"/addFirist"}>addFirist</Link> <br></br>
-          <br></br>
-          <Link to={"/babyFirsts"}>babyFirsts</Link> <br></br>
-          <br></br>
-          <Link to={"/addReminder"}>addReminder</Link> <br></br>
-          <br></br>
-          <Link to={"/reminder"}>reminder</Link> <br></br>
-          <br></br>
-          <Link to={"/DeleteAccount"}>DeleteAccount</Link> <br></br>
-          <br></br>
     </>
   );
 };

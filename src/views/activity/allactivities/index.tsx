@@ -31,11 +31,10 @@ function Activity() {
           },
         })
           .then((response) => {
-            console.log(response.data);
             setupdate(!update);
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
         Swal.fire("Deleted!", ` has been deleted.`, "success");
       }
@@ -55,7 +54,7 @@ function Activity() {
           setactivitys(response.data.activities);
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
     }
   }, [user, update]);
