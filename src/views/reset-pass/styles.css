@@ -230,7 +230,7 @@ reset-pass .reset-pass__input:hover ******************************/
 }
 
 /************************Set reset-pass .reset-pass-err*****************************/
-
+ 
 .reset-pass .reset-pass-err {
     position: absolute;
     top: 55px;
@@ -238,7 +238,7 @@ reset-pass .reset-pass__input:hover ******************************/
     font-size: 16px;
     color: rgb(178, 0, 0);
     text-align: center;
-}
+} 
 
 /***********************mediaquairy*****************************/
 

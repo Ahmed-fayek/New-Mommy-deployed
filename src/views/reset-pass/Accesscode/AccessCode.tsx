@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { ACCCode } from "../../../api";
 import axios from "../../../api/axios";
 import AuthContext from "../../../context/AuthProvider";
+import verifycode from "../../../assets/images/verify.svg";
+import logo from "../../../assets/images/Layer 1.svg";
+
+
 const AccessCode = () => {
   const { EmailCon } = useContext<any>(AuthContext);
   const { setCodeCon } = useContext<any>(AuthContext);
@@ -69,12 +73,28 @@ const AccessCode = () => {
     // }
   };
   return (
+
+
+    <>
+    <header className="">
+      <div className="img-logo">
+        <img src={logo} alt="img"/>
+      </div>
+    </header>
+
+    <div className="main-container">
+      <div className="img-verify">
+      <img src={verifycode} alt="img" className="img-verify"/>
+      </div>
+
+
     <form className="confirm-code">
       <div className="container">
         <div className="confirm-code-block">
-          <p className="forget-password-msg">
+          <h1>verifycode</h1>
+           <p className="forget-password-msg">
             Please Enter the 4 digit code we sent you via Email
-          </p>
+          </p> 
           {/* confirm-code input*/}
           <div className="confirm-code__field">
             <input
@@ -141,6 +161,29 @@ const AccessCode = () => {
               value={fourthConCode}
               required
             />
+            {/* <input
+              onClick={() => {
+                setfirConCode("");
+                setsecConCode("");
+                setthirdConCode("");
+                setfourthConCode("");
+              }}
+              type="button"
+              min={0}
+              max={9}
+              minLength={0}
+              maxLength={1}
+              className=" confirm-code__clear"
+              value={"clear"}
+              required
+            /> */}
+          </div>
+          {/* submit button */}
+          <div className="submit__feild">
+            <p className="reset-pass-err">{errmsg}</p>
+
+
+<div className="container-buttons">
             <input
               onClick={() => {
                 setfirConCode("");
@@ -157,11 +200,6 @@ const AccessCode = () => {
               value={"clear"}
               required
             />
-          </div>
-          {/* submit button */}
-          <div className="submit__feild">
-            <p className="reset-pass-err">{errmsg}</p>
-
             <button
               onClick={(e) => {
                 handleEmailSubmit(e);
@@ -171,13 +209,18 @@ const AccessCode = () => {
             >
               <span className="button__text">Verify</span>
             </button>
-            <p className="resend-code" onClick={(e) => {}}>
+</div>
+            {/* <p className="resend-code" onClick={(e) => {}}>
               Resend Code
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
     </form>
+
+</div>
+    </>
+  
   );
 };
 export default AccessCode;

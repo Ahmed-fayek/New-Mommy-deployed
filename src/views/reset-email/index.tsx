@@ -58,10 +58,10 @@ const ResetEmail = () => {
       <div className="container">
         <div className="reset-email-block">
           <h1 className="forget-password">Forget Password?</h1>
-          <p className="forget-password-msg">
-            Don't worry! it happens. Please check your email account to reset
+          {/* <p className="forget-password-msg"> */}
+            {/* Don't worry! it happens. Please check your email account to reset
             your password.
-          </p>
+          </p> */}
           {/* reset-email input*/}
           <div className="reset-email__field">
             <input

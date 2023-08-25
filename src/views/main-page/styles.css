@@ -33,11 +33,11 @@ top: 0;
     background-color: rgb(249, 180, 0);
     width: 240px;
     height: 40px;
-    border-radius: 10px;
+    -o-border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,11 +105,11 @@ top: 0;
     width: 400px;
     height: 200px;
     background-color: rgb(16, 64, 59);
-    border-radius: 10px;
+    -o-border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    border-radius: 10px;
     color:#fff;
 }
 .main-page .baby-section .baby-info .baby-name .left{
@@ -139,11 +139,11 @@ top: 0;
     background-color: rgb(255, 212, 91);
     width: 400px;
     height: 70px;
-    border-radius: 10px;
+    -o-border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,11 +166,11 @@ top: 0;
     color:rgb(16, 64, 59);
     font-size: 20px;
     position: relative;
-    border-radius: 10px;
+    -o-border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    border-radius: 10px;
 }
 .main-page .baby-section .baby-active span{
     color: rgb(211, 166, 43);
@@ -210,11 +210,11 @@ input[type="radio"] {
     border: 2px solid rgb(16, 64, 59);
     background-color: transparent;
     border-radius: 50%;
-    transition: all 0.2s;
+    -o-transition: all 0.2s;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     -ms-transition: all 0.2s;
-    -o-transition: all 0.2s;
+    transition: all 0.2s;
 }
  input[type="radio"]:checked{
      background-color: rgb(151, 194, 133);   
@@ -283,11 +283,11 @@ input[type="radio"] {
 }
 .main-page .baby-section .baby-food .baby-eat{
   border: 4px solid  rgb(249, 180, 0);
-  border-radius: 15px;
+  -o-border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
-  -o-border-radius: 15px;
+  border-radius: 15px;
 }
 .main-page .baby-section .baby-food .baby-eat .foods{
     display: flex;
@@ -312,11 +312,11 @@ input[type="radio"] {
     width: 50px;
     height: 30px;
     background-color: rgb(247, 129, 11);
-    border-radius: 50% ;
+    -o-border-radius: 50% ;
     -webkit-border-radius: 50% ;
     -moz-border-radius: 50% ;
     -ms-border-radius: 50% ;
-    -o-border-radius: 50% ;
+    border-radius: 50% ;
     position: relative;
 }
 .main-page .baby-section .baby-food .baby-eat .hint > div span{
@@ -348,14 +348,14 @@ input[type="radio"] {
     width: 180px;
     height: 50px;
     border: 1px solid rgb(151, 194, 133);
-    border-radius: 15px;
+    -o-border-radius: 15px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
-    -o-border-radius: 15px;
+    border-radius: 15px;
 }
 
 .footer .languge span{

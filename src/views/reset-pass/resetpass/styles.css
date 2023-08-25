@@ -40,6 +40,20 @@ header {
     color: #FFFFFF;
 }
 
+
+/*************************Set reset-pass .forget-password-Msg ******************************/
+
+.reset-pass .forget-password-msg {
+    /* width: 380px; */
+    /* color: #A6A6A6; */
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.12px;
+}
+
 .reset-password .reset-password__field {
     position: relative;
     margin: 10px;
@@ -59,17 +73,17 @@ header {
     font-weight: 700;
     transition: .2s;
     border-radius: 8px;
-}
+} 
 
 .reset-password .reset-password__input:active,
 .reset-password .reset-password__input:focus,
 .reset-password .reset-password__input:hover {
     outline: none;
-    border-color: #5b927a;
+    
 }
 
-.reset-password .reset-password__submit {
-    width: 317px;
+ .reset-password .reset-password__submit {
+    width: 200px;
     height: 50px;
     background: #F9F4ED;
     border-radius: 15px;
@@ -78,10 +92,10 @@ header {
     align-items: center;
     cursor: pointer;
     transition: .2s;
-    color: #10403B;
+  
     outline: none;
     border: none;
-}
+} 
 .reset-password .cancel__submit {
     width: 317px;
     height: 50px;
@@ -107,18 +121,20 @@ header {
 }
 
 
-.reset-password .submit__feild {
-    position: relative;
+
+
+ .reset-password .submit__feild {
+    position: relative; 
 }
 .reset-password .reset-pass-err {
     position: absolute;
-    top: 55px;
-    left: 10px;
+     top: 55px;  
+     left: 5px; 
     font-size: 16px;
-    color: rgb(178, 0, 0);
-    width: 100%;
-    text-align: center;
-
+    color: rgb(178, 0, 0); 
+     width: 100%; 
+     text-align: center; 
 }
+
 
  
