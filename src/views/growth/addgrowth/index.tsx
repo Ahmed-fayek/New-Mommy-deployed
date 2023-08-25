@@ -39,20 +39,20 @@ const AddGrowth = () => {
       if (user) {
         axios({
           method: "GET",
-          url: `${AddNewCategory}/growthMilestoneById/${user.baby[0].id}/${growthId}`,
+          url: `${AddNewCategory}/growthMilestoneById/${growthId}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
             "Content-Type": "application/json",
           },
         })
           .then((response) => {
-            console.log(response);
+            // console.log(response);
             setweight(response.data.growthMilestone.weight);
             setheight(response.data.growthMilestone.height);
             setreportDate(response.data.growthMilestone.date);
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
       }
     }
@@ -92,7 +92,7 @@ const AddGrowth = () => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
 
           setSuccessMessageVisible("successful added "); // Show success message
 
@@ -102,7 +102,7 @@ const AddGrowth = () => {
           }, 3000);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
     } else {
       await axios({
@@ -119,7 +119,7 @@ const AddGrowth = () => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
 
           setSuccessMessageVisible("successful added "); // Show success message
 
@@ -129,7 +129,7 @@ const AddGrowth = () => {
           }, 3000);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
     }
   };

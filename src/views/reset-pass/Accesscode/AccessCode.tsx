@@ -33,14 +33,14 @@ const AccessCode = () => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           navigator("/resetpass");
           setCodeCon(
             `/${firConCode}${secConCode}${thirdConCode}${fourthConCode}`
           );
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
 
           if (!err) {
             setErrMsg(" No server response");
@@ -66,10 +66,10 @@ const AccessCode = () => {
     //     {
     //     firConCode: firConCode,
     //   });
-    //   console.log(response);
+    //   // console.log(response);
     //   // navigator("/babymoon");
     // } catch (err: any) {
-    //   console.log(err);
+    //   // console.log(err);
     // }
   };
   return (

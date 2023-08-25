@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 import axios from "axios";
 import AuthContext from "../../../context/AuthProvider";
@@ -47,7 +47,6 @@ const AddFirist = () => {
           },
         })
           .then((response) => {
-            console.log(response.data.first.babyFirst);
             setbabyFirst(response.data.first.babyFirst);
             setnote(response.data.first.note);
             setreportDate(response.data.first.date);
@@ -55,7 +54,7 @@ const AddFirist = () => {
             setimage(true);
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
       }
     }
@@ -94,13 +93,7 @@ const AddFirist = () => {
   /* submit  */
   const formData = new FormData();
   const submitVal = async () => {
-    console.log(file);
-    console.log(
-      /^\\d{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[1-2][0-9]|3[0-1])$/.test("2023-17-25")
-    );
-    console.log(reportDate);
-    console.log(babyFirst);
-    console.log(note);
+
     formData.append("images", file);
     formData.append("date", reportDate);
     formData.append("babyFirst", babyFirst);
@@ -115,7 +108,7 @@ const AddFirist = () => {
         data: formData,
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
 
           setSuccessMessageVisible("successful added "); // Show success message
 
@@ -125,7 +118,7 @@ const AddFirist = () => {
           }, 3000);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
     } else {
       await axios({
@@ -138,7 +131,6 @@ const AddFirist = () => {
         data: formData,
       })
         .then((res) => {
-          console.log(res);
 
           setSuccessMessageVisible("successful added "); // Show success message
           // Redirect to main page after 3 seconds
@@ -147,7 +139,7 @@ const AddFirist = () => {
           }, 3000);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         });
     }
   };
@@ -160,6 +152,7 @@ const AddFirist = () => {
 
   return (
     <div className="add-first">
+      <Link to={'/addFirist'}>Add First</Link>
       <div className="container">
         <div className="signup-block">
           {/*Date */}
@@ -248,7 +241,7 @@ const AddFirist = () => {
           </button>
           {/*err msg */}
           <p>{SubmiterrMsg}</p>
-          {/*skip now */}
+          {/*Go to Main */}
           <button
             onClick={() => {
               navigator("/main");
@@ -256,7 +249,7 @@ const AddFirist = () => {
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> skip now</span>
+            <span className="button__text"> Go to Main</span>
           </button>
         </div>
         <div className="msg">

@@ -53,14 +53,13 @@ const AddBaby = () => {
           },
         })
           .then((response) => {
-            console.log(response);
             // setactivity(response.data.activity.activity);
             // setstartDate(response.data.activity.date);
             // settime(response.data.activity.time.slice(0, 5));
             // setnote(response.data.activity.note);
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
       }
     }
@@ -122,7 +121,7 @@ const AddBaby = () => {
       data: formData,
     })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
 
         setSuccessMessageVisible("successful added baby "); // Show success message
 
@@ -132,7 +131,7 @@ const AddBaby = () => {
         }, 3000);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   };
 
@@ -152,7 +151,7 @@ const AddBaby = () => {
                 if (e.target.files?.length) {
                   fileval(e);
                 } else {
-                  console.log("select");
+                  // console.log("select");
                 }
               }}
             />
@@ -240,7 +239,6 @@ const AddBaby = () => {
           {/* Skip Button */}
           <button
             onClick={() => {
-              console.log("sss");
 
               navigator("/main");
             }}

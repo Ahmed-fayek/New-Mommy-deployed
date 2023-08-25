@@ -31,11 +31,11 @@ function Feeding() {
           },
         })
           .then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             setupdate(!update);
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
         Swal.fire("Deleted!", ` has been deleted.`, "success");
       }
@@ -52,12 +52,12 @@ function Feeding() {
       };
       axios(config)
         .then((response) => {
-          console.log(response.data.meals);
+          // console.log(response.data.meals);
 
           setreminders(response.data.meals);
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
     }
   }, [user, update]);
