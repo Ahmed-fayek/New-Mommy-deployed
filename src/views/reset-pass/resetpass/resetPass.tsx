@@ -69,13 +69,15 @@ const ResetPAss = () => {
     <div>
       <img src={resetpassword} alt="img"/>
     </div>
+    
     <form className="reset-password">
       <div className="container">
         <div className="reset-password-block">
           {/* <p className="forget-password-msg">
             Please Enter the the new password for your account
           </p> */}
- <h1 className="forget-password-msg">
+
+      <h1 className="forget-password-msg">
           reset password
           </h1> 
 
@@ -133,7 +135,7 @@ const ResetPAss = () => {
               className="button reset-password__submit"
               type="submit"
             >
-              <span className="button__text">Reset</span>
+              <span className="button__text ">Reset password</span>
             </button>
           </div>
         </div>
