@@ -68,7 +68,7 @@ function Growth() {
       // console.log(reminder);
 
       return (
-        <div className="reminder" key={reminder.id}>
+        <div  key={reminder.id}>
           <div>{reminder.id} </div>
           <div> {reminder.age}</div>
           <div>{reminder.date} </div>
@@ -89,8 +89,8 @@ function Growth() {
     returned = <Loading />;
   }
 
-  return <div>
-              <Link to={"/addgrowth"}>addgrowth</Link> <br></br>
+  return <div className="reminder">
+              <Link to={"/addgrowth"}>addgrowth</Link>
 
     {returned}</div>;
 }

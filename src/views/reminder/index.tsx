@@ -86,7 +86,7 @@ function Reminder() {
   }
 
   return <div>
-              <Link to={"/addReminder"}>addReminder</Link> <br></br>
+   <Link to={"/addReminder"}>addReminder</Link> <br></br>
 
     {returned}</div>;
 }
