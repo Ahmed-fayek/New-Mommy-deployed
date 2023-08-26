@@ -33,5 +33,6 @@
       color: #FFF;
 }
 .content{
+      margin-top: 100px;
       flex:6;
 }
