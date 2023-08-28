@@ -1,131 +1,235 @@
 /*******Set Style font*********/
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@500&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,900&display=swap');
- 
-/*******Set Style TO  welcome-container********/
+* {
 
-/*******Set Style TO  welcome-container container********/
-
-.welcome-container .container {
-    width: 70%;
-    height: 85%;
-    display: flex;
-    border: 1px solid #000;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-    overflow: hidden;
+    margin: 0%;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Poppins;
 }
 
-/*******Set Style TO welcome-container container left-side **********/
+body {
 
-.welcome-container .container .left-side {
-    padding: 20PX 0;
-    width: 400px;
-    display: flex;
+    background: linear-gradient(180deg, rgba(129, 204, 171, 0.65) 0%, rgba(229, 234, 232, 0.20) 100%) !important;
+
+}
+.leftt {
+
     flex-direction: column;
-    justify-content:space-evenly;
+    display: flex;
     align-items: center;
-    background-color: #E8C030;
-} 
+    justify-content: center;
+}
+.welcome {
+     margin-top: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+}
 
-/*******Set Style TO  welcome-container container right-side********/
 
- .welcome-container .container .right-side {
-    width: 400px;
+h2 {
+    color: #69C1B7;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: 2.72px;
+    text-transform: uppercase;
+  
+}
+.paragraph {
+    color: #263238;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.53px;
+    width: 433px;
+    height: 54px;
+}
+
+.welcome .leftt .btn-add  {
+    background-color: rgb(249, 180, 0);
+    width: 240px;
+    height: 40px;
+    -o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-} 
+    cursor: pointer;
+    margin-top: 50px;
+    color: #10403B;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px;
 
-/*******Set Style TO  welcome-container  container left-side img **********/
- .welcome-container .container .left-side img {
-    width: 269px;
-    height: 250px;
-} 
-/*******Set Style TO welcome-container container right-side img **********/
-
- .welcome-container .container .right-side img {
-    width: 239px;
-    height: 344px;
-} 
-
-/*******Set Style TO  welcome-container welcome-message **********/
-
-
-.welcome-container .welcome-message {
-    font-family: 'Poppins', sans-serif;
-    font-size: 24px;
-    font-weight: 800;
-    line-height: 36px;
-    letter-spacing: 0.085em;
-    text-align: center;
-    cursor: context-menu;
-
+    
 }
 
-/*******Set Style TO  welcome-container welcome-btn **********/
+.welcome .leftt .btn-add i {
+    margin-right: 10px;
+    
 
-.welcome-container .welcome-btn {
-    width: 310px;
-    height: 45px;
-    padding: 8px 0;
-    left: 41px;
-    top: 630px;
-    background: #F9F4ED;
+    
+}
+
+.welcome .leftt .btn-add button {
+    border: none;
+    background-color: transparent;
+}
+
+.sinupbutton {
+
+    display: inline-flex;
+    padding: 10px 45px;
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
-    text-decoration: none;
-    color: inherit;
+    background: #69C1B7;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.10);
+    color: #000;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
+    font-size: 16px;
+    font-style: normal;
     font-weight: 500;
-    line-height: 30px;
-    letter-spacing: 0em;
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
+    line-height: normal;
+    letter-spacing: 1.36px;
+    text-transform: uppercase;
+text-decoration: none;
 }
 
-/****Set Style TO welcome-btn:active,welcome-btn:hover****/
 
-.welcome-btn:active,
-.welcome-btn:hover {
-    background: #d5d0ca;
+.loginbutton {
+
+    display: inline-flex;
+    padding: 10px 45px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    border-radius: 15px;
+    border: 2px solid #81CCAB;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.10);
+    color: #000;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 1.36px;
+    text-transform: uppercase;
+   text-decoration: none;
+
+
 }
 
-/*******Set Style TO .have-acc********/
+.paragraphwhymom{
+color: #10403B;
+text-align: center;
+font-size: 48px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+margin: auto;
 
-.have-acc {
-    font-family: 'Poppins', sans-serif;
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 33px;
-    letter-spacing: 0em;
-    text-align: left;
-    cursor: context-menu;
+}
+@media (min-width: 481px) and (max-width: 788px) {
+    .main-page {
+        margin: 0 10px;
+    }
+
+    .welcome,
+    .baby-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .welcome .left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .welcome .left h2 {
+        font-size: 25px;
+    }
+
+    .welcome .left p {
+        width: 250px;
+        font-size: 17px;
+    }
+
+    .main-page .hello-mom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-page .hello-mom img {
+        display: none;
+    }
+
+    .main-page .hello-mom .content h2 {
+        font-size: 28px;
+    }
+
+    .main-page .hello-mom .content p {
+        font-size: 23px;
+    }
+
+
 }
 
-/*******Set Style TO welcome-link********/
+@media (max-width: 480px) {
+    .main-page {
+        margin: 0 10px;
+    }
 
-.welcome-link {
-    text-decoration: none;
-    color: inherit;
-    font-size: 26px;
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-}
+    .welcome,
+    .baby-section {
+        flex-direction: column;
+        align-items: center;
+    }
 
-/***Set Style TO  welcome-link:active,welcome-link:hover ****/
+    .welcome .leftt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.welcome-link:active,
-.welcome-link:hover {
-    color: #1f1f1f;
+    .welcome .leftt h2 {
+        font-size: 20px;
+    }
+
+    .welcome .leftt p {
+        width: 250px;
+        font-size: 15px;
+    }
+
+    .main-page .hello-mom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-page .hello-mom img {
+        display: none;
+    }
+
+    .main-page .hello-mom .content h2 {
+        font-size: 25px;
+    }
+
+    .main-page .hello-mom .content p {
+        font-size: 20px;
+    }
+
 }
