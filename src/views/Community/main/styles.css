@@ -4,11 +4,11 @@
   height: 100vh;
   display: flex;
   justify-content: space-around;
+  background-color: #fff;
 }
 .community .chats {
   width: 30%;
   height: 100%;
-  border: 1px solid #000;
 }
 .community .friends {
   width: 68%;

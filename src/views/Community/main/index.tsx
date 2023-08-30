@@ -6,6 +6,8 @@ import Friends from "../friends";
 import Groups from "../groups";
 import Events from "../events";
 import Posts from "../posts";
+import ChatComponent from "../chats/chat-component";
+import Chat from "../chats";
 const Community = () => {
   const [returnedComponent, setreturnedComponent] = useState<string>("Friends");
   const { communitytab } = useContext<any>(AuthContext);
@@ -29,7 +31,9 @@ const Community = () => {
           {communityComponents[returnedComponent]}
         </div>
       </div>
-      <div className="chats">This is for chats</div>
+      <div className="chats">
+        <Chat />
+      </div>
     </div>
   );
 };
