@@ -1,17 +1,9 @@
-import axios from "../../../api/axios";
-import { useContext, useEffect, useState } from "react";
-
+import "./styles.css";
 function Friends() {
-  useEffect(() => {
-    axios({
-      method: "post",
-      url: "NewbabyApi",
-      headers: {
-        Authorization: `Bearer ${"auth.access_token"}`,
-      },
-    });
-  }, []);
-
-  return <>sssssssss</>;
+  return (
+    <>
+      <div className="community-friends">Freinds</div>
+    </>
+  );
 }
 export default Friends;

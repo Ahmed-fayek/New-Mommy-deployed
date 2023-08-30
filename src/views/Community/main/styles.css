@@ -1,0 +1,23 @@
+.community {
+  margin-top: 80px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+}
+.community .chats {
+  width: 30%;
+  height: 100%;
+  border: 1px solid #000;
+}
+.community .friends {
+  width: 68%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.community .main-community {
+  height: 85%;
+}
