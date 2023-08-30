@@ -1,7 +1,9 @@
-import axios from "../../../api/axios";
-import { useContext, useEffect, useState } from "react";
-
+import "./styles.css";
 function Friends() {
-  return <>sssssssss</>;
+  return (
+    <>
+      <div className="community-friends">Freinds</div>
+    </>
+  );
 }
 export default Friends;

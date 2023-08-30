@@ -25,7 +25,6 @@ import BabyFirsts from "../views/baby-firsts";
 import Feeding from "../views/Feeding";
 import Growth from "../views/growth";
 import Friends from "../views/Community/friends";
-import AddFriends from "../views/Community/friends/addFiend";
 import DeleteAccount from "../views/deleteaccount/delete-account";
 import Tracking from "../views/tracking/Tracking";
 import Community from "../views/Community/main";
@@ -34,7 +33,7 @@ const MainRouer = () => {
   return (
     <>
       <Routes>
-        <Route  path="/" element={<Welcome />}></Route>
+        <Route path="/" element={<Welcome />}></Route>
         <Route path="/login" element={<SignIn />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/babymoon" element={<FirstUse />}></Route>
@@ -63,7 +62,6 @@ const MainRouer = () => {
           element={<AddReminder />}
         ></Route>
         <Route path="/Friends" element={<Friends />}></Route>
-        <Route path="/AddFriends" element={<AddFriends />}></Route>
         <Route path="/deleteaccount" element={<DeleteAccount />}></Route>
         <Route path="/tracking" element={<Tracking />}></Route>
         <Route path="/community" element={<Community />}></Route>

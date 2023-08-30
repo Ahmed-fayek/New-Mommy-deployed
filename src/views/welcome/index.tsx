@@ -1,18 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
- import "./styles.css";
-// import splash from "./../../assets/images/splash-logo.png";
+import "./styles.css";
 import momsImage from "../../assets/images/Midwives-cuate 1.svg";
-import flowerImage from "../../assets/images/722470_Baby13 4.svg";
-import momandbaby from "./../../assets/images/momandbaby.png";
 import { useContext, useEffect } from "react";
 import AuthContext from "../../context/AuthProvider";
-import Nav from "../Navbar";
 import applogo from "./../../assets/images/Layer 1.svg";
-
-
-
-
-
 
 const Welcome = () => {
   const { user } = useContext<any>(AuthContext);
@@ -24,18 +15,13 @@ const Welcome = () => {
     }
   }, [auth, user]);
 
-  function toogleview() {
-    throw new Error("Function not implemented.");
-  }
-
+  const toogleview = () => {
+    document.getElementById("view-links")?.classList.toggle("show-links");
+    document.getElementById("bars")?.classList.toggle("rotates");
+  };
   /* this is router to add baby */
-
-
-
-
   return (
     <div className="">
-      
       <nav className="">
         <div className="navbar">
           <div className="app-logo">
@@ -55,41 +41,22 @@ const Welcome = () => {
             </div>
             <ul id="view-links" className="show-links">
               <li>
-                <Link to={"/main"}>Home</Link>
+                <Link to={"/"}>about</Link>
               </li>
-              <li>
-                <Link to={"/main"}>Community</Link>
-              </li>
-
-              <li>
-                <Link to={"/tracking"}>Tracking</Link>
-              </li>
-
-              <li>
-                <Link to={"/main"}>Learning</Link>
-              </li>
-              <li>
-                <Link to={"/main"}>Shop</Link>
-              </li>
-             
             </ul>
           </div>
-        
 
           <Link to={"/signup"} className="welcome-btn sinupbutton">
             sign up{" "}
           </Link>
 
-          
           <Link className="welcome-link  loginbutton" to={"/login"}>
-              {" "}
-              Log in
-            </Link>
+            {" "}
+            Log in
+          </Link>
+        </div>
 
-          </div>
-     
-
-{/*       
+        {/*       
 <div className="right">
   <img src={momsImage} alt="Momys img" />
    <div className="welcome-container">
@@ -118,171 +85,49 @@ const Welcome = () => {
       </div>{" "}
     </div>
 </div> */}
+      </nav>
 
-
-
-    </nav>
-
-
-      <div className="main-page ">
-            {/* start welcome */}
-            <div className="welcome">
-              <div className="leftt">
-                <h2>Welcome to parent’s world!</h2>
-                <p className="paragraph">
-                Keep tracking your baby, and shop form all your favorite brands
-                </p>
-                <div className="btn-add" onClick={ ()=>navigator('/addbaby')}>
-                  <i className="fa-solid fa-plus"></i>
-                  <button>Add New Baby</button>
-                </div>
-              </div>
-              <div className="right">
-                <img src={momsImage} alt="Momys img" />
-              </div>
+      <div className="welcome-page ">
+        {/* start welcome */}
+        <div className="welcome">
+          <div className="leftt">
+            <h2>Welcome to parent’s world!</h2>
+            <p className="paragraph">
+              Keep tracking your baby, and shop form all your favorite brands
+            </p>
+            <div className="btn-add" onClick={() => navigator("/addbaby")}>
+              <i className="fa-solid fa-plus"></i>
+              <button>Add New Baby</button>
             </div>
-            {/* start  hello mom */}
-            <div className="hello-mom">
-             
-                <p className="paragraphwhymom">why MoM ?</p>
-               
-            
-            </div>
-      
-
-      
-
-
-
-
-
-
- 
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          </div>
+          <div className="right">
+            <img src={momsImage} alt="Momys img" />
+          </div>
+        </div>
+        {/* start  hello mom */}
+        <div className="hello-mom">
+          <p className="paragraphwhymom">why Mommyverce ?</p>
+          <br></br>
+          <p className="paragraph">
+            Welcome to our website, designed exclusively for mothers like you!
+            <br></br>
+            We understand the joy and challenges of motherhood, which is why we
+            provide a platform where you can effortlessly keep track of your
+            baby's
+            <span> milestones</span> <span>growth</span>
+            <span> Medicals </span> <span> Firsts </span>
+            <span>Reminders</span>. Our intuitive tools and features allow you
+            to record precious moments, monitor health progress, and create a
+            beautiful digital diary of your child's journey. But that's not all
+            – we also offer a curated shopping experience, bringing together all
+            your favorite brands in one convenient place. From baby essentials
+            to stylish clothing and innovative products, you can explore a wide
+            range of options tailored to your needs. Embrace motherhood with
+            confidence and convenience by joining our community today!
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 export default Welcome;
