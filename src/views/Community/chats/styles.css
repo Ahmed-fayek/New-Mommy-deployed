@@ -1,0 +1,106 @@
+.chat {
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.chat-search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.chat-search i {
+  position: absolute;
+  left: 25px;
+  top: 30px;
+}
+
+.chat-search input {
+  margin-top: 15px;
+  padding: 0 30px;
+  width: 90%;
+  height: 45px;
+  border-radius: 8px;
+  border: 1px solid #5f5f5f;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.chat-search input:hover,
+.chat-search input:focus {
+  border: 1px solid #363636;
+}
+.all-chats-btns {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.all-chats-btns button {
+  padding: 5px 10px;
+  background-color: #eeeeee;
+  border: none;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  cursor: pointer;
+}
+.all-chats {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chat-view {
+  width: 90%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #c7c7c7;
+}
+.chat-view img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.chat-view .caht-data {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chat-view .caht-data h1 {
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+}
+.chat-view .caht-data .data {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.chat-view .caht-data .data p {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 17px;
+}
+.chat-view .caht-data .data .last-msg {
+  color: #81ccab;
+}
+.chat-view .caht-data .data .last-msg-date {
+  color: #c7c7c7;
+}
