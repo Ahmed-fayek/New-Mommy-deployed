@@ -5,6 +5,9 @@ export const AuthProvider = ({ children }: any) => {
   const [user, setUser] = useState();
   const [EmailCon, SetemailCon] = useState<string>("");
   const [CodeCon, setCodeCon] = useState<string>("");
+  const [communitytab, setCommunitytab] = useState<string>("Friends");
+  const [currentChat, setcurrentChat] = useState<any>();
+
   return (
     <AuthContext.Provider
       value={{
@@ -16,6 +19,10 @@ export const AuthProvider = ({ children }: any) => {
         setCodeCon,
         user,
         setUser,
+        communitytab,
+        setCommunitytab,
+        currentChat,
+        setcurrentChat,
       }}
     >
       {children}

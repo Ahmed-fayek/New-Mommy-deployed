@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axios from "../../../api/axios";
 import { useContext, useEffect, useState } from "react";
 import AllFriends from "./allFriends";
@@ -39,6 +40,13 @@ function Friends() {
         <FriendRequests  requestId="64847dd92424ea5a43b1caea" name="hager"/>
       ))}
       <p>hhhhhhhhhhhhh</p>
+=======
+import "./styles.css";
+function Friends() {
+  return (
+    <>
+      <div className="community-friends">Freinds</div>
+>>>>>>> main
     </>
   );
 }
