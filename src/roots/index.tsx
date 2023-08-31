@@ -27,8 +27,13 @@ import Growth from "../views/growth";
 import Friends from "../views/Community/friends";
 import DeleteAccount from "../views/deleteaccount/delete-account";
 import Tracking from "../views/tracking/Tracking";
+<<<<<<< HEAD
+import AllFriends from "../views/Community/friends/allFriends";
+import SearchUsers from "../views/Community/friends/searchUsers";
+=======
 import Community from "../views/Community/main";
 
+>>>>>>> main
 const MainRouer = () => {
   return (
     <>
@@ -64,7 +69,12 @@ const MainRouer = () => {
         <Route path="/Friends" element={<Friends />}></Route>
         <Route path="/deleteaccount" element={<DeleteAccount />}></Route>
         <Route path="/tracking" element={<Tracking />}></Route>
+<<<<<<< HEAD
+        <Route path="/searchusers" element={<SearchUsers />}></Route>
+        <Route path="/friends" element={<Friends />}></Route>
+=======
         <Route path="/community" element={<Community />}></Route>
+>>>>>>> main
       </Routes>
     </>
   );
