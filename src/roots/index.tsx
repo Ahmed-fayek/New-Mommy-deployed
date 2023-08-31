@@ -28,7 +28,8 @@ import Friends from "../views/Community/friends";
 import AddFriends from "../views/Community/friends/addFiend";
 import DeleteAccount from "../views/deleteaccount/delete-account";
 import Tracking from "../views/tracking/Tracking";
-
+import AllFriends from "../views/Community/friends/allFriends";
+import SearchUsers from "../views/Community/friends/searchUsers";
 const MainRouer = () => {
   return (
     <>
@@ -65,6 +66,8 @@ const MainRouer = () => {
         <Route path="/AddFriends" element={<AddFriends />}></Route>
         <Route path="/deleteaccount" element={<DeleteAccount />}></Route>
         <Route path="/tracking" element={<Tracking />}></Route>
+        <Route path="/searchusers" element={<SearchUsers />}></Route>
+        <Route path="/friends" element={<Friends />}></Route>
       </Routes>
     </>
   );

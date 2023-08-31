@@ -1,13 +1,12 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../../../context/AuthProvider";
-
-function AddFriends() {
+const AddFriends =()=> {
   const { auth } = useContext<any>(AuthContext);
-  const [allUsers, setAllUsers] = useState([]);
-  useEffect(() => {
+  const [allUsers, setAllUsers] = useState<any[]>([]);
+  useEffect(() =>{
     if (auth) {
-      axios({
+       axios({
         method: "get",
         url: "https://newMommy.mooo.com:3002/api/users",
         headers: {
@@ -15,11 +14,11 @@ function AddFriends() {
         },
       })
         .then((res) => {
-          setAllUsers(res.data);
-          // console.log(res.data);
+          const data = res.data;
+          setAllUsers(data);
         })
         .catch((err) => {
-          // console.log(err);
+          console.log(err);
         });
     }
   }, [auth]);
@@ -32,24 +31,25 @@ function AddFriends() {
           Authorization: `Bearer ${auth.access_token}`,
         },
       }).then((res) => {
-        // console.log(res);
+        console.log(res.data);
       });
     }
   };
-
   return (
-    <>
-      {}
-      <button
-        style={{ margin: "50px" }}
+    <div  style={{ margin: "100px" }}> 
+  
+    <ul>
+   { Object.entries(allUsers).map(([id, user]) => (
+      <li key={id}>{user.firstname} {user.lastname}
+          <button
         onClick={() => {
           addFriends();
-        }}
-      >
-        {" "}
-        Add Friend
-      </button>
-    </>
+        }}>Add Friend</button>
+      </li>
+      
+     ))}
+    </ul>
+    </div>
   );
 }
 export default AddFriends;
