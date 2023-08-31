@@ -27,7 +27,6 @@ import Growth from "../views/growth";
 import Friends from "../views/Community/friends";
 import DeleteAccount from "../views/deleteaccount/delete-account";
 import Tracking from "../views/tracking/Tracking";
-<<<<<<< HEAD
 import AllFriends from "../views/Community/friends/allFriends";
 import SearchUsers from "../views/Community/friends/searchUsers";
 import Community from "../views/Community/main";

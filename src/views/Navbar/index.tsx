@@ -73,11 +73,8 @@ function Nav() {
                 <Link to={"/main"}>Home</Link>
               </li>
               <li>
-<<<<<<< HEAD
                 <Link to={"/friends"}>Community</Link>
-=======
                 <Link to={"/community"}>Community</Link>
->>>>>>> main
               </li>
 
               <li>
@@ -103,10 +100,10 @@ function Nav() {
           </div>
           <div className="nav-side">
             <div className="inav-cons">
-                <Link to={"/searchusers"}>
+              <Link to={"/searchusers"}>
                 <i className="fa-solid fa-magnifying-glass"></i>
-                </Link>
-             
+              </Link>
+
               <i className="fa-solid fa-cart-shopping"></i>
               <Notifications />
             </div>
