@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../../../context/AuthProvider";
-const AddFriends =()=> {
+const AddFriends = () => {
   const { auth } = useContext<any>(AuthContext);
   const [allUsers, setAllUsers] = useState<any[]>([]);
-  useEffect(() =>{
+  useEffect(() => {
     if (auth) {
-       axios({
+      axios({
         method: "get",
         url: "https://newMommy.mooo.com:3002/api/users",
         headers: {
@@ -36,22 +36,22 @@ const AddFriends =()=> {
     }
   };
   return (
-    <div  style={{ margin: "100px" }}> 
-  
-    <ul>
-   { Object.entries(allUsers).map(([id, user]) => (
-      <li key={id}>{user.firstname} {user.lastname}
-          <button
-        onClick={() => {
-          addFriends();
-        }}>Add Friend</button>
-      </li>
-      
-     ))}
-    </ul>
+    <div style={{ margin: "100px" }}>
+      <ul>
+        {Object.entries(allUsers).map(([id, user]) => (
+          <li key={id}>
+            {user.firstname} {user.lastname}
+            <button
+              onClick={() => {
+                addFriends();
+              }}
+            >
+              Add Friend
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 export default AddFriends;
-//mohammed elsayed
-//hanan
