@@ -1,20 +1,30 @@
 .community .communiy-tabs {
   width: Fixed (150px);
   height: 10%;
-  padding: 8px 20px 8px 20px;
+  padding: 8px 10px;
   border-radius: 12px;
-  gap: 10px;
+  /* gap: 5px; */
   display: flex;
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
+  background-color: #fff;
+  margin: 15px;
 }
 .community .communiy-tabs span {
   width: Fixed (150px);
-
   height: 37px;
-  padding: 8px 20px;
+  padding: 8px 30px;
   border-radius: 12px;
-  gap: 10px;
-  background-color: aliceblue;
+  /* gap: 10px; */
+  border: 1px solid #dbd8d8;
+}
+
+.community .communiy-tabs span.active{
+  background-color: #81ccab;
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
 }
