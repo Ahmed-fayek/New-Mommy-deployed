@@ -43,19 +43,6 @@ const { auth } = useContext<any>(AuthContext);
     }
   };
 
-//   if (auth) {
-//        axios({
-//         method: "get",
-//         url: "http://localhost:3003/api/allSentFriendRequests/",
-//         headers: {
-//           Authorization: `Bearer ${auth.access_token}`,
-//         },
-//       }).then((res) => {
-//         console.log(res.data);
-//         setAllFriendRequests(res.data)
-
-//       }).catch((err)=>console.log(err));
-//     }
   return (
     <div>
       {isLoading && <p>Loading...</p>}
@@ -69,7 +56,7 @@ const { auth } = useContext<any>(AuthContext);
        onReject={handleReject}
        />
       )} */}
-       <div className="friend-request">
+      <div className="friend-request">
       <p>{name}</p>
       <button onClick={ ()=>handleAccept()}>Accept</button>
       <button onClick={ ()=>handleReject()}>Reject</button>

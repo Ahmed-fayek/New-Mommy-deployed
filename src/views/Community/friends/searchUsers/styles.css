@@ -1,0 +1,59 @@
+.search-users{
+      margin-top: 100px;
+      text-align: center;
+}
+.search-users input{
+      padding: 15px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+      outline: none;
+      width: 40%;
+      margin-bottom: 20px;
+
+}
+.search-users .add-friend{
+      display: flex;
+      justify-content: space-between;
+      width: 50%;
+      margin: auto;
+      align-items: center;
+      margin-bottom: 30px;
+}
+.search-users .add-friend .user-info{
+      display: flex;
+      align-items: center;
+}
+.search-users .add-friend img{
+      display: block;
+      width: 60px;
+      height: 60px;
+      margin-right: 10px;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+}
+.search-users .add-friend button{
+      width: 110px;
+      height: 45px;
+      outline: none;
+      border: 1px solid #e2dddd;
+      border-radius: 15px;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      -ms-border-radius: 15px;
+      -o-border-radius: 15px;
+      transition: all .3 ease;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+}
+.search-users .add-friend button:hover{
+      background-color: #81ccab;
+}

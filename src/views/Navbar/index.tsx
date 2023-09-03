@@ -73,7 +73,6 @@ function Nav() {
                 <Link to={"/main"}>Home</Link>
               </li>
               <li>
-                <Link to={"/friends"}>Community</Link>
                 <Link to={"/community"}>Community</Link>
               </li>
 

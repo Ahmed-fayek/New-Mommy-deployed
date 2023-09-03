@@ -23,7 +23,7 @@ function Reminder() {
       };
       axios(config)
         .then((response) => {
-          // console.log(response.data.reminders);
+          console.log(response.data.reminders);
 
           setreminders(response.data.reminders);
         })

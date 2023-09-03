@@ -24,10 +24,10 @@ import Activity from "../views/activity/allactivities";
 import BabyFirsts from "../views/baby-firsts";
 import Feeding from "../views/Feeding";
 import Growth from "../views/growth";
-import Friends from "../views/Community/friends";
+// import Friends from "../views/Community/friends";
 import DeleteAccount from "../views/deleteaccount/delete-account";
 import Tracking from "../views/tracking/Tracking";
-import AllFriends from "../views/Community/friends/allFriends";
+// import AllFriends from "../views/Community/friends/allFriends";
 import SearchUsers from "../views/Community/friends/searchUsers";
 import Community from "../views/Community/main";
 
@@ -63,11 +63,11 @@ const MainRouer = () => {
           path="/addReminder/:reminderId?"
           element={<AddReminder />}
         ></Route>
-        <Route path="/Friends" element={<Friends />}></Route>
+        {/* <Route path="/Friends" element={<Friends />}></Route> */}
         <Route path="/deleteaccount" element={<DeleteAccount />}></Route>
         <Route path="/tracking" element={<Tracking />}></Route>
         <Route path="/searchusers" element={<SearchUsers />}></Route>
-        <Route path="/friends" element={<Friends />}></Route>
+        {/* <Route path="/friends" element={<Friends />}></Route> */}
         <Route path="/community" element={<Community />}></Route>
       </Routes>
     </>
