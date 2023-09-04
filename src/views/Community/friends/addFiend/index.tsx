@@ -22,11 +22,29 @@ const AddFriends = () => {
         });
     }
   }, [auth]);
-  const addFriends = async () => {
+
+  useEffect(() => {
+    if (auth) {
+      axios({
+        method: "GET",
+        url: "https://newMommy.mooo.com:3003/api/allSentFriendRequests/",
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [auth]);
+  const addFriends = async (userid: any) => {
     if (auth) {
       await axios({
         method: "post",
-        url: "https://newMommy.mooo.com:3003/api/sendFriendRequest/64847dd92424ea5a43b1caea",
+        url: `https://newMommy.mooo.com:3003/api/sendFriendRequest/${userid}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -43,7 +61,7 @@ const AddFriends = () => {
             {user.firstname} {user.lastname}
             <button
               onClick={() => {
-                addFriends();
+                addFriends(user.id);
               }}
             >
               Add Friend

@@ -85,10 +85,12 @@ function Reminder() {
     returned = <Loading />;
   }
 
-  return <div>
-   <Link to={"/addReminder"}>addReminder</Link> <br></br>
-
-    {returned}</div>;
+  return (
+    <div>
+      <Link to={"/addReminder"}>addReminder</Link> <br></br>
+      {returned}
+    </div>
+  );
 }
 
 export default Reminder;

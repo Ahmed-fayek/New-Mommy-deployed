@@ -1,28 +1,34 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import AuthContext from "../../../../context/AuthProvider";
-import FriendRequest from "../friendRequests";
+import "./styles.css";
+import pic from "./../../../../assets/images/Ellipse 6.svg";
 const AllFriends = () => {
   const [friends, setFriends] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { auth } = useContext<any>(AuthContext);
   //  const getAllFrinds = async ()=>{
-  if (auth) {
-    axios({
-      method: "get",
-      url: "https://newMommy.mooo.com:3003/api/allFriends",
-      headers: {
-        Authorization: `Bearer ${auth.access_token}`,
-      },
-    })
-      .then((res) => {
-        setFriends(res.data);
-        setIsLoading(false);
+
+  useEffect(() => {
+    if (auth) {
+      axios({
+        method: "get",
+        url: "https://newMommy.mooo.com:3003/api/allFriends",
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
       })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+        .then((res) => {
+          console.log(res.data);
+          setFriends(res.data);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [auth]);
+
   //  }
 
   return (
