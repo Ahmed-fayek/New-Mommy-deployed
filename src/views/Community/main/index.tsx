@@ -31,9 +31,9 @@ const Community = () => {
           {communityComponents[returnedComponent]}
         </div>
       </div>
-      <div className="chats">
+      {/* <div className="chats">
         <Chat />
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -11,7 +11,7 @@
   height: 100%;
 }
 .community .friends {
-  width: 68%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -27,5 +27,5 @@
 }
 
 .community .main-community {
-  height: 85%;
+  height: 100%;
 }
