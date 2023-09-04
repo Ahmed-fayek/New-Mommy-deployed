@@ -9,7 +9,7 @@ import Posts from "../posts";
 import ChatComponent from "../chats/chat-component";
 import Chat from "../chats";
 const Community = () => {
-  const [returnedComponent, setreturnedComponent] = useState<string>("Friends");
+  const [returnedComponent, setreturnedComponent] = useState<string>("Groups");
   const { communitytab } = useContext<any>(AuthContext);
   const communityComponents: Record<string, JSX.Element> = {
     Friends: <Friends />,
@@ -31,9 +31,9 @@ const Community = () => {
           {communityComponents[returnedComponent]}
         </div>
       </div>
-      <div className="chats">
+      {/* <div className="chats">
         <Chat />
-      </div>
+      </div> */}
     </div>
   );
 };

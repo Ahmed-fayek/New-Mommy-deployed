@@ -4,11 +4,9 @@ import AuthContext from "../../../../context/AuthProvider";
 import "./styles.css";
 import pic from "./../../../../assets/images/Ellipse 6.svg";
 const AllFriends = () => {
-  const [friends, setFriends] = useState<any[]>([]);
+  const [friends, setFriends] = useState<any>();
   const [isLoading, setIsLoading] = useState(true);
   const { auth } = useContext<any>(AuthContext);
-  //  const getAllFrinds = async ()=>{
-
   useEffect(() => {
     if (auth) {
       axios({
@@ -19,7 +17,6 @@ const AllFriends = () => {
         },
       })
         .then((res) => {
-          console.log(res.data);
           setFriends(res.data);
           setIsLoading(false);
         })
@@ -29,92 +26,39 @@ const AllFriends = () => {
     }
   }, [auth]);
 
-  //  }
-
   return (
     <div className="all-friends-container" style={{ margin: "100px" }}>
       <h2>All Friends</h2>
       <input type="search" placeholder="search friends" />
-      {friends.length > 0 ? (
+      {friends ? (
         <div>
-          <h4>{friends.length}</h4>
+          <h4>{friends.friendList.length}</h4>
           <span>See all</span>
         </div>
       ) : (
         <p>No friends yet</p>
       )}
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <div>
-          {Object.entries(friends.length > 0).map(([id, friend]) => (
-            <div>
-              <img src={friend?.picture} />
-              <span key={id}>
-                {friend?.firstname} {friend?.lastname}
-              </span>
+      {isLoading ? <p>Loading...</p> : <div></div>}
+      <div className="frinds-container">
+        {friends?.friendList.map((friend: any) => {
+          return (
+            <div className="friend-block">
+              <div className="friend-info">
+                <div className="img-container">
+                  <img src={pic} alt="" />
+                  <span className="active"></span>
+                </div>
+                <div className="friend-information">
+                  <p>
+                    {friend.firstname} {friend.lastname}
+                  </p>
+                  <span>2 hours ago</span>
+                </div>
+              </div>
               <button>Chat</button>
             </div>
-          ))}
-        </div>
-      )}
-
-      <div className="frinds-container">
-        <div className="friend-block">
-          <div className="friend-info">
-            <div className="img-container">
-              <img src={pic} alt="" />
-              <span className="active"></span>
-            </div>
-            <div className="friend-information">
-              <p>Shery Ali</p>
-              <span>2 hours ago</span>
-            </div>
-          </div>
-          <button>Chat</button>
-        </div>
-
-        <div className="friend-block">
-          <div className="friend-info">
-            <div className="img-container">
-              <img src={pic} alt="" />
-              <span className="active"></span>
-            </div>
-            <div className="friend-information">
-              <p>Shery Ali</p>
-              <span>2 hours ago</span>
-            </div>
-          </div>
-          <button>Chat</button>
-        </div>
-
-        <div className="friend-block">
-          <div className="friend-info">
-            <div className="img-container">
-              <img src={pic} alt="" />
-              <span className="active"></span>
-            </div>
-            <div className="friend-information">
-              <p>Shery Ali</p>
-              <span>2 hours ago</span>
-            </div>
-          </div>
-          <button>Chat</button>
-        </div>
-
-        <div className="friend-block">
-          <div className="friend-info">
-            <div className="img-container">
-              <img src={pic} alt="" />
-              <span className="active"></span>
-            </div>
-            <div className="friend-information">
-              <p>Shery Ali</p>
-              <span>2 hours ago</span>
-            </div>
-          </div>
-          <button>Chat</button>
-        </div>
+          );
+        })}
       </div>
     </div>
   );

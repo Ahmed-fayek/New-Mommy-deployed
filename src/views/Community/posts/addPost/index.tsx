@@ -4,6 +4,9 @@ import "./styles.css";
 import AuthContext from "../../../../context/AuthProvider";
 const AddPost = () => {
   const { auth } = useContext<any>(AuthContext);
+  const { user } = useContext<any>(AuthContext);
+  console.log(user);
+
   const [groupID, setGroupID] = useState("");
   const [images, setImages] = useState<any>();
   const [caption, setCaption] = useState("");
@@ -17,7 +20,7 @@ const AddPost = () => {
   };
   const handleimage = (e: any) => {
     setImages(e.target.files[0]);
-    console.log(e.target.files[0]);
+    console.log(e.target.files);
   };
 
   const formdata = new FormData();
@@ -41,6 +44,7 @@ const AddPost = () => {
       .catch((error) => {
         console.log(error);
       });
+
     // axios({
     //   method: "POST",
     //   url: `https://newMommy.mooo.com:3003/api/postGroup/64847dd92424ea5a43b1caea`,
