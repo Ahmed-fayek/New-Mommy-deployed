@@ -1,13 +1,14 @@
 import { useContext, useState } from "react";
-import AuthContext, { AuthProvider } from "../../../../context/AuthProvider";
 import "./styles.css";
+import CommunityContext from "../../../../context/CommunityProvider";
 const MainTabs = () => {
-  const { setCommunitytab } = useContext<any>(AuthContext);
-  const [activeTab, setActiveTab] = useState("Groups");
+  const { setCommunitytab } = useContext<any>(CommunityContext);
+  const [activeTab, setActiveTab] = useState("Posts");
 
   const handleTabClick = (tabName: string) => {
     setCommunitytab(tabName);
     setActiveTab(tabName);
+    console.log(tabName);
   };
   return (
     <>

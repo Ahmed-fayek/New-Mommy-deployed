@@ -8,9 +8,14 @@ import Events from "../events";
 import Posts from "../posts";
 import ChatComponent from "../chats/chat-component";
 import Chat from "../chats";
+import CommunityContext, {
+  CommunityProvider,
+} from "../../../context/CommunityProvider";
 const Community = () => {
   const [returnedComponent, setreturnedComponent] = useState<string>("Groups");
-  const { communitytab } = useContext<any>(AuthContext);
+  const { communitytab } = useContext<any>(CommunityContext);
+  console.log(communitytab);
+
   const communityComponents: Record<string, JSX.Element> = {
     Friends: <Friends />,
     Groups: <Groups />,

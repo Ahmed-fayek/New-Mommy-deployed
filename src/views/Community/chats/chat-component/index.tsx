@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import "./styles.css";
-import AuthContext from "../../../../context/AuthProvider";
+import CommunityContext from "../../../../context/CommunityProvider";
 const ChatComponent = () => {
   const [messages, setMessages] = useState<any>([]);
   const [inputValue, setInputValue] = useState("");
-  const { currentChat } = useContext<any>(AuthContext);
+  const { currentChat } = useContext<any>(CommunityContext);
   const handleInputChange = (event: any) => {
     setInputValue(event.target.value);
   };

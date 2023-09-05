@@ -31,6 +31,7 @@ import Tracking from "../views/tracking/Tracking";
 import SearchUsers from "../views/Community/friends/searchUsers";
 import Community from "../views/Community/main";
 import AddPost from "../views/Community/posts/addPost";
+import { CommunityProvider } from "../context/CommunityProvider";
 
 const MainRouer = () => {
   return (
@@ -69,7 +70,16 @@ const MainRouer = () => {
         <Route path="/tracking" element={<Tracking />}></Route>
         <Route path="/searchusers" element={<SearchUsers />}></Route>
         {/* <Route path="/friends" element={<Friends />}></Route> */}
-        <Route path="/community" element={<Community />}></Route>
+        <Route
+          path="/community"
+          element={
+            <>
+              <CommunityProvider>
+                <Community />
+              </CommunityProvider>
+            </>
+          }
+        ></Route>
         <Route path="/AddPost" element={<AddPost />}></Route>
       </Routes>
     </>

@@ -2,13 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import ChatComponent from "./chat-component";
 import "./styles.css";
 import perImg from "./../../../assets/images/Ellipse 58.svg";
-import AuthContext from "../../../context/AuthProvider";
+import CommunityContext from "../../../context/CommunityProvider";
 const Chat = () => {
   const [searchVal, setsearchVal] = useState<string>("");
-  const [searchREsults, setsearchREsults] = useState<any>();
+  // const [searchREsults, setsearchREsults] = useState<any>();
   const [chatswitcher, setchatswitcher] = useState<any>("allChats");
-  const { currentChat } = useContext<any>(AuthContext);
-  const { setcurrentChat } = useContext<any>(AuthContext);
+  const { currentChat } = useContext<any>(CommunityContext);
+  const { setcurrentChat } = useContext<any>(CommunityContext);
   const handleSearchVal = (e: string) => {
     setsearchVal(e);
   };
