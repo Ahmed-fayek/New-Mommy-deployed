@@ -109,7 +109,7 @@ const Post = () => {
                 </div>
                 {user.id === post.Users.id ? (
                   <div className="delete">
-                    {deleting}
+                    {/* {deleting} */}
                     <i
                       onClick={(post) => {
                         deletePost(post);
