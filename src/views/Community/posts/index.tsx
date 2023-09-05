@@ -5,16 +5,12 @@ import postimg from "./../../../assets/images/bro.svg";
 import postimgerr from "./../../../assets/images/msid-69754806,imgsize-34865.jpg";
 import "./styles.css";
 const Post = () => {
-  const firstname = "aaa",
-    lastname = "ddd",
-    image = "ee",
-    caption = "ewewe",
-    commentCount = "5",
-    likeCount = "15",
-    time = "post";
   const { auth } = useContext<any>(AuthContext);
+  const { user } = useContext<any>(AuthContext);
   const [posts, setposts] = useState<any>();
   const [IsLooding, setIsLooding] = useState<any>(true);
+  const [deleting, setdeleting] = useState<any>("");
+  //get All posts
   useEffect(() => {
     if (auth) {
       axios({
@@ -34,6 +30,7 @@ const Post = () => {
         });
     }
   }, [auth]);
+  // handle like and unlike
   const handleAddLike = (ele: any, id: any) => {
     console.log(ele.currentTarget.classList.contains("liked-this"));
     if (ele.currentTarget.classList.contains("liked-this")) {
@@ -71,8 +68,29 @@ const Post = () => {
       }
     }
   };
+  const deletePost = (post: any) => {
+    if (auth) {
+      axios({
+        method: "DELETE",
+        url: `https://newMommy.mooo.com:3003/api/post/${post.id}`,
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
+      })
+        .then((response) => {
+          // console.log(response);
+          setdeleting("deleted");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
   return (
     <div className="Posts">
+      <a href="/AddPost" className="addPost">
+        Add post
+      </a>
       {IsLooding ? (
         <>Loading</>
       ) : (
@@ -80,21 +98,40 @@ const Post = () => {
           return (
             <div key={post.id} className="post">
               <div className="post-header">
-                <img src={postimg} alt="Profile" className="profile-image" />
-                <div className="author-info">
-                  <span className="author-name">{`${post.Users.firstname} ${post.Users.lastname}`}</span>
-                  <span className="post-time">{time}</span>
+                <div className="">
+                  <img src={postimg} alt="Profile" className="profile-image" />
+                  <div className="author-info">
+                    <span className="author-name">{`${post.Users.firstname} ${post.Users.lastname}`}</span>
+                    <span className="post-time">
+                      {post.time.slice(11, 16)} {post.time.slice(0, 10)}
+                    </span>
+                  </div>
                 </div>
+                {user.id === post.Users.id ? (
+                  <div className="delete">
+                    {deleting}
+                    <i
+                      onClick={(post) => {
+                        deletePost(post);
+                      }}
+                      className="fa-solid fa-trash"
+                    ></i>
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
               <div className="post-content">
-                <p className="post-caption">{caption}</p>
+                <p className="post-caption">{post.caption}</p>
                 <img
-                  src={post.media == null ? postimgerr : post.media}
+                  src={post.media == null ? "" : post.media}
                   onError={(e) => {
                     e.currentTarget.classList.add("remove-this");
                   }}
                   alt="post Media"
-                  className="post-media"
+                  className={
+                    post.media == null ? "post-media remove-this" : "post-media"
+                  }
                 />
               </div>
               <div className="post-footer">
