@@ -7,7 +7,11 @@
 .post-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 10px;
+}
+.post-header i {
+  color: red;
 }
 
 .profile-image {
@@ -27,7 +31,7 @@
 }
 
 .post-time {
-  color: #888;
+  color: #81ccab;
   font-size: 12px;
 }
 
@@ -40,8 +44,8 @@
 }
 .post-media {
   margin: auto;
-  max-width: 80%;
-  max-height: 550px;
+  max-width: 60%;
+  max-height: 350px;
 }
 .remove-this {
   display: none;
@@ -77,7 +81,7 @@
 }
 .comment-add:hover,
 .like-add:hover {
-  background-color: #888;
+  background-color: #ebebeb;
 }
 .post-actions {
   width: 100%;
@@ -86,4 +90,22 @@
 }
 .liked-this {
   color: aqua;
+}
+
+.addPost {
+  width: 250px;
+  height: 40px;
+  background-color: #81ccab;
+  border: none;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 15px;
+  text-decoration: none;
+  color: #000000;
 }

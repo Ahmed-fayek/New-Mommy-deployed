@@ -4,46 +4,46 @@ import "./styles.css";
 import AuthContext from "../../../../context/AuthProvider";
 const AddPost = () => {
   const { auth } = useContext<any>(AuthContext);
-  const { user } = useContext<any>(AuthContext);
-  console.log(user);
-
-  const [groupID, setGroupID] = useState("");
   const [images, setImages] = useState<any>();
   const [caption, setCaption] = useState("");
-  const handleGroupId = (e: any) => {
-    setGroupID(e.target.value);
-    console.log(e.target.value);
-  };
+  const [captionErrMsg, setcaptionErrMsg] = useState("");
   const handleCaption = (e: any) => {
-    setCaption(e.target.value);
-    console.log(e.target.value);
+    if (e.target.value === "") {
+      setcaptionErrMsg("");
+      setCaption(e.target.value);
+    } else {
+      setCaption(e.target.value);
+    }
   };
   const handleimage = (e: any) => {
     setImages(e.target.files[0]);
-    console.log(e.target.files);
   };
 
   const formdata = new FormData();
 
   const handleSubmit = () => {
-    console.log(images);
     console.log(caption);
-    formdata.append("images", images);
-    formdata.append("caption", caption);
-    axios({
-      method: "POST",
-      url: `https://newMommy.mooo.com:3003/api/postProfile`,
-      headers: {
-        Authorization: `Bearer ${auth.access_token}`,
-      },
-      data: formdata,
-    })
-      .then((response) => {
-        console.log(response);
+
+    if (caption == "") {
+      setcaptionErrMsg("Caption can't be empty");
+    } else {
+      formdata.append("images", images);
+      formdata.append("caption", caption);
+      axios({
+        method: "POST",
+        url: `https://newMommy.mooo.com:3003/api/postProfile`,
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
+        data: formdata,
       })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
 
     // axios({
     //   method: "POST",
@@ -66,14 +66,6 @@ const AddPost = () => {
       <div className="add-post-block">
         <input
           onChange={(e) => {
-            handleGroupId(e);
-          }}
-          type="text"
-          name="groupID"
-          placeholder="Group ID"
-        />
-        <input
-          onChange={(e) => {
             handleCaption(e);
           }}
           type="text"
@@ -87,7 +79,12 @@ const AddPost = () => {
           type="file"
           name="images"
         />
-        <button onClick={handleSubmit}>Add Post</button>
+        <div className="submit-err">
+          <button className="addPostbtn" onClick={handleSubmit}>
+            Add Post
+          </button>
+          {captionErrMsg}
+        </div>
         <a href="/community">Back to all posts</a>
       </div>
     </div>
