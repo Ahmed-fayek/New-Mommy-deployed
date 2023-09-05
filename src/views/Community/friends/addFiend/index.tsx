@@ -73,6 +73,7 @@ const AddFriends = () => {
   };
   return (
     <div style={{ margin: "100px" }}>
+      <h3>Add Friends</h3>
       <ul>
         {Object.entries(allUsers).map(([id, user]) => (
           <li key={id}>
