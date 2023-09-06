@@ -2,7 +2,7 @@ import axios from "../../../api/axios";
 import { useContext, useEffect, useState } from "react";
 import AllFriends from "./allFriends";
 import AuthContext from "../../../context/AuthProvider";
-import GetAllFriendRequests from "./getAllFriendRequests"
+import GetAllFriendRequests from "./getAllFriendRequests";
 import AddFriends from "./addFiend";
 function Friends() {
   const { auth } = useContext<any>(AuthContext);
@@ -30,7 +30,6 @@ function Friends() {
         },
       })
         .then((res) => {
-          console.log(res.data);
           setFriendRequests(res.data);
         })
         .catch((err) => console.log(err));
@@ -44,7 +43,7 @@ function Friends() {
       {/* {Object.entries(friendRequests).map(([id, friendRequest]) => (
         <FriendRequests requestId={id} name="hager ahmed" />
       ))} */}
-      <GetAllFriendRequests  />
+      <GetAllFriendRequests />
     </>
   );
 }

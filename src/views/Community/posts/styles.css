@@ -34,6 +34,10 @@
   color: #81ccab;
   font-size: 12px;
 }
+.post-date {
+  color: #000;
+  font-size: 12px;
+}
 
 .post-content {
   margin-bottom: 10px;

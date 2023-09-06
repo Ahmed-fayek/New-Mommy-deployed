@@ -18,6 +18,7 @@ const RecommendedGroups = () => {
         },
       })
         .then((response) => {
+          console.log(response.data.groups);
           setrecGroups(response.data.groups);
         })
         .catch((error) => {});

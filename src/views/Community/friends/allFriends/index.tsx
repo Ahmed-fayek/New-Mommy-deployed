@@ -17,7 +17,28 @@ const AllFriends = () => {
         },
       })
         .then((res) => {
+          console.log(res.data);
           setFriends(res.data);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [auth]);
+  useEffect(() => {
+    if (auth) {
+      axios({
+        method: "post",
+        url: "https://newMommy.mooo.com:3003/api/unfriend/64f59de78963ab728f070221",
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+
+          // setFriends(res.data);
           setIsLoading(false);
         })
         .catch((err) => {
@@ -42,7 +63,7 @@ const AllFriends = () => {
       <div className="frinds-container">
         {friends?.friendList.map((friend: any) => {
           return (
-            <div className="friend-block">
+            <div key={friend.id} className="friend-block">
               <div className="friend-info">
                 <div className="img-container">
                   <img src={pic} alt="" />

@@ -16,7 +16,7 @@ const AllGroups = () => {
         },
       })
         .then((response) => {
-          // console.log(response.data.groups);
+          console.log(response.data.groups);
           setallGroups(response.data.groups);
         })
         .catch((error) => {

@@ -19,7 +19,7 @@ const GetAllFriendRequests = () => {
           },
         })
           .then((response) => {
-            console.log(response.data.allFriendRequests);
+            // console.log(response.data.allFriendRequests);
             setFriendRequests(response.data.allFriendRequests);
           })
           .then(() => {
@@ -72,11 +72,11 @@ const GetAllFriendRequests = () => {
   return (
     <div>
       <h2>Friend Requests</h2>
-      {/* {isLoading && <p>Loading friend requests...</p>}
-      {friendRequests.length === 0 && !isLoading && <p>No friend requests found.</p>} */}
+      {isLoading && <p>Loading friend requests...</p>}
+      {friendRequests.length === 0 && !isLoading && (
+        <p>No friend requests found.</p>
+      )}
       {friendRequests.map((request: any) => {
-        console.log(request);
-
         return (
           <div key={request.id}>
             <p>hager sent you a friend request.</p>

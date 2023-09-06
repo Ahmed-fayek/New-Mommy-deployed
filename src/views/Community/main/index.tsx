@@ -14,7 +14,6 @@ import CommunityContext, {
 const Community = () => {
   const [returnedComponent, setreturnedComponent] = useState<string>("Groups");
   const { communitytab } = useContext<any>(CommunityContext);
-  console.log(communitytab);
 
   const communityComponents: Record<string, JSX.Element> = {
     Friends: <Friends />,
