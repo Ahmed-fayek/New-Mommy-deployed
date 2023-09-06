@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import AuthContext from "../../../../context/AuthProvider";
-
+import CommunityContext from "../../../../context/CommunityProvider";
+import pic from "./../../../../assets/images/Ellipse 6.svg";
 const GetAllFriendRequests = () => {
-  const [friendRequests, setFriendRequests] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
   const { auth } = useContext<any>(AuthContext);
+  const {friendRequests , allUsers , isLoading} = useContext<any>(CommunityContext)
 
+<<<<<<< HEAD
   useEffect(() => {
     const fetchFriendRequests = async () => {
       setIsLoading(true);
@@ -32,11 +33,17 @@ const GetAllFriendRequests = () => {
     };
     fetchFriendRequests();
   }, [auth]);
+=======
+
+  const getUserById = (id: string) => {
+    return allUsers.find((user:any) => user.id === id);
+  };
+>>>>>>> 44268ca833eb7a24ac685b9d6754ec5d038a9bba
 
   const acceptRequest = async (requestId: string) => {
     if (auth) {
       axios({
-        method: "Post",
+        method: "POST",
         url: `https://newMommy.mooo.com:3003/api/acceptFriendRequest/${requestId}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
@@ -54,7 +61,7 @@ const GetAllFriendRequests = () => {
   const rejectRequest = async (requestId: string) => {
     if (auth) {
       axios({
-        method: "Post",
+        method: "POST",
         url: `https://newMommy.mooo.com:3003/api/rejectFriendRequest/${requestId}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
@@ -73,6 +80,7 @@ const GetAllFriendRequests = () => {
     <div>
       <h2>Friend Requests</h2>
       {isLoading && <p>Loading friend requests...</p>}
+<<<<<<< HEAD
       {friendRequests.length === 0 && !isLoading && (
         <p>No friend requests found.</p>
       )}
@@ -85,6 +93,19 @@ const GetAllFriendRequests = () => {
           </div>
         );
       })}
+=======
+      {friendRequests.length === 0 && !isLoading && <p>No friend requests Yet</p>}
+      {friendRequests.map((request: any) => (
+        <div key={request.id}>
+          <img src={pic} alt="" />
+          <p>
+            {getUserById(request.user1Id)?.firstname} {getUserById(request.user1Id)?.lastname}
+          </p>
+          <button onClick={() => acceptRequest(request.id)}>Accept</button>
+          <button onClick={() => rejectRequest(request.id)}>Reject</button>
+        </div>
+      ))}
+>>>>>>> 44268ca833eb7a24ac685b9d6754ec5d038a9bba
     </div>
   );
 };

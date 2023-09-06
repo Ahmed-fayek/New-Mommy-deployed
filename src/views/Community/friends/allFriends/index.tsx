@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import AuthContext from "../../../../context/AuthProvider";
+import CommunityContext from "../../../../context/CommunityProvider";
 import "./styles.css";
 import pic from "./../../../../assets/images/Ellipse 6.svg";
 const AllFriends = () => {
-  const [friends, setFriends] = useState<any>();
-  const [isLoading, setIsLoading] = useState(true);
   const { auth } = useContext<any>(AuthContext);
   useEffect(() => {
     if (auth) {
@@ -17,28 +16,7 @@ const AllFriends = () => {
         },
       })
         .then((res) => {
-          console.log(res.data);
           setFriends(res.data);
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [auth]);
-  useEffect(() => {
-    if (auth) {
-      axios({
-        method: "post",
-        url: "https://newMommy.mooo.com:3003/api/unfriend/64f59de78963ab728f070221",
-        headers: {
-          Authorization: `Bearer ${auth.access_token}`,
-        },
-      })
-        .then((res) => {
-          console.log(res);
-
-          // setFriends(res.data);
           setIsLoading(false);
         })
         .catch((err) => {

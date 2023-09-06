@@ -44,6 +44,7 @@ function Friends() {
         <FriendRequests requestId={id} name="hager ahmed" />
       ))} */}
       <GetAllFriendRequests />
+      <GetAllFriendRequests />
     </>
   );
 }
