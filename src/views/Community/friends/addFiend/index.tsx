@@ -4,7 +4,7 @@ import AuthContext from "../../../../context/AuthProvider";
 import CommunityContext from "../../../../context/CommunityProvider";
 const AddFriends = () => {
   const { auth } = useContext<any>(AuthContext);
-  const {allUsers} = useContext<any>(CommunityContext);
+  const { allUsers } = useContext<any>(CommunityContext);
 
   const addFriends = async (userid: any) => {
     if (auth) {
@@ -23,7 +23,7 @@ const AddFriends = () => {
     <div style={{ margin: "100px" }}>
       <h3>Add Friends</h3>
       <ul>
-        {allUsers.map((user:any, index:number) => (
+        {allUsers.map((user: any, index: number) => (
           <li key={index}>
             {user.firstname} {user.lastname}
             <button

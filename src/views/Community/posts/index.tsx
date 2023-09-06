@@ -7,6 +7,7 @@ import "./styles.css";
 const Post = () => {
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
+  // console.log(user);
   const [posts, setposts] = useState<any>();
   const [IsLooding, setIsLooding] = useState<any>(true);
   const [deleting, setdeleting] = useState<any>("");
@@ -22,7 +23,10 @@ const Post = () => {
       })
         .then((response) => {
           console.log(response.data.posts);
-          setposts(response.data.posts);
+          // console.log(response.data.posts.reverse());
+          // console.log(["1", "2"].reverse());
+
+          setposts(response.data.posts.reverse());
           setIsLooding(false);
         })
         .catch((error) => {
@@ -32,9 +36,7 @@ const Post = () => {
   }, [auth]);
   // handle like and unlike
   const handleAddLike = (ele: any, id: any) => {
-    console.log(ele.currentTarget.classList.contains("liked-this"));
     if (ele.currentTarget.classList.contains("liked-this")) {
-      console.log("eee");
       if (auth) {
         axios({
           method: "Post",
@@ -69,6 +71,8 @@ const Post = () => {
     }
   };
   const deletePost = (post: any) => {
+    console.log(post);
+
     if (auth) {
       axios({
         method: "DELETE",
@@ -78,7 +82,7 @@ const Post = () => {
         },
       })
         .then((response) => {
-          // console.log(response);
+          console.log(response);
           setdeleting("deleted");
         })
         .catch((error) => {
@@ -86,6 +90,7 @@ const Post = () => {
         });
     }
   };
+
   return (
     <div className="Posts">
       <a href="/AddPost" className="addPost">
@@ -103,7 +108,10 @@ const Post = () => {
                   <div className="author-info">
                     <span className="author-name">{`${post.Users.firstname} ${post.Users.lastname}`}</span>
                     <span className="post-time">
-                      {post.time.slice(11, 16)} {post.time.slice(0, 10)}
+                      {post.time.slice(11, 16)}{" "}
+                      <span className="post-date">
+                        {post.time.slice(0, 10)}
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -111,7 +119,7 @@ const Post = () => {
                   <div className="delete">
                     {/* {deleting} */}
                     <i
-                      onClick={(post) => {
+                      onClick={() => {
                         deletePost(post);
                       }}
                       className="fa-solid fa-trash"
@@ -126,6 +134,7 @@ const Post = () => {
                 <img
                   src={post.media == null ? "" : post.media}
                   onError={(e) => {
+                    e.preventDefault();
                     e.currentTarget.classList.add("remove-this");
                   }}
                   alt="post Media"
@@ -137,9 +146,6 @@ const Post = () => {
               <div className="post-footer">
                 <div className="post-stats">
                   <span className="like-count">{post.likeCount} Likes</span>
-                  <span className="comment-count">
-                    {post.commentCount} Comments
-                  </span>
                 </div>
               </div>
               <div className="post-actions">
@@ -148,11 +154,13 @@ const Post = () => {
                     handleAddLike(e, post.id);
                     e.currentTarget.classList.toggle("liked-this");
                   }}
-                  className="like-add"
+                  className={
+                    post.userExistsInLikes ? "like-add liked-this" : "like-add"
+                  }
                 >
                   Like
                 </span>
-                <span className="comment-add">Comment</span>
+                {/* <span className="comment-add">Comment</span> */}
               </div>
             </div>
           );

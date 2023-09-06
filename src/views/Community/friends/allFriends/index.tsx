@@ -4,27 +4,20 @@ import AuthContext from "../../../../context/AuthProvider";
 import CommunityContext from "../../../../context/CommunityProvider";
 import "./styles.css";
 import pic from "./../../../../assets/images/Ellipse 6.svg";
+import { Link } from "react-router-dom";
 const AllFriends = () => {
   const { auth } = useContext<any>(AuthContext);
-  const {friends , isLoading} = useContext<any>(CommunityContext)
+  const { friends, isLoading } = useContext<any>(CommunityContext);
 
   return (
     <div className="all-friends-container" style={{ margin: "100px" }}>
       <h2>All Friends</h2>
-      <input type="search" placeholder="search friends" />
-      {friends ? (
-        <div>
-          <h4>{friends.friendList.length}</h4>
-          <span>See all</span>
-        </div>
-      ) : (
-        <p>No friends yet</p>
-      )}
+      <Link to={"/searchUser"}>Go to Search</Link>
       {isLoading ? <p>Loading...</p> : <div></div>}
       <div className="frinds-container">
         {friends?.friendList.map((friend: any) => {
           return (
-            <div className="friend-block">
+            <div key={friend.id} className="friend-block">
               <div className="friend-info">
                 <div className="img-container">
                   <img src={pic} alt="" />

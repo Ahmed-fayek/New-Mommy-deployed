@@ -16,7 +16,7 @@ const AllGroups = () => {
         },
       })
         .then((response) => {
-          // console.log(response.data.groups);
+          console.log(response.data.groups);
           setallGroups(response.data.groups);
         })
         .catch((error) => {
@@ -44,26 +44,28 @@ const AllGroups = () => {
     <>
       <h3>Your Groups </h3>
       <div className="my-grops">
-        {allGroups?.map((group: any) => {
-          return (
-            <div key={group.id} className="my-group">
-              <img src={gpimg} alt="" />
-              <div className="group-data">
-                <div className="group-info">
-                  <h3>{group.group.groupName}</h3>
-                  <p>{group.group.count}</p>
+        {allGroups
+          ? allGroups?.map((group: any) => {
+              return (
+                <div key={group.id} className="my-group">
+                  <img src={gpimg} alt="" />
+                  <div className="group-data">
+                    <div className="group-info">
+                      <h3>{group.group.groupName}</h3>
+                      <p>{group.group.count}</p>
+                    </div>
+                    <span
+                      onClick={() => {
+                        handleLeaveGroup(group.id);
+                      }}
+                    >
+                      <i className="fa-solid fa-right-from-bracket"></i>{" "}
+                    </span>
+                  </div>
                 </div>
-                <span
-                  onClick={() => {
-                    handleLeaveGroup(group.id);
-                  }}
-                >
-                  <i className="fa-solid fa-right-from-bracket"></i>{" "}
-                </span>
-              </div>
-            </div>
-          );
-        })}
+              );
+            })
+          : "Loading"}
       </div>
     </>
   );

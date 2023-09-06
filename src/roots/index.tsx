@@ -81,6 +81,7 @@ const MainRouer = () => {
           }
         ></Route>
         <Route path="/AddPost" element={<AddPost />}></Route>
+        <Route path="/searchUser" element={<SearchUsers />}></Route>
       </Routes>
     </>
   );

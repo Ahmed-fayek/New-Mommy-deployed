@@ -5,11 +5,11 @@ import CommunityContext from "../../../../context/CommunityProvider";
 import pic from "./../../../../assets/images/Ellipse 6.svg";
 const GetAllFriendRequests = () => {
   const { auth } = useContext<any>(AuthContext);
-  const {friendRequests , allUsers , isLoading} = useContext<any>(CommunityContext)
-
+  const { friendRequests, allUsers, isLoading } =
+    useContext<any>(CommunityContext);
 
   const getUserById = (id: string) => {
-    return allUsers.find((user:any) => user.id === id);
+    return allUsers.find((user: any) => user.id === id);
   };
 
   const acceptRequest = async (requestId: string) => {
@@ -52,12 +52,15 @@ const GetAllFriendRequests = () => {
     <div>
       <h2>Friend Requests</h2>
       {isLoading && <p>Loading friend requests...</p>}
-      {friendRequests.length === 0 && !isLoading && <p>No friend requests Yet</p>}
+      {friendRequests.length === 0 && !isLoading && (
+        <p>No friend requests Yet</p>
+      )}
       {friendRequests.map((request: any) => (
         <div key={request.id}>
           <img src={pic} alt="" />
           <p>
-            {getUserById(request.user1Id)?.firstname} {getUserById(request.user1Id)?.lastname}
+            {getUserById(request.user1Id)?.firstname}{" "}
+            {getUserById(request.user1Id)?.lastname}
           </p>
           <button onClick={() => acceptRequest(request.id)}>Accept</button>
           <button onClick={() => rejectRequest(request.id)}>Reject</button>

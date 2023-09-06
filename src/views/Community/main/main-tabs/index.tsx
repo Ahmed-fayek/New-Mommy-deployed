@@ -8,7 +8,6 @@ const MainTabs = () => {
   const handleTabClick = (tabName: string) => {
     setCommunitytab(tabName);
     setActiveTab(tabName);
-    console.log(tabName);
   };
   return (
     <>
