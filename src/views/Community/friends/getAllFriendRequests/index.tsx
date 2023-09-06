@@ -1,60 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import AuthContext from "../../../../context/AuthProvider";
+import CommunityContext from "../../../../context/CommunityProvider";
 import pic from "./../../../../assets/images/Ellipse 6.svg";
 const GetAllFriendRequests = () => {
-  const [friendRequests, setFriendRequests] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
   const { auth } = useContext<any>(AuthContext);
-  const [allUsers, setAllUsers] = useState<any[]>([]);
-
-  useEffect(() => {
-    const fetchAllUsers = async () => {
-      if (auth) {
-        try {
-          const response = await axios.get(
-            `https://newMommy.mooo.com:3002/api/users`,
-            {
-              headers: {
-                Authorization: `Bearer ${auth.access_token}`,
-              },
-            }
-          );
-          setAllUsers(Object.values(response.data));
-          console.log(response.data);
-        } catch (error) {
-          console.error(error);
-        }
-      }
-    };
-    fetchAllUsers();
-  }, [auth]);
-
-  useEffect(() => {
-    const fetchFriendRequests = async () => {
-      setIsLoading(true);
-        if (auth) {
-          axios({
-            method: "GET",
-            url: "https://newMommy.mooo.com:3003/api/allSentFriendRequests/",
-            headers: {
-              Authorization: `Bearer ${auth.access_token}`,
-            },
-          })
-            .then((response) => {
-              console.log(response.data.allFriendRequests);
-              setFriendRequests(response.data.allFriendRequests);
-            }).then(()=>{
-              setIsLoading(false);
-            })
-            .catch((error) => {
-              console.log('Error fetching friend requests:', error);
-            });
-        }
-      }
-    fetchFriendRequests();
-  }, [auth]);
-    
+  const {friendRequests , allUsers , isLoading} = useContext<any>(CommunityContext)
 
 
   const getUserById = (id: string) => {

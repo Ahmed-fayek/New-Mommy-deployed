@@ -1,27 +1,11 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../../../context/AuthProvider";
+import CommunityContext from "../../../../context/CommunityProvider";
 const AddFriends = () => {
   const { auth } = useContext<any>(AuthContext);
-  const [allUsers, setAllUsers] = useState<any[]>([]);
-  useEffect(() => {
-    if (auth) {
-      axios({
-        method: "get",
-        url: "https://newMommy.mooo.com:3002/api/users",
-        headers: {
-          Authorization: `Bearer ${auth.access_token}`,
-        },
-      })
-        .then((res) => {
-          const data = res.data;
-          setAllUsers(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [auth]);
+  const {allUsers} = useContext<any>(CommunityContext);
+
   const addFriends = async (userid: any) => {
     if (auth) {
       await axios({
@@ -39,8 +23,8 @@ const AddFriends = () => {
     <div style={{ margin: "100px" }}>
       <h3>Add Friends</h3>
       <ul>
-        {Object.entries(allUsers).map(([id, user]) => (
-          <li key={id}>
+        {allUsers.map((user:any, index:number) => (
+          <li key={index}>
             {user.firstname} {user.lastname}
             <button
               onClick={() => {

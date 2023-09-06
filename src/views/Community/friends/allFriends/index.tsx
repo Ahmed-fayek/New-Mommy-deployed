@@ -1,30 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import AuthContext from "../../../../context/AuthProvider";
+import CommunityContext from "../../../../context/CommunityProvider";
 import "./styles.css";
 import pic from "./../../../../assets/images/Ellipse 6.svg";
 const AllFriends = () => {
-  const [friends, setFriends] = useState<any>();
-  const [isLoading, setIsLoading] = useState(true);
   const { auth } = useContext<any>(AuthContext);
-  useEffect(() => {
-    if (auth) {
-      axios({
-        method: "get",
-        url: "https://newMommy.mooo.com:3003/api/allFriends",
-        headers: {
-          Authorization: `Bearer ${auth.access_token}`,
-        },
-      })
-        .then((res) => {
-          setFriends(res.data);
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [auth]);
+  const {friends , isLoading} = useContext<any>(CommunityContext)
 
   return (
     <div className="all-friends-container" style={{ margin: "100px" }}>
