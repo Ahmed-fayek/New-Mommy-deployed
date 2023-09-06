@@ -22,42 +22,6 @@ const AddFriends = () => {
         });
     }
   }, [auth]);
-
-  // useEffect(() => {
-  //   if (auth) {
-  //     axios({
-  //       method: "GET",
-  //       url: "https://newMommy.mooo.com:3003/api/allSentFriendRequests/",
-  //       headers: {
-  //         Authorization: `Bearer ${auth.access_token}`,
-  //       },
-  //     })
-  //       .then((response) => {
-  //         console.log(response);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   }
-  // }, [auth]);
-
-  // useEffect(() => {
-  //   if (auth) {
-  //     axios({
-  //       method: "Post",
-  //       url: "https://newMommy.mooo.com:3003/api/acceptFriendRequest/64f5ad64254300e680df0d65",
-  //       headers: {
-  //         Authorization: `Bearer ${auth.access_token}`,
-  //       },
-  //     })
-  //       .then((response) => {
-  //         console.log(response);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   }
-  // }, [auth]);
   const addFriends = async (userid: any) => {
     if (auth) {
       await axios({

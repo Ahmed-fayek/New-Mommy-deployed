@@ -41,9 +41,6 @@ function Friends() {
     <>
       <AllFriends />
       <AddFriends />
-      {/* {Object.entries(friendRequests).map(([id, friendRequest]) => (
-        <FriendRequests requestId={id} name="hager ahmed" />
-      ))} */}
       <GetAllFriendRequests  />
     </>
   );

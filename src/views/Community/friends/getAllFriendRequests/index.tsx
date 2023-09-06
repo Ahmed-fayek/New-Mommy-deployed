@@ -1,12 +1,35 @@
 import React, { useState, useEffect ,useContext} from 'react';
 import axios from 'axios';
 import AuthContext from "../../../../context/AuthProvider";
-
+import pic from "./../../../../assets/images/Ellipse 6.svg";
 
 const GetAllFriendRequests = () => {
   const [friendRequests, setFriendRequests] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const { auth } = useContext<any>(AuthContext);
+  const [allUsers, setAllUsers] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchAllUsers = async () => {
+      if (auth) {
+        try {
+          const response = await axios.get(
+            `https://newMommy.mooo.com:3002/api/users`,
+            {
+              headers: {
+                Authorization: `Bearer ${auth.access_token}`,
+              },
+            }
+          );
+          setAllUsers(Object.values(response.data));
+          console.log(response.data);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    };
+    fetchAllUsers();
+  }, [auth]);
 
   useEffect(() => {
     const fetchFriendRequests = async () => {
@@ -34,10 +57,15 @@ const GetAllFriendRequests = () => {
   }, [auth]);
     
 
+
+  const getUserById = (id: string) => {
+    return allUsers.find((user:any) => user.id === id);
+  };
+
   const acceptRequest = async (requestId: string) => {
       if (auth) {
         axios({
-          method: "GET",
+          method: "POST",
           url: `https://newMommy.mooo.com:3003/api/acceptFriendRequest/${requestId}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
@@ -56,7 +84,7 @@ const GetAllFriendRequests = () => {
   const rejectRequest = async (requestId: string) => {
     if (auth) {
       axios({
-        method: "GET",
+        method: "POST",
         url: `https://newMommy.mooo.com:3003/api/rejectFriendRequest/${requestId}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
@@ -75,12 +103,15 @@ const GetAllFriendRequests = () => {
   return (
     <div>
       <h2>Friend Requests</h2>
-      {/* {isLoading && <p>Loading friend requests...</p>}
-      {friendRequests.length === 0 && !isLoading && <p>No friend requests found.</p>} */}
+      {isLoading && <p>Loading friend requests...</p>}
+      {friendRequests.length === 0 && !isLoading && <p>No friend requests Yet</p>}
       {friendRequests.map((request: any) => (
         <div key={request.id}>
-          <p>hager sent you a friend request.</p>
-          <button onClick={() => acceptRequest(request.user2Id)}>Accept</button>
+          <img src={pic} alt="" />
+          <p>
+            {getUserById(request.user1Id)?.firstname} {getUserById(request.user1Id)?.lastname}
+          </p>
+          <button onClick={() => acceptRequest(request.id)}>Accept</button>
           <button onClick={() => rejectRequest(request.id)}>Reject</button>
         </div>
       ))}
