@@ -1,8 +1,7 @@
-import React, { useState, useEffect ,useContext} from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
 import AuthContext from "../../../../context/AuthProvider";
 import pic from "./../../../../assets/images/Ellipse 6.svg";
-
 const GetAllFriendRequests = () => {
   const [friendRequests, setFriendRequests] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -63,22 +62,21 @@ const GetAllFriendRequests = () => {
   };
 
   const acceptRequest = async (requestId: string) => {
-      if (auth) {
-        axios({
-          method: "POST",
-          url: `https://newMommy.mooo.com:3003/api/acceptFriendRequest/${requestId}`,
-          headers: {
-            Authorization: `Bearer ${auth.access_token}`,
-          },
+    if (auth) {
+      axios({
+        method: "POST",
+        url: `https://newMommy.mooo.com:3003/api/acceptFriendRequest/${requestId}`,
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
+      })
+        .then((response) => {
+          console.log(response.data);
         })
-          .then((response) => {
-            console.log(response.data);
-          })
-          .catch((error) => {
-            console.log('Error accepting friend request:', error);
-          });
-      }
-    
+        .catch((error) => {
+          console.log("Error accepting friend request:", error);
+        });
+    }
   };
 
   const rejectRequest = async (requestId: string) => {
@@ -94,11 +92,10 @@ const GetAllFriendRequests = () => {
           console.log(response.data);
         })
         .catch((error) => {
-          console.log('Error rejecting friend request:', error);
+          console.log("Error rejecting friend request:", error);
         });
     }
-  
-};
+  };
 
   return (
     <div>
@@ -120,4 +117,3 @@ const GetAllFriendRequests = () => {
 };
 
 export default GetAllFriendRequests;
-
