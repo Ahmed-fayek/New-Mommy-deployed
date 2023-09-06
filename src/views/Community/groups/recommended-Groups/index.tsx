@@ -43,26 +43,28 @@ const RecommendedGroups = () => {
       <h3>Recommended for you</h3>
 
       <div className="rec-grops">
-        {recGroups?.map((group: any) => {
-          return (
-            <div key={group.id} className="rec-group">
-              <img src={gpimg} alt="" />
-              <div className="group-data">
-                <div className="group-info">
-                  <h3>{group.groupName}</h3>
-                  <p>{group.count}</p>
+        {recGroups
+          ? recGroups?.map((group: any) => {
+              return (
+                <div key={group.id} className="rec-group">
+                  <img src={gpimg} alt="" />
+                  <div className="group-data">
+                    <div className="group-info">
+                      <h3>{group.groupName}</h3>
+                      <p>{group.count}</p>
+                    </div>
+                    <span
+                      onClick={() => {
+                        handleJoinGroup(group.id);
+                      }}
+                    >
+                      <i className="fa-solid fa-plus"></i>
+                    </span>
+                  </div>
                 </div>
-                <span
-                  onClick={() => {
-                    handleJoinGroup(group.id);
-                  }}
-                >
-                  <i className="fa-solid fa-plus"></i>
-                </span>
-              </div>
-            </div>
-          );
-        })}
+              );
+            })
+          : "Loading"}
       </div>
     </>
   );

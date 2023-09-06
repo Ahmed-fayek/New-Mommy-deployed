@@ -11,7 +11,6 @@ const Post = () => {
   const [posts, setposts] = useState<any>();
   const [IsLooding, setIsLooding] = useState<any>(true);
   const [deleting, setdeleting] = useState<any>("");
-  const [postMedia, setpostMedia] = useState<any>();
   //get All posts
   useEffect(() => {
     if (auth) {
@@ -23,7 +22,7 @@ const Post = () => {
         },
       })
         .then((response) => {
-          // console.log(response.data.posts);
+          console.log(response.data.posts);
           // console.log(response.data.posts.reverse());
           // console.log(["1", "2"].reverse());
 
