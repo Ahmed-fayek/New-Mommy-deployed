@@ -41,7 +41,7 @@ export const CommunityProvider = ({ children }: any) => {
       })
         .then((res) => {
           setAllUsers(Object.values(res.data));
-          console.log(res.data);
+          console.log(allUsers);
         })
         .catch((err) => {
           console.log(err);
@@ -56,6 +56,7 @@ export const CommunityProvider = ({ children }: any) => {
         })
           .then((res) => {
             setFriends(res.data);
+            console.log('friends',res.data)
             setIsLoading(false);
           })
           .catch((err) => {

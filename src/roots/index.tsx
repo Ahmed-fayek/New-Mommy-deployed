@@ -32,6 +32,7 @@ import SearchUsers from "../views/Community/friends/searchUsers";
 import Community from "../views/Community/main";
 import AddPost from "../views/Community/posts/addPost";
 import { CommunityProvider } from "../context/CommunityProvider";
+import UserImg from "../views/user-img";
 
 const MainRouer = () => {
   return (
@@ -82,6 +83,7 @@ const MainRouer = () => {
         ></Route>
         <Route path="/AddPost" element={<AddPost />}></Route>
         <Route path="/searchUser" element={<SearchUsers />}></Route>
+        <Route path="/userimg" element={<UserImg/>}></Route>
       </Routes>
     </>
   );

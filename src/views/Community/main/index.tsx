@@ -12,7 +12,7 @@ import CommunityContext, {
   CommunityProvider,
 } from "../../../context/CommunityProvider";
 const Community = () => {
-  const [returnedComponent, setreturnedComponent] = useState<string>("Groups");
+  const [returnedComponent, setreturnedComponent] = useState<string>("Friends");
   const { communitytab } = useContext<any>(CommunityContext);
 
   const communityComponents: Record<string, JSX.Element> = {
