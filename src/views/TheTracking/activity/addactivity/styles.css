@@ -26,8 +26,6 @@
 }
 
 .add-activity .signup-block {
-  margin-top: 80px;
-
   width: 450px;
   height: 600px;
   padding: 20px 0;
@@ -246,8 +244,6 @@
 
 @media (max-width: 480px) {
   .add-activity .signup-block {
-    margin-top: 80px;
-
     width: 90%;
     padding: 40px 0;
     background-size: 400%;
@@ -290,8 +286,6 @@
 /* Medium screens */
 @media (min-width: 481px) and (max-width: 768px) {
   .add-activity .signup-block {
-    margin-top: 80px;
-
     width: 80%;
     background-size: 350%;
   }

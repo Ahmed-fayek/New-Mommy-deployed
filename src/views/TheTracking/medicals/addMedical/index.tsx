@@ -44,13 +44,13 @@ const AddMedical = () => {
           },
         })
           .then((response) => {
-            // console.log(response);
+            // //console.log(response);
             setdoctorName(response.data.medicalDocument.doctorName);
             setdiagnosis(response.data.medicalDocument.diagnosis);
             setreportDate(response.data.medicalDocument.date);
           })
           .catch((error) => {
-            // console.log(error);
+            // //console.log(error);
           });
       }
     }
@@ -84,7 +84,7 @@ const AddMedical = () => {
 
   /* submit  */
   const submitVal = async () => {
-    // console.log(user);
+    // //console.log(user);
 
     const data = {
       date: reportDate,
@@ -105,10 +105,10 @@ const AddMedical = () => {
           config
         )
         .then((response) => {
-          // console.log(response.data);
+          // //console.log(response.data);
         })
         .catch((error) => {
-          // console.log(error);
+          // //console.log(error);
         });
     } else {
       await axios
@@ -118,10 +118,10 @@ const AddMedical = () => {
           config
         )
         .then((response) => {
-          // console.log(response.data);
+          // //console.log(response.data);
         })
         .catch((error) => {
-          // console.log(error);
+          // //console.log(error);
         });
     }
   };

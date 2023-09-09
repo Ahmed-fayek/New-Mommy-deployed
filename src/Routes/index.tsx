@@ -32,6 +32,8 @@ import AddFirist from "../views/TheTracking/baby-firsts/add-first";
 import AddReminder from "../views/TheTracking/reminder/add-reminder";
 import { DeleteAccount } from "../api";
 import Tracking from "../views/TheTracking/tracking/Tracking";
+import GroupView from "../views/Community/groups/group";
+import UserProfile from "../views/User/user-profile";
 
 const MainRouer = () => {
   return (
@@ -69,6 +71,8 @@ const MainRouer = () => {
         <Route path="/deleteaccount" element={<DeleteAccount />}></Route>
         <Route path="/tracking" element={<Tracking />}></Route>
         <Route path="/searchusers" element={<SearchUsers />}></Route>
+        <Route path="/GroupView/:groupid" element={<GroupView />}></Route>
+        <Route path="/user/:userid" element={<UserProfile />}></Route>
         {/* <Route path="/friends" element={<Friends />}></Route> */}
         <Route
           path="/community"

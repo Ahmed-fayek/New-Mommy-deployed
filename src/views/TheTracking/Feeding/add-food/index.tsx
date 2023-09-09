@@ -49,14 +49,14 @@ const AddFood = () => {
           },
         })
           .then((response) => {
-            // console.log(response);
+            // //console.log(response);
             settime(response.data.meal.time.slice(0, 5));
             setnote(response.data.meal.note);
             setfood(response.data.meal.food);
             setstartDate(response.data.meal.date);
           })
           .catch((error) => {
-            // console.log(error);
+            // //console.log(error);
           });
       }
     }
@@ -110,7 +110,7 @@ const AddFood = () => {
         },
       })
         .then((res) => {
-          // console.log(res);
+          // //console.log(res);
 
           setSuccessMessageVisible("successful added "); // Show success message
 
@@ -120,7 +120,7 @@ const AddFood = () => {
           }, 3000);
         })
         .catch((err) => {
-          // console.log(err);
+          // //console.log(err);
         });
     } else {
       await axios({
@@ -138,7 +138,7 @@ const AddFood = () => {
         },
       })
         .then((res) => {
-          // console.log(res);
+          // //console.log(res);
 
           setSuccessMessageVisible("successful added "); // Show success message
 
@@ -148,7 +148,7 @@ const AddFood = () => {
           }, 3000);
         })
         .catch((err) => {
-          // console.log(err);
+          // //console.log(err);
         });
     }
   };

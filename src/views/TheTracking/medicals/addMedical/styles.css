@@ -26,7 +26,7 @@
 }
 
 .add-medical .signup-block {
-  margin-top: 80px;
+  /* margin-top: 80px; */
 
   width: 450px;
   height: 600px;
@@ -246,7 +246,7 @@
 
 @media (max-width: 480px) {
   .add-medical .signup-block {
-    margin-top: 80px;
+    /* margin-top: 80px; */
 
     width: 90%;
     padding: 40px 0;
@@ -290,7 +290,7 @@
 /* Medium screens */
 @media (min-width: 481px) and (max-width: 768px) {
   .add-medical .signup-block {
-    margin-top: 80px;
+    /* margin-top: 80px; */
 
     width: 80%;
     background-size: 350%;

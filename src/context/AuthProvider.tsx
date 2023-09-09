@@ -5,6 +5,7 @@ export const AuthProvider = ({ children }: any) => {
   const [user, setUser] = useState();
   const [EmailCon, SetemailCon] = useState<string>("");
   const [CodeCon, setCodeCon] = useState<string>("");
+  const [Refresh, setRefresh] = useState<boolean>(false);
 
   return (
     <AuthContext.Provider
@@ -17,6 +18,8 @@ export const AuthProvider = ({ children }: any) => {
         setCodeCon,
         user,
         setUser,
+        Refresh,
+        setRefresh,
       }}
     >
       {children}

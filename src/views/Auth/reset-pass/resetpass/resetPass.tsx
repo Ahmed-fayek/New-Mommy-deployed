@@ -39,7 +39,7 @@ const ResetPAss = () => {
           navigator("/login");
         })
         .catch((err) => {
-          // console.log(err);
+          // //console.log(err);
 
           if (!err) {
             setErrMsg(" No server response");

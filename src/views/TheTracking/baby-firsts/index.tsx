@@ -26,7 +26,7 @@ function BabyFirsts() {
           setfirsts(response.data.firsts);
         })
         .catch((error) => {
-          // console.log(error);
+          // //console.log(error);
         });
     }
   }, [user, update]);
@@ -53,7 +53,7 @@ function BabyFirsts() {
             setupdate(!update);
           })
           .catch((error) => {
-            // console.log(error);
+            // //console.log(error);
           });
         Swal.fire("Deleted!", ` has been deleted.`, "success");
       }

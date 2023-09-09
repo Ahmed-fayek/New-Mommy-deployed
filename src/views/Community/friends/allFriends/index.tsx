@@ -6,7 +6,6 @@ import "./styles.css";
 import pic from "./../../../../assets/images/Ellipse 6.svg";
 import { Link } from "react-router-dom";
 const AllFriends = () => {
-  const { auth } = useContext<any>(AuthContext);
   const { friends, isLoading } = useContext<any>(CommunityContext);
 
   return (

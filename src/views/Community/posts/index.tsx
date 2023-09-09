@@ -7,7 +7,7 @@ import "./styles.css";
 const Post = () => {
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
-  // console.log(user);
+  // //console.log(user);
   const [posts, setposts] = useState<any>();
   const [IsLooding, setIsLooding] = useState<any>(true);
   const [deleting, setdeleting] = useState<any>("");
@@ -22,15 +22,15 @@ const Post = () => {
         },
       })
         .then((response) => {
-          console.log(response.data.posts);
-          // console.log(response.data.posts.reverse());
-          // console.log(["1", "2"].reverse());
+          //console.log(response.data.posts);
+          // //console.log(response.data.posts.reverse());
+          // //console.log(["1", "2"].reverse());
 
           setposts(response.data.posts.reverse());
           setIsLooding(false);
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
     }
   }, [auth]);
@@ -46,10 +46,10 @@ const Post = () => {
           },
         })
           .then((response) => {
-            console.log(response);
+            //console.log(response);
           })
           .catch((error) => {
-            console.log(error);
+            //console.log(error);
           });
       }
     } else {
@@ -62,16 +62,16 @@ const Post = () => {
           },
         })
           .then((response) => {
-            console.log(response);
+            //console.log(response);
           })
           .catch((error) => {
-            console.log(error);
+            //console.log(error);
           });
       }
     }
   };
   const deletePost = (post: any) => {
-    console.log(post);
+    //console.log(post);
 
     if (auth) {
       axios({
@@ -82,11 +82,11 @@ const Post = () => {
         },
       })
         .then((response) => {
-          console.log(response);
+          //console.log(response);
           setdeleting("deleted");
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
     }
   };

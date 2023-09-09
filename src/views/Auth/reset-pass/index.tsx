@@ -29,7 +29,7 @@ const EmailConfirm = () => {
       .then((res) => {
         SetemailCon(email);
         navigator("/confirmcode");
-        // console.log(res);
+        // //console.log(res);
       })
       .catch((err) => {
         if (!err) {

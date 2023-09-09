@@ -23,12 +23,12 @@ function Reminder() {
       };
       axios(config)
         .then((response) => {
-          console.log(response.data.reminders);
+          //console.log(response.data.reminders);
 
           setreminders(response.data.reminders);
         })
         .catch((error) => {
-          // console.log(error);
+          // //console.log(error);
         });
     }
   }, [user, update]);
@@ -52,11 +52,11 @@ function Reminder() {
           },
         })
           .then((response) => {
-            // console.log(response.data);
+            // //console.log(response.data);
             setupdate(!update);
           })
           .catch((error) => {
-            // console.log(error);
+            // //console.log(error);
           });
         Swal.fire("Deleted!", ` has been deleted.`, "success");
       }

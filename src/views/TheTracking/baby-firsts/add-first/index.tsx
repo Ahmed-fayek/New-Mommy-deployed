@@ -54,7 +54,7 @@ const AddFirist = () => {
             setimage(true);
           })
           .catch((error) => {
-            // console.log(error);
+            // //console.log(error);
           });
       }
     }
@@ -107,7 +107,7 @@ const AddFirist = () => {
         data: formData,
       })
         .then((res) => {
-          // console.log(res);
+          // //console.log(res);
 
           setSuccessMessageVisible("successful added "); // Show success message
 
@@ -117,7 +117,7 @@ const AddFirist = () => {
           }, 3000);
         })
         .catch((err) => {
-          // console.log(err);
+          // //console.log(err);
         });
     } else {
       await axios({
@@ -137,7 +137,7 @@ const AddFirist = () => {
           }, 3000);
         })
         .catch((err) => {
-          // console.log(err);
+          // //console.log(err);
         });
     }
   };

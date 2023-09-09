@@ -10,7 +10,7 @@ function RefreshToken() {
   const navigator = useNavigate();
   const [loading, setLoading] = useState("");
   const { auth } = useContext<any>(AuthContext);
-  const { user } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const { setAuth } = useContext<any>(AuthContext);
   const { setUser } = useContext<any>(AuthContext);
   //if user in not logged in we navigate him to log in
@@ -49,7 +49,7 @@ function RefreshToken() {
     if (localStorage.getItem("token")) {
       RefreshTokenAgain();
     }
-  }, []);
+  }, [Refresh]);
 
   useEffect(() => {
     const getUserData = async () => {
@@ -80,6 +80,7 @@ function RefreshToken() {
   } else {
     return (
       <div className="App">
+        <div className="reservedNav"></div>
         <Nav />
         <div className="mommyvere">
           <MainRouer />

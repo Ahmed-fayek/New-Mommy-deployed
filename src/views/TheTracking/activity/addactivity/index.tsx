@@ -53,7 +53,7 @@ const AddActivity = () => {
             setnote(response.data.activity.note);
           })
           .catch((error) => {
-            // console.log(error);
+            // //console.log(error);
           });
       }
     }
@@ -109,7 +109,7 @@ const AddActivity = () => {
         },
       })
         .then((res) => {
-          // console.log(res);
+          // //console.log(res);
 
           setSuccessMessageVisible("successful added "); // Show success message
 
@@ -119,7 +119,7 @@ const AddActivity = () => {
           }, 3000);
         })
         .catch((err) => {
-          // console.log(err);
+          // //console.log(err);
         });
     } else {
       await axios({
@@ -137,7 +137,7 @@ const AddActivity = () => {
         },
       })
         .then((res) => {
-          // console.log(res);
+          // //console.log(res);
 
           setSuccessMessageVisible("successful added "); // Show success message
 
@@ -147,7 +147,7 @@ const AddActivity = () => {
           }, 3000);
         })
         .catch((err) => {
-          // console.log(err);
+          // //console.log(err);
         });
     }
   };

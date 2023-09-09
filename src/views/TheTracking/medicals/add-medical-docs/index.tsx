@@ -25,7 +25,7 @@ const AddMedicalDocs = () => {
   // let babyage=BabyAge("","")
   const submitVal = async () => {
     formData.append("images", file);
-    // console.log(auth);
+    // //console.log(auth);
 
     await axios({
       method: "post",
@@ -36,7 +36,7 @@ const AddMedicalDocs = () => {
       data: formData,
     })
       .then((res) => {
-        // console.log(res);
+        // //console.log(res);
         setSuccessMessageVisible("successful added "); // Show success message
         // Redirect to main page after 3 seconds
         setTimeout(() => {
@@ -44,7 +44,7 @@ const AddMedicalDocs = () => {
         }, 3000);
       })
       .catch((err) => {
-        // console.log(err);
+        // //console.log(err);
       });
   };
 
@@ -61,7 +61,7 @@ const AddMedicalDocs = () => {
                 if (e.target.files?.length) {
                   fileval(e);
                 } else {
-                  // console.log("select");
+                  // //console.log("select");
                 }
               }}
             />

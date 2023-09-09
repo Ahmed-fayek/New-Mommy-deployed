@@ -17,7 +17,7 @@ const DeleteAccount = () => {
   };
 
   const handleDeleteAccount = async () => {
-    // console.log(auth);
+    // //console.log(auth);
 
     if (!selectedReason) {
       Swal.fire({
@@ -52,8 +52,8 @@ const DeleteAccount = () => {
       },
     })
       .then((response) => {
-        // console.log(response.data);
-        // console.log("Account deleted successfully:", response.data);
+        // //console.log(response.data);
+        // //console.log("Account deleted successfully:", response.data);
         // Clear the user data and log out
         setUser({});
         localStorage.removeItem("access_token");

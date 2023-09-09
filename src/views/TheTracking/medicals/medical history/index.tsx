@@ -25,12 +25,12 @@ function MedicalHistory() {
       };
       axios(config)
         .then((response) => {
-          // console.log(response.data.allDocuments);
+          // //console.log(response.data.allDocuments);
 
           setdocs(response.data.allDocuments);
         })
         .catch((error) => {
-          // console.log(error);
+          // //console.log(error);
         });
     }
   }, [user]);
@@ -45,12 +45,12 @@ function MedicalHistory() {
       };
       axios(config)
         .then((response) => {
-          // console.log(response.data.medicalHistory);
+          // //console.log(response.data.medicalHistory);
 
           setmedicals(response.data.medicalHistory);
         })
         .catch((error) => {
-          // console.log(error);
+          // //console.log(error);
         });
     }
   }, [user, update]);
@@ -74,11 +74,11 @@ function MedicalHistory() {
           },
         })
           .then((response) => {
-            // console.log(response.data);
+            // //console.log(response.data);
             setupdate(!update);
           })
           .catch((error) => {
-            // console.log(error);
+            // //console.log(error);
           });
         Swal.fire("Deleted!", ` has been deleted.`, "success");
       }
@@ -88,7 +88,7 @@ function MedicalHistory() {
   let docsreturned: any;
   if (user) {
     medicalsreturned = medicals.map((medical: any) => {
-      // console.log(medical);
+      // //console.log(medical);
       return (
         <div key={medical.id} className="visit">
           <div className="nameAndAge">
@@ -111,7 +111,7 @@ function MedicalHistory() {
       );
     });
     docsreturned = docs.map((doc: any) => {
-      // console.log(doc);
+      // //console.log(doc);
       return (
         <div key={doc.id} className="document">
           <img src={doc.document} alt="docs" />

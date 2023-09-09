@@ -23,12 +23,12 @@ function Growth() {
       };
       axios(config)
         .then((response) => {
-          // console.log(response.data.growthMilestones);
+          // //console.log(response.data.growthMilestones);
 
           setreminders(response.data.growthMilestones);
         })
         .catch((error) => {
-          // console.log(error);
+          // //console.log(error);
         });
     }
   }, [user, update]);
@@ -52,11 +52,11 @@ function Growth() {
           },
         })
           .then((response) => {
-            // console.log(response.data);
+            // //console.log(response.data);
             setupdate(!update);
           })
           .catch((error) => {
-            // console.log(error);
+            // //console.log(error);
           });
         Swal.fire("Deleted!", ` has been deleted.`, "success");
       }
@@ -65,7 +65,7 @@ function Growth() {
   let returned: any;
   if (user) {
     returned = reminders.map((reminder: any) => {
-      // console.log(reminder);
+      // //console.log(reminder);
 
       return (
         <div key={reminder.id}>

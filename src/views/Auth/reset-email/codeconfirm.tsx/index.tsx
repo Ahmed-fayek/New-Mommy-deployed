@@ -30,14 +30,14 @@ const CodeConfirm = () => {
         },
       })
         .then((res) => {
-          // console.log(res);
+          // //console.log(res);
           navigator("/resetpass");
           setCodeCon(
             `/${firConCode}${secConCode}${thirdConCode}${fourthConCode}`
           );
         })
         .catch((err) => {
-          // console.log(err);
+          // //console.log(err);
 
           if (!err) {
             setErrMsg(" No server response");
