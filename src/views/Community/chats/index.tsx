@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import ChatComponent from "./chat-component";
 import "./styles.css";
-import perImg from "./../../../assets/images/Ellipse 58.svg";
+import perImg from "./../../../../assets/images/Ellipse 58.svg";
 import CommunityContext from "../../../context/CommunityProvider";
 const Chat = () => {
   const [searchVal, setsearchVal] = useState<string>("");

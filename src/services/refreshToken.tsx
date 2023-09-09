@@ -2,10 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import axios from "../api/axios";
 import AuthContext from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import MainRouer from "../roots";
+import MainRouer from "../Routes";
 import Loading from "../components/Loading";
 import { GetUserbyId, RefreshTokenapi } from "../api";
-import Nav from "../views/Navbar";
+import Nav from "../views/Components/Navbar";
 function RefreshToken() {
   const navigator = useNavigate();
   const [loading, setLoading] = useState("");
