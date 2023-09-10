@@ -43,7 +43,7 @@ export const CommunityProvider = ({ children }: any) => {
       })
         .then((res) => {
           setAllUsers(Object.values(res.data));
-          console.log(res.data);
+          // console.log(res.data);
         })
         .catch((err) => {
           if (err.response.status == "401") {

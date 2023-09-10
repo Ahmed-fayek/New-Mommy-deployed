@@ -30,6 +30,7 @@ const AllGroups = () => {
         });
     }
   }, [auth]);
+
   const handleLeaveGroup = (e: any) => {
     axios({
       method: "Post",
@@ -50,6 +51,10 @@ const AllGroups = () => {
   };
   return (
     <>
+      <a href="/addgroup" className="addgroup">
+        Create Group
+      </a>
+
       <h3>Your Groups </h3>
       <div className="my-grops">
         {allGroups

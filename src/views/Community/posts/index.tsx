@@ -10,7 +10,7 @@ const Post = () => {
   const { user } = useContext<any>(AuthContext);
   const { setRefresh } = useContext<any>(AuthContext);
   const { Refresh } = useContext<any>(AuthContext);
-  console.log(user);
+  // console.log(user);
   const [posts, setposts] = useState<any>();
   const [IsLooding, setIsLooding] = useState<any>(true);
   const [deleting, setdeleting] = useState<any>("");
@@ -26,7 +26,7 @@ const Post = () => {
         },
       })
         .then((response) => {
-          console.log(response.data.posts);
+          // console.log(response.data.posts);
           setposts(response.data.posts.reverse());
           setIsLooding(false);
         })
