@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Post = () => {
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
-  // //console.log(user);
+  console.log(user);
   const [posts, setposts] = useState<any>();
   const [IsLooding, setIsLooding] = useState<any>(true);
   const [deleting, setdeleting] = useState<any>("");

@@ -34,6 +34,8 @@ import { DeleteAccount } from "../api";
 import Tracking from "../views/TheTracking/tracking/Tracking";
 import GroupView from "../views/Community/groups/group";
 import UserProfile from "../views/User/user-profile";
+import UserImg from "../views/User/user-img";
+import MyProfile from "../views/User/myprofile";
 
 const MainRouer = () => {
   return (
@@ -86,6 +88,8 @@ const MainRouer = () => {
         ></Route>
         <Route path="/AddPost" element={<AddPost />}></Route>
         <Route path="/searchUser" element={<SearchUsers />}></Route>
+        <Route path="/userimg" element={<UserImg />}></Route>
+        <Route path="/my-profile" element={<MyProfile />}></Route>
       </Routes>
     </>
   );

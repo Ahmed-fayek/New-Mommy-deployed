@@ -1,36 +1,34 @@
-import { useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../../context/AuthProvider";
-import axios from "../../../api/axios";
-import "./styles.css";
-import Loading from "../../../components/Loading";
+import axios from "axios";
 import defaultimg from "./../../../assets/images/Layer 1.svg";
 import defaultpimg from "./../../../assets/images/momandbaby.png";
-const UserProfile = () => {
-  const { auth } = useContext<any>(AuthContext);
+import { useNavigate } from "react-router-dom";
+import Loading from "../../../components/Loading";
+const MyProfile = () => {
   const { user } = useContext<any>(AuthContext);
-
-  const [profile, setprofile] = useState<any>();
-  const [postlokes, setpostlokes] = useState<any>(false);
-  const { userid } = useParams();
+  const { auth } = useContext<any>(AuthContext);
+  const [myprofile, setmyprofile] = useState<any>();
+  const [postlokes, setpostlokes] = useState(false);
+  const navigator = useNavigate();
   useEffect(() => {
-    if (auth) {
+    if (auth && user) {
       axios({
         method: "GET",
-        url: `https://newMommy.mooo.com:3003/api/profileById/${userid}`,
+        url: `https://newMommy.mooo.com:3003/api/profileById/${user.id}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
       })
         .then((response) => {
-          setprofile(response.data);
+          setmyprofile(response.data);
           // console.log(response.data);
         })
         .catch((error) => {
           // console.log(error);
         });
     }
-  }, [auth, postlokes]);
+  }, [auth, postlokes, user]);
 
   const handleAddLike = (ele: any, id: any, likeCounts: any) => {
     if (ele.currentTarget.classList.contains("liked-this")) {
@@ -69,20 +67,21 @@ const UserProfile = () => {
       }
     }
   };
-
-  if (profile) {
+  if (myprofile) {
     return (
       <>
         <div className="profile-view">
           <div className="profile-images">
             <div className="cover">
               <img
-                src={profile.user.cover ? profile.user.cover : defaultimg}
+                src={myprofile.user.cover ? myprofile.user.cover : defaultimg}
                 alt=""
               />
               <div className="profileimg">
                 <img
-                  src={profile.user.image ? profile.user.image : defaultpimg}
+                  src={
+                    myprofile.user.image ? myprofile.user.image : defaultpimg
+                  }
                   alt=""
                 />
               </div>
@@ -91,36 +90,30 @@ const UserProfile = () => {
           <div className="profile-name">
             <h1>
               {" "}
-              {profile.user.firstname} {profile.user.lastname}
+              {myprofile.user.firstname} {myprofile.user.lastname}
             </h1>
-            {profile.userExistsInFriends ? (
-              <button
-                onClick={() => {
-                  // handleleaveGroup(groupid);
-                }}
-              >
-                Unfriend
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  // handleJoinGroup(groupid);
-                }}
-              >
-                Add friend{" "}
-              </button>
-            )}
+            <button
+              onClick={() => {
+                navigator("/userimg");
+              }}
+            >
+              Edit Profile
+            </button>
           </div>
           <div className="Posts">
             <h1>All posts</h1>
-            {profile.posts.map((post: any) => {
+            {myprofile.posts.map((post: any) => {
               return (
                 <div key={post.id} className="post">
                   <div className="post-header">
                     <div className="">
-                      {/* <img src={postimg} alt="Profile" className="profile-image" /> */}
+                      <img
+                        src={myprofile.user.image}
+                        alt="Profile"
+                        className="profile-image"
+                      />
                       <div className="author-info">
-                        <span className="author-name">{`${profile.user.firstname} ${profile.user.lastname}`}</span>
+                        <span className="author-name">{`${myprofile.user.firstname} ${myprofile.user.lastname}`}</span>
                         <span className="post-time">
                           {post.time.slice(11, 16)}{" "}
                           <span className="post-date">
@@ -178,4 +171,4 @@ const UserProfile = () => {
     return <Loading />;
   }
 };
-export default UserProfile;
+export default MyProfile;

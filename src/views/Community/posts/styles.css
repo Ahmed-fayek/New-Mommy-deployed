@@ -1,8 +1,18 @@
+.Posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
 .post {
   border-bottom: 1px solid #ccc;
+  width: 50%;
   padding: 10px;
   margin-bottom: 20px;
   background-color: #ffffff;
+  box-shadow: 5px 5px 20px #000;
 }
 
 .post-header {
@@ -49,7 +59,7 @@
 .post-caption {
   font-size: 14px;
   padding: 10px;
-  background-color: #d3d3d3;
+  background-color: #eeeeee;
 }
 .post-media {
   margin: auto;
@@ -117,4 +127,9 @@
   margin: 15px;
   text-decoration: none;
   color: #000000;
+}
+@media (max-width: 900px) {
+  .post {
+    width: 90%;
+  }
 }

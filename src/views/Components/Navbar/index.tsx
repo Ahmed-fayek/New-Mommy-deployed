@@ -108,7 +108,13 @@ function Nav() {
               <Notifications />
             </div>
             <div className="personal-img">
-              <img src={personalimg} alt="" />
+              <img
+                onClick={() => {
+                  navigator("/my-profile");
+                }}
+                src={personalimg}
+                alt=""
+              />
             </div>
           </div>
         </div>

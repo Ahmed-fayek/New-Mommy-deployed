@@ -9,10 +9,10 @@ import Loading from "../../../../components/Loading";
 const GroupView = () => {
   const { auth } = useContext<any>(AuthContext);
   const { Refresh } = useContext<any>(AuthContext);
-  const { setRefresh } = useContext<any>(AuthContext);
   const { groupid } = useParams();
   const [group, setgroup] = useState<any>();
 
+  const { setRefresh } = useContext<any>(AuthContext);
   useEffect(() => {
     if (auth) {
       axios({
