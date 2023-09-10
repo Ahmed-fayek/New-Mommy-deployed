@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 const Post = () => {
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   console.log(user);
   const [posts, setposts] = useState<any>();
   const [IsLooding, setIsLooding] = useState<any>(true);
@@ -25,14 +27,13 @@ const Post = () => {
       })
         .then((response) => {
           console.log(response.data.posts);
-          // //console.log(response.data.posts.reverse());
-          // //console.log(["1", "2"].reverse());
-
           setposts(response.data.posts.reverse());
           setIsLooding(false);
         })
         .catch((error) => {
-          //console.log(error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   }, [auth]);
@@ -51,7 +52,11 @@ const Post = () => {
             //console.log(response);
           })
           .catch((error) => {
-            //console.log(error);
+            const { setRefresh } = useContext<any>(AuthContext);
+            const { Refresh } = useContext<any>(AuthContext);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
       }
     } else {
@@ -67,7 +72,9 @@ const Post = () => {
             //console.log(response);
           })
           .catch((error) => {
-            //console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
       }
     }
@@ -88,7 +95,9 @@ const Post = () => {
           setdeleting("deleted");
         })
         .catch((error) => {
-          //console.log(error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   };

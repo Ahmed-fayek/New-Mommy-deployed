@@ -7,6 +7,8 @@ const AddPost = () => {
   const [images, setImages] = useState<any>();
   const [caption, setCaption] = useState("");
   const [captionErrMsg, setcaptionErrMsg] = useState("");
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const handleCaption = (e: any) => {
     if (e.target.value === "") {
       setcaptionErrMsg("");
@@ -41,7 +43,9 @@ const AddPost = () => {
           //console.log(response);
         })
         .catch((error) => {
-          //console.log(error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
 
@@ -57,7 +61,10 @@ const AddPost = () => {
     //     //console.log(response);
     //   })
     //   .catch((error) => {
-    //     //console.log(error);
+
+    // if (error.response.status == "401") {
+    //   setRefresh(!Refresh);
+    // }
     //   });
   };
   return (

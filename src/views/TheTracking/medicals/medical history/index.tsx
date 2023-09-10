@@ -12,6 +12,8 @@ function MedicalHistory() {
   const { auth } = useContext<any>(AuthContext);
   const [medicals, setmedicals] = useState([]);
   const [update, setupdate] = useState(false);
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const [docs, setdocs] = useState([]);
   /* Get All Items */
   useEffect(() => {
@@ -30,7 +32,9 @@ function MedicalHistory() {
           setdocs(response.data.allDocuments);
         })
         .catch((error) => {
-          // //console.log(error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   }, [user]);
@@ -50,7 +54,9 @@ function MedicalHistory() {
           setmedicals(response.data.medicalHistory);
         })
         .catch((error) => {
-          // //console.log(error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   }, [user, update]);
@@ -78,7 +84,9 @@ function MedicalHistory() {
             setupdate(!update);
           })
           .catch((error) => {
-            // //console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
         Swal.fire("Deleted!", ` has been deleted.`, "success");
       }

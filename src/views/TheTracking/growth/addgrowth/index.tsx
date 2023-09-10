@@ -19,6 +19,8 @@ const AddGrowth = () => {
   const [weightErrMsg, setweightErrMsg] = useState<string>("");
   const [heightErrMsg, setheightErrMsg] = useState<string>("");
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
 
@@ -52,7 +54,9 @@ const AddGrowth = () => {
             setreportDate(response.data.growthMilestone.date);
           })
           .catch((error) => {
-            // //console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
       }
     }
@@ -102,7 +106,9 @@ const AddGrowth = () => {
           }, 3000);
         })
         .catch((err) => {
-          // //console.log(err);
+          if (err.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     } else {
       await axios({
@@ -129,7 +135,9 @@ const AddGrowth = () => {
           }, 3000);
         })
         .catch((err) => {
-          // //console.log(err);
+          if (err.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   };

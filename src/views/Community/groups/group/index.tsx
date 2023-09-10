@@ -27,10 +27,9 @@ const GroupView = () => {
           setgroup(res.data);
         })
         .catch((err) => {
-          if (err.response.data.statusCode == 401) {
+          if (err.response.status == "401") {
             setRefresh(!Refresh);
           }
-          //console.log(err);
         });
     }
   }, [auth]);
@@ -51,10 +50,10 @@ const GroupView = () => {
   //         // setgroup(res.data);
   //       })
   //       .catch((err) => {
-  //         if (err.response.data.statusCode == 401) {
-  //           setRefresh(!Refresh);
-  //         }
-  //         //console.log(err);
+
+  // if (error.response.status == "401") {
+  //   setRefresh(!Refresh);
+  // }
   //       });
   //   }
   // }, [auth]);
@@ -85,7 +84,9 @@ const GroupView = () => {
         console.log(response);
       })
       .catch((error) => {
-        //console.log(error);
+        if (error.response.status == "401") {
+          setRefresh(!Refresh);
+        }
       });
   };
   if (group) {

@@ -11,6 +11,8 @@ const AddMedicalDocs = () => {
   const { user } = useContext<any>(AuthContext);
   const [file, setfile] = useState<string>("");
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
   {
@@ -44,7 +46,9 @@ const AddMedicalDocs = () => {
         }, 3000);
       })
       .catch((err) => {
-        // //console.log(err);
+        if (err.response.status == "401") {
+          setRefresh(!Refresh);
+        }
       });
   };
 

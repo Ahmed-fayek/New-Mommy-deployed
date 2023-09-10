@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 const AllGroups = () => {
   const [allGroups, setallGroups] = useState<any>();
   const { auth } = useContext<any>(AuthContext);
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const Navigate = useNavigate();
   useEffect(() => {
     if (auth) {
@@ -22,7 +24,9 @@ const AllGroups = () => {
           setallGroups(response.data.groups);
         })
         .catch((error) => {
-          //console.log(error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   }, [auth]);
@@ -39,7 +43,9 @@ const AllGroups = () => {
         // setallGroups(response.data.groups);
       })
       .catch((error) => {
-        //console.log(error);
+        if (error.response.status == "401") {
+          setRefresh(!Refresh);
+        }
       });
   };
   return (

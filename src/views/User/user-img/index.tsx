@@ -6,6 +6,8 @@ const UserImg = () => {
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
   const [images, setImages] = useState<FileList | null>(null);
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -34,7 +36,9 @@ const UserImg = () => {
             alert("Profile updated successfully!");
           })
           .catch((error) => {
-            console.log("Error", error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
       }
     }
@@ -52,7 +56,11 @@ const UserImg = () => {
   //                   console.log(res)
   //             })
   //             .catch((error) => {
-  //                   console.log("Error", error);
+  //                     const { setRefresh } = useContext<any>(AuthContext);
+  // const { Refresh } = useContext<any>(AuthContext);
+  // if (error.response.status == "401") {
+  //   setRefresh(!Refresh);
+  // }
   //             });
   //       }
   //       })

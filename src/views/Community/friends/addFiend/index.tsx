@@ -5,7 +5,8 @@ import CommunityContext from "../../../../context/CommunityProvider";
 const AddFriends = () => {
   const { auth } = useContext<any>(AuthContext);
   const { allUsers } = useContext<any>(CommunityContext);
-
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const addFriends = async (userid: any) => {
     if (auth) {
       await axios({
@@ -14,9 +15,15 @@ const AddFriends = () => {
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
-      }).then((res) => {
-        //console.log(res.data);
-      });
+      })
+        .then((res) => {
+          //console.log(res.data);
+        })
+        .catch((error) => {
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
+        });
     }
   };
   return (

@@ -17,6 +17,9 @@ const AddReminder = () => {
   const [reminderDate, setreminderDate] = useState<string>(dateFormat);
   const [noteErrMsg, setnoteErrMsg] = useState<string>("");
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
+
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
 
@@ -50,7 +53,9 @@ const AddReminder = () => {
             setreminderDate(response.data.reminder.date);
           })
           .catch((error) => {
-            // //console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
       }
     }
@@ -102,7 +107,9 @@ const AddReminder = () => {
           }, 3000);
         })
         .catch((err) => {
-          // //console.log(err);
+          if (err.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     } else {
       await axios({
@@ -126,7 +133,9 @@ const AddReminder = () => {
           }, 3000);
         })
         .catch((err) => {
-          // //console.log(err);
+          if (err.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   };

@@ -9,7 +9,8 @@ import defaultpimg from "./../../../assets/images/momandbaby.png";
 const UserProfile = () => {
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
-
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const [profile, setprofile] = useState<any>();
   const [postlokes, setpostlokes] = useState<any>(false);
   const { userid } = useParams();
@@ -27,7 +28,9 @@ const UserProfile = () => {
           // console.log(response.data);
         })
         .catch((error) => {
-          // console.log(error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   }, [auth, postlokes]);
@@ -47,7 +50,9 @@ const UserProfile = () => {
             setpostlokes(!postlokes);
           })
           .catch((error) => {
-            // console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
       }
     } else {
@@ -64,7 +69,9 @@ const UserProfile = () => {
             setpostlokes(!postlokes);
           })
           .catch((error) => {
-            // console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
       }
     }

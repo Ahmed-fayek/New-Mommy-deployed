@@ -27,6 +27,8 @@ const AddBaby = () => {
   const [babyGender, setBabyGender] = useState<string>("boy");
   const [babyWeight, setWeight] = useState<number>(0);
   const [birthday, setbirthday] = useState<string>(dateFormat);
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
   const [file, setfile] = useState<any>();
@@ -59,7 +61,9 @@ const AddBaby = () => {
             // setnote(response.data.activity.note);
           })
           .catch((error) => {
-            // //console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
       }
     }
@@ -131,7 +135,9 @@ const AddBaby = () => {
         }, 3000);
       })
       .catch((err) => {
-        // //console.log(err);
+        if (err.response.status == "401") {
+          setRefresh(!Refresh);
+        }
       });
   };
 

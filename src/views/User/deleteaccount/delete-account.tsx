@@ -7,6 +7,8 @@ import axios from "../../../api/axios";
 const DeleteAccount = () => {
   const { setUser } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const navigate = useNavigate();
   // State to store the selected reason
   const [selectedReason, setSelectedReason] = useState<string>();
@@ -74,6 +76,9 @@ const DeleteAccount = () => {
         }, 3000);
       })
       .catch((error) => {
+        if (error.response.status == "401") {
+          setRefresh(!Refresh);
+        }
         console.error("Error deleting account:", error);
 
         // Display an error message if account deletion fails

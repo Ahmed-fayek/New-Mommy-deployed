@@ -10,6 +10,8 @@ const RecommendedGroups = () => {
   const { auth } = useContext<any>(AuthContext);
   const [recGroups, setrecGroups] = useState<any>();
   const Navigate = useNavigate();
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
 
   useEffect(() => {
     if (auth) {
@@ -24,7 +26,11 @@ const RecommendedGroups = () => {
           //console.log(response.data.groups);
           setrecGroups(response.data.groups);
         })
-        .catch((error) => {});
+        .catch((error) => {
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
+        });
     }
   }, [auth]);
   const handleJoinGroup = (e: any) => {
@@ -39,7 +45,11 @@ const RecommendedGroups = () => {
         // setrecGroups(response.data.groups);
         //console.log(response);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        if (error.response.status == "401") {
+          setRefresh(!Refresh);
+        }
+      });
   };
   return (
     <>

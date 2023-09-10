@@ -11,6 +11,8 @@ function Growth() {
   const { auth } = useContext<any>(AuthContext);
   const [reminders, setreminders] = useState([]);
   const [update, setupdate] = useState(false);
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
 
   useEffect(() => {
     if (user) {
@@ -28,7 +30,9 @@ function Growth() {
           setreminders(response.data.growthMilestones);
         })
         .catch((error) => {
-          // //console.log(error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   }, [user, update]);
@@ -56,7 +60,9 @@ function Growth() {
             setupdate(!update);
           })
           .catch((error) => {
-            // //console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
         Swal.fire("Deleted!", ` has been deleted.`, "success");
       }

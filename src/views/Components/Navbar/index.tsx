@@ -15,7 +15,8 @@ function Nav() {
   const { setAuth } = useContext<any>(AuthContext);
   const { setmyUser } = useContext<any>(AuthContext);
   const { myuser } = useContext<any>(AuthContext);
-
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const [logState, setlogState] = useState("notLogged");
 
   useEffect(() => {
@@ -41,7 +42,9 @@ function Nav() {
           // console.log(response.data);
         })
         .catch((error) => {
-          // console.log(error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   }, [auth, , user]);
