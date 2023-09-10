@@ -8,6 +8,8 @@ import Loading from "../../../components/Loading";
 const MyProfile = () => {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
+  const { setmyUser } = useContext<any>(AuthContext);
+  const { myuser } = useContext<any>(AuthContext);
   const [myprofile, setmyprofile] = useState<any>();
   const [postlokes, setpostlokes] = useState(false);
   const navigator = useNavigate();
@@ -22,6 +24,7 @@ const MyProfile = () => {
       })
         .then((response) => {
           setmyprofile(response.data);
+          setmyUser(response.data);
           // console.log(response.data);
         })
         .catch((error) => {

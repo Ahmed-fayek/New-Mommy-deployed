@@ -13,6 +13,9 @@ function Nav() {
   const { auth } = useContext<any>(AuthContext);
   const { setUser } = useContext<any>(AuthContext);
   const { setAuth } = useContext<any>(AuthContext);
+  const { setmyUser } = useContext<any>(AuthContext);
+  const { myuser } = useContext<any>(AuthContext);
+
   const [logState, setlogState] = useState("notLogged");
 
   useEffect(() => {
@@ -24,7 +27,24 @@ function Nav() {
   }, [user]);
 
   // show icons or hide it
-
+  useEffect(() => {
+    if (auth && user) {
+      axios({
+        method: "GET",
+        url: `https://newMommy.mooo.com:3003/api/profileById/${user.id}`,
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
+      })
+        .then((response) => {
+          setmyUser(response.data);
+          // console.log(response.data);
+        })
+        .catch((error) => {
+          // console.log(error);
+        });
+    }
+  }, [auth, , user]);
   const toogleview = () => {
     document.getElementById("view-links")?.classList.toggle("show-links");
     document.getElementById("bars")?.classList.toggle("rotates");
@@ -108,13 +128,23 @@ function Nav() {
               <Notifications />
             </div>
             <div className="personal-img">
-              <img
-                onClick={() => {
-                  navigator("/my-profile");
-                }}
-                src={personalimg}
-                alt=""
-              />
+              {myuser ? (
+                <img
+                  onClick={() => {
+                    navigator("/my-profile");
+                  }}
+                  src={myuser.user.image}
+                  alt=""
+                />
+              ) : (
+                <img
+                  onClick={() => {
+                    navigator("/my-profile");
+                  }}
+                  src={personalimg}
+                  alt=""
+                />
+              )}
             </div>
           </div>
         </div>
