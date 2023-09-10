@@ -30,7 +30,6 @@ const AllFriends = () => {
                   <span>2 hours ago</span>
                 </div>
               </div>
-              {/* <button onClick={() => handleUnfriend(friend.id)}>Unfriend</button> */}
             </div>
           );
         })}
