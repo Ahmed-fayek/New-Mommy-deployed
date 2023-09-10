@@ -4,15 +4,15 @@ import AuthContext from "../../../../context/AuthProvider";
 import CommunityContext from "../../../../context/CommunityProvider";
 import "./styles.css";
 import pic from "./../../../../assets/images/istockphoto-1130884625-612x612.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const AllFriends = () => {
   const { auth } = useContext<any>(AuthContext);
   const { friends, isLoading } = useContext<any>(CommunityContext);
-
+  const navigator = useNavigate();
+  //asdasw
   return (
     <div className="all-friends-container" style={{ margin: "100px" }}>
       <h2>All Friends</h2>
-      <Link to={"/searchUser"}>Go to Search</Link>
       {isLoading ? <p>Loading...</p> : <div></div>}
       <div className="frinds-container">
         {friends?.friendList.map((friend: any) => {
@@ -20,7 +20,13 @@ const AllFriends = () => {
             <div key={friend.id} className="friend-block">
               <div className="friend-info">
                 <div className="img-container">
-                  <img src={friend.image ? friend.image : pic} alt="" />
+                  <img
+                    onClick={() => {
+                      navigator(`/user/${friend.id}`);
+                    }}
+                    src={friend.image ? friend.image : pic}
+                    alt=""
+                  />
                   <span className="active"></span>
                 </div>
                 <div className="friend-information">
