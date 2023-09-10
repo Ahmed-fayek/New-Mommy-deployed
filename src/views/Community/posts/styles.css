@@ -1,7 +1,8 @@
 .post {
-  border: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 20px;
+  background-color: #ffffff;
 }
 
 .post-header {
@@ -19,6 +20,7 @@
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .author-info {
@@ -28,6 +30,7 @@
 
 .author-name {
   font-weight: bold;
+  cursor: pointer;
 }
 
 .post-time {
@@ -45,6 +48,8 @@
 
 .post-caption {
   font-size: 14px;
+  padding: 10px;
+  background-color: #d3d3d3;
 }
 .post-media {
   margin: auto;

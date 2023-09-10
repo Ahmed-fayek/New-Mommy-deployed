@@ -1,29 +1,33 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../../context/AuthProvider";
 import axios from "../../../api/axios";
 import "./styles.css";
 import Loading from "../../../components/Loading";
+import defaultimg from "./../../../assets/images/Layer 1.svg";
+import defaultpimg from "./../../../assets/images/momandbaby.png";
 const UserProfile = () => {
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
+
   const [profile, setprofile] = useState<any>();
   const [postlokes, setpostlokes] = useState<any>(false);
+  const { userid } = useParams();
   useEffect(() => {
     if (auth) {
       axios({
         method: "GET",
-        url: "https://newMommy.mooo.com:3003/api/profileById/64f8c10d8963ab728f07022c",
+        url: `https://newMommy.mooo.com:3003/api/profileById/${userid}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
       })
         .then((response) => {
           setprofile(response.data);
-          console.log(response.data);
+          // console.log(response.data);
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
     }
   }, [auth, postlokes]);
@@ -39,11 +43,11 @@ const UserProfile = () => {
           },
         })
           .then((response) => {
-            console.log(response);
+            // console.log(response);
             setpostlokes(!postlokes);
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
       }
     } else {
@@ -56,11 +60,11 @@ const UserProfile = () => {
           },
         })
           .then((response) => {
-            console.log(response);
+            // console.log(response);
             setpostlokes(!postlokes);
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
       }
     }
@@ -73,12 +77,12 @@ const UserProfile = () => {
           <div className="profile-images">
             <div className="cover">
               <img
-                src={profile.user.cover ? profile.user.cover : "testimg"}
+                src={profile.user.cover ? profile.user.cover : defaultimg}
                 alt=""
               />
               <div className="profileimg">
                 <img
-                  src={profile.user.image ? profile.user.image : "testimg"}
+                  src={profile.user.image ? profile.user.image : defaultpimg}
                   alt=""
                 />
               </div>

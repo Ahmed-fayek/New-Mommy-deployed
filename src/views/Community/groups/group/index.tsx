@@ -23,8 +23,32 @@ const GroupView = () => {
         },
       })
         .then((res) => {
-          //console.log(res);
+          console.log(res);
           setgroup(res.data);
+        })
+        .catch((err) => {
+          if (err.response.data.statusCode == 401) {
+            setRefresh(!Refresh);
+          }
+          //console.log(err);
+        });
+    }
+  }, [auth]);
+  const formdata = new FormData();
+  useEffect(() => {
+    formdata.append("caption", "New Post From Fayek");
+    if (auth) {
+      axios({
+        method: "post",
+        url: `https://newMommy.mooo.com:3003/api/postGroup/${groupid}`,
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
+        data: formdata,
+      })
+        .then((res) => {
+          console.log(res);
+          // setgroup(res.data);
         })
         .catch((err) => {
           if (err.response.data.statusCode == 401) {
@@ -58,7 +82,7 @@ const GroupView = () => {
       },
     })
       .then((response) => {
-        //console.log(response);
+        console.log(response);
       })
       .catch((error) => {
         //console.log(error);
