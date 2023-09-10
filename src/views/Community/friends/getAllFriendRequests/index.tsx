@@ -22,10 +22,10 @@ const GetAllFriendRequests = () => {
         },
       })
         .then((response) => {
-          console.log(response.data);
+          //console.log(response.data);
         })
         .catch((error) => {
-          console.log("Error accepting friend request:", error);
+          //console.log("Error accepting friend request:", error);
         });
     }
   };
@@ -40,10 +40,10 @@ const GetAllFriendRequests = () => {
         },
       })
         .then((response) => {
-          console.log(response.data);
+          //console.log(response.data);
         })
         .catch((error) => {
-          console.log("Error rejecting friend request:", error);
+          //console.log("Error rejecting friend request:", error);
         });
     }
   };

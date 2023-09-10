@@ -2,15 +2,15 @@ import { useContext, useEffect, useState } from "react";
 import axios from "../api/axios";
 import AuthContext from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import MainRouer from "../roots";
+import MainRouer from "../Routes";
 import Loading from "../components/Loading";
 import { GetUserbyId, RefreshTokenapi } from "../api";
-import Nav from "../views/Navbar";
+import Nav from "../views/Components/Navbar";
 function RefreshToken() {
   const navigator = useNavigate();
   const [loading, setLoading] = useState("");
   const { auth } = useContext<any>(AuthContext);
-  const { user } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const { setAuth } = useContext<any>(AuthContext);
   const { setUser } = useContext<any>(AuthContext);
   //if user in not logged in we navigate him to log in
@@ -49,7 +49,7 @@ function RefreshToken() {
     if (localStorage.getItem("token")) {
       RefreshTokenAgain();
     }
-  }, []);
+  }, [Refresh]);
 
   useEffect(() => {
     const getUserData = async () => {
@@ -80,6 +80,7 @@ function RefreshToken() {
   } else {
     return (
       <div className="App">
+        <div className="reservedNav"></div>
         <Nav />
         <div className="mommyvere">
           <MainRouer />

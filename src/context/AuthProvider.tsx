@@ -3,8 +3,10 @@ const AuthContext = createContext({});
 export const AuthProvider = ({ children }: any) => {
   const [auth, setAuth] = useState();
   const [user, setUser] = useState();
+  const [myuser, setmyUser] = useState();
   const [EmailCon, SetemailCon] = useState<string>("");
   const [CodeCon, setCodeCon] = useState<string>("");
+  const [Refresh, setRefresh] = useState<boolean>(false);
 
   return (
     <AuthContext.Provider
@@ -17,6 +19,10 @@ export const AuthProvider = ({ children }: any) => {
         setCodeCon,
         user,
         setUser,
+        Refresh,
+        setRefresh,
+        myuser,
+        setmyUser,
       }}
     >
       {children}

@@ -3,9 +3,11 @@ import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../../../context/AuthProvider";
 import gpimg from "./../../../../assets/images/Group 34475.svg";
 import "./styles.css";
+import { useNavigate } from "react-router-dom";
 const AllGroups = () => {
   const [allGroups, setallGroups] = useState<any>();
   const { auth } = useContext<any>(AuthContext);
+  const Navigate = useNavigate();
   useEffect(() => {
     if (auth) {
       axios({
@@ -16,11 +18,11 @@ const AllGroups = () => {
         },
       })
         .then((response) => {
-          console.log(response.data.groups);
+          //console.log(response.data.groups);
           setallGroups(response.data.groups);
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
     }
   }, [auth]);
@@ -33,11 +35,11 @@ const AllGroups = () => {
       },
     })
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         // setallGroups(response.data.groups);
       })
       .catch((error) => {
-        console.log(error);
+        //console.log(error);
       });
   };
   return (
@@ -46,9 +48,17 @@ const AllGroups = () => {
       <div className="my-grops">
         {allGroups
           ? allGroups?.map((group: any) => {
+              //console.log(group);
+
               return (
                 <div key={group.id} className="my-group">
-                  <img src={gpimg} alt="" />
+                  <img
+                    onClick={() => {
+                      Navigate(`/GroupView/${group.groupId}`);
+                    }}
+                    src={gpimg}
+                    alt=""
+                  />
                   <div className="group-data">
                     <div className="group-info">
                       <h3>{group.group.groupName}</h3>

@@ -22,7 +22,7 @@ const AddPost = () => {
   const formdata = new FormData();
 
   const handleSubmit = () => {
-    console.log(caption);
+    //console.log(caption);
 
     if (caption == "") {
       setcaptionErrMsg("Caption can't be empty");
@@ -38,10 +38,10 @@ const AddPost = () => {
         data: formdata,
       })
         .then((response) => {
-          console.log(response);
+          //console.log(response);
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
     }
 
@@ -54,10 +54,10 @@ const AddPost = () => {
     //   data: formdata,
     // })
     //   .then((response) => {
-    //     console.log(response);
+    //     //console.log(response);
     //   })
     //   .catch((error) => {
-    //     console.log(error);
+    //     //console.log(error);
     //   });
   };
   return (

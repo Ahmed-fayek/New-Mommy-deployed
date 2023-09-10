@@ -51,11 +51,11 @@ const SearchUsers = () => {
         },
       })
         .then((res) => {
-          console.log(res);
+          //console.log(res);
           setFriendRequestStatus({ ...friendRequestStatus, [id]: true });
         })
         .catch((err) => {
-          console.log(err);
+          //console.log(err);
         });
     }
   };

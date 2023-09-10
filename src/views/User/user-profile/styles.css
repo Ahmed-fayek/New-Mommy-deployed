@@ -1,0 +1,61 @@
+.Posts {
+  width: 100%;
+}
+.profile-view {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.profile-view .profile-images {
+  width: 100%;
+  height: 100px;
+}
+.profile-view .cover {
+  position: relative;
+}
+.profile-view .cover img {
+  width: 100%;
+  height: 150px;
+}
+.profile-view .profileimg {
+  position: absolute;
+  top: 90px;
+  left: 15px;
+  width: 120px;
+  height: 120px;
+}
+.profile-view .profileimg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.profile-view .profile-name {
+  margin-top: 110px;
+  display: flex;
+  justify-content: space-around;
+}
+.profile-view .profile-name h1 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: -0.02em;
+}
+.profile-view .profile-name button {
+  width: 143px;
+  height: 37px;
+  top: 227px;
+  left: 295px;
+  padding: 8px 20px 8px 20px;
+  border-radius: 12px;
+  gap: 10px;
+  background-color: #10403b;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  color: #fff;
+}

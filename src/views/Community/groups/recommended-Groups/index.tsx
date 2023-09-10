@@ -5,9 +5,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 import gpimg from "./../../../../assets/images/Group 34416.svg";
 import "./styles.css";
+import { useNavigate } from "react-router-dom";
 const RecommendedGroups = () => {
   const { auth } = useContext<any>(AuthContext);
   const [recGroups, setrecGroups] = useState<any>();
+  const Navigate = useNavigate();
+
   useEffect(() => {
     if (auth) {
       axios({
@@ -18,7 +21,7 @@ const RecommendedGroups = () => {
         },
       })
         .then((response) => {
-          console.log(response.data.groups);
+          //console.log(response.data.groups);
           setrecGroups(response.data.groups);
         })
         .catch((error) => {});
@@ -34,7 +37,7 @@ const RecommendedGroups = () => {
     })
       .then((response) => {
         // setrecGroups(response.data.groups);
-        console.log(response);
+        //console.log(response);
       })
       .catch((error) => {});
   };
@@ -47,7 +50,13 @@ const RecommendedGroups = () => {
           ? recGroups?.map((group: any) => {
               return (
                 <div key={group.id} className="rec-group">
-                  <img src={gpimg} alt="" />
+                  <img
+                    onClick={() => {
+                      Navigate(`/GroupView/${group.id}`);
+                    }}
+                    src={gpimg}
+                    alt=""
+                  />
                   <div className="group-data">
                     <div className="group-info">
                       <h3>{group.groupName}</h3>

@@ -1,0 +1,158 @@
+{
+  "comment": "This is comment telling that : ",
+  "meals": {
+    "0-6 months": {
+      "breast milk": "The best food for a baby is breast milk. It is full of nutrients that babies need to grow and develop.",
+      "formula": "Formula is a milk-based substitute for breast milk. It can be a good option for babies who are not breastfed.",
+      "solid foods": "Solid foods can be introduced to babies starting at around 6 months old. Start with small amounts of pureed fruits and vegetables."
+    },
+    "6-12 months": {
+      "solid foods": "Continue introducing new foods to your baby. By the time they are 12 months old, they should be eating a variety of foods from all food groups.",
+      "table foods": "You can start giving your baby table foods at around 9 months old. Be sure to cut the food into small pieces so that they don't choke.",
+      "water": "You can start giving your baby water at around 6 months old. Start with small amounts and gradually increase the amount as they get older."
+    },
+    "12-24 months": {
+      "three meals a day": "By the time they are 12 months old, babies should be eating three meals a day.",
+      "snacks": "You can also give your baby snacks between meals. Choose healthy snacks like fruits, vegetables, and whole grains.",
+      "milk": "Milk is still an important part of a baby's diet at this age. They should be drinking about 16 ounces of milk per day."
+    }
+  },
+  "comment": "This is comment telling that : ",
+  "clothes": {
+    "0-6 months": {
+      "onesies": "Onesies are a great option for babies because they are easy to put on and take off.",
+      "footed pajamas": "Footed pajamas are a good option for keeping babies warm at night.",
+      "hats": "Hats are important for keeping babies' heads warm, especially in cold weather."
+    },
+    "6-12 months": {
+      "t-shirts": "T-shirts are a good option for babies as they start to get more active.",
+      "shorts": "Shorts are a good option for keeping babies cool in warm weather.",
+      "swimsuits": "Swimsuits are a must-have for babies who will be spending time in the water."
+    },
+    "12-24 months": {
+      "dresses": "Dresses are a fun option for babies who are starting to walk.",
+      "pants": "Pants are a good option for keeping babies warm in cold weather.",
+      "shoes": "Shoes are important for protecting babies' feet, especially as they start to walk."
+    }
+  },
+  "comment": "This is comment telling that : ",
+  "actions": {
+    "0-6 months": {
+      "crawling": "Crawling is a milestone that most babies reach around 6 months old. It is a great way for babies to explore their surroundings.",
+      "sitting up": "Sitting up is another milestone that most babies reach around 6 months old. It is a good way for babies to develop their balance and coordination.",
+      "rolling over": "Rolling over is a milestone that most babies reach around 4 months old. It is a good way for babies to get around and explore their surroundings."
+    },
+    "6-12 months": {
+      "walking": "Walking is a milestone that most babies reach around 12 months old. It is a major milestone that babies are excited to achieve.",
+      "talking": "Talking is another major milestone that most babies reach around 12 months old. It is a great way for babies to communicate with their caregivers.",
+      "eating solid foods": "Eating solid foods is a milestone that most babies reach around 6 months old. It is a great way for babies to get the nutrients they need to grow and develop."
+    },
+    "12-24 months": {
+      "running": "Running is a milestone that most babies reach around 18 months old. It is a great way for babies to get exercise and burn energy.",
+      "climbing": "Climbing is a milestone that most babies reach around 18 months old. It is a great way for babies to explore their surroundings.",
+      "playing with toys": "Playing with toys is a great way for babies to develop their motor skills, hand-eye coordination, and creativity.",
+      "socializing": "Socializing is important for babies to learn how to interact with others. Encourage them to play with other babies and toddlers.",
+      "learning new things": "Babies are constantly learning new things. Provide them with opportunities to learn new skills and concepts."
+    }
+  },
+  "comment": "This is comment telling that : ",
+  "vaccines": {
+    "0-6 months": {
+      "Hepatitis B": "This vaccine protects against hepatitis B, a serious liver disease.",
+      "Rotavirus": "This vaccine protects against rotavirus, a common cause of diarrhea in babies.",
+      "Diphtheria, tetanus, pertussis (DTaP)": "This vaccine protects against diphtheria, tetanus, and pertussis, three serious diseases."
+    },
+    "6-12 months": {
+      "Haemophilus influenzae type b (Hib)": "This vaccine protects against Hib, a bacteria that can cause meningitis, pneumonia, and other serious infections.",
+      "Pneumococcal": "This vaccine protects against pneumococcal bacteria, which can cause pneumonia, meningitis, and other serious infections.",
+      "Influenza": "This vaccine protects against influenza, a common respiratory illness."
+    },
+    "12-24 months": {
+      "Measles, mumps, and rubella (MMR)": "This vaccine protects against measles, mumps, and rubella, three serious childhood diseases.",
+      "Varicella": "This vaccine protects against chickenpox, a common childhood illness.",
+      "Polio": "This vaccine protects against polio, a serious disease that can cause paralysis."
+    }
+  },
+  "comment": "This is comment telling that : ",
+  "health": {
+    "0-6 months": {
+      "Well-baby visits": "Babies should have regular well-baby visits with their doctor to check their growth and development.",
+      "SIDS prevention": "SIDS, or sudden infant death syndrome, is a leading cause of death in babies. Take steps to prevent SIDS, such as placing your baby on their back to sleep and avoiding overheating.",
+      "Colic": "Colic is a condition that causes babies to cry for long periods of time. There is no cure for colic, but there are things you can do to help your baby feel better."
+    },
+    "6-12 months": {
+      "Teething": "Teething is a common occurrence in babies. It can cause pain and discomfort, but there are things you can do to help your baby.",
+      "Eczema": "Eczema is a common skin condition that causes dry, itchy skin. There is no cure for eczema, but there are things you can do to manage it.",
+      "Ear infections": "Ear infections are common in babies. They can cause pain and fever, but they usually go away on their own."
+    },
+    "12-24 months": {
+      "Accidents": "Accidents are common in toddlers. Take steps to prevent accidents, such as keeping dangerous objects out of reach and supervising your child closely.",
+      "Diaper rash": "Diaper rash is a common skin condition that can cause redness and irritation. There are things you can do to prevent diaper rash, such as keeping your baby's bottom clean and dry.",
+      "Strep throat": "Strep throat is a common bacterial infection that causes sore throat, fever, and swollen lymph nodes. It can be treated with antibiotics."
+    },
+    "comment": "This is comment telling that : "
+  },
+  "comment": "This is comment telling that : ",
+
+  "0-6 months": {
+    "newborn's body": {
+      "fontanel": "A soft spot on the top of their head.",
+      "lanugo": "Fine hair on their body.",
+      "vernix": "White coating on their skin.",
+      "mongolian spots": "Dark patches on their skin.",
+      "skin": "Your newborn's skin is very delicate, so it is important to keep it clean and dry. You can use a mild soap and water to wash your baby's skin, and you should pat it dry afterwards.",
+      "nails": "Your newborn's nails grow quickly, so you should trim them regularly. You can use a baby nail clipper or file to trim your baby's nails.",
+      "umbilical cord": "Your newborn's umbilical cord will fall off on its own within 1-2 weeks. You should keep the area clean and dry until the cord falls off."
+    },
+    "baby sleep": {
+      "sleep patterns": "Newborns sleep a lot, but their sleep patterns are often irregular. They may sleep for 16-18 hours in a 24-hour period, but they may wake up frequently to eat or be changed. As they get older, their sleep patterns will start to become more regular.",
+      "tips for better sleep": "Creating a bedtime routine, Keeping the room dark and quiet, Avoiding stimulating activities before bedtime"
+    },
+    "baby poop": {
+      "consistency": "Newborns' poop is often yellow and seedy. It may be runny or have a strong odor.",
+      "frequency": "The consistency and frequency of your newborn's poop will change as they start to eat solid foods."
+    },
+    "baby crying": {
+      "reasons": "Newborns cry a lot. It is their way of communicating that they need something, such as food, a diaper change, or comfort.",
+      "soothing techniques": "Swaddling them, Rocking them, Singing to them, Offering them a pacifier, Taking them for a walk"
+    }
+  },
+  "comment": "This is comment telling that : ",
+
+  "6-12 months": {
+    "newborn's body": {
+      "teething": "Teething is a common occurrence in babies. It can cause pain and discomfort, but there are things you can do to help your baby."
+    },
+    "baby sleep": {
+      "sleep patterns": "Newborns' sleep patterns will start to become more regular. They may still wake up frequently at night, but they will start to sleep for longer stretches during the day."
+    },
+    "baby poop": {
+      "consistency": "The consistency of your baby's poop will change as they start to eat solid foods. It may become more solid and less seedy."
+    }
+  },
+  "comment": "This is comment telling that : ",
+
+  "12-18 months": {
+    "newborn's body": {
+      "walking": "Most babies will start walking by the time they are 12 months old."
+    },
+    "baby sleep": {
+      "sleep patterns": "Most babies will start to sleep through the night by the time they are 12 months old."
+    },
+    "baby poop": {
+      "frequency": "Your baby's poop frequency will decrease as they start to eat solid foods. They may only poop once or twice a day."
+    }
+  },
+  "comment": "This is comment telling that : ",
+  "18-24 months": {
+    "newborn's body": {
+      "growth spurts": "Your baby will go through growth spurts at this age. They may eat more and sleep less during these times."
+    },
+    "baby sleep": {
+      "sleep patterns": "Your baby's sleep patterns may become more disrupted again at this age. They may start to have nightmares or sleepwalk."
+    },
+    "baby poop": {
+      "consistency": "Your baby's poop consistency may become more variable at this age. It may be runny or solid, depending on what they are eating."
+    }
+  }
+}

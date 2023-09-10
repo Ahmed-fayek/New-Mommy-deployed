@@ -1,4 +1,4 @@
-import { createContext, useState  ,useEffect ,useContext} from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
 import AuthContext from "./AuthProvider";
 const CommunityContext = createContext({});
@@ -10,8 +10,7 @@ export const CommunityProvider = ({ children }: any) => {
   const [allUsers, setAllUsers] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [friends, setFriends] = useState<any>();
-  const { auth } =  useContext<any>(AuthContext);
-
+  const { auth } = useContext<any>(AuthContext);
 
   useEffect(() => {
     // Fetch friend requests & all users & all friends here
@@ -29,7 +28,7 @@ export const CommunityProvider = ({ children }: any) => {
           setIsLoading(false);
         })
         .catch((error) => {
-          console.log("Error fetching friend requests:", error);
+          //console.log("Error fetching friend requests:", error);
         });
 
       axios({
@@ -41,27 +40,26 @@ export const CommunityProvider = ({ children }: any) => {
       })
         .then((res) => {
           setAllUsers(Object.values(res.data));
-          console.log(allUsers);
+          console.log(res.data);
+        })
+        .catch((err) => {
+          //console.log(err);
+        });
+
+      axios({
+        method: "GET",
+        url: "https://newMommy.mooo.com:3003/api/allFriends",
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
+      })
+        .then((res) => {
+          setFriends(res.data);
+          setIsLoading(false);
         })
         .catch((err) => {
           console.log(err);
         });
-
-        axios({
-          method: "GET",
-          url: "https://newMommy.mooo.com:3003/api/allFriends",
-          headers: {
-            Authorization: `Bearer ${auth.access_token}`,
-          },
-        })
-          .then((res) => {
-            setFriends(res.data);
-            console.log('friends',res.data)
-            setIsLoading(false);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
     }
   }, [auth]);
 
@@ -81,7 +79,7 @@ export const CommunityProvider = ({ children }: any) => {
         isLoading,
         setIsLoading,
         friends,
-        setFriends
+        setFriends,
       }}
     >
       {children}
