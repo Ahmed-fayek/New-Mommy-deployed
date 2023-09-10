@@ -7,7 +7,8 @@ const GetAllFriendRequests = () => {
   const { auth } = useContext<any>(AuthContext);
   const { friendRequests, allUsers, isLoading } =
     useContext<any>(CommunityContext);
-
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const getUserById = (id: string) => {
     return allUsers.find((user: any) => user.id === id);
   };
@@ -25,7 +26,9 @@ const GetAllFriendRequests = () => {
           //console.log(response.data);
         })
         .catch((error) => {
-          //console.log("Error accepting friend request:", error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   };
@@ -43,7 +46,9 @@ const GetAllFriendRequests = () => {
           //console.log(response.data);
         })
         .catch((error) => {
-          //console.log("Error rejecting friend request:", error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   };

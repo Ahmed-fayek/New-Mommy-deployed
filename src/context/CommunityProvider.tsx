@@ -11,7 +11,8 @@ export const CommunityProvider = ({ children }: any) => {
   const [isLoading, setIsLoading] = useState(false);
   const [friends, setFriends] = useState<any>();
   const { auth } = useContext<any>(AuthContext);
-
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   useEffect(() => {
     // Fetch friend requests & all users & all friends here
     if (auth) {
@@ -28,7 +29,9 @@ export const CommunityProvider = ({ children }: any) => {
           setIsLoading(false);
         })
         .catch((error) => {
-          //console.log("Error fetching friend requests:", error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
 
       axios({
@@ -43,7 +46,9 @@ export const CommunityProvider = ({ children }: any) => {
           console.log(res.data);
         })
         .catch((err) => {
-          //console.log(err);
+          if (err.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
 
       axios({
@@ -58,7 +63,9 @@ export const CommunityProvider = ({ children }: any) => {
           setIsLoading(false);
         })
         .catch((err) => {
-          console.log(err);
+          if (err.response.status == "401") {
+            // setRefresh(!Refresh);
+          }
         });
     }
   }, [auth]);

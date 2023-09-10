@@ -11,6 +11,8 @@ function Feeding() {
   const { auth } = useContext<any>(AuthContext);
   const [reminders, setreminders] = useState([]);
   const [update, setupdate] = useState(false);
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   /* Handle Delete Item */
   const handleDelete = async (itemid: string) => {
     await Swal.fire({
@@ -35,7 +37,9 @@ function Feeding() {
             setupdate(!update);
           })
           .catch((error) => {
-            // //console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
         Swal.fire("Deleted!", ` has been deleted.`, "success");
       }
@@ -57,7 +61,9 @@ function Feeding() {
           setreminders(response.data.meals);
         })
         .catch((error) => {
-          // //console.log(error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   }, [user, update]);

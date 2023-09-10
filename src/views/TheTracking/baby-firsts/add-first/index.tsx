@@ -21,6 +21,8 @@ const AddFirist = () => {
   const [babyFirstErrMsg, setbabyFirstErrMsg] = useState<string>("");
   const [noteErrMsg, setnoteErrMsg] = useState<string>("");
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
 
@@ -54,7 +56,9 @@ const AddFirist = () => {
             setimage(true);
           })
           .catch((error) => {
-            // //console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
       }
     }
@@ -117,7 +121,9 @@ const AddFirist = () => {
           }, 3000);
         })
         .catch((err) => {
-          // //console.log(err);
+          if (err.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     } else {
       await axios({
@@ -137,7 +143,9 @@ const AddFirist = () => {
           }, 3000);
         })
         .catch((err) => {
-          // //console.log(err);
+          if (err.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   };

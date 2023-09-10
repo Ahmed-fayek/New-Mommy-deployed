@@ -11,6 +11,8 @@ function Activity() {
   const { auth } = useContext<any>(AuthContext);
   const [activitys, setactivitys] = useState([]);
   const [update, setupdate] = useState(false);
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   /* Handle Delete Item */
   const handleDelete = async (itemid: string) => {
     await Swal.fire({
@@ -34,7 +36,9 @@ function Activity() {
             setupdate(!update);
           })
           .catch((error) => {
-            //console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
         Swal.fire("Deleted!", ` has been deleted.`, "success");
       }
@@ -54,7 +58,9 @@ function Activity() {
           setactivitys(response.data.activities);
         })
         .catch((error) => {
-          // //console.log(error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   }, [user, update]);

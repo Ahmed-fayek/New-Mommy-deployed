@@ -11,6 +11,8 @@ function BabyFirsts() {
   const { auth } = useContext<any>(AuthContext);
   const [firsts, setfirsts] = useState([]);
   const [update, setupdate] = useState(false);
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
 
   useEffect(() => {
     if (user) {
@@ -26,7 +28,9 @@ function BabyFirsts() {
           setfirsts(response.data.firsts);
         })
         .catch((error) => {
-          // //console.log(error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   }, [user, update]);
@@ -53,7 +57,9 @@ function BabyFirsts() {
             setupdate(!update);
           })
           .catch((error) => {
-            // //console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
         Swal.fire("Deleted!", ` has been deleted.`, "success");
       }

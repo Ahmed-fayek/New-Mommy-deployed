@@ -12,6 +12,8 @@ const MyProfile = () => {
   const { myuser } = useContext<any>(AuthContext);
   const [myprofile, setmyprofile] = useState<any>();
   const [postlokes, setpostlokes] = useState(false);
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const navigator = useNavigate();
   useEffect(() => {
     if (auth && user) {
@@ -28,7 +30,9 @@ const MyProfile = () => {
           // console.log(response.data);
         })
         .catch((error) => {
-          // console.log(error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   }, [auth, postlokes, user]);
@@ -48,7 +52,9 @@ const MyProfile = () => {
             setpostlokes(!postlokes);
           })
           .catch((error) => {
-            // console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
       }
     } else {
@@ -65,7 +71,9 @@ const MyProfile = () => {
             setpostlokes(!postlokes);
           })
           .catch((error) => {
-            // console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
       }
     }

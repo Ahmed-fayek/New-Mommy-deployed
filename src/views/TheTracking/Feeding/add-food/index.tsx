@@ -11,7 +11,8 @@ const AddFood = () => {
 
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
-
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   let currentDate = new Date();
   let dateFormat = currentDate.toJSON().slice(0, 10);
   let currentTime = currentDate.toJSON().slice(11, 16);
@@ -56,7 +57,9 @@ const AddFood = () => {
             setstartDate(response.data.meal.date);
           })
           .catch((error) => {
-            // //console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
       }
     }
@@ -120,7 +123,9 @@ const AddFood = () => {
           }, 3000);
         })
         .catch((err) => {
-          // //console.log(err);
+          if (err.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     } else {
       await axios({
@@ -148,7 +153,9 @@ const AddFood = () => {
           }, 3000);
         })
         .catch((err) => {
-          // //console.log(err);
+          if (err.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     }
   };

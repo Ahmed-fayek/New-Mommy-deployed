@@ -17,6 +17,8 @@ const AddMedical = () => {
   const [DRErrMsg, setDRErrMsg] = useState<string>("");
   const [diagnosisErrMsg, setdiagnosisErrMsg] = useState<string>("");
   const [SubmiterrMsg, setSubmiterrMsg] = useState<string>("");
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const [successMessageVisible, setSuccessMessageVisible] =
     useState<string>("");
 
@@ -50,7 +52,9 @@ const AddMedical = () => {
             setreportDate(response.data.medicalDocument.date);
           })
           .catch((error) => {
-            // //console.log(error);
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
           });
       }
     }
@@ -108,7 +112,9 @@ const AddMedical = () => {
           // //console.log(response.data);
         })
         .catch((error) => {
-          // //console.log(error);
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
         });
     } else {
       await axios
