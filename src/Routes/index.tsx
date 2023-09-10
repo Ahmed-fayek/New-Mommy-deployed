@@ -36,6 +36,8 @@ import GroupView from "../views/Community/groups/group";
 import UserProfile from "../views/User/user-profile";
 import UserImg from "../views/User/user-img";
 import MyProfile from "../views/User/myprofile";
+import CreateGroup from "../views/Community/groups/addGroup";
+import AddPostGroup from "../views/Community/groups/addpostgroup";
 
 const MainRouer = () => {
   return (
@@ -90,6 +92,8 @@ const MainRouer = () => {
         <Route path="/searchUser" element={<SearchUsers />}></Route>
         <Route path="/userimg" element={<UserImg />}></Route>
         <Route path="/my-profile" element={<MyProfile />}></Route>
+        <Route path="/addgroup" element={<CreateGroup />}></Route>
+        <Route path="/AddPostGroup/:groupid" element={<AddPostGroup />}></Route>
       </Routes>
     </>
   );

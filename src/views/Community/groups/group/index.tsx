@@ -23,7 +23,7 @@ const GroupView = () => {
         },
       })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           setgroup(res.data);
         })
         .catch((err) => {
@@ -81,7 +81,7 @@ const GroupView = () => {
       },
     })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
       })
       .catch((error) => {
         if (error.response.status == "401") {
@@ -118,6 +118,9 @@ const GroupView = () => {
             </button>
           )}
         </div>
+        <a href={`/AddPostGroup/${groupid}`} className="addgroup">
+          add post to {group.group.groupName} group
+        </a>
       </div>
     );
   } else {
