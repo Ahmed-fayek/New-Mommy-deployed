@@ -52,8 +52,6 @@ const Post = () => {
             //console.log(response);
           })
           .catch((error) => {
-            const { setRefresh } = useContext<any>(AuthContext);
-            const { Refresh } = useContext<any>(AuthContext);
             if (error.response.status == "401") {
               setRefresh(!Refresh);
             }
