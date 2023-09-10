@@ -36,7 +36,8 @@ const MyProfile = () => {
         });
     }
   }, [auth, postlokes, user]);
-
+  //user => babies email name ..
+  //profile by id => image cover name posts ///////
   const handleAddLike = (ele: any, id: any, likeCounts: any) => {
     if (ele.currentTarget.classList.contains("liked-this")) {
       if (auth) {

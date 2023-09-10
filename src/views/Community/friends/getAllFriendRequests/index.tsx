@@ -2,7 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import AuthContext from "../../../../context/AuthProvider";
 import CommunityContext from "../../../../context/CommunityProvider";
-import pic from "./../../../../assets/images/Ellipse 6.svg";
+import pic from "./../../../../assets/images/istockphoto-1130884625-612x612.jpg";
+import "./styles.css";
 const GetAllFriendRequests = () => {
   const { auth } = useContext<any>(AuthContext);
   const { friendRequests, allUsers, isLoading } =
@@ -60,17 +61,19 @@ const GetAllFriendRequests = () => {
       {friendRequests.length === 0 && !isLoading && (
         <p>No friend requests Yet</p>
       )}
-      {friendRequests.map((request: any) => (
-        <div key={request.id}>
-          <img src={pic} alt="" />
-          <p>
-            {getUserById(request.user1Id)?.firstname}{" "}
-            {getUserById(request.user1Id)?.lastname}
-          </p>
-          <button onClick={() => acceptRequest(request.id)}>Accept</button>
-          <button onClick={() => rejectRequest(request.id)}>Reject</button>
-        </div>
-      ))}
+      {friendRequests.map((request: any) => {
+        return (
+          <div className="friend-req" key={request.id}>
+            <img src={pic} alt="" />
+            <p>
+              {getUserById(request.user1Id)?.firstname}{" "}
+              {getUserById(request.user1Id)?.lastname}
+            </p>
+            <button onClick={() => acceptRequest(request.id)}>Accept</button>
+            <button onClick={() => rejectRequest(request.id)}>Reject</button>
+          </div>
+        );
+      })}
     </div>
   );
 };

@@ -10,8 +10,10 @@ const Post = () => {
   const { user } = useContext<any>(AuthContext);
   const { setRefresh } = useContext<any>(AuthContext);
   const { Refresh } = useContext<any>(AuthContext);
+
   // console.log(user);
   const [posts, setposts] = useState<any>();
+  const [refreshposts, setrefreshposts] = useState<any>(false);
   const [IsLooding, setIsLooding] = useState<any>(true);
   const [deleting, setdeleting] = useState<any>("");
   const navigator = useNavigate();
@@ -36,7 +38,7 @@ const Post = () => {
           }
         });
     }
-  }, [auth]);
+  }, [auth, refreshposts]);
   // handle like and unlike
   const handleAddLike = (ele: any, id: any) => {
     if (ele.currentTarget.classList.contains("liked-this")) {
@@ -50,6 +52,7 @@ const Post = () => {
         })
           .then((response) => {
             //console.log(response);
+            setrefreshposts(!refreshposts);
           })
           .catch((error) => {
             if (error.response.status == "401") {
@@ -68,6 +71,7 @@ const Post = () => {
         })
           .then((response) => {
             //console.log(response);
+            setrefreshposts(!refreshposts);
           })
           .catch((error) => {
             if (error.response.status == "401") {
@@ -91,6 +95,7 @@ const Post = () => {
         .then((response) => {
           //console.log(response);
           setdeleting("deleted");
+          setrefreshposts(!refreshposts);
         })
         .catch((error) => {
           if (error.response.status == "401") {

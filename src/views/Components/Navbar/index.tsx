@@ -1,6 +1,6 @@
 import "./styles.css";
 import logo from "./../../../assets/images/Layer 1.svg";
-import personalimg from "./../../../assets/images/Ellipse 6.svg";
+import personalimg from "./../../../assets/images/istockphoto-1130884625-612x612.jpg";
 import Notifications from "../Notifications";
 import { useContext, useEffect, useState } from "react";
 
@@ -47,7 +47,9 @@ function Nav() {
           }
         });
     }
-  }, [auth, , user]);
+  }, [auth, user]);
+  console.log(myuser);
+
   const toogleview = () => {
     document.getElementById("view-links")?.classList.toggle("show-links");
     document.getElementById("bars")?.classList.toggle("rotates");
@@ -105,7 +107,7 @@ function Nav() {
               </li>
 
               <li>
-                <Link to={"/main"}>Learning</Link>
+                <Link to={"/learning"}>Learning</Link>
               </li>
               <li>
                 <Link to={"/main"}>Shop</Link>
@@ -136,7 +138,9 @@ function Nav() {
                   onClick={() => {
                     navigator("/my-profile");
                   }}
-                  src={myuser.user.image}
+                  src={
+                    myuser.user.image != null ? myuser.user.image : personalimg
+                  }
                   alt=""
                 />
               ) : (

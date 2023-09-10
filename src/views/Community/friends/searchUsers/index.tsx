@@ -34,12 +34,17 @@ const SearchUsers = () => {
   }, [auth]);
 
   useEffect(() => {
-    const filteredUsers = Object.entries(allUsers).filter(([id, user]) => {
-      const fullName: string = `${user.firstname} ${user.lastname}`;
-      return fullName.toLowerCase().includes(searchQuery.toLowerCase());
-    });
-    setSearchResults(filteredUsers);
-  }, [searchQuery, allUsers]);
+    if (searchQuery == "") {
+      setSearchResults([]);
+    } else {
+      setSearchResults(
+        Object.entries(allUsers).filter(([id, user]) => {
+          const fullName: string = `${user.firstname} ${user.lastname}`;
+          return fullName.toLowerCase().includes(searchQuery.toLowerCase());
+        })
+      );
+    }
+  }, [searchQuery]);
 
   const addFriends = async (id: number) => {
     if (auth) {
