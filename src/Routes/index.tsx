@@ -38,9 +38,13 @@ import UserImg from "../views/User/user-img";
 import MyProfile from "../views/User/myprofile";
 import CreateGroup from "../views/Community/groups/addGroup";
 import AddPostGroup from "../views/Community/groups/addpostgroup";
+<<<<<<< HEAD
 import UpdateBabyProfile from "../views/User/update-baby";
 import DeleteBaby from "../views/User/delete-baby";
 import AllBabys from "../views/User/all-babys";
+=======
+import Learning from "../views/learning";
+>>>>>>> c2373d66297aa829fc5eedea81d7cd26fb931735
 
 const MainRouer = () => {
   return (
@@ -80,7 +84,7 @@ const MainRouer = () => {
         <Route path="/searchusers" element={<SearchUsers />}></Route>
         <Route path="/GroupView/:groupid" element={<GroupView />}></Route>
         <Route path="/user/:userid" element={<UserProfile />}></Route>
-        {/* <Route path="/friends" element={<Friends />}></Route> */}
+        <Route path="/learning" element={<Learning />}></Route>
         <Route
           path="/community"
           element={
