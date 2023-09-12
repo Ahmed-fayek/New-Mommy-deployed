@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import AuthContext from "../../../../context/AuthProvider";
 import "./styles.css";
-
+import pic from "./../../../../assets/images/istockphoto-1130884625-612x612.jpg";
 const SearchUsers = () => {
   const { auth } = useContext<any>(AuthContext);
   const [searchQuery, setSearchQuery] = useState("");
@@ -13,7 +13,7 @@ const SearchUsers = () => {
   }>({});
   useEffect(() => {
     const fetchAllUsers = async () => {
-      if (auth) {
+      if (auth ) {
         try {
           const response = await axios.get(
             `https://newMommy.mooo.com:3002/api/users`,
@@ -23,8 +23,8 @@ const SearchUsers = () => {
               },
             }
           );
-          setAllUsers(response.data);
-          // console.log(response.data);
+          setAllUsers(Object.values(response.data));
+          console.log(Object.values(response.data));
         } catch (error) {
           console.error(error);
         }
@@ -45,9 +45,9 @@ const SearchUsers = () => {
       );
     }
   }, [searchQuery]);
-
+console.log(searchResults)
   const addFriends = async (id: number) => {
-    if (auth) {
+    if (auth ) {
       await axios({
         method: "post",
         url: `https://newMommy.mooo.com:3003/api/sendFriendRequest/${id}`,
@@ -56,7 +56,6 @@ const SearchUsers = () => {
         },
       })
         .then((res) => {
-          //console.log(res);
           setFriendRequestStatus({ ...friendRequestStatus, [id]: true });
         })
         .catch((err) => {
@@ -74,20 +73,17 @@ const SearchUsers = () => {
         onChange={(e) => setSearchQuery(e.target.value)}
       />
       {searchResults
-        .filter((users) =>
-          users.some((user: any) => user.firstname || user.lastname)
-        )
         .map((users) =>
           users.map((user: any) => (
             <div className="add-friend" key={user.id}>
               {user.firstname || user.lastname ? (
                 <div className="user-info">
-                  <img src={user.picture} alt="" />
+                  <img src={pic}/>
                   <p>
                     {user.firstname} {user.lastname}
                   </p>
                 </div>
-              ) : null}
+              ) : ""}
               {user.firstname || user.lastname ? (
                 <button
                   onClick={() => {
@@ -96,7 +92,7 @@ const SearchUsers = () => {
                 >
                   {friendRequestStatus[user.id] ? "Delete" : "Add Friend"}
                 </button>
-              ) : null}
+              ) : ""}
             </div>
           ))
         )}
