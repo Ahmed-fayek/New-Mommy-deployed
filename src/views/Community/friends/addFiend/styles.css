@@ -1,0 +1,54 @@
+.add-friends{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+}
+
+.recom-person{
+      display: flex;
+      flex-direction: column;
+      width: 210px;
+      height: 170px;
+      background-color: #fff;
+      margin: 15px;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+}
+.recom-person .img-div{
+      width: 100px;
+      height: 120px;
+      margin: auto;
+      
+}
+.recom-person .img-div img{
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+}
+.recom-person .person-info{
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+}
+.recom-person .person-info button{
+      /*width: 110px;
+      */height: 30px;
+      outline: none;
+      border: 1px solid #e2dddd;
+      border-radius: 10px;
+      transition: all .3 ease;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      font-weight: bold;
+}
+
+.recom-person .person-info button:hover{
+      background-color: #81ccab;
+}

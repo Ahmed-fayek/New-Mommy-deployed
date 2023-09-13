@@ -5,6 +5,9 @@ import defaultimg from "./../../../assets/images/Layer 1.svg";
 import defaultpimg from "./../../../assets/images/momandbaby.png";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../../components/Loading";
+import UpdateBabyProfile from "../update-baby";
+import DeleteBaby from "../delete-baby";
+import AllBabys from "../all-babys";
 const MyProfile = () => {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
@@ -27,7 +30,7 @@ const MyProfile = () => {
         .then((response) => {
           setmyprofile(response.data);
           setmyUser(response.data);
-          // console.log(response.data);
+          console.log(response.data);
         })
         .catch((error) => {
           if (error.response.status == "401") {
@@ -79,6 +82,7 @@ const MyProfile = () => {
       }
     }
   };
+  console.log(user.baby)
   if (myprofile) {
     return (
       <>
@@ -111,6 +115,10 @@ const MyProfile = () => {
             >
               Edit Profile
             </button>
+          </div>
+     
+          <div>
+            <button onClick={()=> {navigator("/allbaby")}}>AllYour Babys</button>
           </div>
           <div className="Posts">
             <h1>All posts</h1>

@@ -38,6 +38,9 @@ import UserImg from "../views/User/user-img";
 import MyProfile from "../views/User/myprofile";
 import CreateGroup from "../views/Community/groups/addGroup";
 import AddPostGroup from "../views/Community/groups/addpostgroup";
+import UpdateBabyProfile from "../views/User/update-baby";
+import DeleteBaby from "../views/User/delete-baby";
+import AllBabys from "../views/User/all-babys";
 import Learning from "../views/learning";
 import BabyTrack from "../views/TheTracking/BabyTracker";
 
@@ -97,6 +100,9 @@ const MainRouer = () => {
         <Route path="/my-profile" element={<MyProfile />}></Route>
         <Route path="/addgroup" element={<CreateGroup />}></Route>
         <Route path="/AddPostGroup/:groupid" element={<AddPostGroup />}></Route>
+        <Route path="/allbaby" element={<AllBabys />}></Route>
+        <Route path="/updatebaby/:userid" element={<UpdateBabyProfile />}></Route>
+        <Route path="/deletebaby/:userid" element={<DeleteBaby />}></Route>
       </Routes>
     </>
   );

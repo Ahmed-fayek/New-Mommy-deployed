@@ -6,6 +6,7 @@ import "./styles.css";
 import Loading from "../../../components/Loading";
 import defaultimg from "./../../../assets/images/Layer 1.svg";
 import defaultpimg from "./../../../assets/images/momandbaby.png";
+
 const UserProfile = () => {
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);

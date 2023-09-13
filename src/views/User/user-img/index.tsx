@@ -64,7 +64,7 @@ const UserImg = () => {
   //             });
   //       }
   //       })
-  //  console.log(user.picture)
+   console.log(user)
   return (
     <div style={{ marginTop: "100px" }}>
       <form onSubmit={handleSubmit}>
