@@ -8,7 +8,31 @@ import { Link, useNavigate } from "react-router-dom";
 const AllFriends = () => {
   const { auth } = useContext<any>(AuthContext);
   const { friends, isLoading } = useContext<any>(CommunityContext);
+  const { setRefresh } = useContext<any>(AuthContext);
+  const { Refresh } = useContext<any>(AuthContext);
   const navigator = useNavigate();
+  const handleUnfriend = async (id: any) => {
+    console.log("ss");
+    if (auth) {
+      await axios({
+        method: "post",
+        url: `https://newMommy.mooo.com:3003/api/unfriend/${id}`,
+        headers: {
+          Authorization: `Bearer ${auth.access_token}`,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+
+          if (error.response.status == "401") {
+            setRefresh(!Refresh);
+          }
+        });
+    }
+  };
   //asdasw
   return (
     <div className="all-friends-container" style={{ margin: "100px" }}>
@@ -36,6 +60,13 @@ const AllFriends = () => {
                   <span>2 hours ago</span>
                 </div>
               </div>
+              <button
+                onClick={() => {
+                  handleUnfriend(friend.id);
+                }}
+              >
+                Unfriend
+              </button>
             </div>
           );
         })}

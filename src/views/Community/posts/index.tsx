@@ -2,9 +2,8 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../../context/AuthProvider";
 import postimg from "./../../../assets/images/bro.svg";
-import postimgerr from "./../../../assets/images/msid-69754806,imgsize-34865.jpg";
 import "./styles.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Post = () => {
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
@@ -28,8 +27,8 @@ const Post = () => {
         },
       })
         .then((response) => {
-          // console.log(response.data.posts);
-          setposts(response.data.posts.reverse());
+          console.log(response.data.posts);
+          setposts(response.data.posts);
           setIsLooding(false);
         })
         .catch((error) => {
@@ -83,7 +82,6 @@ const Post = () => {
   };
   const deletePost = (post: any) => {
     //console.log(post);
-
     if (auth) {
       axios({
         method: "DELETE",
@@ -107,9 +105,9 @@ const Post = () => {
 
   return (
     <div className="Posts">
-      <a href="/AddPost" className="addPost">
+      <Link to="/AddPost" className="addPost">
         Add post
-      </a>
+      </Link>
       {IsLooding ? (
         <>Loading</>
       ) : (

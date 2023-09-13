@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { IframeHTMLAttributes, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
+
 const Learning = () => {
   const Navigate = useNavigate();
   let returnedcomp = [];
@@ -17,15 +18,15 @@ const Learning = () => {
       "BABY FOOD MEAL",
     ],
     video: [
-      "https://www.youtube.com/watch?v=P89gIMp9E90&ab_channel=LULANKO",
-      "https://www.youtube.com/watch?v=hNZs8D5Eo34&ab_channel=GinnytheEdD",
-      "https://www.youtube.com/watch?v=_0cErYu3A8Q&ab_channel=Pathways",
-      "https://www.youtube.com/watch?v=377j05F4edY&ab_channel=EmmaHubbard",
-      "https://www.youtube.com/watch?v=DTIz2D0K_EE&ab_channel=FreeMedEducation",
-      "https://www.youtube.com/watch?v=Y_8nlwkioLw&ab_channel=HapaFamily",
-      "https://www.youtube.com/watch?v=sW7eORkf9ZI&ab_channel=HealthNutNutrition",
-      "https://www.youtube.com/watch?v=MvxU0870z8Q&ab_channel=MisiaKitchen",
-      "https://www.youtube.com/watch?v=9HieGFk57cA&ab_channel=HealthNutNutrition",
+      "https://www.youtube.com/embed/P89gIMp9E90",
+      "https://www.youtube.com/embed/hNZs8D5Eo34",
+      "https://www.youtube.com/embed/_0cErYu3A8Q",
+      "https://www.youtube.com/embed/377j05F4edY",
+      "https://www.youtube.com/embed/DTIz2D0K_EE",
+      "https://www.youtube.com/embed/Y_8nlwkioLw",
+      "https://www.youtube.com/embed/sW7eORkf9ZI",
+      "https://www.youtube.com/embed/MvxU0870z8Q",
+      "https://www.youtube.com/embed/9HieGFk57cA",
     ],
     images: [
       "https://images.unsplash.com/photo-1554684765-8f7175aeaf81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1854&q=80",
@@ -42,14 +43,15 @@ const Learning = () => {
   for (let i = 0; i < 9; i++) {
     returnedcomp.push(
       <div key={i} className="learning">
-        <a href={data.video[i]}>
+        {/* <a href={data.video[i]}>
           <img src={data.images[i]} alt="learning" />
-        </a>
+        </a> */}
         <div className="group-data">
           <div className="group-info">
             <h3>{data.name[i]}</h3>
           </div>
         </div>
+        <iframe src={data.video[i]} allowFullScreen />
       </div>
     );
   }
@@ -61,6 +63,13 @@ const Learning = () => {
         {returnedcomp.map((ele) => {
           return ele;
         })}
+        <div>
+          <iframe
+            src={`https://www.youtube.com/embed/P89gIMp9E90`}
+            frameBorder="0"
+            allowFullScreen
+          />
+        </div>{" "}
       </div>
     </>
   );
