@@ -181,7 +181,7 @@ const AddBaby = () => {
           </div>
           {/*birthday input*/}
           <div className="input__field">
-            <label htmlFor="birthday"> BirthDay</label>
+            <label htmlFor="birthday"> When is your baby birthday?</label>
             <input
               onChange={(e) => {
                 birthval(e);
@@ -201,7 +201,7 @@ const AddBaby = () => {
           <div className="two-inputs">
             {/* gender input*/}
             <div className="input__field">
-              <label htmlFor="gender">Baby Gender</label>
+              <label htmlFor="gender">What is your baby sex?</label>
               <select
                 className=" the__input "
                 name="gender"
@@ -215,7 +215,7 @@ const AddBaby = () => {
               </select>
             </div>
             {/* weight input*/}
-            <div className="input__field">
+            <div className="input__field  wight-input">
               <label htmlFor="weight"> Weight</label>
               <input
                 onChange={(e) => {
@@ -240,7 +240,7 @@ const AddBaby = () => {
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> Add baby</span>
+            <span className="button__text button-addbabbysucces"> Add baby</span>
           </button>
           {/* Skip Button */}
           <button
@@ -250,7 +250,7 @@ const AddBaby = () => {
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> skip now</span>
+            <span className="button__text button-skip"> skip now</span>
           </button>
           <div className="msg">
             <p>{successMessageVisible}</p>

@@ -107,9 +107,18 @@ const Post = () => {
 
   return (
     <div className="Posts">
+
       <a href="/AddPost" className="addPost">
+
         Add post
       </a>
+
+
+
+
+
+      
+
       {IsLooding ? (
         <>Loading</>
       ) : (
@@ -184,7 +193,7 @@ const Post = () => {
                     post.userExistsInLikes ? "like-add liked-this" : "like-add"
                   }
                 >
-                  Like
+                  <i className="fa-regular fa-heart  iconlike"></i>
                 </span>
                 {/* <span className="comment-add">Comment</span> */}
               </div>

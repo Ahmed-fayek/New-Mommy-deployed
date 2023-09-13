@@ -12,7 +12,8 @@
   padding: 10px;
   margin-bottom: 20px;
   background-color: #ffffff;
-  box-shadow: 5px 5px 20px #000;
+  box-shadow: 5px 5px 30px #55585755;
+  z-index: 2;
 }
 
 .post-header {
@@ -24,7 +25,6 @@
 .post-header i {
   color: red;
 }
-
 .profile-image {
   width: 40px;
   height: 40px;
@@ -59,7 +59,7 @@
 .post-caption {
   font-size: 14px;
   padding: 10px;
-  background-color: #eeeeee;
+  /* background-color: #eeeeee; */
 }
 .post-media {
   margin: auto;
@@ -90,25 +90,25 @@
   width: 45%;
   text-align: center;
   font-size: 18px;
-  color: #000000;
-  border-radius: 15px;
+  color: hsl(0, 0%, 0%);
+  -o-border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
-  -o-border-radius: 15px;
+  border-radius: 15px;
   cursor: pointer;
 }
-.comment-add:hover,
+/* .comment-add:hover,
 .like-add:hover {
   background-color: #ebebeb;
-}
+}  */
 .post-actions {
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
 .liked-this {
-  color: aqua;
+  color: rgb(255, 0, 0);
 }
 
 .addPost {
@@ -116,11 +116,11 @@
   height: 40px;
   background-color: #81ccab;
   border: none;
-  border-radius: 10px;
+  -o-border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
