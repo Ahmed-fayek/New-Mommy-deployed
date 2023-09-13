@@ -6,6 +6,7 @@ import "./styles.css";
 import { useNavigate } from "react-router-dom";
 const AllGroups = () => {
   const [allGroups, setallGroups] = useState<any>();
+  const [refreshcop, setrefreshcop] = useState<any>(false);
   const { auth } = useContext<any>(AuthContext);
   const { setRefresh } = useContext<any>(AuthContext);
   const { Refresh } = useContext<any>(AuthContext);
@@ -20,7 +21,7 @@ const AllGroups = () => {
         },
       })
         .then((response) => {
-          //console.log(response.data.groups);
+          console.log(response.data.groups);
           setallGroups(response.data.groups);
         })
         .catch((error) => {
@@ -29,7 +30,7 @@ const AllGroups = () => {
           }
         });
     }
-  }, [auth]);
+  }, [auth, refreshcop]);
 
   const handleLeaveGroup = (e: any) => {
     axios({
@@ -40,10 +41,13 @@ const AllGroups = () => {
       },
     })
       .then((response) => {
-        //console.log(response);
+        console.log(response);
+        setrefreshcop(!refreshcop);
         // setallGroups(response.data.groups);
       })
       .catch((error) => {
+        console.log(error);
+
         if (error.response.status == "401") {
           setRefresh(!Refresh);
         }
@@ -59,8 +63,6 @@ const AllGroups = () => {
       <div className="my-grops">
         {allGroups
           ? allGroups?.map((group: any) => {
-              //console.log(group);
-
               return (
                 <div key={group.id} className="my-group">
                   <img
@@ -77,7 +79,7 @@ const AllGroups = () => {
                     </div>
                     <span
                       onClick={() => {
-                        handleLeaveGroup(group.id);
+                        handleLeaveGroup(group.groupId);
                       }}
                     >
                       <i className="fa-solid fa-right-from-bracket"></i>{" "}

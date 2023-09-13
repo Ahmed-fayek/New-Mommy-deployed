@@ -39,6 +39,7 @@ import MyProfile from "../views/User/myprofile";
 import CreateGroup from "../views/Community/groups/addGroup";
 import AddPostGroup from "../views/Community/groups/addpostgroup";
 import Learning from "../views/learning";
+import BabyTrack from "../views/TheTracking/BabyTracker";
 
 const MainRouer = () => {
   return (
@@ -79,6 +80,7 @@ const MainRouer = () => {
         <Route path="/GroupView/:groupid" element={<GroupView />}></Route>
         <Route path="/user/:userid" element={<UserProfile />}></Route>
         <Route path="/learning" element={<Learning />}></Route>
+        <Route path="/BabyTrack" element={<BabyTrack />}></Route>
         <Route
           path="/community"
           element={

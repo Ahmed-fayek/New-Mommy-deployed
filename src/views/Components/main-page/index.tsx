@@ -20,6 +20,15 @@ const MainPage: React.FC = () => {
   };
   const navigate = useNavigate();
 
+  // console.log(trackingbaby);
+  // console.log(
+  //   trackingbaby.map((ele) => {
+  //     const [key, value] = Object.entries(trackingbaby)[0];
+  //     console.log(value);
+  //   })
+  // );
+
+  console.log("trackingbaby");
   return (
     <>
       <div className="main-page">
