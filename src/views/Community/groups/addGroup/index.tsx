@@ -50,24 +50,6 @@ const CreateGroup = () => {
           }
         });
     }
-
-    // axios({
-    //   method: "POST",
-    //   url: `https://newMommy.mooo.com:3003/api/postGroup/64847dd92424ea5a43b1caea`,
-    //   headers: {
-    //     Authorization: `Bearer ${auth.access_token}`,
-    //   },
-    //   data: formdata,
-    // })
-    //   .then((response) => {
-    //     //console.log(response);
-    //   })
-    //   .catch((error) => {
-
-    // if (error.response.status == "401") {
-    //   setRefresh(!Refresh);
-    // }
-    //   });
   };
   return (
     <div className="crete-group">

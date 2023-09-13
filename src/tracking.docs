@@ -2,8 +2,8 @@
   {
     "0-1 months": {
       "meals": ["Breast milk", "Formula", "Solid foods (starting at 6 months)"],
-      "important_info": {
-        "sleep_patterns": {
+      "important info": {
+        "sleep patterns": {
           "description": "irregular",
           "tips": [
             "creating a bedtime routine",
@@ -11,12 +11,12 @@
             "avoiding stimulating activities before bedtime"
           ]
         },
-        "baby_crying": {
+        "baby crying": {
           "reasons": {
-            "needing_food": "The most common reason why a baby cries is because they need something. They may be hungry, need a diaper change, or be uncomfortable.",
-            "boredom_or_loneliness": "Babies can also cry if they are bored or lonely. If your baby is crying and you've checked all the other possible reasons, try playing with them or holding them close."
+            "needing food, a diaper change, comfort": "The most common reason why a baby cries is because they need something. They may be hungry, need a diaper change, or be uncomfortable.",
+            "boredom or loneliness": "Babies can also cry if they are bored or lonely. If your baby is crying and you've checked all the other possible reasons, try playing with them or holding them close."
           },
-          "soothing_techniques": [
+          "soothing techniques": [
             "swaddling",
             "rocking",
             "singing",
@@ -776,6 +776,7 @@
       ]
     }
   },
+
   {
     "23-24 months": {
       "meals": ["Three meals a day, snacks"],

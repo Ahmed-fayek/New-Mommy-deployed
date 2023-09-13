@@ -42,6 +42,7 @@ import UpdateBabyProfile from "../views/User/update-baby";
 import DeleteBaby from "../views/User/delete-baby";
 import AllBabys from "../views/User/all-babys";
 import Learning from "../views/learning";
+import BabyTrack from "../views/TheTracking/BabyTracker";
 
 const MainRouer = () => {
   return (
@@ -82,6 +83,7 @@ const MainRouer = () => {
         <Route path="/GroupView/:groupid" element={<GroupView />}></Route>
         <Route path="/user/:userid" element={<UserProfile />}></Route>
         <Route path="/learning" element={<Learning />}></Route>
+        <Route path="/BabyTrack" element={<BabyTrack />}></Route>
         <Route
           path="/community"
           element={

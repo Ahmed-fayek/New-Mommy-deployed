@@ -48,7 +48,7 @@ function Nav() {
         });
     }
   }, [auth, user]);
-  console.log(myuser);
+  // console.log(myuser);
 
   const toogleview = () => {
     document.getElementById("view-links")?.classList.toggle("show-links");
