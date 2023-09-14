@@ -136,7 +136,7 @@ const AddMedical = () => {
     <div className="add-medical">
       <div className="container">
         <div className="signup-block">
-          {/*Date */}
+          <h2>{Update ? "Edit" : "Add"} Medical</h2>
           <div className="input__field">
             <label htmlFor="Date"> Date</label>
             <input
@@ -207,12 +207,12 @@ const AddMedical = () => {
           {/*Go to Main */}
           <button
             onClick={() => {
-              navigator("/main");
+              navigator("/tracking");
             }}
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> Go to Main</span>
+            <span className="button__text">Cancel</span>
           </button>
         </div>
         <div className="msg">

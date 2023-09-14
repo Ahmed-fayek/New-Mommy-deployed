@@ -119,7 +119,7 @@ const AddActivity = () => {
 
           // Redirect to main page after 3 seconds
           setTimeout(() => {
-            navigator("/main");
+            navigator("/tracking");
           }, 3000);
         })
         .catch((err) => {
@@ -149,7 +149,7 @@ const AddActivity = () => {
 
           // Redirect to main page after 3 seconds
           setTimeout(() => {
-            // navigator("/main");
+            // navigator("/tracking");
           }, 3000);
         })
         .catch((err) => {
@@ -164,7 +164,7 @@ const AddActivity = () => {
     <div className="add-activity">
       <div className="container">
         <div className="signup-block">
-          {/*Date */}
+          <h2>{Update ? "Edit" : "Add"} First</h2>
           <div className="input__field">
             <label htmlFor="Date"> Date</label>
             <input
@@ -250,12 +250,12 @@ const AddActivity = () => {
           {/*Go to Main */}
           <button
             onClick={() => {
-              navigator("/main");
+              navigator("/tracking");
             }}
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> Go to Main</span>
+            <span className="button__text">Cancel</span>
           </button>
         </div>
         <div className="msg">

@@ -1,37 +1,28 @@
-.add-first {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
-}
-
 .add-first .container {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
+  width: 100%;
+  min-height: calc(100vh - 80px);
   overflow: hidden;
-  background-color: #81ccab;
   display: flex;
   gap: 50px;
+  background: #fff;
+  background: linear-gradient(
+    145deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
 .add-first .signup-block {
-  margin-top: 80px;
-
+  margin-top: 15px;
   width: 450px;
-  height: 600px;
+  min-height: 450px;
   padding: 20px 0;
   display: flex;
+  gap: 20px;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -45,7 +36,10 @@
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
 }
-
+.add-first .signup-block h2 {
+  margin-bottom: 0px;
+  color: #fff;
+}
 .add-first .two-inputs {
   width: 100%;
   display: flex;

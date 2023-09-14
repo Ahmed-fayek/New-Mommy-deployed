@@ -92,7 +92,10 @@ function BabyFirsts() {
 
   return (
     <div>
-      <Link to={"/addFirist"}>addFirist</Link> <br></br>
+      <Link to={"/addFirist"} className="addFiristbtn">
+        Add New Firist
+      </Link>{" "}
+      <br></br>
       {returned}
     </div>
   );

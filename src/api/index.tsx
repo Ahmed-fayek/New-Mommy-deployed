@@ -61,6 +61,6 @@ export const deleteBaby: string =
 export const deleteAccount: string =
   "https://newMommy.mooo.com:3001/api/auth/deleteAccount";
 export const updateBaby: string =
-  "https://newMommy.mooo.com:3002/api/users/updateBaby";
+  "https://newMommy.mooo.com:3002/api/users/updateBaby/";
 export const uploadProfileImage: string =
   "https://newmommy.mooo.com:3003/api/uploadProfileImage";

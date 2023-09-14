@@ -9,7 +9,7 @@ import Loading from "../../../components/Loading";
 function Growth() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
-  const [reminders, setreminders] = useState([]);
+  const [growths, setgrowths] = useState([]);
   const [update, setupdate] = useState(false);
   const { setRefresh } = useContext<any>(AuthContext);
   const { Refresh } = useContext<any>(AuthContext);
@@ -27,7 +27,7 @@ function Growth() {
         .then((response) => {
           // //console.log(response.data.growthMilestones);
 
-          setreminders(response.data.growthMilestones);
+          setgrowths(response.data.growthMilestones);
         })
         .catch((error) => {
           if (error.response.status == "401") {
@@ -70,24 +70,35 @@ function Growth() {
   };
   let returned: any;
   if (user) {
-    returned = reminders.map((reminder: any) => {
-      // //console.log(reminder);
-
+    returned = growths.map((growth: any) => {
       return (
-        <div key={reminder.id}>
-          <div>{reminder.id} </div>
-          <div> {reminder.age}</div>
-          <div>{reminder.date} </div>
-          <div> {reminder.weight}</div>
-          <div> {reminder.height}</div>
-          <Link to={`/addgrowth/${reminder.id}`}>Update</Link>
-          <button
-            onClick={() => {
-              handleDelete(reminder.id);
-            }}
-          >
-            Delete
-          </button>
+        <div key={growth.id} className="growth">
+          <span className="edit-growth">
+            <Link to={`/addgrowth/${growth.id}`}>
+              <i className="fa-regular fa-pen-to-square"></i>
+            </Link>
+          </span>
+          <div>
+            Date: <span> {growth.date}</span>
+          </div>
+          <div>
+            Age: <span> {growth.age.slice(0, 16)}</span>
+          </div>
+          <div>
+            Height: <span> {growth.height}</span>
+          </div>
+          <div>
+            Weight: <span> {growth.weight}</span>
+          </div>
+          <section className="delete-growh-btn">
+            <button
+              onClick={() => {
+                handleDelete(growth.id);
+              }}
+            >
+              Delete growth
+            </button>
+          </section>
         </div>
       );
     });
@@ -96,10 +107,12 @@ function Growth() {
   }
 
   return (
-    <div className="reminder">
-      <Link to={"/addgrowth"}>addgrowth</Link>
-
-      {returned}
+    <div className="growths">
+      <h1> Growth</h1>
+      <Link to={"/addgrowth"} className="addgrowthbtn">
+        Add new growth
+      </Link>
+      <div className="all-growths">{returned}</div>
     </div>
   );
 }

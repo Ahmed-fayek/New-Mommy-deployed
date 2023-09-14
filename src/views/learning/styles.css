@@ -23,8 +23,7 @@ iframe {
   height: 180px;
 }
 .learnings .learning .group-data {
-  background-color: red;
-  color: #81ccab;
+  color: #000;
   font-size: 35px;
   display: flex;
   align-items: center;

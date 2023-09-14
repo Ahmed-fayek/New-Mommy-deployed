@@ -42,7 +42,7 @@ const AddMedicalDocs = () => {
         setSuccessMessageVisible("successful added "); // Show success message
         // Redirect to main page after 3 seconds
         setTimeout(() => {
-          navigator("/main");
+          navigator("/tracking");
         }, 3000);
       })
       .catch((err) => {
@@ -56,6 +56,7 @@ const AddMedicalDocs = () => {
     <div className="add-medical">
       <div className="container">
         <div className="signup-block">
+          <h2>Add Medical Docs</h2>
           {/* file */}
           <div className="pic__field">
             <input
@@ -90,12 +91,12 @@ const AddMedicalDocs = () => {
           {/*Go to Main */}
           <button
             onClick={() => {
-              navigator("/main");
+              navigator("/tracking");
             }}
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> Go to Main</span>
+            <span className="button__text">Cancel</span>
           </button>
         </div>
         <div className="msg">

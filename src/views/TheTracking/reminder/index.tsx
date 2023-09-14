@@ -73,17 +73,25 @@ function Reminder() {
     returned = reminders.map((reminder: any) => {
       return (
         <div className="reminder" key={reminder.id}>
-          <div>{reminder.id} </div>
-          <div>{reminder.note} </div>
-          <div>{reminder.date} </div>
-          <Link to={`/addReminder/${reminder.id}`}>Update</Link>
-          <button
-            onClick={() => {
-              handleDelete(reminder.id);
-            }}
-          >
-            Delete
-          </button>
+          <div className="reminder-head">
+            <i className="fa-solid fa-stopwatch-20"></i>
+            <span className="reminder-time">{reminder.time} </span>
+            <Link to={`/addReminder/${reminder.id}`}>
+              <i className="fa-regular fa-pen-to-square"></i>
+            </Link>
+          </div>
+          <div className="reminder-note">{reminder.note} </div>
+          <div className="reminder-footer">
+            <div className="reminder-date">Date: {reminder.date}</div>
+            <button
+              className="stop-reminder"
+              onClick={() => {
+                handleDelete(reminder.id);
+              }}
+            >
+              close reminder
+            </button>
+          </div>
         </div>
       );
     });
@@ -92,9 +100,13 @@ function Reminder() {
   }
 
   return (
-    <div>
-      <Link to={"/addReminder"}>addReminder</Link> <br></br>
-      {returned}
+    <div className="reminders">
+      <h1>All Reminders</h1>
+      <Link to={"/addReminder"} className="addReminderbtn">
+        Add new reminder
+      </Link>
+      <br></br>
+      <div className="all-reminders">{returned}</div>
     </div>
   );
 }

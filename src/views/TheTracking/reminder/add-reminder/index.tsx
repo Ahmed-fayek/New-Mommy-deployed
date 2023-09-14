@@ -103,7 +103,7 @@ const AddReminder = () => {
           setSuccessMessageVisible("successful added "); // Show success message
           // Redirect to main page after 3 seconds
           setTimeout(() => {
-            // navigator("/main");
+            // navigator("/tracking");
           }, 3000);
         })
         .catch((err) => {
@@ -129,7 +129,7 @@ const AddReminder = () => {
           setSuccessMessageVisible("successful added "); // Show success message
           // Redirect to main page after 3 seconds
           setTimeout(() => {
-            // navigator("/main");
+            // navigator("/tracking");
           }, 3000);
         })
         .catch((err) => {
@@ -145,6 +145,7 @@ const AddReminder = () => {
       <div className="container">
         <div className="signup-block">
           {/*Date */}
+          <h2>{Update ? "Edit" : "Add"} Reminder</h2>
           <div className="input__field">
             <label htmlFor="Date"> Date</label>
             <input
@@ -215,12 +216,12 @@ const AddReminder = () => {
           {/*Go to Main */}
           <button
             onClick={() => {
-              navigator("/main");
+              navigator("/tracking");
             }}
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> Go to Main</span>
+            <span className="button__text"> Cancel</span>
           </button>
         </div>
         <div className="msg">

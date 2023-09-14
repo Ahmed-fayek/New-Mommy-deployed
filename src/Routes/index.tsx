@@ -101,8 +101,11 @@ const MainRouer = () => {
         <Route path="/addgroup" element={<CreateGroup />}></Route>
         <Route path="/AddPostGroup/:groupid" element={<AddPostGroup />}></Route>
         <Route path="/allbaby" element={<AllBabys />}></Route>
-        <Route path="/updatebaby/:userid" element={<UpdateBabyProfile />}></Route>
-        <Route path="/deletebaby/:userid" element={<DeleteBaby />}></Route>
+        <Route
+          path="/updatebaby/:babyid"
+          element={<UpdateBabyProfile />}
+        ></Route>
+        <Route path="/deletebaby/:babyid" element={<DeleteBaby />}></Route>
       </Routes>
     </>
   );

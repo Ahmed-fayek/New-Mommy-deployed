@@ -92,7 +92,9 @@ function Activity() {
 
   return (
     <div className="act">
-      <Link to={`/addactivity`}>add one</Link>
+      <Link to={`/addactivity`} className="addactivitybtn">
+        add new activity
+      </Link>
       {returned}
     </div>
   );

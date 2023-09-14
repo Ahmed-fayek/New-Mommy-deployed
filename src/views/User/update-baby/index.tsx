@@ -1,7 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "../../../context/AuthProvider";
 import axios from "axios";
 import { updateBaby } from "../../../api";
+import UserProfile from "../user-profile";
+import { useParams } from "react-router-dom";
 
 const UpdateBabyProfile = () => {
   const [babyName, setBabyName] = useState("");
@@ -12,6 +14,7 @@ const UpdateBabyProfile = () => {
   const { user } = useContext<any>(AuthContext);
   const { setRefresh } = useContext<any>(AuthContext);
   const { Refresh } = useContext<any>(AuthContext);
+  const { babyid } = useParams();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,7 +33,7 @@ const UpdateBabyProfile = () => {
       await axios({
         method: "PATCH",
         data: formData,
-        url: `${updateBaby}/:id`,
+        url: `${updateBaby}/${babyid}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
           "Content-Type": "multipart/form-data",
