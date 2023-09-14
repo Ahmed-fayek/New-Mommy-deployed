@@ -55,8 +55,15 @@ function Nav() {
     document.getElementById("view-links")?.classList.toggle("show-links");
     document.getElementById("bars")?.classList.toggle("rotates");
   };
+  const handleRemoveRessponsive = () => {
+    if (document.getElementById("bars")?.classList.contains("rotates")) {
+      document.getElementById("bars")?.classList.toggle("rotates");
+      document.getElementById("view-links")?.classList.toggle("show-links");
+    }
+  };
   //logout function
   const logout = async () => {
+    handleRemoveRessponsive();
     await axios({
       method: "POST",
       url: `${logootApi}`,
@@ -86,7 +93,7 @@ function Nav() {
           <div className="left-side"></div>
           <div className="links">
             <div
-              className="bars rotates"
+              className="bars "
               id="bars"
               onClick={() => {
                 toogleview();
@@ -97,22 +104,32 @@ function Nav() {
             </div>
             <ul id="view-links" className="show-links">
               <li>
-                <Link to={"/main"}>Home</Link>
+                <Link onClick={handleRemoveRessponsive} to={"/main"}>
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to={"/community"}>Community</Link>
+                <Link onClick={handleRemoveRessponsive} to={"/community"}>
+                  Community
+                </Link>
               </li>
 
               <li>
-                <Link to={"/tracking"}>Tracking</Link>
+                <Link onClick={handleRemoveRessponsive} to={"/tracking"}>
+                  Tracking
+                </Link>
               </li>
 
               <li>
-                <Link to={"/learning"}>Learning</Link>
+                <Link onClick={handleRemoveRessponsive} to={"/learning"}>
+                  Learning
+                </Link>
               </li>
-              <li>
-                <Link to={"/main"}>Shop</Link>
-              </li>
+              {/* <li>
+                <Link onClick={handleRemoveRessponsive} to={"/main"}>
+                  Shop
+                </Link>
+              </li> */}
               <li>
                 <span
                   onClick={() => {
