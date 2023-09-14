@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import AuthContext from "../../../context/AuthProvider";
 import Loading from "../../../components/Loading";
 import { AddNewCategory } from "../../../api";
+import BabyAge from "../../../services/babyAge";
 function BabyFirsts() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
@@ -70,19 +71,34 @@ function BabyFirsts() {
   if (user) {
     returned = firsts.map((first: any) => {
       return (
-        <div className="reminder" key={first.id}>
-          <div>{first.id} </div>
-          <div> {first.babyFirst}</div>
-          <div>{first.date} </div>
-          <img src={first.image} width={"100px"} height={"100px"} alt="img" />
-          <button
-            onClick={() => {
-              handleDelete(first.id);
-            }}
-          >
-            delete
-          </button>
-          <Link to={`/addFirist/${first.id}`}>update</Link>
+        <div className="first" key={first.id}>
+          <div className="feed-header">
+            <span>
+              <i className="fa-solid fa-star-of-life"></i>
+            </span>
+            <span className="first-name">{first.babyFirst}</span>
+            <Link to={`/addfirst/${first.id}`}>
+              <i className="fa-regular fa-pen-to-square"></i>
+            </Link>
+          </div>
+          <div className="feed-center">
+            <img src={first.image} alt="img" />
+          </div>
+          <div className="feed-footer">
+            <span>{first.note}</span>
+
+            <div className="div">
+              <button
+                className="removefeedbtn"
+                onClick={() => {
+                  handleDelete(first.id);
+                }}
+              >
+                remove First
+              </button>
+              <span>{BabyAge(`${first.date}`).slice(0, 17)}</span>
+            </div>
+          </div>
         </div>
       );
     });
@@ -91,12 +107,13 @@ function BabyFirsts() {
   }
 
   return (
-    <div>
+    <div className="firsts">
+      <h1>Firsts</h1>
       <Link to={"/addFirist"} className="addFiristbtn">
-        Add New Firist
-      </Link>{" "}
+        Add New first
+      </Link>
       <br></br>
-      {returned}
+      <div className="all-firsts">{returned}</div>
     </div>
   );
 }

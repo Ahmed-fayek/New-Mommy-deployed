@@ -69,8 +69,6 @@ function Feeding() {
   let returned: any;
   if (user) {
     returned = foods.map((food: any) => {
-      console.log(food);
-
       return (
         <div className="food" key={food.id}>
           <div className="feed-header">
@@ -88,11 +86,12 @@ function Feeding() {
           </div>
           <div className="feed-footer">
             <button
+              className="removefeedbtn"
               onClick={() => {
                 handleDelete(food.id);
               }}
             >
-              Delete
+              remove feed
             </button>
             <span>{food.time}</span>
           </div>

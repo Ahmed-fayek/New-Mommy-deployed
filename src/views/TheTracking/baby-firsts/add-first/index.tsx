@@ -67,7 +67,8 @@ const AddFirist = () => {
 
   /* Dr Name  */
   const babyFirstVal = (e: any) => {
-    if (!nameVal.test(e.target.value)) {
+    if (e.target.value == "") {
+      setbabyFirst(e.target.value);
       setbabyFirstErrMsg("invalid data");
     } else {
       setbabyFirst(e.target.value);
@@ -82,7 +83,7 @@ const AddFirist = () => {
 
   /* note  */
   const noteVal = (e: any) => {
-    if (!nameVal.test(e.target.value)) {
+    if (e.target.value == "") {
       setnoteErrMsg("invalid data");
     } else {
       setnote(e.target.value);

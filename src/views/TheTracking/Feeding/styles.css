@@ -1,7 +1,8 @@
 .addfoodbtn {
   width: 250px;
   height: 40px;
-  background-color: #81ccab;
+  background-color: #fff172;
+  /* background-color: #81ccab; */
   border: none;
   border-radius: 10px;
   display: flex;
@@ -9,7 +10,13 @@
   align-items: center;
   margin: 15px;
   text-decoration: none;
+
   color: #000000;
+}
+.foods .all-foods {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .foods .food {
   width: 350px;
@@ -21,6 +28,10 @@
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 .foods .food::after {
   content: "";
@@ -38,6 +49,7 @@
 }
 .foods .food .feed-header {
   padding: 10px 20px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,15 +62,27 @@
   font-size: 45px;
   color: #fff172;
 }
-/* .foods .food {
+.foods .food .feed-center {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px 0 20px;
 }
-.foods .food {
+.foods .food .feed-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px 0 20px;
 }
-.foods .food {
+.foods .food .removefeedbtn {
+  width: 150px;
+  height: 30px;
+  background-color: transparent;
+  color: #da0707;
+  border: 1px solid #da0707;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
 }
-.foods .food {
-}
-.foods .food {
-}
-.foods .food {
-} */
