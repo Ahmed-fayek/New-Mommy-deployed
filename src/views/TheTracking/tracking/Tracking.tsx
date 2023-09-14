@@ -9,6 +9,9 @@ import BabyFirsts from "../baby-firsts";
 import { useNavigate } from "react-router-dom";
 import MainPage from "../../Components/main-page";
 
+import logo from "./../../../assets/images/Layer 1.svg";
+
+
 const Tracking = () => {
   const navigator = useNavigate();
   const [activeComponent, setActiveComponent] = useState<string>("Reminder");
@@ -29,6 +32,9 @@ const Tracking = () => {
   return (
     <div className="container">
       <div className="sidebar">
+            <img src={logo}></img>
+
+
         <ul>
           <li onClick={() => navigator("/main")}>
             <i className="fa-solid fa-house"></i>

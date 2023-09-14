@@ -95,10 +95,11 @@ const Welcome = () => {
             <p className="paragraph">
               Keep tracking your baby, and shop form all your favorite brands
             </p>
-            <div className="btn-add" onClick={() => navigator("/addbaby")}>
+
+            {/* <div className="btn-add" onClick={() => navigator("/addbaby")}>
               <i className="fa-solid fa-plus"></i>
               <button>Add New Baby</button>
-            </div>
+            </div> */}
           </div>
           <div className="right">
             <img src={momsImage} alt="Momys img" />

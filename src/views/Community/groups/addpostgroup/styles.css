@@ -15,7 +15,7 @@
 .add-group-post-block input {
   width: 250px;
   height: 30px;
-  background-color: #f3f3f3;
+  /* background-color: #f3f3f3; */
   border: 1px solid #888;
   border-radius: 10px;
   padding: 0 10px;
@@ -39,7 +39,7 @@
   -o-border-radius: 10px;
 }
 .add-group-post-block .addPostbtn:hover {
-  background-color: #60a386;
+  /* background-color: #60a386; */
   color: #fff;
 }
 .add-group-post-block a {
