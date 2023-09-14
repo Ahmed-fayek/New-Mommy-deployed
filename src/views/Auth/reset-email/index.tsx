@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import "./styles.css";
 import AuthContext from "../../../context/AuthProvider";
 import axios from "../../../api/axios";
+import { forgetPassword } from "../../../api";
 
 const ResetEmail = () => {
   const { SetemailCon } = useContext<any>(AuthContext);
@@ -21,7 +22,7 @@ const ResetEmail = () => {
     setErrMsg("");
     await axios({
       method: "post",
-      url: "13.51.206.195:3001/api/auth/forgetPassword",
+      url: forgetPassword,
       data: {
         email: email,
       },

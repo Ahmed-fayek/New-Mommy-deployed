@@ -25,7 +25,7 @@ const Welcome = () => {
       <nav className="">
         <div className="navbar">
           <div className="app-logo">
-            <img src={applogo}></img>
+            <img src={applogo} alt="img" />
           </div>
           <div className="left-side"></div>
           <div className="links">

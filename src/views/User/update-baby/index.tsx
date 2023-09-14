@@ -1,12 +1,12 @@
-import React, { useState ,useContext } from 'react';
-import AuthContext from '../../../context/AuthProvider';
+import React, { useState, useContext } from "react";
+import AuthContext from "../../../context/AuthProvider";
 import axios from "axios";
-
+import { updateBaby } from "../../../api";
 
 const UpdateBabyProfile = () => {
-  const [babyName, setBabyName] = useState('');
-  const [gender, setGender] = useState('');
-  const [birthDate, setBirthDate] = useState('');
+  const [babyName, setBabyName] = useState("");
+  const [gender, setGender] = useState("");
+  const [birthDate, setBirthDate] = useState("");
   const [images, setImages] = useState<any>(null);
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
@@ -16,25 +16,24 @@ const UpdateBabyProfile = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('babyName', babyName);
-    formData.append('gender', gender);
-    formData.append('birthDate', birthDate);
+    formData.append("babyName", babyName);
+    formData.append("gender", gender);
+    formData.append("birthDate", birthDate);
 
-if (images) {
-       for (let i = 0; i < images.length; i++) {
+    if (images) {
+      for (let i = 0; i < images.length; i++) {
         formData.append("images", images);
-       }
-}
-  
+      }
+    }
 
     if (auth) {
       await axios({
-       method: 'PATCH',
-       data: formData,
-        url: `https://newMommy.mooo.com:3002/api/users/updateBaby/:id`,
+        method: "PATCH",
+        data: formData,
+        url: `${updateBaby}/:id`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
-          "Content-Type": "multipart/form-data"
+          "Content-Type": "multipart/form-data",
         },
       })
         .then((res) => {
@@ -47,7 +46,7 @@ if (images) {
           }
         });
     }
-}
+  };
 
   return (
     <form onSubmit={handleSubmit}>

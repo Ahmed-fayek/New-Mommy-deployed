@@ -150,14 +150,14 @@ const Signup = () => {
         <div className="welcome-msg">
           <div className="auth-welcome-container">
             <div className="welcome-app-logo">
-              <img src={welcomeimg} alt="" />
+              <img src={welcomeimg} alt="img" />
               <h1>Let’s get started</h1>
             </div>
           </div>
         </div>
         <div className="signup-block">
           <div className="r-welcome-app-logo">
-            <img src={welcomeimg} alt="" />
+            <img src={welcomeimg} alt="img" />
           </div>
           <div className="signup-auth-head">
             <h1 className="Welcome-back">Sign Up</h1>

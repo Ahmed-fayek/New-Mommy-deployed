@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../../context/AuthProvider";
 import axios from "../../../api/axios";
+import { logootApi, profileById } from "../../../api";
 function Nav() {
   const { user } = useContext<any>(AuthContext);
   const navigator = useNavigate();
@@ -32,7 +33,7 @@ function Nav() {
     if (auth && user) {
       axios({
         method: "GET",
-        url: `https://newMommy.mooo.com:3003/api/profileById/${user.id}`,
+        url: `${profileById}/${user.id}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -58,7 +59,7 @@ function Nav() {
   const logout = async () => {
     await axios({
       method: "POST",
-      url: "https://newMommy.mooo.com:3001/api/auth/logout",
+      url: `${logootApi}`,
       headers: {
         Authorization: `Bearer ${auth?.access_token}`,
       },
@@ -80,7 +81,7 @@ function Nav() {
       <>
         <div className="navbar">
           <div className="app-logo">
-            <img src={logo}></img>
+            <img src={logo} alt="img" />
           </div>
           <div className="left-side"></div>
           <div className="links">
@@ -141,7 +142,7 @@ function Nav() {
                   src={
                     myuser.user.image != null ? myuser.user.image : personalimg
                   }
-                  alt=""
+                  alt="img"
                 />
               ) : (
                 <img
@@ -149,7 +150,7 @@ function Nav() {
                     navigator("/my-profile");
                   }}
                   src={personalimg}
-                  alt=""
+                  alt="img"
                 />
               )}
             </div>

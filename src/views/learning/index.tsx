@@ -55,23 +55,26 @@ const Learning = () => {
       </div>
     );
   }
-
-  return (
-    <>
-      <h1>Learning</h1>
-      <div className="learnings">
-        {returnedcomp.map((ele) => {
-          return ele;
-        })}
-        <div>
-          <iframe
-            src={`https://www.youtube.com/embed/P89gIMp9E90`}
-            frameBorder="0"
-            allowFullScreen
-          />
-        </div>{" "}
-      </div>
-    </>
-  );
+  if (returnedcomp.length == 9) {
+    return (
+      <>
+        <h1>Learning</h1>
+        <div className="learnings">
+          {returnedcomp.map((ele) => {
+            return ele;
+          })}
+          <div>
+            <iframe
+              src={`https://www.youtube.com/embed/P89gIMp9E90`}
+              frameBorder="0"
+              allowFullScreen
+            />
+          </div>{" "}
+        </div>
+      </>
+    );
+  } else {
+    return <>Loading</>;
+  }
 };
 export default Learning;

@@ -5,6 +5,7 @@ import CommunityContext from "../../../../context/CommunityProvider";
 import "./styles.css";
 import pic from "./../../../../assets/images/istockphoto-1130884625-612x612.jpg";
 import { Link, useNavigate } from "react-router-dom";
+import { unfriend } from "../../../../api";
 const AllFriends = () => {
   const { auth } = useContext<any>(AuthContext);
   const { friends, isLoading } = useContext<any>(CommunityContext);
@@ -16,7 +17,7 @@ const AllFriends = () => {
     if (auth) {
       await axios({
         method: "post",
-        url: `https://newMommy.mooo.com:3003/api/unfriend/${id}`,
+        url: `${unfriend}/${id}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -49,7 +50,7 @@ const AllFriends = () => {
                       navigator(`/user/${friend.id}`);
                     }}
                     src={friend.image ? friend.image : pic}
-                    alt=""
+                    alt="img"
                   />
                   <span className="active"></span>
                 </div>

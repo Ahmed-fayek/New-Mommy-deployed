@@ -144,7 +144,7 @@ const AddBaby = () => {
   return (
     <div className="add-baby">
       <div className="mompicture">
-        <img src={mompic} alt="" />
+        <img src={mompic} alt="img" />
       </div>
       <div className="container">
         <div className="signup-block">

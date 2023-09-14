@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import AuthContext from "../../../context/AuthProvider";
 import axios from "../../../api/axios";
+import { deleteAccount } from "../../../api";
 
 const DeleteAccount = () => {
   const { setUser } = useContext<any>(AuthContext);
@@ -45,7 +46,7 @@ const DeleteAccount = () => {
     await axios({
       method: "DELETE",
 
-      url: "https://newMommy.mooo.com:3001/api/auth/deleteAccount",
+      url: `${deleteAccount}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },

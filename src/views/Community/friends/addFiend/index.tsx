@@ -4,6 +4,7 @@ import AuthContext from "../../../../context/AuthProvider";
 import CommunityContext from "../../../../context/CommunityProvider";
 import "./styles.css";
 import pic from "./../../../../assets/images/istockphoto-1130884625-612x612.jpg";
+import { sendFriendRequest } from "../../../../api";
 const AddFriends = () => {
   const { auth } = useContext<any>(AuthContext);
   const { allUsers } = useContext<any>(CommunityContext);
@@ -16,7 +17,7 @@ const AddFriends = () => {
     if (auth) {
       await axios({
         method: "post",
-        url: `https://newMommy.mooo.com:3003/api/sendFriendRequest/${userid}`,
+        url: `${sendFriendRequest}/${userid}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -33,23 +34,26 @@ const AddFriends = () => {
     }
   };
   return (
-    <div >
+    <div>
       <h2>Suggested people</h2>
       <div className="add-friends">
-      {allUsers.map((user: any, index: number) => (
+        {allUsers.map((user: any, index: number) => (
           <div className="recom-person">
-              <div className="img-div">
-                  <img src={pic} alt="" />
-              </div>
-              <div className="person-info">
-                  <p key={index}>{user.firstname} {user.lastname}</p>
-                  <button
-                  onClick={() => {
-                    addFriends(user.id);
-                  }}>
-                        {friendRequestStatus[user.id] ? "Delete" : "Add Friend"}
-                </button>
-              </div>
+            <div className="img-div">
+              <img src={pic} alt="img" />
+            </div>
+            <div className="person-info">
+              <p key={index}>
+                {user.firstname} {user.lastname}
+              </p>
+              <button
+                onClick={() => {
+                  addFriends(user.id);
+                }}
+              >
+                {friendRequestStatus[user.id] ? "Delete" : "Add Friend"}
+              </button>
+            </div>
           </div>
         ))}
       </div>

@@ -1,58 +1,57 @@
-import React, { useState, useContext } from 'react';
-import axios from 'axios';
+import React, { useState, useContext } from "react";
+import axios from "axios";
 import AuthContext from "../../../context/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { deleteBaby } from "../../../api";
 const DeleteBaby = () => {
-  const [babyName, setBabyName] = useState('ahmed');
-  const [gender, setGender] = useState('girl');
-  const [birthDate, setBirthDate] = useState('2002-2-15');
+  const [babyName, setBabyName] = useState("ahmed");
+  const [gender, setGender] = useState("girl");
+  const [birthDate, setBirthDate] = useState("2002-2-15");
   const { auth } = useContext<any>(AuthContext);
   const navigate = useNavigate();
   const handleDelete = async () => {
-     
-      const confirmResult = await Swal.fire({
-            icon: "warning",
-            title: "Are you sure to delete your baby?",
-            showConfirmButton: true,
-            showCancelButton: true,
-          });
+    const confirmResult = await Swal.fire({
+      icon: "warning",
+      title: "Are you sure to delete your baby?",
+      showConfirmButton: true,
+      showCancelButton: true,
+    });
     try {
       const requestBody = JSON.stringify({
         babyName,
         gender,
-        birthDate
+        birthDate,
       });
       const response = await axios({
-        method: 'DELETE',
-        url: 'https://newMommy.mooo.com:3002/api/users/deleteBaby/:id',
+        method: "DELETE",
+        url: `${deleteBaby}/id`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        data: requestBody
+        data: requestBody,
       });
 
-      console.log('Delete Response:', response.data);
+      console.log("Delete Response:", response.data);
       Swal.fire({
-            icon: "success",
-            title: "baby profile Deleted Successfully!",
-            showConfirmButton: false,
-            timer: 3000,
-          });
+        icon: "success",
+        title: "baby profile Deleted Successfully!",
+        showConfirmButton: false,
+        timer: 3000,
+      });
 
-          setTimeout(() => {
-            navigate("/my-profile");
-          }, 3000);
-          
+      setTimeout(() => {
+        navigate("/my-profile");
+      }, 3000);
     } catch (error) {
-      console.error('Error deleting baby:', error);
+      console.error("Error deleting baby:", error);
       Swal.fire({
-            icon: "error",
-            title: "Failed to Delete baby profile ",
-            text: "An error occurred while deleting your baby profile",
-            showConfirmButton: true,
-          });
+        icon: "error",
+        title: "Failed to Delete baby profile ",
+        text: "An error occurred while deleting your baby profile",
+        showConfirmButton: true,
+      });
     }
   };
   return (

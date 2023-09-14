@@ -50,7 +50,7 @@ function Reminder() {
       if (result.isConfirmed) {
         axios({
           method: "delete",
-          url: `https:newMommy.mooo.com:3002/api/users/reminder/${itemid}`,
+          url: `${AddNewCategory}/reminder/${itemid}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
           },

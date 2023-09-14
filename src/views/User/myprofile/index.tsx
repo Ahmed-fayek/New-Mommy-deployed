@@ -8,6 +8,7 @@ import Loading from "../../../components/Loading";
 import UpdateBabyProfile from "../update-baby";
 import DeleteBaby from "../delete-baby";
 import AllBabys from "../all-babys";
+import { Like, profileById, unlike } from "../../../api";
 const MyProfile = () => {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
@@ -22,7 +23,7 @@ const MyProfile = () => {
     if (auth && user) {
       axios({
         method: "GET",
-        url: `https://newMommy.mooo.com:3003/api/profileById/${user.id}`,
+        url: `${profileById}/${user.id}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -46,7 +47,7 @@ const MyProfile = () => {
       if (auth) {
         axios({
           method: "Post",
-          url: `https://newMommy.mooo.com:3003/api/unlike/${id}`,
+          url: `${unlike}/${id}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
           },
@@ -65,7 +66,7 @@ const MyProfile = () => {
       if (auth) {
         axios({
           method: "Post",
-          url: `https://newMommy.mooo.com:3003/api/Like/${id}`,
+          url: `${Like}/${id}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
           },
@@ -82,7 +83,7 @@ const MyProfile = () => {
       }
     }
   };
-  console.log(user.baby)
+  console.log(user.baby);
   if (myprofile) {
     return (
       <>
@@ -91,14 +92,14 @@ const MyProfile = () => {
             <div className="cover">
               <img
                 src={myprofile.user.cover ? myprofile.user.cover : defaultimg}
-                alt=""
+                alt="img"
               />
               <div className="profileimg">
                 <img
                   src={
                     myprofile.user.image ? myprofile.user.image : defaultpimg
                   }
-                  alt=""
+                  alt="img"
                 />
               </div>
             </div>
@@ -116,9 +117,15 @@ const MyProfile = () => {
               Edit Profile
             </button>
           </div>
-     
+
           <div>
-            <button onClick={()=> {navigator("/allbaby")}}>AllYour Babys</button>
+            <button
+              onClick={() => {
+                navigator("/allbaby");
+              }}
+            >
+              AllYour Babys
+            </button>
           </div>
           <div className="Posts">
             <h1>All posts</h1>

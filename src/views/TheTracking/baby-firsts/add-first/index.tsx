@@ -151,7 +151,7 @@ const AddFirist = () => {
   };
 
   let imageprev = image ? (
-    <img src={file} width={"100px"} height={"100px"}></img>
+    <img src={file} width={"100px"} height={"100px"} alt="img" />
   ) : (
     ""
   );
