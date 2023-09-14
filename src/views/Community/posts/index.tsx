@@ -105,7 +105,7 @@ const Post = () => {
 
   return (
     <div className="Posts">
-<<<<<<< HEAD
+{/* <<<<<<< HEAD */}
 
       <a href="/AddPost" className="addPost">
 
@@ -113,16 +113,11 @@ const Post = () => {
       </a>
 
 
-
-
-
-      
-
-=======
-      <Link to="/AddPost" className="addPost">
+{/* ======= */}
+      {/* <Link to="/AddPost" className="addPost">
         Add post
-      </Link>
->>>>>>> 552be009971f95355b021162721eb75416048267
+      </Link> */}
+{/* >>>>>>> 552be009971f95355b021162721eb75416048267 */}
       {IsLooding ? (
         <>Loading</>
       ) : (
@@ -182,12 +177,22 @@ const Post = () => {
                   }
                 />
               </div>
+
               <div className="post-footer">
                 <div className="post-stats">
+
+
+              
                   <span className="like-count">{post.likeCount} Likes</span>
-                </div>
-              </div>
-              <div className="post-actions">
+
+
+
+
+
+
+
+
+                  <div className="post-actions">
                 <span
                   onClick={(e) => {
                     handleAddLike(e, post.id);
@@ -201,6 +206,28 @@ const Post = () => {
                 </span>
                 {/* <span className="comment-add">Comment</span> */}
               </div>
+
+                </div>
+              </div>
+
+              {/* ******************************* */}
+
+{/*               
+              <div className="post-actions">
+                <span
+                  onClick={(e) => {
+                    handleAddLike(e, post.id);
+                    e.currentTarget.classList.toggle("liked-this");
+                  }}
+                  className={
+                    post.userExistsInLikes ? "like-add liked-this" : "like-add"
+                  }
+                >
+                  <i className="fa-regular fa-heart  iconlike"></i>
+                </span> */}
+                {/* <span className="comment-add">Comment</span> */}
+              {/* </div> */}
+{/* *********************** */}
             </div>
           );
         })

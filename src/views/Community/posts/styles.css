@@ -8,12 +8,13 @@
 }
 .post {
   border-bottom: 1px solid #ccc;
-  width: 70%;
+  width: 40%;
   padding: 10px;
   margin-bottom: 20px;
   background-color: #ffffff;
   box-shadow: 5px 5px 30px #55585755;
   z-index: 2;
+  border-radius: 10px;
 }
 
 .post-header {
@@ -26,8 +27,8 @@
   color: red;
 }
 .profile-image {
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 50px;
   border-radius: 50%;
   margin-right: 10px;
   cursor: pointer;
@@ -57,8 +58,8 @@
 }
 
 .post-caption {
-  font-size: 14px;
-  padding: 10px;
+  font-size: 12px;
+  /* padding: 10px; */
   /* background-color: #eeeeee; */
 }
 .post-media {
@@ -82,15 +83,15 @@
 .comment-count,
 .like-count {
   margin-right: 10px;
-  font-size: 12px;
+  font-size: 15px;
   color: #888;
 }
 .comment-add,
 .like-add {
-  width: 45%;
+  width: 100%;
   text-align: center;
-  font-size: 18px;
-  color: hsl(0, 0%, 0%);
+  font-size: 17px;
+  color: hsl(0, 2%, 34%);
   -o-border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -103,7 +104,7 @@
   background-color: #ebebeb;
 }  */
 .post-actions {
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   justify-content: space-around;
 }

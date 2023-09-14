@@ -1,5 +1,4 @@
 .community .communiy-tabs {
-
   padding:8px 0px;
   padding-bottom: 15px;
   border-radius: 12px;
@@ -10,14 +9,19 @@
   cursor: pointer;
   background-color: #fff;
   margin-top: 15px;
+
 }
 .community .communiy-tabs span {
-  width: 100px;
-  padding: 5px 20px ;
   border-radius: 12px;
   margin-top: 10px;
   border: 1px solid #dbd8d8;
   text-align: center;
+  display: flex;
+  width: 180px;
+  padding: 8px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .community .communiy-tabs span.active {

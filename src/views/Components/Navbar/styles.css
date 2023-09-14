@@ -48,20 +48,21 @@
   transition: all 0.3s ease-in-out;
 }
 
+
 .rotates span:first-child {
-  transform: rotate(45deg) translateX(3px);
+  -o-transform: rotate(45deg) translateX(3px);
   -webkit-transform: rotate(45deg) translateX(3px);
   -moz-transform: rotate(45deg) translateX(3px);
   -ms-transform: rotate(45deg) translateX(3px);
-  -o-transform: rotate(45deg) translateX(3px);
+  transform: rotate(45deg) translateX(3px);
 }
 
 .rotates span:last-child {
-  transform: rotate(-45deg) translateX(3px);
+  -o-transform: rotate(-45deg) translateX(3px);
   -webkit-transform: rotate(-45deg) translateX(3px);
   -moz-transform: rotate(-45deg) translateX(3px);
   -ms-transform: rotate(-45deg) translateX(3px);
-  -o-transform: rotate(-45deg) translateX(3px);
+  transform: rotate(-45deg) translateX(3px);
 }
 
 .navbar .show-links {
@@ -81,16 +82,16 @@
   padding: 12px;
   margin: 0 5px;
   color: #000;
-  border-radius: 6px;
-  transition: all 0.3s ease-in;
+  -o-border-radius: 6px;
+  -o-transition: all 0.3s ease-in;
   -webkit-transition: all 0.3s ease-in;
   -moz-transition: all 0.3s ease-in;
   -ms-transition: all 0.3s ease-in;
-  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
-  -o-border-radius: 6px;
+  border-radius: 6px;
   cursor: default;
 }
 
@@ -110,11 +111,11 @@
   width: 10px;
   height: 1px;
   background-color: #000;
-  transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .navbar .nav-side {
   display: flex;
@@ -141,11 +142,11 @@
 .navbar .personal-img img {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
+  -o-border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
-  -o-border-radius: 50%;
+  border-radius: 50%;
 }
 
 @media (min-width: 900px) {
@@ -166,11 +167,11 @@
     padding: 10px 0;
     display: flex;
     flex-direction: column;
-    transform: translatey(140px);
+    -o-transform: translatey(140px);
     -webkit-transform: translatey(140px);
     -moz-transform: translatey(140px);
     -ms-transform: translatey(140px);
-    -o-transform: translatey(140px);
+    transform: translatey(140px);
   }
   .navbar .links {
     order: 2;
@@ -186,11 +187,11 @@
     display: block;
   }
   .navbar .show-links {
-    transform: translate(0, -400px);
+    -o-transform: translate(0, -400px);
     -webkit-transform: translate(0, -400px);
     -moz-transform: translate(0, -400px);
     -ms-transform: translate(0, -400px);
-    -o-transform: translate(0, -400px);
+    transform: translate(0, -400px);
     z-index: 1;
   }
 
@@ -206,28 +207,28 @@
     margin-top: 5px;
     width: 90%;
     text-align: center;
-    border-radius: 10px;
+    -o-border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    border-radius: 10px;
   }
 
   
   .rotates span:first-child {
-    transform: rotate(0deg) translateX(0px);
+    -o-transform: rotate(0deg) translateX(0px);
     -webkit-transform: rotate(0deg) translateX(0px);
     -moz-transform: rotate(0deg) translateX(0px);
     -ms-transform: rotate(0deg) translateX(0px);
-    -o-transform: rotate(0deg) translateX(0px);
+    transform: rotate(0deg) translateX(0px);
   }
 
   .rotates span:last-child {
-    transform: rotate(0deg) translateX(0px);
+    -o-transform: rotate(0deg) translateX(0px);
     -webkit-transform: rotate(0deg) translateX(0px);
     -moz-transform: rotate(0deg) translateX(0px);
     -ms-transform: rotate(0deg) translateX(0px);
-    -o-transform: rotate(0deg) translateX(0px);
+    transform: rotate(0deg) translateX(0px);
   }
 }
 @media (max-width: 470px) {

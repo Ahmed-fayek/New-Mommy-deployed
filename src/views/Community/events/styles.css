@@ -24,6 +24,8 @@
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     position: relative;
+box-shadow: 20px 20px  10px rgba(207, 201, 201, 0.32);
+    z-index:2;
 }
 
 
@@ -58,7 +60,7 @@
     background-color: transparent;
     position: absolute;
     left: 20px;
-    bottom: 15px;
+    bottom: 17px;
 }
 
 .container-seeall p:first-of-type {
@@ -190,7 +192,6 @@
 }
 
 .container-card__white__lefetcontent p:first-of-type {
-    align-self: self-start;
     width: 149px;
     color: #10403B;
     font-size: 18px;
