@@ -83,6 +83,8 @@ function Nav() {
       })
       .catch((error) => {});
   };
+  // console.log(myuser);
+
   if (logState != "notLogged") {
     return (
       <>

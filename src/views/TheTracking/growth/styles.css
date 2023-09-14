@@ -1,0 +1,84 @@
+.addgrowthbtn {
+  width: 250px;
+  height: 40px;
+  background-color: #7ef5e8;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 15px;
+  text-decoration: none;
+  color: #000000;
+}
+.all-growths {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+}
+.growths .growth {
+  border: 1px solid #81ccab;
+  border-radius: 15px;
+  width: 400px;
+  height: 160px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  position: relative;
+}
+.growths .growth::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 100%;
+  background-color: #7ef5e8;
+  left: 0;
+  top: 0;
+  border-radius: 15px 0 0 15px;
+  -webkit-border-radius: 15px 0 0 15px;
+  -moz-border-radius: 15px 0 0 15px;
+  -ms-border-radius: 15px 0 0 15px;
+  -o-border-radius: 15px 0 0 15px;
+}
+.growths .growth div {
+  width: 40%;
+}
+.growths .growth div span {
+  color: #81ccab;
+  margin-left: 5px;
+  font-size: 15px;
+}
+.growths .edit-growth {
+  padding: 0 5px 0 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.growths .edit-growth i {
+  color: #7ef5e8;
+}
+.growths .delete-growh-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.growths .delete-growh-btn button {
+  width: 150px;
+  height: 30px;
+  background-color: transparent;
+  color: #da0707;
+  border: 1px solid #da0707;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+}

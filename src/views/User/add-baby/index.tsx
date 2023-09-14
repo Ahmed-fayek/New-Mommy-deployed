@@ -55,6 +55,7 @@ const AddBaby = () => {
           },
         })
           .then((response) => {
+            setRefresh(!Refresh);
             // setactivity(response.data.activity.activity);
             // setstartDate(response.data.activity.date);
             // settime(response.data.activity.time.slice(0, 5));
@@ -240,7 +241,10 @@ const AddBaby = () => {
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text button-addbabbysucces"> Add baby</span>
+            <span className="button__text button-addbabbysucces">
+              {" "}
+              Add baby
+            </span>
           </button>
           {/* Skip Button */}
           <button

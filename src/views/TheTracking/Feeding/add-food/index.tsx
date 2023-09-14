@@ -119,7 +119,7 @@ const AddFood = () => {
 
           // Redirect to main page after 3 seconds
           setTimeout(() => {
-            navigator("/main");
+            navigator("/tracking");
           }, 3000);
         })
         .catch((err) => {
@@ -149,7 +149,7 @@ const AddFood = () => {
 
           // Redirect to main page after 3 seconds
           setTimeout(() => {
-            navigator("/main");
+            navigator("/tracking");
           }, 3000);
         })
         .catch((err) => {
@@ -164,7 +164,7 @@ const AddFood = () => {
     <div className="add-food">
       <div className="container">
         <div className="signup-block">
-          {/*Date */}
+          <h2>{Update ? "Edit" : "Add"} Food</h2>{" "}
           <div className="input__field">
             <label htmlFor="Date"> Date</label>
             <input
@@ -196,7 +196,6 @@ const AddFood = () => {
               required
             />
           </div>
-
           {/* food */}
           <div className="input__field">
             <label htmlFor="food"> food</label>
@@ -251,12 +250,12 @@ const AddFood = () => {
           {/*Go to Main */}
           <button
             onClick={() => {
-              navigator("/main");
+              navigator("/traacking");
             }}
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> Go to Main</span>
+            <span className="button__text"> Cancel</span>
           </button>
         </div>
         <div className="msg">

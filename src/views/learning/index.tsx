@@ -63,13 +63,7 @@ const Learning = () => {
           {returnedcomp.map((ele) => {
             return ele;
           })}
-          <div>
-            <iframe
-              src={`https://www.youtube.com/embed/P89gIMp9E90`}
-              frameBorder="0"
-              allowFullScreen
-            />
-          </div>{" "}
+          <div></div>
         </div>
       </>
     );

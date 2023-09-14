@@ -8,6 +8,8 @@ import { sendFriendRequest } from "../../../../api";
 const AddFriends = () => {
   const { auth } = useContext<any>(AuthContext);
   const { allUsers } = useContext<any>(CommunityContext);
+  const { friends } = useContext<any>(CommunityContext);
+  const { setfriends } = useContext<any>(CommunityContext);
   const { setRefresh } = useContext<any>(AuthContext);
   const { Refresh } = useContext<any>(AuthContext);
   const [friendRequestStatus, setFriendRequestStatus] = useState<{
@@ -33,29 +35,44 @@ const AddFriends = () => {
         });
     }
   };
+  console.log(friends);
   return (
     <div>
       <h2>Suggested people</h2>
       <div className="add-friends">
-        {allUsers.map((user: any, index: number) => (
-          <div className="recom-person">
-            <div className="img-div">
-              <img src={pic} alt="img" />
-            </div>
-            <div className="person-info">
-              <p key={index}>
-                {user.firstname} {user.lastname}
-              </p>
-              <button
-                onClick={() => {
-                  addFriends(user.id);
-                }}
-              >
-                {friendRequestStatus[user.id] ? "Delete" : "Add Friend"}
-              </button>
-            </div>
-          </div>
-        ))}
+        {allUsers.map((user: any, index: number) => {
+          return friends.friendList.map((friend: any) => {
+            if (
+              friend.id != user.id &&
+              user.firstname != undefined &&
+              index < 10
+            ) {
+              return (
+                <>
+                  <div className="recom-person">
+                    <div className="img-div">
+                      <img src={pic} alt="img" />
+                    </div>
+                    <div className="person-info">
+                      <p key={index}>
+                        {user.firstname} {user.lastname}
+                      </p>
+                      <button
+                        onClick={() => {
+                          addFriends(user.id);
+                        }}
+                      >
+                        {friendRequestStatus[user.id]
+                          ? "Request sent"
+                          : "Add Friend"}
+                      </button>
+                    </div>
+                  </div>
+                </>
+              );
+            }
+          });
+        })}
       </div>
     </div>
   );

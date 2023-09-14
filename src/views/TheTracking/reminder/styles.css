@@ -1,4 +1,84 @@
-.reminder{
-    margin-top: 250px;
-    margin-left: 250px;
+.reminders {
+  width: 100%;
+  height: auto;
+  padding: 15px;
+}
+.reminders .all-reminders {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+}
+.reminders h1 {
+  width: 100%;
+  text-align: center;
+  margin: 25px 0;
+}
+.addReminderbtn {
+  width: 250px;
+  height: 40px;
+  background-color: #81ccab;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  color: #000000;
+}
+.reminders .reminder {
+  width: 350px;
+  height: 130px;
+  border: 1px solid #81ccab;
+  border-radius: 18px;
+  -webkit-border-radius: 18px;
+  -moz-border-radius: 18px;
+  -ms-border-radius: 18px;
+  -o-border-radius: 18px;
+}
+.reminders .reminder .reminder-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+.reminders .reminder .fa-stopwatch-20 {
+  font-size: 50px;
+  color: #81ccab;
+}
+.reminders .reminder .reminder-time {
+  width: 200px;
+  left: -50px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.reminders .reminder .reminder-note {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0em;
+  margin-left: 10px;
+}
+.reminders .reminder .reminder-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 5px 10px;
+}
+.reminders .reminder .stop-reminder {
+  width: 115px;
+  height: 30px;
+  background-color: transparent;
+  border: 1px solid #f04545;
+  color: #f04545;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  cursor: pointer;
 }

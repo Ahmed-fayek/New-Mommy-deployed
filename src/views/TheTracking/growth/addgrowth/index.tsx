@@ -13,8 +13,8 @@ const AddGrowth = () => {
 
   let currentDate: Date = new Date();
   let dateFormat = currentDate.toJSON().slice(0, 10);
-  const [weight, setweight] = useState<number>();
-  const [height, setheight] = useState<number>();
+  const [weight, setweight] = useState<number>(0);
+  const [height, setheight] = useState<number>(0);
   const [reportDate, setreportDate] = useState<string>(dateFormat);
   const [weightErrMsg, setweightErrMsg] = useState<string>("");
   const [heightErrMsg, setheightErrMsg] = useState<string>("");
@@ -102,7 +102,7 @@ const AddGrowth = () => {
 
           // Redirect to main page after 3 seconds
           setTimeout(() => {
-            navigator("/main");
+            navigator("/tracking");
           }, 3000);
         })
         .catch((err) => {
@@ -131,7 +131,7 @@ const AddGrowth = () => {
 
           // Redirect to main page after 3 seconds
           setTimeout(() => {
-            navigator("/main");
+            navigator("/tracking");
           }, 3000);
         })
         .catch((err) => {
@@ -146,7 +146,7 @@ const AddGrowth = () => {
     <div className="add-growth">
       <div className="container">
         <div className="signup-block">
-          {/*Date */}
+          <h2>{Update ? "Edit" : "Add"} Growth</h2>{" "}
           <div className="input__field">
             <label htmlFor="Date"> Date</label>
             <input
@@ -163,7 +163,6 @@ const AddGrowth = () => {
               required
             />
           </div>
-
           {/* weight */}
           <div className="input__field">
             <label htmlFor="weight">weight</label>
@@ -218,12 +217,12 @@ const AddGrowth = () => {
           {/*skip now */}
           <button
             onClick={() => {
-              navigator("/main");
+              navigator("/tracking");
             }}
             className="button addbaby__submit"
             type="submit"
           >
-            <span className="button__text"> skip now</span>
+            <span className="button__text"> Cancel</span>
           </button>
         </div>
         <div className="msg">

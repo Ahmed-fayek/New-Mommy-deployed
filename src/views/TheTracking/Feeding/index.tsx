@@ -9,7 +9,7 @@ import Loading from "../../../components/Loading";
 function Feeding() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
-  const [reminders, setreminders] = useState([]);
+  const [foods, setfoods] = useState([]);
   const [update, setupdate] = useState(false);
   const { setRefresh } = useContext<any>(AuthContext);
   const { Refresh } = useContext<any>(AuthContext);
@@ -56,9 +56,7 @@ function Feeding() {
       };
       axios(config)
         .then((response) => {
-          // //console.log(response.data.meals);
-
-          setreminders(response.data.meals);
+          setfoods(response.data.meals);
         })
         .catch((error) => {
           if (error.response.status == "401") {
@@ -70,18 +68,34 @@ function Feeding() {
 
   let returned: any;
   if (user) {
-    returned = reminders.map((reminder: any) => {
+    returned = foods.map((food: any) => {
+      console.log(food);
+
       return (
-        <div className="reminder" key={reminder.id}>
-          <div>{reminder.id} </div>
-          <Link to={`/addfood/${reminder.id}`}>Update</Link>
-          <button
-            onClick={() => {
-              handleDelete(reminder.id);
-            }}
-          >
-            Delete
-          </button>
+        <div className="food" key={food.id}>
+          <div className="feed-header">
+            <span>
+              <i className="fa-solid fa-utensils"></i>
+            </span>
+            <span className="food-name">{food.food}</span>
+            <Link to={`/addfood/${food.id}`}>
+              <i className="fa-regular fa-pen-to-square"></i>
+            </Link>
+          </div>
+          <div className="feed-center">
+            <span>{food.note}</span>
+            <span>{food.date}</span>
+          </div>
+          <div className="feed-footer">
+            <button
+              onClick={() => {
+                handleDelete(food.id);
+              }}
+            >
+              Delete
+            </button>
+            <span>{food.time}</span>
+          </div>
         </div>
       );
     });
@@ -90,9 +104,13 @@ function Feeding() {
   }
 
   return (
-    <div>
-      <Link to={"/addfood"}>addfood</Link> <br></br>
-      {returned}
+    <div className="foods">
+      <h1>Feeding</h1>
+      <Link to={"/addfood"} className="addfoodbtn">
+        Add New food
+      </Link>
+      <br></br>
+      <div className="all-foods">{returned}</div>
     </div>
   );
 }
