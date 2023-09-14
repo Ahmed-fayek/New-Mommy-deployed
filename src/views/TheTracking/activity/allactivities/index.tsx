@@ -69,20 +69,31 @@ function Activity() {
   if (user) {
     returned = activitys.map((activity: any) => {
       return (
-        <div style={{ margin: "50px" }} className="reminder" key={activity.id}>
-          <h1> {activity.activity}</h1>
-          <div>{activity.id} </div>
-          <div>{activity.date} </div>
-          <div> {activity.note}</div>
-          <div> {activity.time}</div>
-          <button
-            onClick={() => {
-              handleDelete(activity.id);
-            }}
-          >
-            delete
-          </button>
-          <Link to={`/addactivity/${activity.id}`}>update</Link>
+        <div className="activity" key={activity.id}>
+          <div className="feed-header">
+            <span>
+              <i className="fa-solid fa-utensils"></i>
+            </span>
+            <span className="activity-name">{activity.activity}</span>
+            <Link to={`/addactivity/${activity.id}`}>
+              <i className="fa-regular fa-pen-to-square"></i>
+            </Link>
+          </div>
+          <div className="feed-center">
+            <span>{activity.note}</span>
+            <span>{activity.date}</span>
+          </div>
+          <div className="feed-footer">
+            <button
+              className="removefeedbtn"
+              onClick={() => {
+                handleDelete(activity.id);
+              }}
+            >
+              remove feed
+            </button>
+            <span>{activity.time}</span>
+          </div>
         </div>
       );
     });
@@ -91,11 +102,13 @@ function Activity() {
   }
 
   return (
-    <div className="act">
-      <Link to={`/addactivity`} className="addactivitybtn">
-        add new activity
+    <div className="activitys">
+      <h1>Activity</h1>
+      <Link to={"/addactivity"} className="addactivitybtn">
+        Add New activity
       </Link>
-      {returned}
+      <br></br>
+      <div className="all-activitys">{returned}</div>
     </div>
   );
 }

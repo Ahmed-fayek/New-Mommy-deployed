@@ -1,16 +1,20 @@
-function BabyAge(start: string, end: string) {
-    let birthdate="2022-07-17"
-    let eventdate = "2023-05-10"
+function BabyAge(start: string) {
+    let birthdate=start;
+    const eventDate = new Date();
+const currentDateString = eventDate.toISOString();
+console.log(currentDateString);
+console.log(birthdate);
+
     let years = 0;
     let months = 0;
     let days = 0;
-    years = +eventdate.slice(0, 4)-(+birthdate.slice(0, 4));
-    months = +eventdate.slice(5, 7) - (+birthdate.slice(5, 7));
+    years = +currentDateString.slice(0, 4)-(+birthdate.slice(0, 4));
+    months = +currentDateString.slice(5, 7) - (+birthdate.slice(5, 7));
     if (months < 0) {
         years -= 1;
         months = 12 + months;
     }
-    days = +eventdate.slice(8, 10) - (+birthdate.slice(8, 10));
+    days = +currentDateString.slice(8, 10) - (+birthdate.slice(8, 10));
         if (days < 0) {
             months -= 1;
             days = 30 + days;
