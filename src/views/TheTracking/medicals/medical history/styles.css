@@ -1,74 +1,137 @@
-*{
-    margin: 0;
-    padding: 0;
-    
+* {
+  margin: 0;
+  padding: 0;
 }
-.medicals{
-    width: 100vw;
-    height: 100vh;
+.medicals {
+  width: 100%;
+  margin: 20px 0;
 }
-.medicals .conainer{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-        width: 100%;
-            height: 100%;
+.medicals .conainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+.addmedicalbtn {
+  width: 250px;
+  height: 40px;
+  background-color: #d8ffd1;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 15px;
+  text-decoration: none;
+  color: #000000;
+}
+.all-medicals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+}
+.medicals .medical {
+  border: 1px solid #d8ffd1;
+  border-radius: 15px;
+  width: 500px;
+  height: 160px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  position: relative;
+}
+.medicals .medical::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 100%;
+  background-color: #d8ffd1;
+  left: 0;
+  top: 0;
+  border-radius: 15px 0 0 15px;
+  -webkit-border-radius: 15px 0 0 15px;
+  -moz-border-radius: 15px 0 0 15px;
+  -ms-border-radius: 15px 0 0 15px;
+  -o-border-radius: 15px 0 0 15px;
+}
+.medicals .medical div {
+  width: 40%;
+}
+.medicals .medical div span {
+  color: #000;
+  margin-left: 5px;
+  font-size: 15px;
+}
+.medicals .edit-medical {
+  padding: 0 5px 0 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.medicals .edit-medical i {
+  color: #d8ffd1;
+}
+.medicals .delete-growh-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.medicals .delete-growh-btn button {
+  width: 150px;
+  height: 30px;
+  background-color: transparent;
+  color: #da0707;
+  border: 1px solid #da0707;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+}
 
+/***************************************************************/
+.medicals .decuments {
+  width: 90%;
+  height: 600px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.medicals .last-view{
-    width: 40%;
-    height: 600px;
-    background-color: aqua;
-        display: flex;
-            flex-direction: column;
-            align-items: center;
+.medicals .document {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  height: 80px;
+  background-color: aliceblue;
+  padding: 0 20px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
-
-.medicals .last-view .visit{
-    width: 80%;
-background-color: aliceblue;
-padding: 20px;
-            border-radius: 10px;
+.medicals .document img {
+  margin-right: 30px;
+  width: 80px;
+  height: 80px;
 }
-
-.medicals .last-view .visit .nameAndAge,
-.medicals .last-view .visit .diagAndDate {
-        display: flex;
-            justify-content: space-between;
+.medicals .document .docInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
-.medicals .decuments{
-        width: 40%;
-            height: 600px;
-            background-color:blue;
-                display: flex;
-                    flex-direction: column;
-                    align-items: center;
-
-}
-.medicals  .document{
-            display: flex;
-            justify-content: space-between;
-            width: 80%;
-            height: 80px;
-            background-color: aliceblue;
-            padding: 0 20px;
-            border-radius: 10px;
-            -webkit-border-radius: 10px;
-            -moz-border-radius: 10px;
-            -ms-border-radius: 10px;
-            -o-border-radius: 10px;
-}
-.medicals .document img{
-    margin-right: 30px;
-    width: 80px;
-    height: 80px;
-}
-.medicals .document .docInfo{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-.medicals .document .dateAndSize{
-    display: flex;
-    justify-content: space-between;
+.medicals .document .dateAndSize {
+  display: flex;
+  justify-content: space-between;
 }

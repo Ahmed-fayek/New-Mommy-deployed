@@ -80,7 +80,7 @@ function Reminder() {
               <i className="fa-regular fa-pen-to-square"></i>
             </Link>
           </div>
-          <div className="reminder-note">{reminder.note} </div>
+          <div className="reminder-note">Notes: {reminder.note} </div>
           <div className="reminder-footer">
             <div className="reminder-date">Date: {reminder.date}</div>
             <button

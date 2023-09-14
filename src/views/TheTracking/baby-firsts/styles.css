@@ -69,8 +69,9 @@
   padding: 5px 15px 0 20px;
 }
 .firsts .first .feed-center img {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: auto;
+  max-height: 170px;
 }
 .firsts .first .feed-footer {
   width: 100%;
