@@ -27,7 +27,7 @@ function Activity() {
       if (result.isConfirmed) {
         axios({
           method: "delete",
-          url: `https:newMommy.mooo.com:3002/api/users/activity/${itemid}`,
+          url: `${AddNewCategory}/activity/${itemid}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
           },

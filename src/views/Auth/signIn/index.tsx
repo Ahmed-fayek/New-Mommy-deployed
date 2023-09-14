@@ -95,14 +95,14 @@ const SignIn = () => {
         <div className="welcome-msg">
           <div className="auth-welcome-container">
             <div className="welcome-app-logo">
-              <img src={welcomeimg} alt="" />
+              <img src={welcomeimg} alt="img" />
               <h1>Welcome Back!</h1>
             </div>
           </div>
         </div>
         <div className="login-block">
           <div className="r-welcome-app-logo">
-            <img src={welcomeimg} alt="" />
+            <img src={welcomeimg} alt="img" />
           </div>
           <div className="login-auth-head">
             <h1 className="Welcome-back">Login</h1>

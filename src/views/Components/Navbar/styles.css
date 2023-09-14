@@ -48,7 +48,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-
 .rotates span:first-child {
   -o-transform: rotate(45deg) translateX(3px);
   -webkit-transform: rotate(45deg) translateX(3px);
@@ -214,21 +213,20 @@
     border-radius: 10px;
   }
 
-  
   .rotates span:first-child {
-    -o-transform: rotate(0deg) translateX(0px);
-    -webkit-transform: rotate(0deg) translateX(0px);
-    -moz-transform: rotate(0deg) translateX(0px);
-    -ms-transform: rotate(0deg) translateX(0px);
-    transform: rotate(0deg) translateX(0px);
+    -o-transform: rotate(45deg) translateX(3px);
+    -webkit-transform: rotate(45deg) translateX(3px);
+    -moz-transform: rotate(45deg) translateX(3px);
+    -ms-transform: rotate(45deg) translateX(3px);
+    transform: rotate(45deg) translateX(3px);
   }
 
   .rotates span:last-child {
-    -o-transform: rotate(0deg) translateX(0px);
-    -webkit-transform: rotate(0deg) translateX(0px);
-    -moz-transform: rotate(0deg) translateX(0px);
-    -ms-transform: rotate(0deg) translateX(0px);
-    transform: rotate(0deg) translateX(0px);
+    -o-transform: rotate(-45deg) translateX(3px);
+    -webkit-transform: rotate(-45deg) translateX(3px);
+    -moz-transform: rotate(-45deg) translateX(3px);
+    -ms-transform: rotate(-45deg) translateX(3px);
+    transform: rotate(-45deg) translateX(3px);
   }
 }
 @media (max-width: 470px) {

@@ -12,6 +12,7 @@ import { useContext, useState } from "react";
 import "./styles.css";
 import AuthContext from "../../../../context/AuthProvider";
 import { useParams } from "react-router-dom";
+import { postGroup } from "../../../../api";
 const AddPostGroup = () => {
   const { groupid } = useParams();
   const { auth } = useContext<any>(AuthContext);
@@ -44,7 +45,7 @@ const AddPostGroup = () => {
       formdata.append("caption", caption);
       axios({
         method: "POST",
-        url: `https://newMommy.mooo.com:3003/api/postGroup/${groupid}`,
+        url: `${postGroup}/${groupid}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },

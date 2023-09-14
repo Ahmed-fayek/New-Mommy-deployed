@@ -4,6 +4,7 @@ import AuthContext from "../../../context/AuthProvider";
 import postimg from "./../../../assets/images/bro.svg";
 import "./styles.css";
 import { Link, useNavigate } from "react-router-dom";
+import { Feed, Like, Newpost, unlike } from "../../../api";
 const Post = () => {
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
@@ -21,7 +22,7 @@ const Post = () => {
     if (auth) {
       axios({
         method: "GET",
-        url: "https://newMommy.mooo.com:3003/api/feed",
+        url: `${Feed}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -44,7 +45,7 @@ const Post = () => {
       if (auth) {
         axios({
           method: "Post",
-          url: `https://newMommy.mooo.com:3003/api/unlike/${id}`,
+          url: `${unlike}/${id}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
           },
@@ -63,7 +64,7 @@ const Post = () => {
       if (auth) {
         axios({
           method: "Post",
-          url: `https://newMommy.mooo.com:3003/api/Like/${id}`,
+          url: `${Like}/${id}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
           },
@@ -85,7 +86,7 @@ const Post = () => {
     if (auth) {
       axios({
         method: "DELETE",
-        url: `https://newMommy.mooo.com:3003/api/post/${post.id}`,
+        url: `${Newpost}/${post.id}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },

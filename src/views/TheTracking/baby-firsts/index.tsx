@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import AuthContext from "../../../context/AuthProvider";
 import Loading from "../../../components/Loading";
+import { AddNewCategory } from "../../../api";
 function BabyFirsts() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
@@ -18,7 +19,7 @@ function BabyFirsts() {
     if (user) {
       const config = {
         method: "get",
-        url: `https://newMommy.mooo.com:3002/api/users/allFirsts/${user.baby[0].id}`,
+        url: `${AddNewCategory}/allFirsts/${user.baby[0].id}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -48,7 +49,7 @@ function BabyFirsts() {
       if (result.isConfirmed) {
         axios({
           method: "delete",
-          url: `https:newMommy.mooo.com:3002/api/users/first/${itemid}`,
+          url: `${AddNewCategory}/first/${itemid}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
           },
@@ -73,7 +74,7 @@ function BabyFirsts() {
           <div>{first.id} </div>
           <div> {first.babyFirst}</div>
           <div>{first.date} </div>
-          <img src={first.image} width={"100px"} height={"100px"}></img>
+          <img src={first.image} width={"100px"} height={"100px"} alt="img" />
           <button
             onClick={() => {
               handleDelete(first.id);

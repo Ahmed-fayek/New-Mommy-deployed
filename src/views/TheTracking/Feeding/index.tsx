@@ -27,7 +27,7 @@ function Feeding() {
       if (result.isConfirmed) {
         axios({
           method: "delete",
-          url: `https:newMommy.mooo.com:3002/api/users/meal/${itemid}`,
+          url: `${AddNewCategory}/meal/${itemid}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
           },

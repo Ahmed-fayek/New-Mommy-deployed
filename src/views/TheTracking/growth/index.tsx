@@ -50,7 +50,7 @@ function Growth() {
       if (result.isConfirmed) {
         axios({
           method: "delete",
-          url: `https:newMommy.mooo.com:3002/api/users/growthMilestone/${itemid}`,
+          url: `${AddNewCategory}/growthMilestone/${itemid}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
           },

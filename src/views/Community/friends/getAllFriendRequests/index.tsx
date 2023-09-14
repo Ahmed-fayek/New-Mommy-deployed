@@ -4,6 +4,7 @@ import AuthContext from "../../../../context/AuthProvider";
 import CommunityContext from "../../../../context/CommunityProvider";
 import pic from "./../../../../assets/images/istockphoto-1130884625-612x612.jpg";
 import "./styles.css";
+import { acceptFriendRequest, rejectFriendRequest } from "../../../../api";
 const GetAllFriendRequests = () => {
   const { auth } = useContext<any>(AuthContext);
   const { friendRequests, allUsers, isLoading } =
@@ -18,7 +19,7 @@ const GetAllFriendRequests = () => {
     if (auth) {
       axios({
         method: "POST",
-        url: `https://newMommy.mooo.com:3003/api/acceptFriendRequest/${requestId}`,
+        url: `${acceptFriendRequest}/${requestId}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -38,7 +39,7 @@ const GetAllFriendRequests = () => {
     if (auth) {
       axios({
         method: "POST",
-        url: `https://newMommy.mooo.com:3003/api/rejectFriendRequest/${requestId}`,
+        url: `${rejectFriendRequest}/${requestId}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -64,7 +65,7 @@ const GetAllFriendRequests = () => {
       {friendRequests.map((request: any) => {
         return (
           <div className="friend-req" key={request.id}>
-            <img src={pic} alt="" />
+            <img src={pic} alt="img" />
             <p>
               {getUserById(request.user1Id)?.firstname}{" "}
               {getUserById(request.user1Id)?.lastname}

@@ -17,11 +17,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background: linear-gradient(
-    180deg,
-    rgba(129, 204, 171, 0.65) 0%,
-    rgba(229, 234, 232, 0.2) 100%
-  );
+  background: #fff;
   overflow-x: hidden;
 } */
 

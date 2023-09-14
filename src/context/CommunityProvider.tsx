@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import axios from "axios";
 import AuthContext from "./AuthProvider";
+import { AllUsers, allSentFriendRequests } from "../api";
 const CommunityContext = createContext({});
 export const CommunityProvider = ({ children }: any) => {
   const [communitytab, setCommunitytab] = useState<string>("Posts");
@@ -19,7 +20,7 @@ export const CommunityProvider = ({ children }: any) => {
       setIsLoading(true);
       axios({
         method: "GET",
-        url: "https://newMommy.mooo.com:3003/api/allSentFriendRequests/",
+        url: allSentFriendRequests,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -36,7 +37,7 @@ export const CommunityProvider = ({ children }: any) => {
 
       axios({
         method: "GET",
-        url: "https://newMommy.mooo.com:3002/api/users",
+        url: AllUsers,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },

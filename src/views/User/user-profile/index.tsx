@@ -6,6 +6,7 @@ import "./styles.css";
 import Loading from "../../../components/Loading";
 import defaultimg from "./../../../assets/images/Layer 1.svg";
 import defaultpimg from "./../../../assets/images/momandbaby.png";
+import { Like, profileById, unlike } from "../../../api";
 
 const UserProfile = () => {
   const { auth } = useContext<any>(AuthContext);
@@ -19,7 +20,7 @@ const UserProfile = () => {
     if (auth) {
       axios({
         method: "GET",
-        url: `https://newMommy.mooo.com:3003/api/profileById/${userid}`,
+        url: `${profileById}/${userid}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -41,7 +42,7 @@ const UserProfile = () => {
       if (auth) {
         axios({
           method: "Post",
-          url: `https://newMommy.mooo.com:3003/api/unlike/${id}`,
+          url: `${unlike}/${id}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
           },
@@ -60,7 +61,7 @@ const UserProfile = () => {
       if (auth) {
         axios({
           method: "Post",
-          url: `https://newMommy.mooo.com:3003/api/Like/${id}`,
+          url: `${Like}/${id}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
           },
@@ -86,12 +87,12 @@ const UserProfile = () => {
             <div className="cover">
               <img
                 src={profile.user.cover ? profile.user.cover : defaultimg}
-                alt=""
+                alt="img"
               />
               <div className="profileimg">
                 <img
                   src={profile.user.image ? profile.user.image : defaultpimg}
-                  alt=""
+                  alt="img"
                 />
               </div>
             </div>

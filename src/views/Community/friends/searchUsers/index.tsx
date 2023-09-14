@@ -3,6 +3,7 @@ import axios from "axios";
 import AuthContext from "../../../../context/AuthProvider";
 import "./styles.css";
 import pic from "./../../../../assets/images/istockphoto-1130884625-612x612.jpg";
+import { sendFriendRequest } from "../../../../api";
 const SearchUsers = () => {
   const { auth } = useContext<any>(AuthContext);
   const [searchQuery, setSearchQuery] = useState("");
@@ -13,7 +14,7 @@ const SearchUsers = () => {
   }>({});
   useEffect(() => {
     const fetchAllUsers = async () => {
-      if (auth ) {
+      if (auth) {
         try {
           const response = await axios.get(
             `https://newMommy.mooo.com:3002/api/users`,
@@ -45,12 +46,12 @@ const SearchUsers = () => {
       );
     }
   }, [searchQuery]);
-console.log(searchResults)
+  console.log(searchResults);
   const addFriends = async (id: number) => {
-    if (auth ) {
+    if (auth) {
       await axios({
         method: "post",
-        url: `https://newMommy.mooo.com:3003/api/sendFriendRequest/${id}`,
+        url: `${sendFriendRequest}/${id}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -72,30 +73,33 @@ console.log(searchResults)
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
-      {searchResults
-        .map((users) =>
-          users.map((user: any) => (
-            <div className="add-friend" key={user.id}>
-              {user.firstname || user.lastname ? (
-                <div className="user-info">
-                  <img src={pic}/>
-                  <p>
-                    {user.firstname} {user.lastname}
-                  </p>
-                </div>
-              ) : ""}
-              {user.firstname || user.lastname ? (
-                <button
-                  onClick={() => {
-                    addFriends(user.id);
-                  }}
-                >
-                  {friendRequestStatus[user.id] ? "Delete" : "Add Friend"}
-                </button>
-              ) : ""}
-            </div>
-          ))
-        )}
+      {searchResults.map((users) =>
+        users.map((user: any) => (
+          <div className="add-friend" key={user.id}>
+            {user.firstname || user.lastname ? (
+              <div className="user-info">
+                <img src={pic} alt="img" />
+                <p>
+                  {user.firstname} {user.lastname}
+                </p>
+              </div>
+            ) : (
+              ""
+            )}
+            {user.firstname || user.lastname ? (
+              <button
+                onClick={() => {
+                  addFriends(user.id);
+                }}
+              >
+                {friendRequestStatus[user.id] ? "Delete" : "Add Friend"}
+              </button>
+            ) : (
+              ""
+            )}
+          </div>
+        ))
+      )}
     </div>
   );
 };

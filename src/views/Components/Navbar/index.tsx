@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../../context/AuthProvider";
 import axios from "../../../api/axios";
+import { logootApi, profileById } from "../../../api";
 function Nav() {
   const { user } = useContext<any>(AuthContext);
   const navigator = useNavigate();
@@ -32,7 +33,7 @@ function Nav() {
     if (auth && user) {
       axios({
         method: "GET",
-        url: `https://newMommy.mooo.com:3003/api/profileById/${user.id}`,
+        url: `${profileById}/${user.id}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -54,11 +55,18 @@ function Nav() {
     document.getElementById("view-links")?.classList.toggle("show-links");
     document.getElementById("bars")?.classList.toggle("rotates");
   };
+  const handleRemoveRessponsive = () => {
+    if (document.getElementById("bars")?.classList.contains("rotates")) {
+      document.getElementById("bars")?.classList.toggle("rotates");
+      document.getElementById("view-links")?.classList.toggle("show-links");
+    }
+  };
   //logout function
   const logout = async () => {
+    handleRemoveRessponsive();
     await axios({
       method: "POST",
-      url: "https://newMommy.mooo.com:3001/api/auth/logout",
+      url: `${logootApi}`,
       headers: {
         Authorization: `Bearer ${auth?.access_token}`,
       },
@@ -80,12 +88,12 @@ function Nav() {
       <>
         <div className="navbar">
           <div className="app-logo">
-            <img src={logo}></img>
+            <img src={logo} alt="img" />
           </div>
           <div className="left-side"></div>
           <div className="links">
             <div
-              className="bars rotates"
+              className="bars "
               id="bars"
               onClick={() => {
                 toogleview();
@@ -96,22 +104,32 @@ function Nav() {
             </div>
             <ul id="view-links" className="show-links">
               <li>
-                <Link to={"/main"}>Home</Link>
+                <Link onClick={handleRemoveRessponsive} to={"/main"}>
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to={"/community"}>Community</Link>
+                <Link onClick={handleRemoveRessponsive} to={"/community"}>
+                  Community
+                </Link>
               </li>
 
               <li>
-                <Link to={"/tracking"}>Tracking</Link>
+                <Link onClick={handleRemoveRessponsive} to={"/tracking"}>
+                  Tracking
+                </Link>
               </li>
 
               <li>
-                <Link to={"/learning"}>Learning</Link>
+                <Link onClick={handleRemoveRessponsive} to={"/learning"}>
+                  Learning
+                </Link>
               </li>
-              <li>
-                <Link to={"/main"}>Shop</Link>
-              </li>
+              {/* <li>
+                <Link onClick={handleRemoveRessponsive} to={"/main"}>
+                  Shop
+                </Link>
+              </li> */}
               <li>
                 <span
                   onClick={() => {
@@ -141,7 +159,7 @@ function Nav() {
                   src={
                     myuser.user.image != null ? myuser.user.image : personalimg
                   }
-                  alt=""
+                  alt="img"
                 />
               ) : (
                 <img
@@ -149,7 +167,7 @@ function Nav() {
                     navigator("/my-profile");
                   }}
                   src={personalimg}
-                  alt=""
+                  alt="img"
                 />
               )}
             </div>

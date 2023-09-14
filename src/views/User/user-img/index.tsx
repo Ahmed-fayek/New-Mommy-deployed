@@ -1,6 +1,7 @@
 import axios from "axios";
 import AuthContext from "../../../context/AuthProvider";
 import React, { useState, useContext, useEffect } from "react";
+import { uploadProfileImage } from "../../../api";
 
 const UserImg = () => {
   const { auth } = useContext<any>(AuthContext);
@@ -24,7 +25,7 @@ const UserImg = () => {
       if (user) {
         axios({
           method: "POST",
-          url: "https://newmommy.mooo.com:3003/api/uploadProfileImage",
+          url: `${uploadProfileImage}`,
           data: formData,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
@@ -64,7 +65,7 @@ const UserImg = () => {
   //             });
   //       }
   //       })
-   console.log(user)
+  console.log(user);
   return (
     <div style={{ marginTop: "100px" }}>
       <form onSubmit={handleSubmit}>

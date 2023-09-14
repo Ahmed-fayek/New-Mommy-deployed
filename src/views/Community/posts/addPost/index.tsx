@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import "./styles.css";
 import AuthContext from "../../../../context/AuthProvider";
+import { postProfile } from "../../../../api";
 const AddPost = () => {
   const { auth } = useContext<any>(AuthContext);
   const [images, setImages] = useState<any>();
@@ -33,7 +34,7 @@ const AddPost = () => {
       formdata.append("caption", caption);
       axios({
         method: "POST",
-        url: `https://newMommy.mooo.com:3003/api/postProfile`,
+        url: `${postProfile}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },

@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import gpimg from "./../../../../assets/images/Group 34416.svg";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
+import { joinGroup, recommendedGroups } from "../../../../api";
 const RecommendedGroups = () => {
   const { auth } = useContext<any>(AuthContext);
   const [recGroups, setrecGroups] = useState<any>();
@@ -17,7 +18,7 @@ const RecommendedGroups = () => {
     if (auth) {
       axios({
         method: "GET",
-        url: "https://newMommy.mooo.com:3003/api/recommendedGroups",
+        url: `${recommendedGroups}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -36,7 +37,7 @@ const RecommendedGroups = () => {
   const handleJoinGroup = (e: any) => {
     axios({
       method: "Post",
-      url: `https://newMommy.mooo.com:3003/api/joinGroup/${e}`,
+      url: `${joinGroup}/${e}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
@@ -65,7 +66,7 @@ const RecommendedGroups = () => {
                       Navigate(`/GroupView/${group.id}`);
                     }}
                     src={gpimg}
-                    alt=""
+                    alt="img"
                   />
                   <div className="group-data">
                     <div className="group-info">

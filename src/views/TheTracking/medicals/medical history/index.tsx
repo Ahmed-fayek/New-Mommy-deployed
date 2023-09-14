@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import AuthContext from "../../../../context/AuthProvider";
 import Loading from "../../../../components/Loading";
+import { AddNewCategory } from "../../../../api";
 function MedicalHistory() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
@@ -20,7 +21,7 @@ function MedicalHistory() {
     if (user) {
       const config = {
         method: "get",
-        url: `https://newMommy.mooo.com:3002/api/users/allDocuments/${user.baby[0].id}`,
+        url: `${AddNewCategory}/allDocuments/${user.baby[0].id}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -42,7 +43,7 @@ function MedicalHistory() {
     if (user) {
       const config = {
         method: "get",
-        url: `https://newMommy.mooo.com:3002/api/users/medicalHistory/${user.baby[0].id}`,
+        url: `${AddNewCategory}/medicalHistory/${user.baby[0].id}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -74,7 +75,7 @@ function MedicalHistory() {
       if (result.isConfirmed) {
         axios({
           method: "delete",
-          url: `https:newMommy.mooo.com:3002/api/users/medicalRecord/${itemid}`,
+          url: `${AddNewCategory}/medicalRecord/${itemid}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
           },

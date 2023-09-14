@@ -4,6 +4,7 @@ import AuthContext from "../../../../context/AuthProvider";
 import gpimg from "./../../../../assets/images/Group 34475.svg";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
+import { allMyGroups, leaveGroup } from "../../../../api";
 const AllGroups = () => {
   const [allGroups, setallGroups] = useState<any>();
   const [refreshcop, setrefreshcop] = useState<any>(false);
@@ -15,7 +16,7 @@ const AllGroups = () => {
     if (auth) {
       axios({
         method: "GET",
-        url: "https://newMommy.mooo.com:3003/api/allMyGroups",
+        url: `${allMyGroups}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -35,7 +36,7 @@ const AllGroups = () => {
   const handleLeaveGroup = (e: any) => {
     axios({
       method: "Post",
-      url: `https://newMommy.mooo.com:3003/api/leaveGroup/${e}`,
+      url: `${leaveGroup}/${e}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
@@ -70,7 +71,7 @@ const AllGroups = () => {
                       Navigate(`/GroupView/${group.groupId}`);
                     }}
                     src={gpimg}
-                    alt=""
+                    alt="img"
                   />
                   <div className="group-data">
                     <div className="group-info">

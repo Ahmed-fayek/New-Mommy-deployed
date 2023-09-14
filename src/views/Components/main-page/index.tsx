@@ -73,7 +73,7 @@ const MainPage: React.FC = () => {
             </div>
             {/* baby injection  */}
             <div className="baby-injection">
-              <img src={syringImg} alt="" />
+              <img src={syringImg} alt="img" />
               <p>Up coming vaccination in 2 days.</p>
             </div>
             {/* baby reminder  */}
@@ -129,22 +129,22 @@ const MainPage: React.FC = () => {
               </li>
             </ul>
             <div className="babypic">
-              <img src={babyPict} alt="" />
+              <img src={babyPict} alt="img" />
             </div>
             <div className="baby-eat">
               <h2>as your baby now is 5 months he can eat:</h2>
               <div className="foods">
-                <img src={icon1} alt="" />
+                <img src={icon1} alt="img" />
                 <p>Breast milk or formula</p>
               </div>
               <div className="foods">
-                <img src={icon2} alt="" />
+                <img src={icon2} alt="img" />
                 <p>
                   Pureed food ( potato-apples-carrot-bananas-peaches or pears)
                 </p>
               </div>
               <div className="foods">
-                <img src={icon3} alt="" />
+                <img src={icon3} alt="img" />
                 <p>Semi-liquid iron-fortified cereal</p>
               </div>
               <p className="introdu">
@@ -168,9 +168,9 @@ const MainPage: React.FC = () => {
       <div className="footer">
         <div className="cont">
           <div className="languge">
-            <img src={icon4} alt="" />
+            <img src={icon4} alt="img" />
             <span>English</span>
-            <img src={icon5} alt="" />
+            <img src={icon5} alt="img" />
           </div>
           <div className="info">
             <span>About us</span>

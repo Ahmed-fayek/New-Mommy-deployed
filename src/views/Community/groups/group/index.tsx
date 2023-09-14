@@ -6,6 +6,14 @@ import axios from "axios";
 import { Link, NavLink, useParams } from "react-router-dom";
 import Loading from "../../../../components/Loading";
 import postimg from "./../../../../assets/images/bro.svg";
+import {
+  Like,
+  Newpost,
+  groupById,
+  joinGroup,
+  leaveGroup,
+  unlike,
+} from "../../../../api";
 const GroupView = () => {
   const { auth } = useContext<any>(AuthContext);
   const { user } = useContext<any>(AuthContext);
@@ -19,7 +27,7 @@ const GroupView = () => {
     if (auth) {
       axios({
         method: "get",
-        url: `https://newMommy.mooo.com:3003/api/groupById/${groupid}`,
+        url: `${groupById}/${groupid}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -38,7 +46,7 @@ const GroupView = () => {
   const handleleaveGroup = (id: any) => {
     axios({
       method: "Post",
-      url: `https://newMommy.mooo.com:3003/api/leaveGroup/${id}`,
+      url: `${leaveGroup}/${id}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
@@ -54,7 +62,7 @@ const GroupView = () => {
   const handleJoinGroup = (id: any) => {
     axios({
       method: "Post",
-      url: `https://newMommy.mooo.com:3003/api/joinGroup/${id}`,
+      url: `${joinGroup}/${id}`,
       headers: {
         Authorization: `Bearer ${auth.access_token}`,
       },
@@ -74,7 +82,7 @@ const GroupView = () => {
       if (auth) {
         axios({
           method: "Post",
-          url: `https://newMommy.mooo.com:3003/api/unlike/${id}`,
+          url: `${unlike}/${id}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
           },
@@ -93,7 +101,7 @@ const GroupView = () => {
       if (auth) {
         axios({
           method: "Post",
-          url: `https://newMommy.mooo.com:3003/api/Like/${id}`,
+          url: `${Like}/${id}`,
           headers: {
             Authorization: `Bearer ${auth.access_token}`,
           },
@@ -115,7 +123,7 @@ const GroupView = () => {
     if (auth) {
       axios({
         method: "DELETE",
-        url: `https://newMommy.mooo.com:3003/api/post/${post.id}`,
+        url: `${Newpost}/${post.id}`,
         headers: {
           Authorization: `Bearer ${auth.access_token}`,
         },
@@ -137,7 +145,10 @@ const GroupView = () => {
       <div className="group-view">
         <div className="group-images">
           <div className="cover">
-            <img src={group.group.cover ? group.group.cover : testimg} alt="" />
+            <img
+              src={group.group.cover ? group.group.cover : testimg}
+              alt="img"
+            />
           </div>
         </div>
         <div className="group-name">
