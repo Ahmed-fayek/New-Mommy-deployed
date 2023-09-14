@@ -72,7 +72,7 @@ function Activity() {
         <div className="activity" key={activity.id}>
           <div className="feed-header">
             <span>
-              <i className="fa-solid fa-utensils"></i>
+              <i className="fa-solid fa-chart-line"></i>{" "}
             </span>
             <span className="activity-name">{activity.activity}</span>
             <Link to={`/addactivity/${activity.id}`}>
@@ -80,7 +80,7 @@ function Activity() {
             </Link>
           </div>
           <div className="feed-center">
-            <span>{activity.note}</span>
+            <span>Note: {activity.note}</span>
             <span>{activity.date}</span>
           </div>
           <div className="feed-footer">

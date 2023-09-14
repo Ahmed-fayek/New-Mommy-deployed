@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import AuthContext from "../../../../context/AuthProvider";
 import Loading from "../../../../components/Loading";
 import { AddNewCategory } from "../../../../api";
+import BabyAge from "../../../../services/babyAge";
 function MedicalHistory() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
@@ -97,30 +98,40 @@ function MedicalHistory() {
   let docsreturned: any;
   if (user) {
     medicalsreturned = medicals.map((medical: any) => {
-      // //console.log(medical);
+      console.log(medical);
       return (
-        <div key={medical.id} className="visit">
-          <div className="nameAndAge">
-            <p className="drname">Dr / {medical.doctorName}</p>
-            <p className="age">Age: {medical.age.slice(0, 18)}</p>
+        <div key={medical.id} className="medical">
+          <span className="edit-medical">
+            <Link to={`/addmedical/${medical.id}`}>
+              <i className="fa-regular fa-pen-to-square"></i>
+            </Link>
+          </span>
+          <div>
+            Date: <span> {medical.date}</span>
           </div>
-          <div className="diagAndDate">
-            <p className="diagnosis">Diagnosis: {medical.diagnosis}</p>
-            <p className="date">Date: {medical.date}</p>
-            <Link to={`/addMedical/${medical.id}`}>Update</Link>
+          <div>
+            Age: <span>{BabyAge(`${medical.date}`).slice(0, 17)}</span>
+          </div>
+          <div>
+            doctorName: <span> {medical.doctorName}</span>
+          </div>
+          <div>
+            diagnosis: <span> {medical.diagnosis}</span>
+          </div>
+          <section className="delete-growh-btn">
             <button
               onClick={() => {
                 handleDelete(medical.id);
               }}
             >
-              Delete
+              Delete medical
             </button>
-          </div>
+          </section>
         </div>
       );
     });
     docsreturned = docs.map((doc: any) => {
-      // //console.log(doc);
+      // console.log(doc);
       return (
         <div key={doc.id} className="document">
           <img src={doc.document} alt="docs" />
@@ -143,11 +154,14 @@ function MedicalHistory() {
       <>
         <div className="medicals">
           <div className="conainer">
-            <div className="last-view">
-              <h1>Last Visits</h1>
-              <Link to={"/addMedical"}>addMedical</Link> <br></br>
-              {medicalsreturned}
+            <div className="medicals">
+              <h1> Last Visits</h1>
+              <Link to={"/addMedical"} className="addmedicalbtn">
+                Add new Medical
+              </Link>
+              <div className="all-medicals">{medicalsreturned}</div>
             </div>
+
             <div className="decuments">
               <h1>Documents</h1>
               <Link to={"/addMedicalDocs"}>addMedicalDocs</Link> <br></br>

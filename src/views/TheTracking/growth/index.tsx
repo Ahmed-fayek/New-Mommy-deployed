@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import AuthContext from "../../../context/AuthProvider";
 import { AddNewCategory } from "../../../api";
 import Loading from "../../../components/Loading";
+import BabyAge from "../../../services/babyAge";
 function Growth() {
   const { user } = useContext<any>(AuthContext);
   const { auth } = useContext<any>(AuthContext);
@@ -82,7 +83,8 @@ function Growth() {
             Date: <span> {growth.date}</span>
           </div>
           <div>
-            Age: <span> {growth.age.slice(0, 16)}</span>
+            Age:
+            <span> {BabyAge(`${growth.date}`).slice(0, 17)}</span>
           </div>
           <div>
             Height: <span> {growth.height}</span>

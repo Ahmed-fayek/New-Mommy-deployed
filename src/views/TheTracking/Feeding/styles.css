@@ -17,6 +17,9 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0 0 55px 0;
 }
 .foods .food {
   width: 350px;

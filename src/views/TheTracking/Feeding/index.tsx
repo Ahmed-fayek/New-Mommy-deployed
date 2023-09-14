@@ -81,7 +81,7 @@ function Feeding() {
             </Link>
           </div>
           <div className="feed-center">
-            <span>{food.note}</span>
+            <span>Note: {food.note}</span>
             <span>{food.date}</span>
           </div>
           <div className="feed-footer">
