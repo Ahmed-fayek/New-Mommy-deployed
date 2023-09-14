@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Notification from "./Notification";
+
 import "./styles.css";
 
 function Notifications() {
@@ -10,24 +11,26 @@ function Notifications() {
   }
   const nots = [
     {
+      
       id: 1,
       date: 15,
       mainmsg: "main",
       smallmsg: "small",
     },
-    {
-      id: 2,
-      date: 12,
-      mainmsg: "mainbbb",
-      smallmsg: "smallfff",
-    },
+    // {
+    //   id: 2,
+    //   date: 12,
+    //   mainmsg: "mainbbb",
+    //   smallmsg: "smallfff",
+    // },
   ];
 
   return (
     <div className="notifications">
       <div className="notifications-container">
         <button className="button" onClick={handleShowNotification}>
-          <i className="fa-regular fa-bell"></i>
+          <i className="fa-regular fa-bell">
+          </i>
         </button>
         {showNotification && (
           <div className="notification-container">
