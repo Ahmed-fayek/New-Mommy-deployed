@@ -57,6 +57,10 @@
   justify-content: space-between;
   align-items: center;
 }
+.foods .feed-header .fa-pen-to-square {
+  font-size: 25px;
+  color: #fff172;
+}
 .foods .food-name {
   width: 180px;
   text-align: left;

@@ -63,6 +63,10 @@
   font-size: 45px;
   color: #ffa336;
 }
+.activitys .feed-header .fa-pen-to-square {
+  font-size: 25px;
+  color: #ffa336;
+}
 .activitys .activity .feed-center {
   width: 100%;
   display: flex;

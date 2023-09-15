@@ -47,6 +47,10 @@
   font-size: 50px;
   color: #81ccab;
 }
+.reminders .reminder .fa-pen-to-square {
+  font-size: 25x;
+  color: #81ccab;
+}
 .reminders .reminder .reminder-time {
   width: 200px;
   left: -50px;

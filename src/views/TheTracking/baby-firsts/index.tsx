@@ -35,7 +35,7 @@ function BabyFirsts() {
           }
         });
     }
-  }, [user, update]);
+  }, [user, update, auth]);
   /* Handle Delete Item */
   const handleDelete = async (itemid: string) => {
     await Swal.fire({
@@ -113,7 +113,9 @@ function BabyFirsts() {
         Add New first
       </Link>
       <br></br>
-      <div className="all-firsts">{returned}</div>
+      <div className="all-firsts">
+        {returned.length > 0 ? returned : "Loading your data try to add one"}
+      </div>
     </div>
   );
 }

@@ -63,7 +63,7 @@ function Activity() {
           }
         });
     }
-  }, [user, update]);
+  }, [user, update, auth]);
 
   let returned: any;
   if (user) {
@@ -108,7 +108,10 @@ function Activity() {
         Add New activity
       </Link>
       <br></br>
-      <div className="all-activitys">{returned}</div>
+      <div className="all-activitys">
+        {" "}
+        {returned.length > 0 ? returned : "Loading your data try to add one"}
+      </div>
     </div>
   );
 }

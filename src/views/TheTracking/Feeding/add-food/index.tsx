@@ -67,12 +67,7 @@ const AddFood = () => {
   var nameVal = new RegExp("^[A-Za-z]*$");
   /* Dr Name  */
   const foodVal = (e: any) => {
-    if (!nameVal.test(e.target.value)) {
-      setfoodErrMsg("invalid data");
-    } else {
-      setfood(e.target.value);
-      setfoodErrMsg("");
-    }
+    setfood(e.target.value);
   };
 
   /* report Date  */
@@ -85,12 +80,7 @@ const AddFood = () => {
   };
   /* note  */
   const noteVal = (e: any) => {
-    if (!nameVal.test(e.target.value)) {
-      setnoteErrMsg("invalid data");
-    } else {
-      setnote(e.target.value);
-      setnoteErrMsg("");
-    }
+    setnote(e.target.value);
   };
 
   /* submit  */

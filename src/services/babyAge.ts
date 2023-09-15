@@ -2,8 +2,8 @@ function BabyAge(start: string) {
     let birthdate=start;
     const eventDate = new Date();
 const currentDateString = eventDate.toISOString();
-console.log(currentDateString);
-console.log(birthdate);
+// console.log(currentDateString);
+// console.log(birthdate);
 
     let years = 0;
     let months = 0;

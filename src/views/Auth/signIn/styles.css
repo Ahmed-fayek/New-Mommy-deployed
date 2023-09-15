@@ -3,6 +3,7 @@
   height: 100vh;
   background-color: #fff;
   overflow: auto;
+  margin-top: -80px;
 }
 .log-in .container {
   width: 100%;

@@ -246,16 +246,7 @@ const AddBaby = () => {
               Add baby
             </span>
           </button>
-          {/* Skip Button */}
-          <button
-            onClick={() => {
-              navigator("/main");
-            }}
-            className="button addbaby__submit"
-            type="submit"
-          >
-            <span className="button__text button-skip"> skip now</span>
-          </button>
+
           <div className="msg">
             <p>{successMessageVisible}</p>
           </div>

@@ -91,7 +91,7 @@
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   border-radius: 6px;
-  cursor: default;
+  cursor: pointer;
 }
 
 .navbar ul li *:hover {
@@ -197,20 +197,8 @@
   .navbar ul li {
     width: 100%;
     display: flex;
-    justify-content: center;
-  }
 
-  .navbar ul li * {
-    color: #fff;
-    padding: 3px;
-    margin-top: 5px;
-    width: 90%;
-    text-align: center;
-    -o-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    border-radius: 10px;
+    justify-content: center;
   }
 
   .rotates span:first-child {
