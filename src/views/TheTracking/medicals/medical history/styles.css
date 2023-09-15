@@ -100,38 +100,106 @@
 }
 
 /***************************************************************/
-.medicals .decuments {
-  width: 90%;
-  height: 600px;
-  background-color: #fff;
+.addmedicaldoctbtn {
+  width: 250px;
+  height: 40px;
+  background-color: #ff7a72;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 15px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.medicaldocs .all-medicaldocs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.medicaldocs .medicaldoc {
+  width: 350px;
+  height: 350px;
+  border: 1px solid #ff7a72;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.medicals .document {
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  height: 80px;
-  background-color: aliceblue;
-  padding: 0 20px;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}
-.medicals .document img {
-  margin-right: 30px;
-  width: 80px;
-  height: 80px;
-}
-.medicals .document .docInfo {
-  display: flex;
-  flex-direction: column;
   justify-content: space-around;
 }
-.medicals .document .dateAndSize {
+.medicaldocs .medicaldoc::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 100%;
+  background-color: #ff7a72;
+  left: 0;
+  top: 0;
+  border-radius: 15px 0 0 15px;
+  -webkit-border-radius: 15px 0 0 15px;
+  -moz-border-radius: 15px 0 0 15px;
+  -ms-border-radius: 15px 0 0 15px;
+  -o-border-radius: 15px 0 0 15px;
+}
+.medicaldocs .medicaldoc .feed-header {
+  padding: 10px 20px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.medicaldocs .medicaldoc-name {
+  width: 180px;
+  text-align: left;
+}
+.medicaldocs .feed-header .fa-pen-to-square {
+  font-size: 25px;
+  color: #ff7a72;
+}
+.medicaldocs .feed-header .fa-star-of-life {
+  font-size: 45px;
+  color: #ff7a72;
+}
+.medicaldocs .medicaldoc .feed-center {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px 0 20px;
+}
+.medicaldocs .medicaldoc .feed-center img {
+  width: 100%;
+  height: auto;
+  max-height: 170px;
+}
+.medicaldocs .medicaldoc .feed-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px 15px 0 20px;
+}
+.medicaldocs .medicaldoc .feed-footer .div {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.medicaldocs .medicaldoc .removefeedbtn {
+  width: 150px;
+  height: 30px;
+  background-color: transparent;
+  color: #da0707;
+  border: 1px solid #da0707;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
 }

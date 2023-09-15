@@ -67,13 +67,14 @@ const AddFirist = () => {
 
   /* Dr Name  */
   const babyFirstVal = (e: any) => {
-    if (e.target.value == "") {
-      setbabyFirst(e.target.value);
-      setbabyFirstErrMsg("invalid data");
-    } else {
-      setbabyFirst(e.target.value);
-      setbabyFirstErrMsg("");
-    }
+    // if (e.target.value == "") {
+    //   setbabyFirst(e.target.value);
+    //   setbabyFirstErrMsg("invalid data");
+    // } else {
+    //   setbabyFirst(e.target.value);
+    //   setbabyFirstErrMsg("");
+    // }
+    setbabyFirst(e.target.value);
   };
 
   /* report Date  */

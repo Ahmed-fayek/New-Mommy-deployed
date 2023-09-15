@@ -109,7 +109,10 @@ function Feeding() {
         Add New food
       </Link>
       <br></br>
-      <div className="all-foods">{returned}</div>
+      <div className="all-foods">
+        {" "}
+        {returned.length > 0 ? returned : "Loading your data try to add one"}
+      </div>
     </div>
   );
 }

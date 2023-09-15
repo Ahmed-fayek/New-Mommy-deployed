@@ -114,7 +114,10 @@ function Growth() {
       <Link to={"/addgrowth"} className="addgrowthbtn">
         Add new growth
       </Link>
-      <div className="all-growths">{returned}</div>
+      <div className="all-growths">
+        {" "}
+        {returned.length > 0 ? returned : "Loading your data try to add one"}
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@
   height: auto;
   background-color: #fff;
   overflow: auto;
+  margin-top: -80px;
 }
 
 .sign-up .container {

@@ -106,7 +106,10 @@ function Reminder() {
         Add new reminder
       </Link>
       <br></br>
-      <div className="all-reminders">{returned}</div>
+      <div className="all-reminders">
+        {" "}
+        {returned.length > 0 ? returned : "Loading your data try to add one"}
+      </div>
     </div>
   );
 }

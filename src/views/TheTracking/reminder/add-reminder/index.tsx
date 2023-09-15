@@ -73,70 +73,72 @@ const AddReminder = () => {
   };
   /* note  */
   const noteVal = (e: any) => {
-    if (!nameVal.test(e.target.value)) {
-      setnoteErrMsg("invalid data");
-    } else {
-      setnote(e.target.value);
-      setnoteErrMsg("");
-    }
+    setnote(e.target.value);
+    setnoteErrMsg("");
   };
 
   /* submit  */
 
   const submitVal = async () => {
+    setSuccessMessageVisible("  "); // Show success message
+
     let mytime = TimeConverter(time);
-    if (!Update) {
-      await axios({
-        method: "post",
-        url: `${AddNewCategory}/addReminder/${user.baby[0].id}`,
-        headers: {
-          Authorization: `Bearer ${auth.access_token}`,
-        },
-        data: {
-          date: reminderDate,
-          time: mytime,
-          note: note,
-        },
-      })
-        .then((res) => {
-          // //console.log(res);
-          setSuccessMessageVisible("successful added "); // Show success message
-          // Redirect to main page after 3 seconds
-          setTimeout(() => {
-            // navigator("/tracking");
-          }, 3000);
-        })
-        .catch((err) => {
-          if (err.response.status == "401") {
-            setRefresh(!Refresh);
-          }
-        });
+    if (note == "") {
+      setnoteErrMsg("write your data");
     } else {
-      await axios({
-        method: "PATCH",
-        url: `${AddNewCategory}/updateReminder/${reminderId}`,
-        headers: {
-          Authorization: `Bearer ${auth.access_token}`,
-        },
-        data: {
-          date: reminderDate,
-          time: mytime,
-          note: note,
-        },
-      })
-        .then((res) => {
-          // //console.log(res);
-          setSuccessMessageVisible("successful added "); // Show success message
-          // Redirect to main page after 3 seconds
-          setTimeout(() => {
-            // navigator("/tracking");
-          }, 3000);
+      if (!Update) {
+        await axios({
+          method: "post",
+          url: `${AddNewCategory}/addReminder/${user.baby[0].id}`,
+          headers: {
+            Authorization: `Bearer ${auth.access_token}`,
+          },
+          data: {
+            date: reminderDate,
+            time: mytime,
+            note: note,
+          },
         })
-        .catch((err) => {
-          if (err.response.status == "401") {
-            setRefresh(!Refresh);
-          }
-        });
+          .then((res) => {
+            // //console.log(res);
+            setSuccessMessageVisible("successful added "); // Show success message
+            // Redirect to main page after 3 seconds
+            setTimeout(() => {
+              navigator("/tracking");
+            }, 3000);
+          })
+          .catch((err) => {
+            if (err.response.status == "401") {
+              setRefresh(!Refresh);
+            }
+          });
+      } else {
+        await axios({
+          method: "PATCH",
+          url: `${AddNewCategory}/updateReminder/${reminderId}`,
+          headers: {
+            Authorization: `Bearer ${auth.access_token}`,
+          },
+          data: {
+            date: reminderDate,
+            time: mytime,
+            note: note,
+          },
+        })
+          .then((res) => {
+            // //console.log(res);
+            setSuccessMessageVisible("successful added "); // Show success message
+            // Redirect to main page after 3 seconds
+            setTimeout(() => {
+              // navigator("/tracking");
+            }, 3000);
+          })
+          .catch((err) => {
+            if (err.response.status == "401") {
+              setRefresh(!Refresh);
+            }
+          });
+      }
     }
   };
 
@@ -203,7 +205,7 @@ const AddReminder = () => {
                 setSubmiterrMsg("");
                 submitVal();
               } else {
-                setSubmiterrMsg("check data");
+                setSubmiterrMsg("");
               }
             }}
             className="button addbaby__submit"
@@ -214,6 +216,8 @@ const AddReminder = () => {
           {/*err msg */}
           <p>{SubmiterrMsg}</p>
           {/*Go to Main */}
+          <p>{successMessageVisible}</p>
+
           <button
             onClick={() => {
               navigator("/tracking");
@@ -224,9 +228,7 @@ const AddReminder = () => {
             <span className="button__text"> Cancel</span>
           </button>
         </div>
-        <div className="msg">
-          <p>{successMessageVisible}</p>
-        </div>
+        <div className="msg"></div>
       </div>
     </div>
   );

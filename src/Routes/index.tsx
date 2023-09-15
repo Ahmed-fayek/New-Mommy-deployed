@@ -62,7 +62,10 @@ const MainRouer = () => {
         <Route path="/emailcodeConfirm" element={<CodeConfirm />}></Route>
         <Route path="/reminder" element={<Reminder />}></Route>
         <Route path="/addMedical/:meddicalId?" element={<AddMedical />}></Route>
-        <Route path="/addMedicalDocs" element={<AddMedicalDocs />}></Route>
+        <Route
+          path="/addMedicalDocs/:meddicalDocId?"
+          element={<AddMedicalDocs />}
+        ></Route>
         <Route path="/medicalhistory" element={<MedicalHistory />}></Route>
         <Route path="/activity" element={<Activity />}></Route>
         <Route path="/addactivity/:actId?" element={<AddActivity />}></Route>

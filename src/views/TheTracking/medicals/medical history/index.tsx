@@ -94,11 +94,42 @@ function MedicalHistory() {
       }
     });
   };
+  const handleDeletedoc = async (itemid: string) => {
+    await Swal.fire({
+      title: `Are you sure you want to delete ?`,
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios({
+          method: "delete",
+          url: `${AddNewCategory}/document/${itemid}`,
+          headers: {
+            Authorization: `Bearer ${auth.access_token}`,
+          },
+        })
+          .then((response) => {
+            // //console.log(response.data);
+            setupdate(!update);
+          })
+          .catch((error) => {
+            if (error.response.status == "401") {
+              setRefresh(!Refresh);
+            }
+          });
+        Swal.fire("Deleted!", ` has been deleted.`, "success");
+      }
+    });
+  };
   let medicalsreturned: any;
   let docsreturned: any;
   if (user) {
     medicalsreturned = medicals.map((medical: any) => {
-      console.log(medical);
+      // console.log(medical);
       return (
         <div key={medical.id} className="medical">
           <span className="edit-medical">
@@ -133,13 +164,28 @@ function MedicalHistory() {
     docsreturned = docs.map((doc: any) => {
       // console.log(doc);
       return (
-        <div key={doc.id} className="document">
-          <img src={doc.document} alt="docs" />
-          <div className="docInfo">
-            <p className="docName">Blood picture Analyses</p>
-            <div className="dateAndSize">
-              <span className="date">23 May </span>
-              <span className="size">42.65 KB</span>
+        <div className="medicaldoc" key={doc.id}>
+          <div className="feed-header">
+            <span>
+              <i className="fa-solid fa-star-of-life"></i>
+            </span>
+            <span className="medicaldoc-name">{doc.babymedicaldoc}</span>
+          </div>
+          <div className="feed-center">
+            <img src={doc.document} alt="img" />
+          </div>
+          <div className="feed-footer">
+            <span>{doc.note}</span>
+
+            <div className="div">
+              <button
+                className="removefeedbtn"
+                onClick={() => {
+                  handleDeletedoc(doc.id);
+                }}
+              >
+                remove medicaldoc
+              </button>
             </div>
           </div>
         </div>
@@ -159,13 +205,24 @@ function MedicalHistory() {
               <Link to={"/addMedical"} className="addmedicalbtn">
                 Add new Medical
               </Link>
-              <div className="all-medicals">{medicalsreturned}</div>
+              <div className="all-medicals">
+                {medicalsreturned.length > 0
+                  ? medicalsreturned
+                  : "Loading your data try to add one"}
+              </div>
             </div>
 
-            <div className="decuments">
-              <h1>Documents</h1>
-              <Link to={"/addMedicalDocs"}>addMedicalDocs</Link> <br></br>
-              {docsreturned}
+            <div className="medicaldocs">
+              <h1>medicaldocs</h1>
+              <Link to={"/addMedicalDocs"} className="addFiristbtn">
+                Add New medicaldoc
+              </Link>
+              <br></br>
+              <div className="all-medicaldocs">
+                {docsreturned.length > 0
+                  ? docsreturned
+                  : "Loading your data try to add one"}
+              </div>
             </div>
           </div>
         </div>

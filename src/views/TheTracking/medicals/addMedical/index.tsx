@@ -63,12 +63,7 @@ const AddMedical = () => {
 
   /* Dr Name  */
   const drNameVal = (e: any) => {
-    if (!nameVal.test(e.target.value)) {
-      setDRErrMsg("invalid data");
-    } else {
-      setdoctorName(e.target.value);
-      setDRErrMsg("");
-    }
+    setdoctorName(e.target.value);
   };
 
   /* report Date  */
@@ -78,12 +73,7 @@ const AddMedical = () => {
 
   /* diagnosis  */
   const DiagnosisVal = (e: any) => {
-    if (!nameVal.test(e.target.value)) {
-      setdiagnosisErrMsg("invalid data");
-    } else {
-      setdiagnosis(e.target.value);
-      setdiagnosisErrMsg("");
-    }
+    setdiagnosis(e.target.value);
   };
 
   /* submit  */

@@ -65,12 +65,13 @@ const AddActivity = () => {
   var nameVal = new RegExp("^[A-Za-z]*$");
   /* Dr Name  */
   const drNameVal = (e: any) => {
-    if (!nameVal.test(e.target.value)) {
-      setactivityErrMsg("invalid data");
-    } else {
-      setactivity(e.target.value);
-      setactivityErrMsg("");
-    }
+    // if (e.target.value=="") {
+    //   setactivityErrMsg("invalid data");
+    // } else {
+    //   setactivity(e.target.value);
+    //   setactivityErrMsg("");
+    // }
+    setactivity(e.target.value);
   };
 
   /* report Date  */
