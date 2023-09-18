@@ -4,6 +4,8 @@ import momsImage from "../../../assets/images/Midwives-cuate 1.svg";
 import { useContext, useEffect } from "react";
 import applogo from "./../../../assets/images/Layer 1.svg";
 import AuthContext from "../../../context/AuthProvider";
+import flowerImage from "../../../assets/images/722470_Baby13 4.svg";
+
 
 const Welcome = () => {
   const { user } = useContext<any>(AuthContext);
@@ -100,6 +102,16 @@ const Welcome = () => {
               <i className="fa-solid fa-plus"></i>
               <button>Add New Baby</button>
             </div> */}
+
+
+
+
+
+<img src={flowerImage} alt="flower img" className="imgflower"/>
+
+
+
+
           </div>
           <div className="right">
             <img src={momsImage} alt="Momys img" />
