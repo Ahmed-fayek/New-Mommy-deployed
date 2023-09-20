@@ -4,12 +4,12 @@
   overflow: hidden;
   display: flex;
   gap: 50px;
-  background: #fff;
+  /* background: #fff;
   background: linear-gradient(
     145deg,
     rgba(34, 193, 195, 1) 0%,
     rgba(253, 187, 45, 1) 100%
-  );
+  ); */
 
   align-items: center;
   justify-content: center;
@@ -26,10 +26,10 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-image: url("./../../../../assets/images/welcome-bg2.png");
-  background-repeat: repeat;
-  background-size: cover;
-  background-color: #d1d1d44a;
+  /* background-image: url("./../../../../assets/images/welcome-bg2.png"); */
+  /* background-repeat: repeat; */
+  /* background-size: cover;/ */
+  /* background-color: #d1d1d44a; */
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -38,7 +38,7 @@
 }
 .signup-block h2 {
   margin-bottom: 35px;
-  color: #fff;
+  color: #14e7c4;
 }
 .add-food .two-inputs {
   width: 100%;
@@ -57,12 +57,12 @@
   align-items: center;
   width: 90px;
   height: 90px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    #d9d9d9;
-  background-image: url("./../../../../assets/images/add-baby-pic.png");
+  /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), */
+    /* #d9d9d9; */
+  /* background-image: url("./../../../../assets/images/add-baby-pic.png"); */
   background-size: 80%;
-  background-repeat: no-repeat;
-  background-position: center;
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -98,7 +98,7 @@
   top: -30px;
   left: 70px;
   font-size: 18px;
-  color: white;
+  color: rgba(201, 198, 198, 0.534);
 }
 
 .add-food .full-name {
@@ -109,7 +109,7 @@
 
 .add-food .input__field p {
   text-align: right;
-  color: #f9f4ed;
+  color: #636261;
   font-size: 14px;
   font-weight: 500;
   line-height: 21px;
@@ -125,7 +125,7 @@
   width: 70%;
   border: none;
   border: 2px solid #d1d1d4;
-  background: linear-gradient(
+  /* background: linear-gradient(
       0deg,
       rgba(129, 204, 171, 0.1),
       rgba(129, 204, 171, 0.1)
@@ -135,7 +135,7 @@
       rgba(255, 255, 255, 0.8) 0%,
       rgba(255, 255, 255, 0.8) 77.08%,
       rgba(255, 255, 255, 0.8) 100%
-    );
+    ); */
   padding: 10px;
   font-weight: 700;
   transition: 0.2s;
@@ -146,13 +146,13 @@
 .add-food .the__input:focus,
 .add-food .the__input:hover {
   outline: none;
-  border-color: #5b927a;
+  /* border-color: #5b927a; */
 }
 
 .add-food .addbaby__submit {
   width: 317px;
   height: 50px;
-  background-color: transparent;
+  /* background-color: transparent; */
   border: 1px solid #f9f4ed;
   border-radius: 15px;
   font-size: 14px;
@@ -160,7 +160,8 @@
   align-items: center;
   cursor: pointer;
   transition: 0.2s;
-  color: #10403b;
+  /* color: #10403b; */
+  background-color: #c6c6ca75;
   outline: none;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
@@ -176,7 +177,7 @@
   letter-spacing: 0em;
   width: 100%;
   text-align: center;
-  color: #fff;
+  color: #292828;
 }
 
 .add-food .button__icon {

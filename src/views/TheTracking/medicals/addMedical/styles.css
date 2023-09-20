@@ -1,4 +1,4 @@
-.add-medical {
+ .add-medical {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -9,15 +9,14 @@
   width: 100%;
   min-height: calc(100vh - 80px);
   overflow: hidden;
-  display: flex;
-  gap: 50px;
-  background: #fff;
+   display: flex;
+  gap: 50px; 
+  /* background: #fff;
   background: linear-gradient(
     145deg,
     rgba(34, 193, 195, 1) 0%,
     rgba(253, 187, 45, 1) 100%
-  );
-
+  );   */
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -33,10 +32,10 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-image: url("./../../../../assets/images/welcome-bg2.png");
-  background-repeat: repeat;
-  background-size: cover;
-  background-color: #d1d1d44a;
+   /* background-image: url("./../../../../assets/images/welcome-bg2.png");  */
+  /* background-repeat: repeat; */
+  /* background-size: cover; */
+  /* background-color: #d1d1d44a; */
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -63,14 +62,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90px;
-  height: 90px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    #d9d9d9;
-  background-image: url("./../../../../assets/images/add-baby-pic.png");
+  /* width: 90px;
+  height: 90px; */
+   /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), / */
+   /* #d9d9d9;  */
+   /* background-image: url("./../../../../assets/images/add-baby-pic.png");  */
   background-size: 80%;
-  background-repeat: no-repeat;
-  background-position: center;
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -117,7 +116,7 @@
 
 .add-medical .input__field p {
   text-align: right;
-  color: #f9f4ed;
+  color: #000000;
   font-size: 14px;
   font-weight: 500;
   line-height: 21px;
@@ -133,6 +132,7 @@
   width: 70%;
   border: none;
   border: 2px solid #d1d1d4;
+  background-color: #d1d6d4;
   background: linear-gradient(
       0deg,
       rgba(129, 204, 171, 0.1),
@@ -143,7 +143,10 @@
       rgba(255, 255, 255, 0.8) 0%,
       rgba(255, 255, 255, 0.8) 77.08%,
       rgba(255, 255, 255, 0.8) 100%
-    );
+    ); 
+
+    /* background-color: aqua; */
+    
   padding: 10px;
   font-weight: 700;
   transition: 0.2s;
@@ -154,13 +157,13 @@
 .add-medical .the__input:focus,
 .add-medical .the__input:hover {
   outline: none;
-  border-color: #5b927a;
+  border-color: #d3dad7;
 }
 
 .add-medical .addbaby__submit {
   width: 317px;
   height: 50px;
-  background-color: transparent;
+  /* background-color: transparent; */
   border: 1px solid #f9f4ed;
   border-radius: 15px;
   font-size: 14px;
@@ -168,7 +171,8 @@
   align-items: center;
   cursor: pointer;
   transition: 0.2s;
-  color: #10403b;
+  /* color: #10403b; */
+  /* background-color: #d1d1d4; */
   outline: none;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
@@ -190,7 +194,7 @@
 .add-medical .button__icon {
   font-size: 24px;
   margin-left: auto;
-  color: #7875b5;
+  /* color: #7875b5; */
 }
 
 .add-medical .reversed {
@@ -230,7 +234,7 @@
   cursor: default;
   margin-top: 15px;
   text-align: center;
-  font-size: 13px;
+  font-size: 13px; 
 }
 
 .add-medical .fa-brands {
