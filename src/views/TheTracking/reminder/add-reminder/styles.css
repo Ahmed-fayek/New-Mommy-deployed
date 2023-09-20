@@ -11,12 +11,12 @@
   overflow: hidden;
   display: flex;
   gap: 50px;
-  background: #fff;
-  background: linear-gradient(
-    145deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  );
+   /* background: #fff; */
+  /* background: linear-gradient( */
+    /* 145deg, */
+    /* rgba(34, 193, 195, 1) 0%, */
+    /* rgba(253, 187, 45, 1) 100% */
+  /* );  */
 
   align-items: center;
   justify-content: center;
@@ -33,10 +33,10 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-image: url("./../../../../assets/images/welcome-bg2.png");
-  background-repeat: repeat;
-  background-size: cover;
-  background-color: #d1d1d44a;
+  /* background-image: url("./../../../../assets/images/welcome-bg2.png"); */
+  /* background-repeat: repeat; */
+  /* background-size: cover; */
+  /* background-color: #d3d1d173; */
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -45,7 +45,7 @@
 }
 .add-reminder .signup-block h2 {
   margin-bottom: 10px;
-  color: #fff;
+  color: #1cecd1;
 }
 .add-reminder .two-inputs {
   width: 100%;
@@ -64,12 +64,12 @@
   align-items: center;
   width: 90px;
   height: 90px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    #d9d9d9;
-  background-image: url("./../../../../assets/images/add-baby-pic.png");
-  background-size: 80%;
-  background-repeat: no-repeat;
-  background-position: center;
+  /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), */
+    /* #d9d9d9; */
+  /* background-image: url("./../../../../assets/images/add-baby-pic.png"); */
+  /* background-size: 80%; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -80,6 +80,7 @@
 .add-reminder .pic__field .input__field {
   border: none;
   opacity: 0;
+  outline: none;
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -105,7 +106,7 @@
   top: -30px;
   left: 70px;
   font-size: 18px;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .add-reminder .full-name {
@@ -116,7 +117,7 @@
 
 .add-reminder .input__field p {
   text-align: right;
-  color: #f9f4ed;
+  color: #000000;
   font-size: 14px;
   font-weight: 500;
   line-height: 21px;
@@ -131,43 +132,50 @@
 .add-reminder .the__input {
   width: 70%;
   border: none;
-  border: 2px solid #d1d1d4;
-  background: linear-gradient(
-      0deg,
+  border: 1px solid #d1d1d4; 
+   /* background: linear-gradient( */
+      /* 0deg,
       rgba(129, 204, 171, 0.1),
       rgba(129, 204, 171, 0.1)
-    ),
-    radial-gradient(
-      90.16% 143.01% at 15.32% 21.04%,
+    ),  */
+     /* radial-gradient( */
+      /* 90.16% 143.01% at 15.32% 21.04%,
       rgba(255, 255, 255, 0.8) 0%,
       rgba(255, 255, 255, 0.8) 77.08%,
       rgba(255, 255, 255, 0.8) 100%
-    );
+    );  */
   padding: 10px;
   font-weight: 700;
   transition: 0.2s;
   border-radius: 8px;
+  background-color: #f0f8f886;
+  /* outline: 2px solid rgb(216, 243, 238) ; */
 }
 
 .add-reminder .the__input:active,
 .add-reminder .the__input:focus,
 .add-reminder .the__input:hover {
   outline: none;
-  border-color: #5b927a;
+  /* border-color: #d8f5e8; */
+  border: 1px solid #d1d1d4; 
+
+  /* background-color: #f0501b86; */
+
 }
 
 .add-reminder .addbaby__submit {
   width: 317px;
   height: 50px;
-  background-color: transparent;
-  border: 1px solid #f9f4ed;
+  /* background-color: transparent; */
+  /* background-color: #f0f8f886; */
+  border: 2px solid #f9f4ed;
   border-radius: 15px;
   font-size: 14px;
   display: flex;
   align-items: center;
   cursor: pointer;
   transition: 0.2s;
-  color: #10403b;
+  /* color: #05f1da; */
   outline: none;
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
@@ -183,7 +191,8 @@
   letter-spacing: 0em;
   width: 100%;
   text-align: center;
-  color: #fff;
+  color: #000000;
+  /* background-color: #7875b5; */
 }
 
 .add-reminder .button__icon {
@@ -215,7 +224,7 @@
 }
 
 .add-reminder .cont-with {
-  color: #f9f4ed;
+  color: #000000;
   font-size: 12px;
   font-weight: 500;
   line-height: 24px;
@@ -225,7 +234,7 @@
 }
 
 .add-reminder .signup-register {
-  color: #f9f4ed;
+  color: #000000;
   cursor: default;
   margin-top: 15px;
   text-align: center;
